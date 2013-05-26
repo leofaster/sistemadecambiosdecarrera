@@ -16,7 +16,7 @@
        
         <ul>
             <li>
-                <a href="nuevo-usuario.jsp">
+                <a href="formulario-solicitud.jsp">
                     Click aqui para solicitar cambio de carrera</a>
             </li>
 
