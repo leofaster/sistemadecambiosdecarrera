@@ -13,6 +13,9 @@ public class Asignatura implements Serializable{
     private int codigo;
     
     
+    
+    
+    
     public Asignatura(){
         this.nombre = "";
         this.codigo = -1;
@@ -25,7 +28,7 @@ public class Asignatura implements Serializable{
     }
     
     public void setNombre(String nombre_asignatura){
-        this.nombre = nombre_asignatura;
+        this.nombre = new String(nombre_asignatura);
     }
     
     public String getNombre(){
@@ -39,6 +42,5 @@ public class Asignatura implements Serializable{
     public int getCodigo(){
         return this.codigo;
     }
-    
     
 }
