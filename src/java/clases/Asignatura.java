@@ -40,5 +40,4 @@ public class Asignatura implements Serializable{
         return this.codigo;
     }
     
-    
 }
