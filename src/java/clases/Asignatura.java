@@ -25,7 +25,7 @@ public class Asignatura implements Serializable{
     }
     
     public void setNombre(String nombre_asignatura){
-        this.nombre = nombre_asignatura;
+        this.nombre = new String(nombre_asignatura);
     }
     
     public String getNombre(){
