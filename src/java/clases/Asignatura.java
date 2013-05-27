@@ -13,6 +13,9 @@ public class Asignatura implements Serializable{
     private int codigo;
     
     
+    
+    
+    
     public Asignatura(){
         this.nombre = "";
         this.codigo = -1;
