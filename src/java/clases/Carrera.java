@@ -4,6 +4,8 @@
  */
 package clases;
 import java.io.Serializable;
+import java.util.*;
+
 /**
  *
  * @author CHANGE Gate
@@ -13,6 +15,7 @@ public class Carrera implements Serializable{
     private int codigo,cupos;
     private double indiceMinimo;
     private String nombre;
+    private LinkedList<Requisito> lista;
     
     
     public int getCupos(){
@@ -36,7 +39,7 @@ public class Carrera implements Serializable{
     }
     
     public void setNombre(String nombre_carrera){
-        this.nombre = nombre_carrera;
+        this.nombre = new String(nombre_carrera);
     }
     
     public double getIndiceMinimo(){
@@ -47,5 +50,12 @@ public class Carrera implements Serializable{
         this.indiceMinimo = indice;
     }
     
+    public void addLista(Requisito requisito){
+        lista.add(new Requisito(requisito));
+    }
+    
+    public LinkedList<Requisito> getLista(){
+        return this.lista;
+    }
     
 }
