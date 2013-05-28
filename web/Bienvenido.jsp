@@ -16,14 +16,14 @@
        
         <ul>
             <li>
-                <a href="formulario-solicitud.jsp">
-                    Click aqui para solicitar cambio de carrera</a>
+                <a href="FormularioSolicitud.jsp">
+                    Click aquí para solicitar cambio de carrera</a>
             </li>
 
             <li>
 
                 <a href="nuevo-usuario.jsp">
-                    Click aqui para control de cambio de estudiantes</a>
+                    Click aquí para control de cambio de estudiantes</a>
 
             </li>
         </ul>
