@@ -10,6 +10,7 @@ import java.io.Serializable;
  * @author CHANGE Gate
  */
 public class Estudiante extends Usuario implements Serializable{
+    
     private double indice;
     private int codCarrera;
     private boolean cbAprobado;

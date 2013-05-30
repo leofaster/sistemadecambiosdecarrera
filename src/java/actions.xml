@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="Sistema_de_Cambios_de_Carrera" extends="struts-default">      
+       <action name="buscarEst" class="actions.EstudianteAction" method="buscarEstudiante"> 
+           <result name="success">/FormularioSolicitud.jsp</result> 
+       </action> 
+       
+       <action name="verificarSol" class="actions.SolicitudAction" method="mostrarSolicitud"> 
+           <result name="success">/VerificarSolicitud.jsp</result> 
+       </action> 
+    </package>
+</struts>
+

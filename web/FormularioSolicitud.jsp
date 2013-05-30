@@ -16,12 +16,13 @@
         <h3>Solicitud de Cambio de Carrera</h3>
         Rellene la solicitud para el cambio de carrera:
         
+        <br /><br />
+        Carnet: <strong><s:property value="usbid" /></strong> <br /><br />
+        Cédula: <strong><s:property value="ci" /></strong> <br /><br />
+        Nombre: <strong><s:property value="nombre" /></strong> <br /><br />
+        Apellido: <strong><s:property value="apellido" /></strong> <br /><br />
         
-        <s:form action="actions/SolicitudAction" >
-            <s:textfield name="USBid" label="Carnet (xx-xxxxx)" required="true"/>
-            <s:textfield name="CI" label="Cédula" required="true"/>
-            <s:textfield name="nombre" label="Nombres" required="true"/>
-            <s:textfield name="apellido" label="Apellidos" required="true"/>
+        <s:form action="verificarSol" >
             <s:select name="carrera_dest" label="Carrera Deseada" required="true"
                 list="{'0100 - Ingeniería Eléctrica', 
                 '0200 - Ingeniería Mecánica', 

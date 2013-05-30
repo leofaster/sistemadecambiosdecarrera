@@ -9,22 +9,25 @@ import java.io.Serializable;
  * @author CHANGE Gate
  */
 public class Usuario implements Serializable{
-    private int usbid,cedula;
+    private String usbid,cedula;
     private String nombre,apellido,contrasena;
+    
+    public Usuario() {
+    }
        
-    public int getUsbid(){
+    public String getUsbid(){
          return usbid;
     }
     
-    public void setUsbid(int numero){
+    public void setUsbid(String numero){
         this.usbid = numero;
     }
     
-    public int getCedula(){
+    public String getCedula(){
          return cedula;
     }
     
-    public void setCedula(int numero){
+    public void setCedula(String numero){
         this.cedula = numero;
     }
     

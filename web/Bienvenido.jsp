@@ -4,6 +4,7 @@
     Author     : wilmer
 --%>
 
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,17 +17,16 @@
        
         <ul>
             <li>
-                <a href="FormularioSolicitud.jsp">
+              <a href="<s:url action="buscarEst"/>">
                     Click aquí para solicitar cambio de carrera</a>
             </li>
 
             <li>
 
-                <a href="nuevo-usuario.jsp">
-                    Click aquí para control de cambio de estudiantes</a>
+                <a href="GestionarCatalogos.jsp">
+                    Click aquí para gestionar catálogos</a>
 
             </li>
         </ul>
-        
     </body>
 </html>
