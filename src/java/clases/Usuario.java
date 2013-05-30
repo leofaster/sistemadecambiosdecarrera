@@ -9,50 +9,59 @@ import java.io.Serializable;
  * @author CHANGE Gate
  */
 public class Usuario implements Serializable{
-    private String usbid,cedula;
-    private String nombre,apellido,contrasena;
-    
-    public Usuario() {
-    }
-       
-    public String getUsbid(){
-         return usbid;
-    }
-    
-    public void setUsbid(String numero){
-        this.usbid = numero;
-    }
-    
-    public String getCedula(){
-         return cedula;
-    }
-    
-    public void setCedula(String numero){
-        this.cedula = numero;
-    }
-    
-    public String getNombre(){
-           return this.nombre;
-    }
-    
-    public void setNombre(String nombre){
-        this.nombre = new String(nombre);
-    }
-    
-    public String getApellido(){
-           return this.apellido;
-    }
-    
-    public void setApellido(String nombre){
-        this.apellido = new String(nombre);
-    }
    
-    
-    public String getContrasena(){
-        return this.contrasena;
+    private String usbid;
+    private int cedula;
+    private String nombre;
+    private String apellido;
+    private String contrasena;
+    private String rol;
+
+    public String getUsbid() {
+        return usbid;
     }
-    
-    public void setContrasena(String passwd){
-        this.contrasena = new String(passwd);
+
+    public void setUsbid(String usbid) {
+        this.usbid = usbid;
+    }
+
+    public int getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

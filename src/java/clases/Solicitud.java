@@ -9,56 +9,78 @@ import java.util.*;
  *
  * @author CHANGE Gate
  */
-public class Solicitud implements Serializable{
-    private int numero;
-    private boolean ccAprobado,solAceptada;
-    private String advertencia, motivacion;
-    private LinkedList<Reporte> lista;
+public class Solicitud implements Serializable {
     
-    public int getNumero(){
-        return this.numero;
+    private Estudiante estudiante;
+    private Carrera carrera;
+    private Date fecha;
+    private String advertencia;
+    private boolean solAceptada;
+    private boolean ccAprobado;
+    private String motivacion;
+    private LinkedList<Reporte> reportes;
+
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
-    public void setNumero(int numero){
-        this.numero = numero;
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
-    
-    public boolean getCcAprobado(){
-        return this.ccAprobado;
+
+    public Carrera getCarrera() {
+        return carrera;
     }
-    
-    public void setCcAprobado(boolean aprobado){
-        this.ccAprobado = aprobado;
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
     }
-    
-    public boolean getSolAceptada(){
-        return this.solAceptada;
+
+    public Date getFecha() {
+        return fecha;
     }
-    
-    public void setSolAceptada(boolean aceptada){
-        this.solAceptada = aceptada;
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
-    
-    public String getAdvertencia(){
-        return this.advertencia;
+
+    public String getAdvertencia() {
+        return advertencia;
     }
-    
-    public void setAdvertencia(String advertencia){
-        this.advertencia = new String(advertencia);
+
+    public void setAdvertencia(String advertencia) {
+        this.advertencia = advertencia;
     }
-    
-    public String getMotivacion(){
-        return this.motivacion;
+
+    public boolean isSolAceptada() {
+        return solAceptada;
     }
-    
-    public void setMotivacion(String motivacion){
-        this.motivacion = new String(motivacion);
+
+    public void setSolAceptada(boolean solAceptada) {
+        this.solAceptada = solAceptada;
     }
-    
-    public void addLista(Reporte reporte){
-        lista.add(new Reporte(reporte));
+
+    public boolean isCcAprobado() {
+        return ccAprobado;
     }
-    
-    public LinkedList<Reporte> getLista(){
-        return this.lista;
+
+    public void setCcAprobado(boolean ccAprobado) {
+        this.ccAprobado = ccAprobado;
     }
+
+    public String getMotivacion() {
+        return motivacion;
+    }
+
+    public void setMotivacion(String motivacion) {
+        this.motivacion = motivacion;
+    }
+
+    public LinkedList<Reporte> getReportes() {
+        return reportes;
+    }
+
+    public void setReportes(LinkedList<Reporte> reportes) {
+        this.reportes = reportes;
+    }    
 }

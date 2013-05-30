@@ -13,10 +13,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UsuarioAction extends ActionSupport {
     
     private String usbid;
-    private String ci;
+    private int cedula;
     private String nombre;
     private String apellido;
-    private String constrasenha;
+    private String contrasena;
+    private String rol;
 
     public String getUsbid() {
         return usbid;
@@ -26,12 +27,12 @@ public class UsuarioAction extends ActionSupport {
         this.usbid = usbid;
     }
 
-    public String getCi() {
-        return ci;
+    public int getCedula() {
+        return cedula;
     }
 
-    public void setCi(String ci) {
-        this.ci = ci;
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
     }
 
     public String getNombre() {
@@ -50,11 +51,19 @@ public class UsuarioAction extends ActionSupport {
         this.apellido = apellido;
     }
 
-    public String getConstrasenha() {
-        return constrasenha;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setConstrasenha(String constrasenha) {
-        this.constrasenha = constrasenha;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

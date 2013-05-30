@@ -17,13 +17,13 @@
        
         <ul>
             <li>
-              <a href="GestionarUsuarios">
+              <a href="index.jsp">
                     Click aquí para administrar usuarios</a>
             </li>
 
             <li>
 
-                <a href="GestionarCarreras.jsp">
+                <a href="materias/index.jsp">
                     Click aquí para administrar carreras</a>
 
             </li>

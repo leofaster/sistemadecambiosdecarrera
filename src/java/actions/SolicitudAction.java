@@ -84,10 +84,10 @@ public class SolicitudAction extends ActionSupport {
             if (rs.next()) {
                 estudiante = new Estudiante();
                 estudiante.setUsbid(rs.getString("usbid"));
-                estudiante.setCedula(rs.getString("ci"));
+                estudiante.setCedula(rs.getInt("cedula"));
                 estudiante.setNombre(rs.getString("nombre"));
                 estudiante.setApellido(rs.getString("apellido"));
-                estudiante.setIndice(Double.parseDouble(rs.getString("indice")));
+                estudiante.setIndice(rs.getDouble("indice"));
                 estudiante.setCbAprobado(rs.getString("cb_aprobado").equals("true"));
             }
         } catch(Exception e) {

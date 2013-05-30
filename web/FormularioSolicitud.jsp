@@ -18,7 +18,7 @@
         
         <br /><br />
         Carnet: <strong><s:property value="usbid" /></strong> <br /><br />
-        Cédula: <strong><s:property value="ci" /></strong> <br /><br />
+        Cédula: <strong><s:property value="cedula" /></strong> <br /><br />
         Nombre: <strong><s:property value="nombre" /></strong> <br /><br />
         Apellido: <strong><s:property value="apellido" /></strong> <br /><br />
         

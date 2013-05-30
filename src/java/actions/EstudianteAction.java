@@ -4,6 +4,7 @@
  */
 package actions;
 
+import clases.Carrera;
 import clases.ConexionBD;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.sql.ResultSet;
@@ -16,7 +17,16 @@ import java.sql.Statement;
 public class EstudianteAction extends UsuarioAction {
     
     private double indice;
+    private Carrera carrera;
     private boolean cbAprobado;
+
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
 
     public double getIndice() {
         return indice;
@@ -45,10 +55,10 @@ public class EstudianteAction extends UsuarioAction {
             rs = s.executeQuery("SELECT * FROM estudiante NATURAL JOIN usuario WHERE usbid='10-10406'");
             if (rs.next()) {
                 setUsbid(rs.getString("usbid"));
-                setCi(rs.getString("ci"));
+                setCedula(rs.getInt("cedula"));
                 setNombre(rs.getString("nombre"));
                 setApellido(rs.getString("apellido"));
-                indice = Double.parseDouble(rs.getString("indice"));
+                indice = (rs.getDouble("indice"));
                 cbAprobado = rs.getString("cb_aprobado").equals("true");
             }
         } catch(Exception e) {

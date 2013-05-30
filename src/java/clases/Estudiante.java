@@ -11,60 +11,42 @@ import java.io.Serializable;
  */
 public class Estudiante extends Usuario implements Serializable{
     
+    private String usbid;
     private double indice;
-    private int codCarrera;
+    private Carrera carreraOrigen;
     private boolean cbAprobado;
-    
-    //Listade asignaturas que cursa el estudiante
-    private LinkedList<AsignaturaConNota> lista_asignaturas;
-    
-    
-    public Estudiante(){}
-    
-    public Estudiante(double indice, int cod_carrera, boolean cb_aprobado){
-        
-        this.indice = indice;
-        this.codCarrera = cod_carrera;
-        this.cbAprobado = cb_aprobado;
-        this.lista_asignaturas = new LinkedList();
+    // Listade asignaturas que cursa el estudiante
+    private LinkedList<AsignaturaConNota> asignaturas;
+
+    public double getIndice() {
+        return indice;
     }
-    
-    
-    public double getIndice(){
-        return this.indice;
-    }
-    
-    
-    public void setIndice(double indice){
+
+    public void setIndice(double indice) {
         this.indice = indice;
     }
-    
-    
-    public int getCodCarrera(){
-        return this.codCarrera;
+
+    public Carrera getCarreraOrigen() {
+        return carreraOrigen;
     }
-    
-    
-    public void setCodCarrera( int cod_carrera){
-        this.codCarrera = cod_carrera;
+
+    public void setCarreraOrigen(Carrera carreraOrigen) {
+        this.carreraOrigen = carreraOrigen;
     }
-    
-    public boolean getCbAprovado(){
-        return this.cbAprobado;
+
+    public boolean isCbAprobado() {
+        return cbAprobado;
     }
-    
-    public void setCbAprobado(boolean aprobado){
-        this.cbAprobado = aprobado;
+
+    public void setCbAprobado(boolean cbAprobado) {
+        this.cbAprobado = cbAprobado;
     }
-    
-    public void addListaAsignaturas(Asignatura asignatura, int nota){
-        lista_asignaturas.add(new AsignaturaConNota(asignatura,nota));
+
+    public LinkedList<AsignaturaConNota> getAsignaturas() {
+        return asignaturas;
     }
-    
-    
-    public List<AsignaturaConNota> getListaAsignaturas(){
-        return this.lista_asignaturas;
-    }
-    
-    
+
+    public void setAsignaturas(LinkedList<AsignaturaConNota> asignaturas) {
+        this.asignaturas = asignaturas;
+    }    
 }
