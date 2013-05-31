@@ -25,7 +25,7 @@ public class Save extends ActionSupport{
         
 	try{
 	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","12345");
+    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
 	
     
         s = "insert into usuario values(?,?,?,?,?,CAST(? AS tipo_rol))";

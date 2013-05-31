@@ -23,7 +23,7 @@ public class Display extends ActionSupport implements ServletRequestAware{
 	
 	try{
 	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","12345");
+    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
 	Statement st=con.createStatement(); 
 	ResultSet rs = st.executeQuery("select * from usuario order by usbid");
 	

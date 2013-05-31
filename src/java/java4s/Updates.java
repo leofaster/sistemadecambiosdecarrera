@@ -22,7 +22,7 @@ public class Updates extends ActionSupport{
 	
 	try{
 	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","12345");
+    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
 	
 	String s = "update usuario set cedula=?,nombre=?,apellido=?,rol=CAST(? AS tipo_rol) where usbid=?";	
 	PreparedStatement ps=con.prepareStatement(s);

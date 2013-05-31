@@ -18,14 +18,10 @@
 	<s:form action="updates"> 	
 
             
-            <s:textfield label="USBid" value="%{#application.a}" name="mb.usbid" readonly="true" cssClass="bord"/>
-                        <s:textfield label="Cedula" value="%{#application.b}" name="mb.cedula" cssClass="bord"/>
-                        <s:textfield label="Nombre" value="%{#application.c}" name="mb.nombre" cssClass="bord"/>
-                        <s:textfield label="Apellido" value="%{#application.d}" name="mb.apellido" cssClass="bord"/>
-                        
-                        <s:select name="mb.rol" value="%{#application.f}" label="Tipo de usuario"
-                                  list="{'Estudiante','Coordinador','Orientador(DIDE)'}"/>
-  
+            <s:textfield label="Codigo Carrera" value="%{#application.a}" name="mb.usbid" readonly="true" cssClass="bord"/>
+                        <s:textfield label="Nombre de la Carrera" value="%{#application.b}" name="mb.cedula" cssClass="bord"/>
+                        <s:textfield label="Cupos" value="%{#application.c}" name="mb.nombre" cssClass="bord"/>
+                        <s:textfield label="Indice Minimo" value="%{#application.d}" name="mb.apellido" cssClass="bord"/>
     <s:submit value="Update" />
     
 </s:form>

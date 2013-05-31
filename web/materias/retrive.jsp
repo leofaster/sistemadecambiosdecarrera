@@ -33,26 +33,25 @@ if(l!=null)
 	while(it.hasNext())
 	{
 		
-		java4s.Usuario b=(java4s.Usuario)it.next();
-		String tempUsbid = b.getUsbid();
-		int tempCedula = b.getCedula();
-                String tempNombre = b.getNombre();
-                String tempApellido = b.getApellido();
+		clases.Carrera b=(clases.Carrera)it.next();
+		int tempCodCarrera = b.getCodcarrera();
+		String tempNombre = b.getNombre();
+                int tempCupos = b.getCupos();
+                Double tempIndice = b.getIndice_min();
                 
-                String tempRol = b.getRol();
 		
 
 %>
         <tr> 
-        <td class="bord"><input type="checkbox" value="<%= tempUsbid %>" name="rdel"></td>
-        <td class="bord"><%= tempUsbid %></td>
-        <td class="bord"><%= tempCedula %></td>
+        <td class="bord"><input type="checkbox" value="<%= tempCodCarrera %>" name="rdel"></td>
+        <td class="bord"><%= tempCodCarrera %></td>
         <td class="bord"><%= tempNombre %></td>
-        <td class="bord"><%= tempApellido %></td>
+        <td class="bord"><%= tempCupos %></td>
+        <td class="bord"><%= tempIndice %></td>
         
-        <td class="bord"><%= tempRol %></td>
         
-        <td class="bord"><a href="javascript:editr('<%= tempUsbid %>')">Edit</a></td>         
+        
+        <td class="bord"><a href="javascript:editr('<%= tempCodCarrera %>')">Edit</a></td>         
         </tr> 
         
 <% 		

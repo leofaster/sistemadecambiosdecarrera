@@ -38,7 +38,7 @@ public class Update extends ActionSupport implements ServletRequestAware,Applica
 	{		
 	try{
 	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","12345");
+    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
     PreparedStatement ps=null;	
    
     

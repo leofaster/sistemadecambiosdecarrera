@@ -11,51 +11,52 @@ import java.util.*;
  * @author CHANGE Gate
  */
 public class Carrera implements Serializable{
-    
-    private int codigo,cupos;
-    private double indiceMinimo;
+    private int codcarrera;
+    private int cupos;
     private String nombre;
+    private Double indice_min;
     private LinkedList<Requisito> lista;
-    
-    
-    public int getCupos(){
-        return this.cupos;
+
+    public int getCodcarrera() {
+        return codcarrera;
+    }
+
+    public void setCodcarrera(int codcarrera) {
+        this.codcarrera = codcarrera;
+    }
+
+    public int getCupos() {
+        return cupos;
+    }
+
+    public void setCupos(int cupos) {
+        this.cupos = cupos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Double getIndice_min() {
+        return indice_min;
+    }
+
+    public void setIndice_min(Double indice_min) {
+        this.indice_min = indice_min;
+    }
+
+    public LinkedList<Requisito> getLista() {
+        return lista;
+    }
+
+    public void setLista(LinkedList<Requisito> lista) {
+        this.lista = lista;
     }
     
-    public void serCupos(int cupos){
-        this.cupos=cupos;
-    }    
-    
-    public int getCodigo(){
-        return this.codigo;
-    }
-    
-    public void serCodigo(int codigo_carrera){
-        this.codigo=codigo_carrera;
-    }
-    
-    public String getNombre(){
-        return this.nombre;
-    }
-    
-    public void setNombre(String nombre_carrera){
-        this.nombre = new String(nombre_carrera);
-    }
-    
-    public double getIndiceMinimo(){
-        return this.indiceMinimo;
-    }
-    
-    public void setIndiceMinimo(double indice){
-        this.indiceMinimo = indice;
-    }
-    
-    public void addLista(Requisito requisito){
-        lista.add(new Requisito(requisito));
-    }
-    
-    public LinkedList<Requisito> getLista(){
-        return this.lista;
-    }
+
     
 }
