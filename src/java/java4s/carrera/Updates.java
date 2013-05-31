@@ -1,9 +1,7 @@
-package java4s;
+package java4s.carrera;
+import clases.Carrera;
 import clases.ConexionBD;
-import clases.Usuario;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -13,20 +11,20 @@ import com.opensymphony.xwork2.ActionSupport;
 public class Updates extends ActionSupport{	
 	private static final long serialVersionUID = 1L;
 	
-	Usuario mb=new Usuario();	
+	Carrera mb=new Carrera();	
 	
 	/**
      *
      * @return
      */
-    public Usuario getMb() {
+    public Carrera getMb() {
 		return mb;
 	}
 	/**
      *
      * @param mb
      */
-    public void setMb(Usuario mb) {
+    public void setMb(Carrera mb) {
 		this.mb = mb;
 	}
 
@@ -40,14 +38,13 @@ public class Updates extends ActionSupport{
 	try{
 	ConexionBD.establishConnection();
 	
-	String s = "update usuario set cedula=?,nombre=?,apellido=?,rol=CAST(? AS tipo_rol) where usbid=?";	
+	String s = "update carrera set nombre=?,cupos=?,indice_min=? where codcarrera=?";	
 	PreparedStatement ps=ConexionBD.getConnection().prepareStatement(s);
-	ps.setString(5, mb.getUsbid());
-        ps.setInt(1, mb.getCedula());
-        ps.setString(2, mb.getNombre());
-        ps.setString(3, mb.getApellido());
+	ps.setInt(4, mb.getCodcarrera());
+        ps.setString(1, mb.getNombre());
+        ps.setInt(2, mb.getCupos());
+        ps.setDouble(3, mb.getIndice_min());
         
-	ps.setString(4, mb.getRol());
 	
 	
 	ps.executeUpdate();

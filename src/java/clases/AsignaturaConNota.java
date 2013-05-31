@@ -14,26 +14,50 @@ public class AsignaturaConNota implements Serializable{
     private int nota;
     
     
+    /**
+     *
+     */
     public AsignaturaConNota(){}
     
     
+    /**
+     *
+     * @param asignatura
+     * @param nota
+     */
     public AsignaturaConNota(Asignatura asignatura, int nota){
         this.asignatura = new Asignatura(asignatura);
         this.nota = nota;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getNota(){
         return this.nota;
     }
     
+    /**
+     *
+     * @param nota
+     */
     public void setnota(int nota){
         this.nota= nota;
     }
     
+    /**
+     *
+     * @return
+     */
     public Asignatura getAsignatura(){
         return this.asignatura;
     }
     
+    /**
+     *
+     * @param asignatura
+     */
     public void setAsignatura(Asignatura asignatura){
         this.asignatura = new Asignatura(asignatura);
     }

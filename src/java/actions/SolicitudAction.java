@@ -29,6 +29,7 @@ public class SolicitudAction extends ActionSupport {
         return carrera_dest;
     }
 
+<<<<<<< HEAD
     public void setCarrera_dest(String carrera_dest) {
         this.carrera_dest = carrera_dest;
     }
@@ -42,58 +43,114 @@ public class SolicitudAction extends ActionSupport {
         this.usbidSol = usbidSol;
     }
     
+=======
+    /**
+     *
+     * @return
+     */
+>>>>>>> 40ee9c05b0d5628e77f1d617ef6072c9751a867b
     public Estudiante getEstudiante() {
         return estudiante;
     }
 
+    /**
+     *
+     * @param estudiante
+     */
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCodigoCarrera() {
         return codigoCarrera;
     }
 
+    /**
+     *
+     * @param codigoCarrera
+     */
     public void setCodigoCarrera(int codigoCarrera) {
         this.codigoCarrera = codigoCarrera;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAdvertencia() {
         return advertencia;
     }
 
+    /**
+     *
+     * @param advertencia
+     */
     public void setAdvertencia(String advertencia) {
         this.advertencia = advertencia;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSolAceptada() {
         return solAceptada;
     }
 
+    /**
+     *
+     * @param solAceptada
+     */
     public void setSolAceptada(boolean solAceptada) {
         this.solAceptada = solAceptada;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isCcAprobado() {
         return ccAprobado;
     }
 
+    /**
+     *
+     * @param ccAprobado
+     */
     public void setCcAprobado(boolean ccAprobado) {
         this.ccAprobado = ccAprobado;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMotivacion() {
         return motivacion;
     }
 
+    /**
+     *
+     * @param motivacion
+     */
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
     }
     
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String mostrarSolicitud() throws Exception {
         
         ResultSet rs = null;
         Statement s = null;
+<<<<<<< HEAD
 //        ConexionBD.establishConnection();
             System.out.println(usbidSol);
             System.out.println(carrera_dest);
@@ -101,6 +158,10 @@ public class SolicitudAction extends ActionSupport {
             System.out.println(motivacion);
             this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0,4)));
             System.out.println(this.codigoCarrera);
+=======
+        ConexionBD.establishConnection();
+        
+>>>>>>> 40ee9c05b0d5628e77f1d617ef6072c9751a867b
         try {
             s = ConexionBD.getConnection().createStatement();
             
@@ -124,7 +185,7 @@ public class SolicitudAction extends ActionSupport {
         } catch(Exception e) {
             System.out.println("Problem in searching the database 2");
         }
-//        ConexionBD.closeConnection();
+        
         
         return SUCCESS;
     }

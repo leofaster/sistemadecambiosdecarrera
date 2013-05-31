@@ -40,30 +40,59 @@ public class EstudianteAction extends UsuarioAction {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public Carrera getCarrera() {
         return carrera;
     }
 
+    /**
+     *
+     * @param carrera
+     */
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getIndice() {
         return indice;
     }
 
+    /**
+     *
+     * @param indice
+     */
     public void setIndice(double indice) {
         this.indice = indice;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isCbAprobado() {
         return cbAprobado;
     }
 
+    /**
+     *
+     * @param cbAprobado
+     */
     public void setCbAprobado(boolean cbAprobado) {
         this.cbAprobado = cbAprobado;
     }
     
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String buscarEstudiante() throws Exception {
         
         ResultSet rs = null;

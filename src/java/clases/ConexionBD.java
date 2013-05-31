@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  *
@@ -12,14 +9,25 @@ package clases;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ *
+ * @author CHANGE Gate
+ */
 public class ConexionBD {
     
     private static Connection connection = null;
 
+    /**
+     *
+     * @return
+     */
     public static Connection getConnection() {
         return connection;
     }
     
+    /**
+     *
+     */
     public static void establishConnection() {
         if (connection != null)
             return;
@@ -38,6 +46,9 @@ public class ConexionBD {
         }
     }
     
+    /**
+     *
+     */
     public static void closeConnection() {
         try {
             connection.close();

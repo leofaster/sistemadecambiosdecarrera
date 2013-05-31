@@ -1,8 +1,7 @@
-package java4s;
+package java4s.carrera;
 
+import clases.Carrera;
 import clases.ConexionBD;
-import clases.Usuario;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -29,26 +28,24 @@ public class Display extends ActionSupport implements ServletRequestAware{
      */
     public String execute()
 	{
-	ConexionBD.establishConnection();
+	
 	try{
-	
+	ConexionBD.establishConnection();
 	Statement st=ConexionBD.getConnection().createStatement(); 
-	ResultSet rs = st.executeQuery("select * from usuario order by usbid");
+	ResultSet rs = st.executeQuery("select * from carrera order by codcarrera");
 	
-    	List<Usuario> li = null;
-    	li = new ArrayList<Usuario>();   
-    	Usuario mb = null;
+    	List<Carrera> li = null;
+    	li = new ArrayList<Carrera>();   
+    	Carrera mb = null;
     
 		while(rs.next()) 
 			{ 	
-			    mb = new Usuario();
+			    mb = new Carrera ();
 			 
-			    mb.setUsbid(rs.getString("usbid"));
-                            mb.setCedula(rs.getInt("cedula"));
-			    mb.setNombre(rs.getString("nombre"));
-                            mb.setApellido(rs.getString("apellido"));
-                            mb.setContrasena(rs.getString("contrasena"));
-                            mb.setRol(rs.getString("rol"));
+			    mb.setCodcarrera(rs.getInt("codcarrera"));
+                            mb.setNombre(rs.getString("nombre"));
+			    mb.setCupos(rs.getInt("cupos"));
+                            mb.setIndice_min(rs.getDouble("indice_min"));
 			    
 			    
 			    li.add(mb);

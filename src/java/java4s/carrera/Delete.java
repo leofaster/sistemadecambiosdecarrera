@@ -1,5 +1,6 @@
-package java4s;
+package java4s.carrera;
 import clases.ConexionBD;
+import java4s.*;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javax.servlet.http.HttpServletRequest;
@@ -24,22 +25,19 @@ public class Delete extends ActionSupport implements ServletRequestAware{
      */
     public String execute()
 	{			
-	
-        ConexionBD.establishConnection();
+		
 	try{
-            
-            
-        
-            PreparedStatement ps=null;
+	ConexionBD.establishConnection();
+    PreparedStatement ps=null;
 	
-            String cv[]=request.getParameterValues("rdel");
+    String cv[]=request.getParameterValues("rdel");
     
 	for(int i=0;i<cv.length;i++)
 	{
-		ps=ConexionBD.getConnection().prepareStatement("delete from usuario where usbid=?");
-		String k = cv[i];
+		ps=ConexionBD.getConnection().prepareStatement("delete from carrera where codcarrera=?");
+		int k = Integer.parseInt(cv[i]);
 		System.out.println("Lo que se quiere eliminar es " +k);
-		ps.setString(1,k);	
+		ps.setInt(1,k);	
 		ps.executeUpdate();
 
 	}	

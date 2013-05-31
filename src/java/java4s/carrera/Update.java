@@ -1,5 +1,6 @@
-package java4s;
+package java4s.carrera;
 import clases.ConexionBD;
+import java4s.*;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,10 +63,10 @@ public class Update extends ActionSupport implements ServletRequestAware,Applica
     PreparedStatement ps=null;	
    
     
-	    ps=ConexionBD.getConnection().prepareStatement("select * from usuario where usbid=?");
+	    ps=ConexionBD.getConnection().prepareStatement("select * from carrera where codcarrera=?");
 	    String a = request.getParameter("fid");
-		String k = a;
-		ps.setString(1,k);			
+		int k = Integer.parseInt(a);
+		ps.setInt(1,k);			
 	    //System.out.println("This is" +k);
 		
 		ResultSet res = ps.executeQuery();		
@@ -73,11 +74,10 @@ public class Update extends ActionSupport implements ServletRequestAware,Applica
 		
 		while(res.next())
 		{			
-			m.put("a",res.getString("usbid"));
-                        m.put("b",res.getInt("cedula"));
-                        m.put("c",res.getString("Nombre"));
-                        m.put("d",res.getString("Apellido"));
-                        m.put("f", res.getString("rol"));
+			m.put("a",res.getInt("codcarrera"));
+                        m.put("b",res.getString("nombre"));
+                        m.put("c",res.getInt("cupos"));
+                        m.put("d",res.getDouble("INDICE_MIN"));
 			
 		}
 	
