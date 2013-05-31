@@ -6,19 +6,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.opensymphony.xwork2.ActionSupport;
+/**
+ *
+ * @author CHANGE Gate
+ */
 public class Updates extends ActionSupport{	
 	private static final long serialVersionUID = 1L;
 	
 	Usuario mb=new Usuario();	
 	
-	public Usuario getMb() {
+	/**
+     *
+     * @return
+     */
+    public Usuario getMb() {
 		return mb;
 	}
-	public void setMb(Usuario mb) {
+	/**
+     *
+     * @param mb
+     */
+    public void setMb(Usuario mb) {
 		this.mb = mb;
 	}
 
-	public String execute()
+	/**
+     *
+     * @return
+     */
+    public String execute()
 	{
 	
 	try{

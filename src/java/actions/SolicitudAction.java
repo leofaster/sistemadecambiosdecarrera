@@ -24,54 +24,107 @@ public class SolicitudAction extends ActionSupport {
     private boolean ccAprobado;
     private String motivacion;
 
+    /**
+     *
+     * @return
+     */
     public Estudiante getEstudiante() {
         return estudiante;
     }
 
+    /**
+     *
+     * @param estudiante
+     */
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCodigoCarrera() {
         return codigoCarrera;
     }
 
+    /**
+     *
+     * @param codigoCarrera
+     */
     public void setCodigoCarrera(int codigoCarrera) {
         this.codigoCarrera = codigoCarrera;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAdvertencia() {
         return advertencia;
     }
 
+    /**
+     *
+     * @param advertencia
+     */
     public void setAdvertencia(String advertencia) {
         this.advertencia = advertencia;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isSolAceptada() {
         return solAceptada;
     }
 
+    /**
+     *
+     * @param solAceptada
+     */
     public void setSolAceptada(boolean solAceptada) {
         this.solAceptada = solAceptada;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isCcAprobado() {
         return ccAprobado;
     }
 
+    /**
+     *
+     * @param ccAprobado
+     */
     public void setCcAprobado(boolean ccAprobado) {
         this.ccAprobado = ccAprobado;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMotivacion() {
         return motivacion;
     }
 
+    /**
+     *
+     * @param motivacion
+     */
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
     }
     
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String mostrarSolicitud() throws Exception {
         
         ResultSet rs = null;

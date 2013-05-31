@@ -1,7 +1,7 @@
 <%-- 
     Document   : Bienvenido
     Created on : 25/05/2013, 10:57:11 PM
-    Author     : wilmer
+    Author     : CHANGE Gate
 --%>
 
 <%@ taglib uri="/struts-tags" prefix="s" %>

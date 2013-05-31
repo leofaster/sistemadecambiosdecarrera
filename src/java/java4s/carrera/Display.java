@@ -12,13 +12,21 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 
+/**
+ *
+ * @author CHANGE Gate
+ */
 public class Display extends ActionSupport implements ServletRequestAware{	
 	private static final long serialVersionUID = 1L;
 	
 	HttpServletRequest request;
 	
 	
-	public String execute()
+	/**
+     *
+     * @return
+     */
+    public String execute()
 	{
 	
 	try{
@@ -60,10 +68,18 @@ public class Display extends ActionSupport implements ServletRequestAware{
 		
 	}
 
-	public void setServletRequest(HttpServletRequest request) {
+	/**
+     *
+     * @param request
+     */
+    public void setServletRequest(HttpServletRequest request) {
         this.request = request;
     }
 
+    /**
+     *
+     * @return
+     */
     public HttpServletRequest getServletRequest() {
         return request;
 }

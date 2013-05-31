@@ -15,6 +15,10 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ *
+ * @author CHANGE Gate
+ */
 public class Update extends ActionSupport implements ServletRequestAware,ApplicationAware{	
 	private static final long serialVersionUID = 1L;
 	
@@ -22,21 +26,37 @@ public class Update extends ActionSupport implements ServletRequestAware,Applica
 	Map m;
 	
 	
-	public void setServletRequest(HttpServletRequest request) {
+	/**
+     *
+     * @param request
+     */
+    public void setServletRequest(HttpServletRequest request) {
         this.request = request;
     }
 
+    /**
+     *
+     * @return
+     */
     public HttpServletRequest getServletRequest() {
         return request;
     }
 
+    /**
+     *
+     * @param m
+     */
     public void setApplication(Map m)
 	{
 		this.m=m;
 	}   
 	
 	
-	public String execute()
+	/**
+     *
+     * @return
+     */
+    public String execute()
 	{		
 	try{
 	ConexionBD.establishConnection();

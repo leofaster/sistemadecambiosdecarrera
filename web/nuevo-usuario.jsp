@@ -1,7 +1,7 @@
 <%-- 
     Document   : nuevo-usuario
     Created on : 25/05/2013, 03:26:18 PM
-    Author     : Becca
+    Author     : CHANGE Gate
 --%>
 
 <%@taglib uri="/struts-tags" prefix="s" %>
