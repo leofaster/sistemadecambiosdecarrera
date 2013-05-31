@@ -1,4 +1,5 @@
 package java4s.carrera;
+import clases.ConexionBD;
 import java4s.*;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,24 +19,23 @@ public class Delete extends ActionSupport implements ServletRequestAware{
 	{			
 		
 	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
+	ConexionBD.establishConnection();
     PreparedStatement ps=null;
 	
     String cv[]=request.getParameterValues("rdel");
     
 	for(int i=0;i<cv.length;i++)
 	{
-		ps=con.prepareStatement("delete from carrera where codcarrera=?");
-		String k = cv[i];
+		ps=ConexionBD.getConnection().prepareStatement("delete from carrera where codcarrera=?");
+		int k = Integer.parseInt(cv[i]);
 		System.out.println("Lo que se quiere eliminar es " +k);
-		ps.setString(1,k);	
+		ps.setInt(1,k);	
 		ps.executeUpdate();
-//		con.commit();
+
 	}	
 	
 		ps.close();  		
-		con.close();
+		
 
 		    } 
 		catch(Exception e){ 

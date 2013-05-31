@@ -1,4 +1,5 @@
 package java4s;
+import clases.ConexionBD;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,12 +38,11 @@ public class Update extends ActionSupport implements ServletRequestAware,Applica
 	public String execute()
 	{		
 	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
+	ConexionBD.establishConnection();
     PreparedStatement ps=null;	
    
     
-	    ps=con.prepareStatement("select * from usuario where usbid=?");
+	    ps=ConexionBD.getConnection().prepareStatement("select * from usuario where usbid=?");
 	    String a = request.getParameter("fid");
 		String k = a;
 		ps.setString(1,k);			
@@ -62,7 +62,7 @@ public class Update extends ActionSupport implements ServletRequestAware,Applica
 		}
 	
 		ps.close();  		
-		con.close();
+		
 
 	    } 
 		    catch(Exception e){ 

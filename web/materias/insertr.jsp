@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/java4s.css" />
+<link rel="stylesheet" type="text/css" href="/css/java4s.css" />
 </head>
 
 <body>

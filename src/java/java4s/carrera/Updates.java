@@ -1,10 +1,7 @@
 package java4s.carrera;
 import clases.Carrera;
-import java4s.*;
-import clases.Usuario;
-import java.sql.DriverManager;
+import clases.ConexionBD;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import com.opensymphony.xwork2.ActionSupport;
 public class Updates extends ActionSupport{	
@@ -23,11 +20,10 @@ public class Updates extends ActionSupport{
 	{
 	
 	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
+	ConexionBD.establishConnection();
 	
 	String s = "update carrera set nombre=?,cupos=?,indice_min=? where codcarrera=?";	
-	PreparedStatement ps=con.prepareStatement(s);
+	PreparedStatement ps=ConexionBD.getConnection().prepareStatement(s);
 	ps.setInt(4, mb.getCodcarrera());
         ps.setString(1, mb.getNombre());
         ps.setInt(2, mb.getCupos());
@@ -36,10 +32,10 @@ public class Updates extends ActionSupport{
 	
 	
 	ps.executeUpdate();
-	con.commit();
+	
 	
 		ps.close();  		
-		con.close();
+		
 
 		    } 
 		catch(Exception e){ 

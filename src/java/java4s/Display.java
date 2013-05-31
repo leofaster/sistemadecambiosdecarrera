@@ -1,5 +1,6 @@
 package java4s;
 
+import clases.ConexionBD;
 import clases.Usuario;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,11 +21,10 @@ public class Display extends ActionSupport implements ServletRequestAware{
 	
 	public String execute()
 	{
-	
+	ConexionBD.establishConnection();
 	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
-	Statement st=con.createStatement(); 
+	
+	Statement st=ConexionBD.getConnection().createStatement(); 
 	ResultSet rs = st.executeQuery("select * from usuario order by usbid");
 	
     	List<Usuario> li = null;
@@ -51,7 +51,7 @@ public class Display extends ActionSupport implements ServletRequestAware{
 		
 		rs.close(); 
  		st.close(); 
-		con.close();
+		
 
 		    } 
 		catch(Exception e){ 

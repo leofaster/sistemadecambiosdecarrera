@@ -2,7 +2,7 @@
 <%@ page import="java.util.*;" %>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/java4s.css" />
+<link rel="stylesheet" type="text/css" href="/css/java4s.css" />
 <script type="text/javascript">
 function deleteRecord()
 	{	     

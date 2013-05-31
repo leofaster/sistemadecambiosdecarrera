@@ -1,4 +1,5 @@
 package java4s;
+import clases.ConexionBD;
 import clases.Usuario;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,12 +25,11 @@ public class Save extends ActionSupport{
         String s;
         
 	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
+	ConexionBD.establishConnection();
 	
     
         s = "insert into usuario values(?,?,?,?,?,CAST(? AS tipo_rol))";
-	ps=con.prepareStatement(s);
+	ps=ConexionBD.getConnection().prepareStatement(s);
 	ps.setString(1, mb.getUsbid());
         ps.setInt(2, mb.getCedula());
         ps.setString(3, mb.getNombre());
@@ -38,12 +38,12 @@ public class Save extends ActionSupport{
 	ps.setString(6, mb.getRol());
 	
 	ps.executeUpdate();
-//	con.commit();
+
         
         
 	
 		ps.close();  		
-		con.close();
+		
 
 		    } 
 		catch(Exception e){ 

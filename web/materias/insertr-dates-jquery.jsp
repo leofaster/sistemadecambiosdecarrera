@@ -2,8 +2,8 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/java4s.css" />
-<link rel="stylesheet" type="text/css" href="css/datepick.css" />
+<link rel="stylesheet" type="text/css" href="/css/java4s.css" />
+<link rel="stylesheet" type="text/css" href="/css/datepick.css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.datepick.js"></script>

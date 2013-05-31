@@ -1,4 +1,5 @@
 package java4s;
+import clases.ConexionBD;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javax.servlet.http.HttpServletRequest;
@@ -15,26 +16,28 @@ public class Delete extends ActionSupport implements ServletRequestAware{
 	
 	public String execute()
 	{			
-		
-	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
-    PreparedStatement ps=null;
 	
-    String cv[]=request.getParameterValues("rdel");
+        ConexionBD.establishConnection();
+	try{
+            
+            
+        
+            PreparedStatement ps=null;
+	
+            String cv[]=request.getParameterValues("rdel");
     
 	for(int i=0;i<cv.length;i++)
 	{
-		ps=con.prepareStatement("delete from usuario where usbid=?");
+		ps=ConexionBD.getConnection().prepareStatement("delete from usuario where usbid=?");
 		String k = cv[i];
 		System.out.println("Lo que se quiere eliminar es " +k);
 		ps.setString(1,k);	
 		ps.executeUpdate();
-//		con.commit();
+
 	}	
 	
 		ps.close();  		
-		con.close();
+		
 
 		    } 
 		catch(Exception e){ 

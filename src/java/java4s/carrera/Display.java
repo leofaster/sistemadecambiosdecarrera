@@ -1,9 +1,7 @@
 package java4s.carrera;
 
 import clases.Carrera;
-import java4s.*;
-import clases.Usuario;
-import java.sql.DriverManager;
+import clases.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -24,9 +22,8 @@ public class Display extends ActionSupport implements ServletRequestAware{
 	{
 	
 	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
-	Statement st=con.createStatement(); 
+	ConexionBD.establishConnection();
+	Statement st=ConexionBD.getConnection().createStatement(); 
 	ResultSet rs = st.executeQuery("select * from carrera order by codcarrera");
 	
     	List<Carrera> li = null;
@@ -51,7 +48,7 @@ public class Display extends ActionSupport implements ServletRequestAware{
 		
 		rs.close(); 
  		st.close(); 
-		con.close();
+		
 
 		    } 
 		catch(Exception e){ 

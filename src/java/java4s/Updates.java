@@ -1,4 +1,5 @@
 package java4s;
+import clases.ConexionBD;
 import clases.Usuario;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,11 +22,10 @@ public class Updates extends ActionSupport{
 	{
 	
 	try{
-	Class.forName("org.postgresql.Driver"); 
-    java.sql.Connection con =DriverManager.getConnection("jdbc:postgresql://localhost:5432/prueba","postgres","18588");
+	ConexionBD.establishConnection();
 	
 	String s = "update usuario set cedula=?,nombre=?,apellido=?,rol=CAST(? AS tipo_rol) where usbid=?";	
-	PreparedStatement ps=con.prepareStatement(s);
+	PreparedStatement ps=ConexionBD.getConnection().prepareStatement(s);
 	ps.setString(5, mb.getUsbid());
         ps.setInt(1, mb.getCedula());
         ps.setString(2, mb.getNombre());
@@ -35,10 +35,10 @@ public class Updates extends ActionSupport{
 	
 	
 	ps.executeUpdate();
-	con.commit();
+	
 	
 		ps.close();  		
-		con.close();
+		
 
 		    } 
 		catch(Exception e){ 

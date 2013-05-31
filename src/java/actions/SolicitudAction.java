@@ -76,7 +76,7 @@ public class SolicitudAction extends ActionSupport {
         
         ResultSet rs = null;
         Statement s = null;
-//        ConexionBD.establishConnection();
+        ConexionBD.establishConnection();
         
         try {
             s = ConexionBD.getConnection().createStatement();
@@ -93,7 +93,7 @@ public class SolicitudAction extends ActionSupport {
         } catch(Exception e) {
             System.out.println("Problem in searching the database 1");
         }
-//        ConexionBD.closeConnection();
+        
         
         return SUCCESS;
     }

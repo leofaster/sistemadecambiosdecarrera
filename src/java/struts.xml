@@ -39,33 +39,33 @@
              <!--FIN JAVA4S --> 
              <!-- JAVA4S.carrera -->
         <action name="view.carrera" class="java4s.carrera.Display">
-            <result name="success">/materias/retrive.jsp</result>
-            <result name="error">/materias/error.jsp</result>      
+            <result name="success">retrive.jsp</result>
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="insert.carrera" class="java4s.carrera.Save">
-            <result name="success">/materias/ssuccess.jsp</result>
-            <result name="error">/materias/error.jsp</result>      
+            <result name="success">ssuccess.jsp</result>
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="del.carrera" class="java4s.carrera.Delete">
-            <result name="success">/materias/dsuccess.jsp</result>
-            <result name="error">/materias/error.jsp</result>      
+            <result name="success">dsuccess.jsp</result>
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="update.carrera" class="java4s.carrera.Update">
-            <result name="success">/materias/edit.jsp</result>
-            <result name="error">/materias/error.jsp</result>      
+            <result name="success">edit.jsp</result>
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="updates.carrera" class="java4s.carrera.Updates">
-            <result name="success">/materias/usuccess.jsp</result>
-            <result name="error">/materias/error.jsp</result>      
+            <result name="success">usuccess.jsp</result>
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="*Link.carrera" class="java4s.carrera.Links" method="{1}">
-            <result name="save">/materias/insertr.jsp</result>
-            <result name="display">/materias/retrive.jsp</result>           
+            <result name="save">insertr.jsp</result>
+            <result name="display">retrive.jsp</result>           
         </action>
              <!--FIN JAVA4S.carrera --> 
         
