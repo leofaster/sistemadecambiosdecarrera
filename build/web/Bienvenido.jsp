@@ -17,7 +17,7 @@
        
         <ul>
             <li>
-              <a href="<s:url action="buscarEst"/>">
+              <a href="Login.jsp">
                     Click aquí para solicitar cambio de carrera</a>
             </li>
 

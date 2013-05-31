@@ -23,6 +23,17 @@
         Apellido: <strong><s:property value="apellido" /></strong> <br /><br />
         
         <s:form action="verificarSol" >
+        <fielset>
+            ID:
+            <select name="usbidSol">
+                <option value=<s:property value="usbid" />><s:property value="usbid" /></option>
+            </select>
+             <br /><br />
+            Ciclo Basico Aprobado:
+            <select name="ccAprobado">
+                <option value=<s:property value="cbAprobado" />><s:property value="cbAprobado" /></option>
+            </select>
+             <br /><br />
             <s:select name="carrera_dest" label="Carrera Deseada" required="true"
                 list="{'0100 - Ingeniería Eléctrica', 
                 '0200 - Ingeniería Mecánica', 
@@ -46,6 +57,7 @@
             <s:textarea name="motivacion" cols="25" rows="4"
                 label="Motivacion para el cambio" required="true"/>
             <s:submit value="Continuar" />
+        </fieldset>
         </s:form>
     </body>
 </html>

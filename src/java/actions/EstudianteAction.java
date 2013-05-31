@@ -19,6 +19,26 @@ public class EstudianteAction extends UsuarioAction {
     private double indice;
     private Carrera carrera;
     private boolean cbAprobado;
+    private String usbido;
+    private String password;
+
+    public String getUsbido() {
+        return usbido;
+    }
+
+    public void setUsbido(String usbido) {
+        this.usbido = usbido;
+    }
+
+    
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Carrera getCarrera() {
         return carrera;
@@ -52,7 +72,8 @@ public class EstudianteAction extends UsuarioAction {
         
         try {
             s = ConexionBD.getConnection().createStatement();
-            rs = s.executeQuery("SELECT * FROM estudiante NATURAL JOIN usuario WHERE usbid='10-10406'");
+            rs = s.executeQuery("SELECT * FROM estudiante NATURAL JOIN usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
+     
             if (rs.next()) {
                 setUsbid(rs.getString("usbid"));
                 setCedula(rs.getInt("cedula"));
@@ -61,6 +82,8 @@ public class EstudianteAction extends UsuarioAction {
                 indice = (rs.getDouble("indice"));
                 cbAprobado = rs.getString("cb_aprobado").equals("true");
             }
+            else return "no success"; 
+            
         } catch(Exception e) {
             System.out.println("Problem in searching the database 1");
         }
