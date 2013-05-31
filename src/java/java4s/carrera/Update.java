@@ -43,7 +43,7 @@ public class Update extends ActionSupport implements ServletRequestAware,Applica
     PreparedStatement ps=null;	
    
     
-	    ps=con.prepareStatement("select * from carrera where usbid=?");
+	    ps=con.prepareStatement("select * from carrera where codcarrera=?");
 	    String a = request.getParameter("fid");
 		String k = a;
 		ps.setString(1,k);			

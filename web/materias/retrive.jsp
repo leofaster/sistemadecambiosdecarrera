@@ -6,18 +6,18 @@
 <script type="text/javascript">
 function deleteRecord()
 	{	     
-	    document.fom.action="del.action";
+	    document.fom.action="del.carrera.action";
 	    document.fom.submit();
 	}
 function editr(val)
 {	     
-    document.fom.action="update.action?fid="+val;
+    document.fom.action="update.carrera.action?fid="+val;
     document.fom.submit();
 }	
 </script>
 </head>
 
-<a href="<s:url action="saveLink.action"/>">Insert</a>
+<a href="<s:url action="saveLink.carrera"/>">Insert</a>
 
 <br><br>
 

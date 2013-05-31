@@ -6,10 +6,10 @@
 </head>
 
 <body>
-<a href="<s:url action="view.action"/>">Display Records</a>
+<a href="<s:url action="view.carrera.action"/>">Display Records</a>
 <br><br>
 <b><font color="#5d8122" face="verdana">Insert Details</font></b>
-	<s:form action="insert">   
+	<s:form action="insert.carrera">   
 
 			<s:textfield label="Codigo Carrera" name="mb.codcarrera" cssClass="bord"/>
                         <s:textfield label="Nombre Carrera" name="mb.nombre" cssClass="bord"/>
