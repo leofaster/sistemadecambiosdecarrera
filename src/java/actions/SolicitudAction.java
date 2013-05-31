@@ -29,7 +29,7 @@ public class SolicitudAction extends ActionSupport {
         return carrera_dest;
     }
 
-<<<<<<< HEAD
+
     public void setCarrera_dest(String carrera_dest) {
         this.carrera_dest = carrera_dest;
     }
@@ -43,12 +43,12 @@ public class SolicitudAction extends ActionSupport {
         this.usbidSol = usbidSol;
     }
     
-=======
+
     /**
      *
      * @return
      */
->>>>>>> 40ee9c05b0d5628e77f1d617ef6072c9751a867b
+
     public Estudiante getEstudiante() {
         return estudiante;
     }
@@ -150,7 +150,7 @@ public class SolicitudAction extends ActionSupport {
         
         ResultSet rs = null;
         Statement s = null;
-<<<<<<< HEAD
+
 //        ConexionBD.establishConnection();
             System.out.println(usbidSol);
             System.out.println(carrera_dest);
@@ -158,10 +158,10 @@ public class SolicitudAction extends ActionSupport {
             System.out.println(motivacion);
             this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0,4)));
             System.out.println(this.codigoCarrera);
-=======
+
         ConexionBD.establishConnection();
         
->>>>>>> 40ee9c05b0d5628e77f1d617ef6072c9751a867b
+
         try {
             s = ConexionBD.getConnection().createStatement();
             
@@ -175,7 +175,7 @@ public class SolicitudAction extends ActionSupport {
                 +"NOW(),"
                 +"'',"
                 +"false,"
-                +ccAprobado+","
+                +"false"+","
                 +"'"+motivacion+"')"
                  );
                 return SUCCESS;

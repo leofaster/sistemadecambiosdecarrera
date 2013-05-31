@@ -16,23 +16,21 @@
         <h3>Solicitud de Cambio de Carrera</h3>
         Rellene la solicitud para el cambio de carrera:
         
-        <br /><br />
-        Carnet: <strong><s:property value="usbid" /></strong> <br /><br />
-        Cédula: <strong><s:property value="cedula" /></strong> <br /><br />
-        Nombre: <strong><s:property value="nombre" /></strong> <br /><br />
-        Apellido: <strong><s:property value="apellido" /></strong> <br /><br />
         
         <s:form action="verificarSol" >
+            
+            
+        <br /><br />
         <fielset>
-            ID:
+            Carnet:
             <select name="usbidSol">
                 <option value=<s:property value="usbid" />><s:property value="usbid" /></option>
             </select>
-             <br /><br />
-            Ciclo Basico Aprobado:
-            <select name="ccAprobado">
-                <option value=<s:property value="cbAprobado" />><s:property value="cbAprobado" /></option>
-            </select>
+        
+        Cédula: <strong><s:property value="cedula" /></strong> <br /><br />
+        Nombre: <strong><s:property value="nombre" /></strong> <br /><br />
+        Apellido: <strong><s:property value="apellido" /></strong> <br /><br />
+            
              <br /><br />
             <s:select name="carrera_dest" label="Carrera Deseada" required="true"
                 list="{'0100 - Ingeniería Eléctrica', 

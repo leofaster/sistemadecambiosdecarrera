@@ -1,0 +1,15 @@
+.bordt{  border: 1px solid #82af22;font-family: verdana; font-size: 12px;  }
+.bord{  border: 1px solid #82af22;padding: 2px; font-family: verdana;font-size: 12px;  }
+.label { font-family: verdana; font-size: 12px; }
+
+a, a:visited {
+	font-family: verdana;
+	font-size: 12px;
+	color: #2969c9;
+	border: 0px;
+	text-decoration: none;
+	}
+a:hover {
+	color: #000000;
+	text-decoration: underline;
+	}

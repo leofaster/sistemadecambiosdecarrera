@@ -54,6 +54,13 @@ public class Save extends ActionSupport{
 	ps.setString(6, mb.getRol());
 	
 	ps.executeUpdate();
+        
+        if (mb.getRol().equals("Estudiante")) {
+            s = "insert into estudiante values(?,4,800,true)";
+            ps=ConexionBD.getConnection().prepareStatement(s);
+            ps.setString(1, mb.getUsbid());            
+            ps.executeUpdate();
+        }
 
         
         
