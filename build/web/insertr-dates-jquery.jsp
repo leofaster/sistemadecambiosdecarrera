@@ -19,6 +19,8 @@ $(function() {
 <a href="<s:url action="view.action"/>">Display Records</a>
 <br><br>
 <b><font color="#5d8122" face="verdana">Insert Details</font></b>
+
+esssstoooooo es un coso
 	<s:form action="insert">   
 
 			<s:textfield label="USBid" name="mb.usbid" cssClass="bord"/>

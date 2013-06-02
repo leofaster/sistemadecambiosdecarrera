@@ -101,15 +101,19 @@ public class EstudianteAction extends UsuarioAction {
         
         try {
             s = ConexionBD.getConnection().createStatement();
-            rs = s.executeQuery("SELECT * FROM estudiante NATURAL JOIN usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
+            rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
      
             if (rs.next()) {
+                if (rs.getString("rol").equals("Estudiante")) {
                 setUsbid(rs.getString("usbid"));
                 setCedula(rs.getInt("cedula"));
                 setNombre(rs.getString("nombre"));
                 setApellido(rs.getString("apellido"));
                 indice = (rs.getDouble("indice"));
                 cbAprobado = rs.getString("cb_aprobado").equals("true");
+                } else if (rs.getString("rol").equals("Coordinador")) {
+                    
+                }
             }
             else return "no success"; 
             

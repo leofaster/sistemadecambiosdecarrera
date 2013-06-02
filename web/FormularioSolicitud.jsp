@@ -26,7 +26,7 @@
             <select name="usbidSol">
                 <option value=<s:property value="usbid" />><s:property value="usbid" /></option>
             </select>
-        
+        <br /><br />
         Cédula: <strong><s:property value="cedula" /></strong> <br /><br />
         Nombre: <strong><s:property value="nombre" /></strong> <br /><br />
         Apellido: <strong><s:property value="apellido" /></strong> <br /><br />
