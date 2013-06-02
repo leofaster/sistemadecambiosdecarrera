@@ -188,5 +188,6 @@ public class SolicitudAction extends ActionSupport {
         
         
         return SUCCESS;
+       
     }
 }
