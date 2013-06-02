@@ -8,6 +8,12 @@
 <%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
+    <style type="text/css">
+<!--
+  .hidden{display:none;}
+  .shown{display:in-line;}
+-->
+</style>
     <head>
         <title>Sistema de Cambios de Carrera</title>
     </head>
@@ -22,8 +28,8 @@
             
         <br /><br />
         <fielset>
-            Carnet:
-            <select name="usbidSol">
+            Carnet: <strong><s:property value="usbid" /></strong> 
+            <select name="usbidSol"  class="hidden">
                 <option value=<s:property value="usbid" />><s:property value="usbid" /></option>
             </select>
         <br /><br />

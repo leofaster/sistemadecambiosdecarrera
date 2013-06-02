@@ -35,7 +35,7 @@ public class ConexionBD {
         String url = "jdbc:postgresql://localhost:5432/prueba";
         try {
             Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection(url, "postgres", "12345");
+            connection = DriverManager.getConnection(url, "postgres", "18588");
            
             if (connection != null) {
                 System.out.println("Connecting to database...");
