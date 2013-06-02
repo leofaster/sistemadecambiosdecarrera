@@ -7,16 +7,16 @@
 <struts>
     <package name="Sistema_de_Cambios_de_Carrera" extends="struts-default">      
         
-       <action name="buscarEst" class="actions.EstudianteAction" method="buscarEstudiante"> 
-           <result name="success">/FormularioSolicitud.jsp</result> 
-           <result name="no success">/ErrorAuth.jsp</result>
-       </action> 
+        <action name="buscarEst" class="actions.EstudianteAction" method="buscarEstudiante"> 
+            <result name="estudiante" type="redirect">/FormularioSolicitud.jsp</result> 
+            <result name="admin" type="redirect">/GestionarCatalogos.jsp</result>
+            <result name="no success" type="redirect">/ErrorAuth.jsp</result>
+        </action>
        
        
-       <action name="verificarSol" class="actions.SolicitudAction" method="mostrarSolicitud"> 
-           <result name="success">/AgregadaSol.jsp</result> 
-           <result name="no success">/MalaSol.jsp</result> 
-       </action> 
+        <action name="verificarSol" class="actions.SolicitudAction" method="mostrarSolicitud"> 
+            <result name="success">/AgregadaSol.jsp</result> 
+            <result name="no success">/MalaSol.jsp</result> 
+        </action> 
     </package>
 </struts>
-

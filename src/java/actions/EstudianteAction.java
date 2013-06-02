@@ -105,22 +105,27 @@ public class EstudianteAction extends UsuarioAction {
      
             if (rs.next()) {
                 if (rs.getString("rol").equals("Estudiante")) {
-                setUsbid(rs.getString("usbid"));
-                setCedula(rs.getInt("cedula"));
-                setNombre(rs.getString("nombre"));
-                setApellido(rs.getString("apellido"));
-                indice = (rs.getDouble("indice"));
-                cbAprobado = rs.getString("cb_aprobado").equals("true");
+                    setUsbid(rs.getString("usbid"));
+                    setCedula(rs.getInt("cedula"));
+                    setNombre(rs.getString("nombre"));
+                    setApellido(rs.getString("apellido"));
+                    indice = (rs.getDouble("indice"));
+                    cbAprobado = rs.getString("cb_aprobado").equals("true");
+                    return "estudiante";
                 } else if (rs.getString("rol").equals("Coordinador")) {
-                    
+                    return "coordinador";
                 }
+            } else {
+                if (usbido.equals("admin") && password.equals("admin")) {
+                    return "admin";
+                }
+                return "no success";
             }
-            else return "no success"; 
             
         } catch(Exception e) {
             System.out.println("Problem in searching the database 1");
         }
 //        ConexionBD.closeConnection();
-        return SUCCESS;
+        return "estudiante";
     }
 }
