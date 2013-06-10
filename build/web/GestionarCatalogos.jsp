@@ -17,7 +17,7 @@
        
         <ul>
             <li>
-              <a href="index.jsp">
+              <a href="index2.jsp">
                     Click aquí para administrar usuarios</a>
             </li>
 
@@ -28,5 +28,7 @@
 
             </li>
         </ul>
+        <a href="indexIntercambio.jsp">
+                    Salir</a>
     </body>
 </html>

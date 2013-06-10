@@ -6,9 +6,9 @@
 </head>
 
 <body>
-<a href="<s:url action="view.action"/>">Display Records</a>
+<a href="<s:url action="view.action"/>">Listar Usuarios</a>
 <br><br>
-<b><font color="#5d8122" face="verdana">Insert Details</font></b>
+<b><font color="#5d8122" face="verdana">Detalles de Usuario</font></b>
 	<s:form action="insert">   
 
 			<s:textfield label="USBid" name="mb.usbid" cssClass="bord"/>
@@ -19,7 +19,7 @@
                         <s:select name="mb.rol" label="Tipo de usuario"
                                   list="{'Estudiante','Coordinador','Orientador(DIDE)'}"
                                   headerKey="-1" headerValue="Seleccionar tipo..."/>
-    <s:submit value="Insert" />
+    <s:submit value="Agregar" />
     
 </s:form>
 </body>

@@ -1,5 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-Record updated successfully......
+Actualizado correctamente......
 <META HTTP-EQUIV="Refresh" CONTENT="1;URL=view.carrera.action">
 

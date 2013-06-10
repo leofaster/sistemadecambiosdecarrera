@@ -25,7 +25,7 @@ $(function() {
                         <s:textfield label="Nombre Carrera" name="mb.nombre" cssClass="bord"/>
                         <s:textfield label="Cupos" name="mb.cupos" cssClass="bord"/>
                         <s:textfield label="Minimo de Indice" name="mb.indice_min" cssClass="bord"/>
-    <s:submit value="Insert" />
+    <s:submit value="Agregar" />
     
 </s:form>
 </body>

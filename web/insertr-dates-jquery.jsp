@@ -33,7 +33,7 @@ esssstoooooo es un coso
                                   headerKey="-1" headerValue="Seleccionar tipo..."/>
 			
   
-    <s:submit value="Insert" />
+    <s:submit value="Agregar" />
     
 </s:form>
 </body>

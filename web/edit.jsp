@@ -8,12 +8,12 @@
 </head>
 
 <body>
-<a href="<s:url action="view.action"/>">Display Records</a>
+<a href="<s:url action="view.action"/>">Listar Usuarios</a>
 <br><br>
 
 <%--   This is -- <s:property value="#application.a" /> --%>
 
-<b><font color="#5d8122" face="verdana">Update Details</font></b>
+<b><font color="#5d8122" face="verdana">Detalles de Usuario</font></b>
 
 	<s:form action="updates"> 	
 
@@ -26,7 +26,7 @@
                         <s:select name="mb.rol" value="%{#application.f}" label="Tipo de usuario"
                                   list="{'Estudiante','Coordinador','Orientador(DIDE)'}"/>
   
-    <s:submit value="Update" />
+    <s:submit value="Actualizar" />
     
 </s:form>
 

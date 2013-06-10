@@ -4,6 +4,9 @@
 
 <struts>
     <!-- Configuration for the default package. -->
+    <include file="actions.xml"></include>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
     <package name="default" extends="struts-default">
         
         <!-- JAVA4S -->
@@ -70,6 +73,5 @@
              <!--FIN JAVA4S.carrera --> 
         
     </package>
-    <include file="actions.xml"></include>
     
 </struts>

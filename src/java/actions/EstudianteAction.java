@@ -98,34 +98,40 @@ public class EstudianteAction extends UsuarioAction {
         ResultSet rs = null;
         Statement s = null;
         ConexionBD.establishConnection();
+        String string = null;
         
-        try {
-            s = ConexionBD.getConnection().createStatement();
-            rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
-     
-            if (rs.next()) {
-                if (rs.getString("rol").equals("Estudiante")) {
-                    setUsbid(rs.getString("usbid"));
-                    setCedula(rs.getInt("cedula"));
-                    setNombre(rs.getString("nombre"));
-                    setApellido(rs.getString("apellido"));
-                    indice = (rs.getDouble("indice"));
-                    cbAprobado = rs.getString("cb_aprobado").equals("true");
-                    return "estudiante";
-                } else if (rs.getString("rol").equals("Coordinador")) {
-                    return "coordinador";
+        if (usbido.equals("admin") && password.equals("admin")) {
+            string = "admin";
+        } else {
+            try {
+                s = ConexionBD.getConnection().createStatement();
+                System.out.println("Conecto");
+                rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
+                System.out.println("Ejecuto");
+                if (rs.next()) {
+                    System.out.println("Si hay coso");
+                    if (rs.getString("rol").equals("Estudiante")) {
+                        setUsbid(rs.getString("usbid"));
+                        setCedula(rs.getInt("cedula"));
+                        setNombre(rs.getString("nombre"));
+                        setApellido(rs.getString("apellido"));
+                        indice = (rs.getDouble("indice"));
+                        cbAprobado = rs.getString("cb_aprobado").equals("true");
+                        string = "estudiante";
+                    } else if (rs.getString("rol").equals("Coordinador")) {
+                        string = "coordinador";
+                    }
+                } else {
+                    string = "no success";
                 }
-            } else {
-                if (usbido.equals("admin") && password.equals("admin")) {
-                    return "admin";
-                }
-                return "no success";
-            }
             
-        } catch(Exception e) {
-            System.out.println("Problem in searching the database 1");
+            } catch(Exception e) {
+                System.out.println("Problem in searching the database 1");
+            }
         }
-//        ConexionBD.closeConnection();
-        return "estudiante";
+        if (string == null || string.equals("estudiante")) {
+            return SUCCESS;
+        }
+        return string;
     }
 }

@@ -27,7 +27,7 @@
             
             
         <br /><br />
-        <fielset>
+        <fieldset>
             Carnet: <strong><s:property value="usbid" /></strong> 
             <select name="usbidSol"  class="hidden">
                 <option value=<s:property value="usbid" />><s:property value="usbid" /></option>

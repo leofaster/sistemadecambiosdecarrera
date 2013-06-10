@@ -17,7 +17,7 @@ function editr(val)
 </script>
 </head>
 
-<a href="<s:url action="saveLink.action"/>">Insert</a>
+<a href="<s:url action="saveLink.action"/>">Agregar</a>
 
 <br><br>
 
@@ -52,7 +52,7 @@ if(l!=null)
         
         <td class="bord"><%= tempRol %></td>
         
-        <td class="bord"><a href="javascript:editr('<%= tempUsbid %>')">Edit</a></td>         
+        <td class="bord"><a href="javascript:editr('<%= tempUsbid %>')">Modificar</a></td>         
         </tr> 
         
 <% 		
@@ -61,8 +61,8 @@ if(l!=null)
 }
 
 %>  
-<input type="button" value="delete" onclick="deleteRecord();">
+<input type="button" value="Eliminar" onclick="deleteRecord();">
 </table>
 
 </form>
-
+<a href="/GestionarCatalogos.jsp">Volver</a>
