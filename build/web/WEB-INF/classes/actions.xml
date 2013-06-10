@@ -8,8 +8,8 @@
     <package name="Sistema_de_Cambios_de_Carrera" extends="struts-default">      
         
         <action name="buscarEst" class="actions.EstudianteAction" method="buscarEstudiante"> 
-            <result name="success">/Form2.jsp</result> 
-            <result name="admin">/GestionarCatalogos.jsp</result>
+            <result name="success">estudiante/Form2.jsp</result> 
+            <result name="admin">administracion/GestionarCatalogos.jsp</result>
             <result name="no success">/ErrorAuth.jsp</result>
         </action>
        

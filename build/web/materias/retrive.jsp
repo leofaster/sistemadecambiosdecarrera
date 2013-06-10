@@ -64,5 +64,5 @@ if(l!=null)
 </table>
 
 </form>
-<a href="/GestionarCatalogos.jsp">Volver</a>
+<a href="../GestionarCatalogos.jsp">Volver</a>
 
