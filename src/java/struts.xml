@@ -12,27 +12,27 @@
         <!-- JAVA4S -->
         <action name="view" class="java4s.Display">
             <result name="success">retrive.jsp</result>
-            <result name="error">/error.jsp</result>      
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="insert" class="java4s.Save">
             <result name="success">ssuccess.jsp</result>
-            <result name="error">/error.jsp</result>      
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="del" class="java4s.Delete">
             <result name="success">dsuccess.jsp</result>
-            <result name="error">/error.jsp</result>      
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="update" class="java4s.Update">
             <result name="success">edit.jsp</result>
-            <result name="error">/error.jsp</result>      
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="updates" class="java4s.Updates">
             <result name="success">usuccess.jsp</result>
-            <result name="error">/error.jsp</result>      
+            <result name="error">error.jsp</result>      
         </action>
         
         <action name="*Link" class="java4s.Links" method="{1}">

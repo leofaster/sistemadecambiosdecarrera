@@ -17,7 +17,7 @@
         <div id="body-content">
             <div>
                 <div>
-                    <img id="banner" src="index/images/prueba2.png" alt="usb">
+                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/prueba2.png" alt="usb">
                 </div>
             </div>
             <div id="sidebarL">
@@ -25,10 +25,12 @@
                     function unhide(divID) {
                         var item = document.getElementById(divID);
                         var otros = document.getElementsByTagName('div');
+                        var group;
                         if (otros) {
                             for (var i = 0; i < otros.length; i++) {
-                                if (otros[i].title == 'especial') {
-                                    otros[i].className = 'hidden'
+                                group = otros[i].getAttribute('alt');
+                                if (group == "especial") {
+                                    otros[i].className = 'hidden';
                                 }
                             }
                         }
@@ -47,14 +49,14 @@
             <div id="sidebarR" style="width:150px; height: 250px;">
                 <br>        
                 <div>
-                    <a href="http://www.usb.ve/" target="_blank"><img width="150" height="50" src="index/images/somosusb.gif"></a>
+                    <a href="http://www.usb.ve/" target="_blank"><img width="150" height="50" src="/Sistema_de_Cambios_de_Carrera/images/somosusb.gif"></a>
                 </div>
                 <br>
             </div>
 
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
-                <div id="loginDiv" title="especial">
+                <div id="loginDiv" alt="especial">
                     <h4>Bienvenido</h4>
                     <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
                     <div id="login-form">
@@ -83,7 +85,7 @@
                     <br /><br />
                 </div>
 
-                <div id="normasGenerales" class="hidden" title="especial" alt="blanco">
+                <div id="normasGenerales" class="hidden" alt="especial">
                     <pre>
             <h2>
                 Normas Generales para el Cambio de Carrera:</h2>

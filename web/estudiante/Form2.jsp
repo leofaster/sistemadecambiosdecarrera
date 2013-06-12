@@ -23,49 +23,51 @@
         <div id="body-content">
             <div>
                 <div>
-                    <img id="banner" src="index/images/prueba2.png" alt="usb">
+                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/prueba2.png" alt="usb">
                 </div>
             </div>
             <div id="sidebarL">
                 <script type="text/javascript">
                      function unhide(divID) {
                        var item = document.getElementById(divID);
-                       var otros = document.getElementsByTagName('div');
-                       if(otros){
-                           for(var i=0;i<otros.length;i++){
-                               if(otros[i].title == 'especial'){
-                                   otros[i].className = 'hidden'
-                               }
-                           }
-                       }
-                       if (item) {
-                           item.className='unhidden';
-                       }
+                        var otros = document.getElementsByTagName('div');
+                        var group;
+                        if (otros) {
+                            for (var i = 0; i < otros.length; i++) {
+                                group = otros[i].getAttribute('alt');
+                                if (group == "especial") {
+                                    otros[i].className = 'hidden';
+                                }
+                            }
+                        }
+                        if (item) {
+                            item.className = 'unhidden';
+                        }
                     }
                 </script>
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('solicitud');" class="menuitem">Solicitar Cambio de Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="indexIntercambio.jsp" class="menuitem">Salir</a></a>
+                    <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
 
             <div id="sidebarR" style="width:150px; height: 250px;">
                 <br>        
                 <div>
-                    <a href="http://www.usb.ve/"><img width="150" height="50" src="index/images/somosusb.gif"></a>
+                    <a href="http://www.usb.ve/"><img width="150" height="50" src="/Sistema_de_Cambios_de_Carrera/images/somosusb.gif"></a>
                 </div>
                 <br>
             </div>
 
             <div style="width:760px;margin-left:auto;margin-right:auto;">
                 
-                <div id="loginDiv" title="especial">
+                <div id="loginDiv" alt="especial">
                     <h4>Hola, <%=request.getAttribute("nombre")%></h4>
                     <br /><br />
                 </div>
                 
-                <div id="solicitud" class="hidden" title="especial">
+                <div id="solicitud" class="hidden" alt="especial">
                 <div id="login-form">
                     <s:form action="verificarSol" >
                         <br /><br />

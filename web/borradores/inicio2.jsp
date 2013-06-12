@@ -12,12 +12,12 @@
         <!-- Basics -->
         <title>Sistema de Cambios de Carreras</title>
         <!-- CSS -->
-        <link rel="stylesheet" href="index/css/styles.css">
+        <link rel="stylesheet" href="/Sistema_de_Cambios_de_Carrera/css/styles.css">
     </head>
     
     <body>
         <div align="center">
-            <a href="http://www.usb.ve/"><img class="banner" src="index/images/banner.png"></a>
+            <a href="http://www.usb.ve/"><img class="banner" src="/Sistema_de_Cambios_de_Carrera/images/banner.png"></a>
         </div>
     <!-- Begin Page Content -->
         <form action="buscarEst">
