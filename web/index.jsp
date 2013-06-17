@@ -17,10 +17,89 @@
         <div id="body-content">
             <div>
                 <div>
-                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/prueba2.png" alt="usb">
+                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/bannerdisfuminado.png" alt="usb">
                 </div>
             </div>
             <div id="sidebarL">
+<!--                <style>
+
+                    /* First Level UL List */
+                    #accordion {
+                        margin:0;
+                        padding:0;	
+                        list-style:none;
+                    }
+
+                    #accordion li {
+                        width:267px;
+                    }
+
+                    #accordion li a {
+                        display: block;
+                        width: 268px;
+                        height: 43px;	
+                        text-indent:-999em;
+                        outline:none;
+                    }
+
+                    /* Using CSS Sprite for menu item */
+                    #accordion li a.popular {
+                        background:url(menu.jpg) no-repeat 0 0;	
+                    }
+
+                    #accordion li a.popular:hover, .popularOver {
+                        background:url(menu.jpg) no-repeat -268px 0 !important;	
+                    }
+
+                    #accordion li a.category {
+                        background:url(menu.jpg) no-repeat 0 -43px;	
+                    }
+
+                    #accordion li a.category:hover, .categoryOver {
+                        background:url(menu.jpg) no-repeat -268px -43px !important;	
+                    }
+
+                    #accordion li a.comment {
+                        background:url(menu.jpg) no-repeat 0 -86px;	
+                    }
+
+                    #accordion li a.comment:hover, .commentOver {
+                        background:url(menu.jpg) no-repeat -268px -86px !important;	
+                    }
+
+
+                    /* Second Level UL List*/
+                    #accordion ul {
+                        background:url(bg.gif) repeat-y 0 0;
+                        width:268px;
+                        margin:0;
+                        padding:0;
+                        display:none;	
+                    }
+
+                    #accordion ul li {
+                        height:30px;
+                    }
+
+                    /* styling of submenu item */
+                    #accordion ul li a {
+                        width:240px;
+                        height:25px;
+                        margin-left:15px;
+                        padding-top:5px;
+                        border-bottom: 1px dotted #777;
+                        text-indent:0;
+                        color:#ccc;
+                        text-decoration:none;
+                    }
+
+                    /* remove border bottom of the last item */
+                    #accordion ul li a.last {
+                        border-bottom: none;
+                    }		
+
+                </style> -->
+
                 <script type="text/javascript">
                     function unhide(divID) {
                         var item = document.getElementById(divID);
@@ -38,12 +117,69 @@
                             item.className = 'unhidden';
                         }
                     }
+
+//                    $(document).ready(function() {
+//
+//                        $('#accordion a.item').click(function() {
+//                            /* FIRST SECTION */
+//
+//                            //slideup or hide all the Submenu
+//                            $('#accordion li').children('ul').slideUp('fast');
+//
+//                            //remove all the "Over" class, so that the arrow reset to default
+//                            $('#accordion a.item').each(function() {
+//                                if ($(this).attr('rel') != '') {
+//                                    $(this).removeClass($(this).attr('rel') + 'Over');
+//                                }
+//                            });
+//
+//                            /* SECOND SECTION */
+//
+//                            //show the selected submenu
+//                            $(this).siblings('ul').slideDown('fast');
+//
+//                            //add "Over" class, so that the arrow pointing down
+//                            $(this).addClass($(this).attr('rel') + 'Over');
+//
+//                            return false;
+//                        });
+//
+//                    });
                 </script>
+
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Login</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('normasGenerales');" class="menuitem">Normas Generales para el Cambio de Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="http://www.cenda.usb.ve/reglamentos/ver/236" target="_blank" class="menuitem">Reglamento USB sobre los Cambios de Carrera</a></a>
                 </div>
+
+<!--                <ul id="accordion">
+                    <li>
+                        <a href="#" class="popular" rel="popular">Popular Post</a>
+                        <ul>
+                            <li><a href="#">Popular Post 1</a></li>
+                            <li><a href="#">Popular Post 2</a></li>
+                            <li><a href="#" class="last">Popular Post 3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="category" rel="category">Category</a>
+                        <ul>
+                            <li><a href="#">Category 1</a></li>
+                            <li><a href="#">Category 2</a></li>
+                            <li><a href="#" class="last">Category 3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="comment" rel="comment">Recent Comment</a>
+                        <ul>
+                            <li><a href="#">Comment 1</a></li>
+                            <li><a href="#">Comment 2</a></li>
+                            <li><a href="#" class="last">Comment 3</a></li>
+                        </ul>
+                    </li>
+                </ul>-->
+
             </div>
 
             <div id="sidebarR" style="width:150px; height: 250px;">

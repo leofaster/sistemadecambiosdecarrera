@@ -23,7 +23,7 @@
         <div id="body-content">
             <div>
                 <div>
-                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/prueba2.png" alt="usb">
+                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/bannerdisfuminado.png" alt="usb">
                 </div>
             </div>
             <div id="sidebarL">
