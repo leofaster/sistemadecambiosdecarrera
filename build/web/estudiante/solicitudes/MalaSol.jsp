@@ -12,6 +12,6 @@
         <title>Cambio de carrera</title>
     </head>
     <body>
-        <h1>Ya has enviado una solicitud de cambio de carrera a esta coordinacion.</h1>
+        <h1>Ya has enviado una solicitud de cambio de carrera.</h1>
     </body>
 </html>
