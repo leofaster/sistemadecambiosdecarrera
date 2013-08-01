@@ -102,6 +102,7 @@ public class EstudianteAction extends UsuarioAction {
         
         if (usbido.equals("admin") && password.equals("admin")) {
             string = "admin";
+            return string;
         } else {
             try {
                 s = ConexionBD.getConnection().createStatement();
@@ -109,7 +110,6 @@ public class EstudianteAction extends UsuarioAction {
                 rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
                 System.out.println("Ejecuto");
                 if (rs.next()) {
-                    System.out.println("Si hay coso");
                     if (rs.getString("rol").equals("Estudiante")) {
                         setUsbid(rs.getString("usbid"));
                         setCedula(rs.getInt("cedula"));
@@ -117,7 +117,8 @@ public class EstudianteAction extends UsuarioAction {
                         setApellido(rs.getString("apellido"));
                         indice = (rs.getDouble("indice"));
                         cbAprobado = rs.getString("cb_aprobado").equals("true");
-                        string = "estudiante";
+                        System.out.println("es estudiante");
+                        string = "success";
                     } else if (rs.getString("rol").equals("Coordinador")) {
                         string = "coordinador";
                     }
@@ -129,9 +130,11 @@ public class EstudianteAction extends UsuarioAction {
                 System.out.println("Problem in searching the database 1");
             }
         }
-        if (string == null || string.equals("estudiante")) {
-            return SUCCESS;
+        
+        if ((string == null) || (rs.getString("rol").equals("Estudiante"))) {
+            string = "success";
         }
+
         return string;
     }
 }

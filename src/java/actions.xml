@@ -10,6 +10,7 @@
         <action name="buscarEst" class="actions.EstudianteAction" method="buscarEstudiante"> 
             <result name="success">estudiante/Form2.jsp</result> 
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
+            <result name="coordinador">administracion/GestionarCatalogos.jsp</result>
             <result name="no success">errores/ErrorAuth.jsp</result>
         </action>
        
