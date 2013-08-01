@@ -165,8 +165,8 @@ public class SolicitudAction extends ActionSupport {
         try {
             s = ConexionBD.getConnection().createStatement();
             
-            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='"+usbidSol+"' AND "
-                    +"codCarrera=CAST('"+codigoCarrera+"' AS INTEGER)");
+            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='"+usbidSol+"'");// AND "
+                    //+"codCarrera=CAST('"+codigoCarrera+"' AS INTEGER)");
             if (!rs.next()) {
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
                 + usbidSol
