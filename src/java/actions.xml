@@ -19,5 +19,11 @@
             <result name="success">estudiante/solicitudes/AgregadaSol.jsp</result> 
             <result name="no success">estudiante/solicitudes/MalaSol.jsp</result> 
         </action> 
+        
+        <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 
+            <result name="success">CupoModificado.jsp</result> 
+            <result name="no success">CupoNoModificado.jsp</result> 
+        </action> 
+        
     </package>
 </struts>
