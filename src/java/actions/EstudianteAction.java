@@ -9,6 +9,7 @@ import clases.ConexionBD;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import clases.Solicitud;
 
 /**
  *
@@ -21,6 +22,15 @@ public class EstudianteAction extends UsuarioAction {
     private boolean cbAprobado;
     private String usbido;
     private String password;
+    private String mensaje;
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 
     public String getUsbido() {
         return usbido;
@@ -99,6 +109,7 @@ public class EstudianteAction extends UsuarioAction {
         Statement s = null;
         ConexionBD.establishConnection();
         String string = null;
+        mensaje = Solicitud.verificarSolicitudes(usbido);
         
         if (usbido.equals("admin") && password.equals("admin")) {
             string = "admin";
@@ -110,20 +121,25 @@ public class EstudianteAction extends UsuarioAction {
                 rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
                 System.out.println("Ejecuto");
                 if (rs.next()) {
+                    System.out.println("si se consiguio algo");
+                    System.out.println("rol" + rs.getString("rol"));
                     if (rs.getString("rol").equals("Estudiante")) {
+                        System.out.println("es estudiante");
                         setUsbid(rs.getString("usbid"));
                         setCedula(rs.getInt("cedula"));
                         setNombre(rs.getString("nombre"));
                         setApellido(rs.getString("apellido"));
                         indice = (rs.getDouble("indice"));
                         cbAprobado = rs.getString("cb_aprobado").equals("true");
-                        System.out.println("es estudiante");
+                        
                         string = "success";
                     } else if (rs.getString("rol").equals("Coordinador")) {
                         string = "coordinador";
                     }
                 } else {
+                    System.out.println("NO se consiguio algo");
                     string = "no success";
+                    return string;
                 }
             
             } catch(Exception e) {
