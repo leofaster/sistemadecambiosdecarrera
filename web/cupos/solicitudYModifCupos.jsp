@@ -65,7 +65,7 @@
                 </script>
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('solicitud');" class="menuitem">Solicitar Cambio de Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('modifCupos');" class="menuitem">Modificar los Cupos de la Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
@@ -85,41 +85,13 @@
                     <br /><br />
                 </div>
                 
-                <div id="solicitud" class="hidden" alt="especial">
+                <div id="modifCupos" class="hidden" alt="especial">
                 <div id="login-form">
-                    <s:form action="verificarSol" >
-                        <br /><br />
-                        Carnet: <strong><s:property value="usbid" /></strong> 
-                        <select name="usbidSol"  class="hidden">
-                            <option value=<s:property value="usbid" />><s:property value="usbid" /></option>
-                        </select>
-                        <br /><br />
-                        Cédula: <strong><%=request.getAttribute("cedula")%></strong> <br /><br />
-                        Nombre: <strong><%=request.getAttribute("nombre")%></strong> <br /><br />
-                        Apellido: <strong><%=request.getAttribute("apellido")%></strong> <br /><br />
-                        <s:select name="carrera_dest" label="Carrera Deseada" required="true"
-                            list="{'0100 - Ingeniería Eléctrica', 
-                            '0200 - Ingeniería Mecánica', 
-                            '0300 - Ingeniería Química', 
-                            '0600 - Ingeniería Electrónica', 
-                            '0800 - Ingeniería de la Computación',
-                            '1200 - Ingeniería Geofísica',
-                            '1500 - Ingeniería de Materiales', 
-                            '1700 - Ingeniería de Producción', 
-                            'Ingeniería de Mantenimiento', 
-                            'Ingeniería de Telecomunicaciones',
-                            '0400 - Licenciatura en Química',
-                            '0500 - Licenciatura en Matemáticas',
-                            '1000 - Licenciatura en Física',
-                            '1900 - Licenciatura en Biología',
-                            '0700 - Arquitectura',
-                            '1100 - Urbanismo',
-                            '3200 - Licenciatura en Comercio Internacional',
-                            '3000 - Licenciatura en Gestión de la Hospitalidad'}"
-                            headerKey="-1" headerValue="Seleccionar carrera..."/>
-                        <s:textarea name="motivacion" cols="25" rows="4"
-                            label="Motivacion para el cambio" required="true"/>
-                        <s:submit value="Continuar" />
+                    <s:form action="ModificarCup">
+                            Indique la cantidad de cupos disponible que desea que tenga su carrera:
+                            <input type="text" name="cantCupos" size="15" />
+                            <br>
+                        <s:submit value="Aceptar" />
                     </s:form>
                 </div>
                 </div>
