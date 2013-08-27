@@ -25,5 +25,10 @@
             <result name="no success">CupoNoModificado.jsp</result> 
         </action> 
         
+        <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
+            <result name="success">mostrarCupo.jsp</result> 
+            <result name="no success">errorCupo.jsp</result> 
+        </action> 
+        
     </package>
 </struts>
