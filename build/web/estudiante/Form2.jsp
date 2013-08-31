@@ -48,6 +48,7 @@
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('solicitud');" class="menuitem">Solicitar Cambio de Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/cupos/solicitudCupos.jsp" class="menuitem">Consultar Cantidad de Cupos</a></a>
                     <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
