@@ -81,7 +81,7 @@
             <div style="width:760px;margin-left:auto;margin-right:auto;">
                 
                 <div id="loginDiv" alt="especial">
-                    <h4>Hola, <%=request.getAttribute("nombre")%></h4>
+                    <h4>Hola, <%=request.getAttribute("usbid")%></h4>
                     <br /><br />
                 </div>
                 
