@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Usuario o contraseña invalido.</h1>
-        <a href="indexIntercambio.jsp">Click aqui para volver a autenticar.</a>
+        <a href="index.jsp">Click aqui para volver a autenticar.</a>
     </body>
 </html>

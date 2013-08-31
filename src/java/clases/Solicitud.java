@@ -3,14 +3,18 @@
  * and open the template in the editor.
  */
 package clases;
+
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.*;
+
 /**
  *
  * @author CHANGE Gate
  */
 public class Solicitud implements Serializable {
-    
+
     private Estudiante estudiante;
     private Carrera carrera;
     private Date fecha;
@@ -146,5 +150,32 @@ public class Solicitud implements Serializable {
      */
     public void setReportes(LinkedList<Reporte> reportes) {
         this.reportes = reportes;
-    }    
+    }
+
+    public static String verificarSolicitudes(String usbido) throws Exception {
+
+        String mensaje = null;
+        ResultSet rs = null;
+        Statement s = null;
+        ConexionBD.establishConnection();
+
+        try {
+            s = ConexionBD.getConnection().createStatement();
+            System.out.println("Conecto");
+            rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "'");
+            System.out.println("Ejecuto");
+
+            if (rs.next()) {
+                mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a " + rs.getString("nombre");
+            } else {
+                mensaje = "No has enviado solcitudes";
+            }
+
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database 1");
+        }
+        
+        System.out.println(mensaje);
+        return mensaje;
+    }
 }
