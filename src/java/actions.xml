@@ -11,7 +11,7 @@
             <result name="success">estudiante/Form2.jsp</result> 
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
             <result name="coordinador">cupos/solicitudYModifCupos.jsp</result>
-            <result name="no success">errores/ErrorAuth.jsp</result>
+            <result name="no success">/index.jsp</result>
         </action>
        
        

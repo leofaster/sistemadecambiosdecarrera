@@ -178,6 +178,7 @@ public class SolicitudAction extends ActionSupport {
                 +"false"+","
                 +"'"+motivacion+"')"
                  );
+                addActionMessage("Tu solicitud fue enviada.");
                 return SUCCESS;
             }
             else

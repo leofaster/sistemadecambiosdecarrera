@@ -66,6 +66,12 @@
 
                 <div id="loginDiv" alt="especial">
                     <h4>Hola, <%=request.getAttribute("nombre")%></h4>
+                    <s:if test="hasActionMessages()">
+                        <div class="welcome">
+                            <br/>
+                            <s:actionmessage />
+                        </div>
+                    </s:if>
                     <br /><br />
                 </div>
 
