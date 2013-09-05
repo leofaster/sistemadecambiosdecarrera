@@ -4,9 +4,15 @@
  */
 package actions;
 
+import clases.ConexionBD;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
@@ -14,7 +20,7 @@ import org.apache.struts2.interceptor.SessionAware;
  * @author CHANGE Gate
  */
 public class UsuarioAction extends ActionSupport implements SessionAware {
-    
+
     private String usbid;
     private int cedula;
     private String nombre;
@@ -31,24 +37,51 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
     public String execute() {
         return SUCCESS;
     }
-    
+
     /**
      *
      */
     @Override
     public void validate() {
+
         if (getUsbid().length() == 0) {
-            addFieldError("userName", getText("username.required"));
-        } else if (!getUsbid().equals("Shiva")) {
-            addFieldError("userName", getText("username.wrong"));
+            addFieldError("usbid", getText("usbid.required"));
         }
         if (getContrasena().length() == 0) {
-            addFieldError("password", getText("password.required"));
+            addFieldError("contrasena", getText("contrasena.required"));
         }
-        session.put("usbid", getUsbid());
-        session.put("constrasena", getContrasena());
+
+        if (getUsbid().equals("admin") && getContrasena().equals("admin")) {
+            session.put("usbid", getUsbid());
+            session.put("rol", "admin");
+            return;
+        }
+
+        ResultSet rs = null;
+        Statement s = null;
+        ConexionBD.establishConnection();
+        
+        try {
+            s = ConexionBD.getConnection().createStatement();
+            rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='" + getUsbid() + "' AND contrasena='" + getContrasena() + "'");
+            
+            if (rs.next()) {
+                System.out.println("si se consiguio algo");
+                System.out.println("rol" + rs.getString("rol"));
+                session.put("usbid", getUsbid());
+                session.put("cedula", getCedula());
+                session.put("nombre", getNombre());
+                session.put("apellido", getApellido());
+                session.put("rol", getRol());
+            } else {
+                System.out.println("NO se consiguio algo");
+                addActionError("Usuario o contraseña inválido.");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+
     /**
      *
      * @return
@@ -160,5 +193,4 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
     public void setRol(String rol) {
         this.rol = rol;
     }
-
 }

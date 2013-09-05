@@ -205,25 +205,29 @@
 
                     <s:if test="hasActionErrors()">
                         <div class="errors">
-                            
+
                             <s:actionerror />
                         </div>
                     </s:if>
                     <div id="login-form">
 
-
+                        <s:form action="Login">
+                            <s:textfield name="usbid" label="User Name" />
+                            <s:password name="contrasena" label="Password" />
+                            <s:submit value="Login" />
+                        </s:form>
                         <form action="buscarEst">
                             <table style="border: none">
                                 <tr style="border: none">
                                     <td style="border: none">USBid</td>
-                                    <td style="border: none"><input title="Introduzca su USBid" type="text" name="usbido" maxlength="8" size="14" placeholder="XX-XXXXX"></td>
+                                    <td style="border: none"><input title="Introduzca su USBid" type="text" name="usbid" maxlength="8" size="14" placeholder="XX-XXXXX"></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none" colspan="2"></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none">Contraseña</td>
-                                    <td style="border: none"><input title="Introduzca su contraseña" type="password" name="password" size="14" placeholder="******"></td>
+                                    <td style="border: none"><input title="Introduzca su contraseña" type="password" name="contrasena" size="14" placeholder="******"></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none" colspan="2"></td>
