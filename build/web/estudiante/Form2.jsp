@@ -65,7 +65,7 @@
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
                 <div id="loginDiv" alt="especial">
-                    <h4>Hola, <%=request.getAttribute("nombre")%></h4>
+                    <h4>Hola, <%=session.getAttribute("nombre")%></h4>
                     <s:if test="hasActionMessages()">
                         <div class="welcome">
                             <br/>
@@ -84,9 +84,9 @@
                                 <option value=<s:property value="usbid" />><s:property value="usbid" /></option>
                             </select>
                             <br /><br />
-                            Cédula: <strong><%=request.getAttribute("cedula")%></strong> <br /><br />
-                            Nombre: <strong><%=request.getAttribute("nombre")%></strong> <br /><br />
-                            Apellido: <strong><%=request.getAttribute("apellido")%></strong> <br /><br />
+                            Cédula: <strong><%=session.getAttribute("cedula")%></strong> <br /><br />
+                            Nombre: <strong><%=session.getAttribute("nombre")%></strong> <br /><br />
+                            Apellido: <strong><%=session.getAttribute("apellido")%></strong> <br /><br />
                             <s:select name="carrera_dest" label="Carrera Deseada" required="true"
                                       list="{'0100 - Ingeniería Eléctrica', 
                                       '0200 - Ingeniería Mecánica', 

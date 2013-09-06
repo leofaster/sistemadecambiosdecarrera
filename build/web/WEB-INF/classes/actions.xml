@@ -15,9 +15,9 @@
         </action>
         
         <action name="Login" class="actions.UsuarioAction">
-            <result name="success">estudiante/Form2.jsp</result>
+            <result name="Estudiante">estudiante/Form2.jsp</result>
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
-            <result name="coordinador">cupos/solicitudYModifCupos.jsp</result>
+            <result name="Coordinador">cupos/solicitudYModifCupos.jsp</result>
             <result name="input">/index.jsp</result>
         </action>
        
