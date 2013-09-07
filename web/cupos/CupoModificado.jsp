@@ -12,6 +12,8 @@
         
     </head>
     <body>
+    <center>
         <h1>La cantidad de cupos de su carrera han sido modificados.</h1>
+    </center>
     </body>
 </html>

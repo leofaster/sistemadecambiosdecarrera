@@ -9,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Change Gate</title>
+        <title>Error</title>
     </head>
     <body>
+    <center>
         <h1>ERROR 404</h1>
+    </center>
     </body>
 </html>

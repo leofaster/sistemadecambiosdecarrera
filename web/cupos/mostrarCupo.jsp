@@ -9,9 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Change Gate</title>
+        <title>Ver Cupos Disponibles</title>
     </head>
     <body>
-        Cantidad de cupos: <strong><%=request.getAttribute("cupos")%></strong>.
+    <center>
+        <h1>
+        Cantidad de cupos: <strong><%=request.getAttribute("cupos")%></strong>
+        </h1>
+    </center>
     </body>
 </html>

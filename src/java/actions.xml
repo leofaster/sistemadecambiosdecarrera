@@ -28,13 +28,13 @@
         </action> 
         
         <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 
-            <result name="success">CupoModificado.jsp</result> 
-            <result name="no success">CupoNoModificado.jsp</result> 
+            <result name="success">cupos/CupoModificado.jsp</result> 
+            <result name="no success">cupos/CupoNoModificado.jsp</result> 
         </action> 
         
         <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
-            <result name="success">mostrarCupo.jsp</result> 
-            <result name="no success">errorCupo.jsp</result> 
+            <result name="success">cupos/mostrarCupo.jsp</result> 
+            <result name="no success">cupos/errorCupo.jsp</result> 
         </action> 
         
     </package>
