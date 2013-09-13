@@ -6,6 +6,7 @@ package actions;
 
 import clases.ConexionBD;
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,7 +36,8 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
      */
     @Override
     public String execute() {
-        return SUCCESS;
+        Map session2 = ActionContext.getContext().getSession();
+        return session2.get("rol").toString();
     }
 
     /**
@@ -68,11 +70,11 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
             if (rs.next()) {
                 System.out.println("si se consiguio algo");
                 System.out.println("rol" + rs.getString("rol"));
-                session.put("usbid", getUsbid());
-                session.put("cedula", getCedula());
-                session.put("nombre", getNombre());
-                session.put("apellido", getApellido());
-                session.put("rol", getRol());
+                session.put("usbid", rs.getString("usbid"));
+                session.put("cedula", rs.getString("cedula"));
+                session.put("nombre", rs.getString("nombre"));
+                session.put("apellido", rs.getString("apellido"));
+                session.put("rol", rs.getString("rol"));
             } else {
                 System.out.println("NO se consiguio algo");
                 addActionError("Usuario o contraseña inválido.");

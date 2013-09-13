@@ -12,6 +12,8 @@
         
     </head>
     <body>
+    <center>
         <h1>Lo sentimos la cantidad de cupos debe ser un número mayor o igual a 0.</h1>
+    </center>
     </body>
 </html>

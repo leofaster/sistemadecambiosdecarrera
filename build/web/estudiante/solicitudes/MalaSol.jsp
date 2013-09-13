@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cambio de carrera</title>
+        <title>Error de Solicitud</title>
     </head>
     <body bgcolor ="red">
         <center>

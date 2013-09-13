@@ -212,30 +212,25 @@
                     <div id="login-form">
 
                         <s:form action="Login">
-                            <s:textfield name="usbid" label="User Name" />
-                            <s:password name="contrasena" label="Password" />
-                            <s:submit value="Login" />
-                        </s:form>
-                        <form action="buscarEst">
                             <table style="border: none">
                                 <tr style="border: none">
-                                    <td style="border: none">USBid</td>
-                                    <td style="border: none"><input title="Introduzca su USBid" type="text" name="usbid" maxlength="8" size="14" placeholder="XX-XXXXX"></td>
+                           <%--     <td style="border: none">USBid</td>--%>
+                                    <td style="border: none"><s:textfield label="Introduzca su USBid" type="text" name="usbid" maxlength="8" size="14" placeholder="XX-XXXXX" /></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none" colspan="2"></td>
                                 </tr>
                                 <tr style="border: none">
-                                    <td style="border: none">Contraseña</td>
-                                    <td style="border: none"><input title="Introduzca su contraseña" type="password" name="contrasena" size="14" placeholder="******"></td>
+                       <%--         <td style="border: none">Contraseña</td> --%>
+                                    <td style="border: none"><s:password label="Introduzca su contraseña" type="password" name="contrasena" size="14" placeholder="******" /></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none" colspan="2"></td>
                                 </tr>
                             </table>
                             <br><br>
-                            <input type="submit" value="Entrar">   
-                        </form>
+                            <s:submit value="Entrar" />   
+                        </s:form>
                         <!--<a href="/Intercambio-II/reccontra.do;jsessionid=335112095AD26CB34CAB224F730DD697">¿Olvid&oacute; su contraseña?</a><br />-->
                     </div>
                     <br /><br />
