@@ -46,7 +46,7 @@
                 </script>
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('listarSol');" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a></a>
+                    <a style="border-bottom: none;" ><a href="<s:url action="ListarSol"/>" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('solicitud');" class="menuitem">Solicitar Cambio de Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('verCupos');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>

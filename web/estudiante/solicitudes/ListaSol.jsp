@@ -1,7 +1,8 @@
 <%-- 
-    Document   : AgregadaSol
-    Created on : 31/05/2013, 07:37:15 AM
-    Author     : CHANGE Gate
+    Document    : ListaSol
+    Created on  : 14/09/2013, 04:56:26 PM
+    Modified on : $
+    Author      : CHANGE Gate
 --%>
 
 <!DOCTYPE html>
@@ -46,8 +47,9 @@
                 </script>
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
-                    <a style="border-bottom: none;" ><a href="<s:url action="ListarSol"/>" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('solicitud');" class="menuitem">Solicitar Cambio de Carrera</a></a>
+                    <%--                    <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/cupos/solicitudCupos.jsp" class="menuitem">Consultar Cantidad de Cupos</a></a>--%>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('verCupos');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>
                 </div>
@@ -64,8 +66,8 @@
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
                 <div id="loginDiv" alt="especial">
-                    <h4>Tu solicitud fue enviada, ¡éxito!</h4>
                     <br /><br />
+                    <center><strong><s:property value="mensaje" /></strong> <br /><br /></center>
                 </div>
 
                 <div id="solicitud" class="hidden" alt="especial">

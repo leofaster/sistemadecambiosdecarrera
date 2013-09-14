@@ -18,6 +18,7 @@ import java.util.Map;
  * @author CHANGE Gate
  */
 public class SolicitudAction extends ActionSupport {
+
     private String usbidSol;
     private Estudiante estudiante;
     private int codigoCarrera;
@@ -26,31 +27,36 @@ public class SolicitudAction extends ActionSupport {
     private boolean ccAprobado;
     private String motivacion;
     String carrera_dest;
+    String mensaje;
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 
     public String getCarrera_dest() {
         return carrera_dest;
     }
 
-
     public void setCarrera_dest(String carrera_dest) {
         this.carrera_dest = carrera_dest;
     }
 
-    
-     public String getUsbidSol() {
+    public String getUsbidSol() {
         return usbidSol;
     }
 
     public void setUsbidSol(String usbidSol) {
         this.usbidSol = usbidSol;
     }
-    
 
     /**
      *
      * @return
      */
-
     public Estudiante getEstudiante() {
         return estudiante;
     }
@@ -142,56 +148,82 @@ public class SolicitudAction extends ActionSupport {
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
     }
-    
+
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
     public String mostrarSolicitud() throws Exception {
-        
+
         ResultSet rs = null;
         Statement s = null;
         Map session2 = ActionContext.getContext().getSession();
         usbidSol = session2.get("usbid").toString();
 //        ConexionBD.establishConnection();
-            System.out.println(usbidSol);
-            System.out.println(carrera_dest);
-            System.out.println(ccAprobado);
-            System.out.println(motivacion);
-            this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0,4)));
-            System.out.println(this.codigoCarrera);
+        System.out.println(usbidSol);
+        System.out.println(carrera_dest);
+        System.out.println(ccAprobado);
+        System.out.println(motivacion);
+        this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0, 4)));
+        System.out.println(this.codigoCarrera);
 
         ConexionBD.establishConnection();
-        
+
 
         try {
             s = ConexionBD.getConnection().createStatement();
-            
-            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='"+usbidSol+"'");// AND "
-                    //+"codCarrera=CAST('"+codigoCarrera+"' AS INTEGER)");
+
+            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "'");// AND "
+            //+"codCarrera=CAST('"+codigoCarrera+"' AS INTEGER)");
             if (!rs.next()) {
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
-                + usbidSol
-                +"',"
-                +"CAST('"+codigoCarrera+"' AS INTEGER),"
-                +"NOW(),"
-                +"'',"
-                +"false,"
-                +"false"+","
-                +"'"+motivacion+"')"
-                 );
+                        + usbidSol
+                        + "',"
+                        + "CAST('" + codigoCarrera + "' AS INTEGER),"
+                        + "NOW(),"
+                        + "'',"
+                        + "false,"
+                        + "false" + ","
+                        + "'" + motivacion + "')");
                 addActionMessage("Tu solicitud fue enviada.");
                 return SUCCESS;
+            } else {
+                return "no success";
             }
-            else
-               return "no success";
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Problem in searching the database 2");
         }
-        
-        
+
+
         return SUCCESS;
-       
+
+    }
+
+    public String listarSolicitudes() throws Exception {
+
+        ResultSet rs = null;
+        Statement s = null;
+        ConexionBD.establishConnection();
+
+        Map session2 = ActionContext.getContext().getSession();
+        String usbido = session2.get("usbid").toString();
+
+        try {
+            s = ConexionBD.getConnection().createStatement();
+            System.out.println("Conecto");
+            rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "'");
+            System.out.println("Ejecuto");
+
+            if (rs.next()) {
+                mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a " + rs.getString("nombre");
+            } else {
+                mensaje = "No has enviado solcitudes";
+            }
+
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database 1");
+        }
+
+        return SUCCESS;
     }
 }

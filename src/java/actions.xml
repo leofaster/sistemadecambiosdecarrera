@@ -25,7 +25,11 @@
         <action name="verificarSol" class="actions.SolicitudAction" method="mostrarSolicitud"> 
             <result name="success">estudiante/solicitudes/AgregadaSol.jsp</result> 
             <result name="no success">estudiante/solicitudes/MalaSol.jsp</result> 
-        </action> 
+        </action>
+        
+        <action name="ListarSol" class="actions.SolicitudAction" method="listarSolicitudes"> 
+            <result name="success">estudiante/solicitudes/ListaSol.jsp</result> 
+        </action>
         
         <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 
             <result name="success">cupos/CupoModificado.jsp</result> 
@@ -33,7 +37,8 @@
         </action> 
         
         <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
-            <result name="success">cupos/mostrarCupo.jsp</result> 
+            <result name="success">cupos/mostrarCupo.jsp</result>
+            <result name="coordinador">cupos/mostrarCupoC.jsp</result>
             <result name="no success">cupos/errorCupo.jsp</result> 
         </action> 
         

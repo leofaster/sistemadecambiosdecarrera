@@ -108,7 +108,12 @@ public class ModificarCupos {
 
                 System.out.println("Bien");
 
-
+                Map session2 = ActionContext.getContext().getSession();
+                String rol = session2.get("rol").toString();
+                
+                if (rol.equals("Coordinador")) {
+                    return "coordinador";
+                }
 
                 return "success";
 

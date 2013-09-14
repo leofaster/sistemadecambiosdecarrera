@@ -29,6 +29,15 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
     private String contrasena;
     private String rol;
     private Map session;
+    private String mensaje;
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 
     /**
      *
