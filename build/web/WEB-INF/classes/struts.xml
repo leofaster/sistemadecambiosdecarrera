@@ -39,8 +39,8 @@
             <result name="save">insertr.jsp</result>
             <result name="display">retrive.jsp</result>           
         </action>
-             <!--FIN JAVA4S --> 
-             <!-- JAVA4S.carrera -->
+        <!--FIN JAVA4S --> 
+        <!-- JAVA4S.carrera -->
         <action name="view.carrera" class="java4s.carrera.Display">
             <result name="success">retrive.jsp</result>
             <result name="error">error.jsp</result>      
@@ -70,7 +70,7 @@
             <result name="save">insertr.jsp</result>
             <result name="display">retrive.jsp</result>           
         </action>
-             <!--FIN JAVA4S.carrera --> 
+        <!--FIN JAVA4S.carrera --> 
         
     </package>
     

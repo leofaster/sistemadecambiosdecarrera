@@ -11,143 +11,143 @@
 <html>
     <SCRIPT language="javascript">
         var seleccion;
-    	seleccion="carnet";	
-        	
+        seleccion = "carnet";
+
         function dispararAccionTai() {
-            if(validarTai()){
-                document.forms[0].action='./entrarTai.do';
+            if (validarTai()) {
+                document.forms[0].action = './entrarTai.do';
                 document.forms[0].submit();
             }
         }
-        	
+
         function validarTai() {
             var errores = "Ocurrieron los siguientes errores:\n\n";
             var hayErrores = false;
             var valor = document.entrarForm["carnet"].value;
-       			
-            if(valor==""){  
+
+            if (valor == "") {
                 errores += "El campo cedula no puede ser vacio.\n";
                 hayErrores = true;
-            }else{
-                if (isNaN(valor)) { 
+            } else {
+                if (isNaN(valor)) {
                     errores += "El campo cedula tiene que ser numerico.\n";
-                    hayErrores = true; 
+                    hayErrores = true;
                 }
             }
-       			
-            if(hayErrores) {
+
+            if (hayErrores) {
                 alert(errores);
                 return false;
             }
             return true;
         }
-        	
+
         function darValor(radio) {
-            if (radio.checked==true){
-                valorRadio=radio.value;
-                seleccion=valorRadio;
+            if (radio.checked == true) {
+                valorRadio = radio.value;
+                seleccion = valorRadio;
             }
         }
-			
+
         function cancelar() {
-            document.entrarForm["carnet"].value="";
-            document.entrarForm["valor"].value="";
+            document.entrarForm["carnet"].value = "";
+            document.entrarForm["valor"].value = "";
         }
-			
+
         function dispararAccion() {
-            if(validar()){
-                document.forms[0].action='./entrar.do';
+            if (validar()) {
+                document.forms[0].action = './entrar.do';
                 document.forms[0].submit();
             }
         }
-        
+
         function validar() {
             var errores = "Ocurrieron los siguientes errores:\n\n";
             var hayErrores = false;
             var valor = document.entrarForm["carnet"].value;
             var tamaño = parseFloat(valor.length);
             var opcion = document.entrarForm["valor"].value;
-            con=0;
-            pos=0;
+            con = 0;
+            pos = 0;
 
-            if(document.entrarForm["valor"].value=="")     
+            if (document.entrarForm["valor"].value == "")
             {
                 errores += "Debe seleccionar el tipo de estudiante.\n";
                 hayErrores = true;
             }
 
-            if(seleccion=="carnet")     
-            {  
-                if(valor=="")     
-                {  
+            if (seleccion == "carnet")
+            {
+                if (valor == "")
+                {
                     errores += "El campo carnet no puede ser vacio.\n";
                     hayErrores = true;
                 }
 
-                if(tamaño<3)     
-                {  
+                if (tamaño < 3)
+                {
                     errores += "El campo carnet no puede ser menor de 3 caracteres.\n";
                     hayErrores = true;
                 }
-                    
-                if(tamaño>8)     
-                {  
+
+                if (tamaño > 8)
+                {
                     errores += "El campo carnet no puede ser mayor de 8 caracteres.\n";
                     hayErrores = true;
                 }
-                
-                for (i=0; i<=valor.length; i++){
-                    if(valor[i]=="-"){
-                        con=con+1;
-                        pos=i;
-                   }	
+
+                for (i = 0; i <= valor.length; i++) {
+                    if (valor[i] == "-") {
+                        con = con + 1;
+                        pos = i;
+                    }
                 }
-                
-                if(opcion==0){
-                    if(con==0){
+
+                if (opcion == 0) {
+                    if (con == 0) {
                         errores += "El formato de carnet es invalido.\n";
                         hayErrores = true;
                     }
-                    if(con>1){
+                    if (con > 1) {
                         errores += "El formato de carnet es invalido.\n";
                         hayErrores = true;
-                    }else{
-                        if(pos!=2 && con!=0){
+                    } else {
+                        if (pos != 2 && con != 0) {
                             errores += "El formato de carnet es invalido.\n";
                             hayErrores = true;
-                        }	
+                        }
                     }
-                }else{
-                    if(opcion==1){
-                        if(con>1){
+                } else {
+                    if (opcion == 1) {
+                        if (con > 1) {
                             errores += "El formato de carnet es invalido.\n";
                             hayErrores = true;
-                        }else{
-                            if(pos!=2 && con!=0){
+                        } else {
+                            if (pos != 2 && con != 0) {
                                 errores += "El formato de carnet es invalido.\n";
                                 hayErrores = true;
-                            }	
+                            }
                         }
-                    }else{
-                        if (isNaN(valor)) { 
+                    } else {
+                        if (isNaN(valor)) {
                             errores += "El campo carnet tiene que ser numerico.\n";
-                            hayErrores = true; 
-                        }	
+                            hayErrores = true;
+                        }
                     }
                 }
-            }else{
-                if(valor=="")     
-                {  
+            } else {
+                if (valor == "")
+                {
                     errores += "El campo cedula no puede ser vacio.\n";
                     hayErrores = true;
-                }else{
-                    if (isNaN(valor)) { 
+                } else {
+                    if (isNaN(valor)) {
                         errores += "El campo cedula tiene que ser numerico.\n";
-                        hayErrores = true; 
+                        hayErrores = true;
                     }
                 }
             }
-            if(hayErrores)
+            if (hayErrores)
             {
                 alert(errores);
                 return false;
@@ -156,43 +156,44 @@
         }
 
         function solo_numero(e) {
-            if(seleccion=="carnet"){
+            if (seleccion == "carnet") {
                 tecla = (document.all) ? e.keyCode : e.which;
-                if (tecla==0 ||tecla==9||tecla==11||tecla==8||tecla==45){
-                    return true;				 	
+                if (tecla == 0 || tecla == 9 || tecla == 11 || tecla == 8 || tecla == 45) {
+                    return true;
                 }
-                if(tecla==13){
-                    if(dispararAccion()) 
+                if (tecla == 13) {
+                    if (dispararAccion())
                         return true;
-                } 	
-                patron =/[\d]/;
+                }
+                patron = /[\d]/;
                 tecla_final = String.fromCharCode(tecla);
                 return patron.test(tecla_final);
-            }else{
+            } else {
                 tecla = (document.all) ? e.keyCode : e.which;
-                if (tecla==0 ||tecla==9||tecla==11||tecla==8){
-                    return true;				 	
+                if (tecla == 0 || tecla == 9 || tecla == 11 || tecla == 8) {
+                    return true;
                 }
-                if(tecla==13){
-                    if(dispararAccion()) 
+                if (tecla == 13) {
+                    if (dispararAccion())
                         return true;
-                } 	
-                patron =/[\d]/;
+                }
+                patron = /[\d]/;
                 tecla_final = String.fromCharCode(tecla);
                 return patron.test(tecla_final);
             }
         }
-			
+
         function solo_numero_punto(e) {
             tecla = (document.all) ? e.keyCode : e.which;
-            if (tecla==0 || tecla==9||tecla==11||tecla==13) return true; 
-            patron =/[\d\.]/;
+            if (tecla == 0 || tecla == 9 || tecla == 11 || tecla == 13)
+                return true;
+            patron = /[\d\.]/;
             tecla_final = String.fromCharCode(tecla);
-            return patron.test(tecla_final); 
+            return patron.test(tecla_final);
         }
-        
+
     </SCRIPT>
-    
+
     <head>
         <meta http-equiv="pragma" content="no-cache"/>
         <meta http-equiv="cache-control" content="no-cache"/>
@@ -205,8 +206,8 @@
 
     <body>
         <div class="page-container">
-        <!-- HEADER -->
-            
+            <!-- HEADER -->
+
             <!-- Global Navigation -->
             <div class="nav-global-container">
                 <div class="nav-global nav-global-font">
@@ -224,12 +225,12 @@
                 </div>
             </div>                 
             <div><img class="img-header" src="index/images/header.png" alt=""/></div>
-            
+
             <!-- Main Navigation -->
             <div class="nav-main nav-main-font">      
             </div>
             <div class="buffer"></div>
-            
+
             <!-- Contenido y barra lateral -->
             <div class="container-content-sidebar-front">            
 
@@ -238,7 +239,7 @@
 
                     <!-- Page title -->    
                     <div class="content-pagetitle"><h1 class="titulopag">P&aacute;gina de Inicio</h1></div>      
-                      
+
                     <!-- Text container -->
                     <div class="contentbox-container">
                         <div class="contentbox-full">
@@ -246,7 +247,7 @@
                             <div class="contentbox-title-shading-small">Iniciar sesi&oacute;n</div>
                             <div class="contentbox-noshading">
                                 <div style="width:100%; text-align: left;">
-                                <br />
+                                    <br />
                                     <form action="buscarEst">
                                         <p>Bienvenido al Sistema de Cambios de Carrera. Por favor, introduzca sus datos para iniciar sesi&oacute;n:</p> <br/> 			
                                         <table border="1" class="forma"  style="margin-left: auto; margin-right: auto; ">
@@ -271,21 +272,21 @@
                         </div> <!-- Contentbox-full -->
                     </div> <!-- Contentbox -->
 
-                <!-- Text container -->
+                    <!-- Text container -->
                 </div> <!-- END CONTENT -->
 
                 <!-- SIDEBAR -->
                 <div class="sidebar sidebar-font">
                 </div> <!--  FIN DE SIDEBAR -->  
-    
-            <!-- FIN DEL CONTENIDO Y BARRA LATERAL -->
+
+                <!-- FIN DEL CONTENIDO Y BARRA LATERAL -->
             </div>
-  
+
             <!-- FOOTER -->
             <div class="footer footer-font">
                 <p style="color:#0B3861"><b>Nota:</b> Si presenta algún inconveniente bla bla: Sartenejas 9063471 / Litoral 9069069.</p>
             </div>
         </div> <!-- FIN DE LA PAGINA -->
     </body>
-    
+
 </html>

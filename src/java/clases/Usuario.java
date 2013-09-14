@@ -3,13 +3,15 @@
  * and open the template in the editor.
  */
 package clases;
+
 import java.io.Serializable;
+
 /**
  *
  * @author CHANGE Gate
  */
-public class Usuario implements Serializable{
-   
+public class Usuario implements Serializable {
+
     private String usbid;
     private int cedula;
     private String nombre;

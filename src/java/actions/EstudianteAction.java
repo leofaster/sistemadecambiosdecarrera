@@ -16,7 +16,7 @@ import clases.Solicitud;
  * @author CHANGE Gate
  */
 public class EstudianteAction extends UsuarioAction {
-    
+
     private double indice;
     private Carrera carrera;
     private boolean cbAprobado;
@@ -39,8 +39,6 @@ public class EstudianteAction extends UsuarioAction {
     public void setUsbido(String usbido) {
         this.usbido = usbido;
     }
-
-    
 
     public String getPassword() {
         return password;
@@ -97,20 +95,19 @@ public class EstudianteAction extends UsuarioAction {
     public void setCbAprobado(boolean cbAprobado) {
         this.cbAprobado = cbAprobado;
     }
-    
+
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
     public String buscarEstudiante() throws Exception {
-        
+
         ResultSet rs = null;
         Statement s = null;
         ConexionBD.establishConnection();
         String string = null;
         mensaje = Solicitud.verificarSolicitudes(usbido);
-        
+
         if (usbido.equals("admin") && password.equals("admin")) {
             string = "admin";
             return string;
@@ -118,7 +115,7 @@ public class EstudianteAction extends UsuarioAction {
             try {
                 s = ConexionBD.getConnection().createStatement();
                 System.out.println("Conecto");
-                rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='"+usbido+"' AND contrasena='"+password+"'");
+                rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='" + usbido + "' AND contrasena='" + password + "'");
                 System.out.println("Ejecuto");
                 if (rs.next()) {
                     System.out.println("si se consiguio algo");
@@ -131,7 +128,7 @@ public class EstudianteAction extends UsuarioAction {
                         setApellido(rs.getString("apellido"));
                         indice = (rs.getDouble("indice"));
                         cbAprobado = rs.getString("cb_aprobado").equals("true");
-                        
+
                         string = "success";
                     } else if (rs.getString("rol").equals("Coordinador")) {
                         string = "coordinador";
@@ -142,12 +139,12 @@ public class EstudianteAction extends UsuarioAction {
                     string = "no success";
                     return string;
                 }
-            
-            } catch(Exception e) {
+
+            } catch (Exception e) {
                 System.out.println("Problem in searching the database 1");
             }
         }
-        
+
         if ((string == null) || (rs.getString("rol").equals("Estudiante"))) {
             string = "success";
         }

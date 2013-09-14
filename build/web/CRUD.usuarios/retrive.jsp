@@ -34,15 +34,15 @@
                     String tempApellido = b.getApellido();
                     String tempRol = b.getRol();
         %>
-                    <tr> 
-                        <td class="bord"><input type="checkbox" value="<%= tempUsbid%>" name="rdel"></td>
-                        <td class="bord"><%= tempUsbid%></td>
-                        <td class="bord"><%= tempCedula%></td>
-                        <td class="bord"><%= tempNombre%></td>
-                        <td class="bord"><%= tempApellido%></td>
-                        <td class="bord"><%= tempRol%></td>
-                        <td class="bord"><a href="javascript:editr('<%= tempUsbid%>')">Modificar</a></td>         
-                    </tr> 
+        <tr> 
+            <td class="bord"><input type="checkbox" value="<%= tempUsbid%>" name="rdel"></td>
+            <td class="bord"><%= tempUsbid%></td>
+            <td class="bord"><%= tempCedula%></td>
+            <td class="bord"><%= tempNombre%></td>
+            <td class="bord"><%= tempApellido%></td>
+            <td class="bord"><%= tempRol%></td>
+            <td class="bord"><a href="javascript:editr('<%= tempUsbid%>')">Modificar</a></td>         
+        </tr> 
         <%
                 }
             }

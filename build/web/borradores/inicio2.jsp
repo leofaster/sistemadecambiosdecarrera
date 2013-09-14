@@ -14,12 +14,12 @@
         <!-- CSS -->
         <link rel="stylesheet" href="/Sistema_de_Cambios_de_Carrera/css/styles.css">
     </head>
-    
+
     <body>
         <div align="center">
             <a href="http://www.usb.ve/"><img class="banner" src="/Sistema_de_Cambios_de_Carrera/images/banner.png"></a>
         </div>
-    <!-- Begin Page Content -->
+        <!-- Begin Page Content -->
         <form action="buscarEst">
             <div id="container">
                 <div id="left">
@@ -34,15 +34,15 @@
                     <table>
                         <tr>
                             <td style="padding:17px 15px 0 15px;"><a class="sombras" href="http://www.bio.coord.usb.ve/archivos/cambio_carrera.pdf">
-                            Normas generales para el cambio de carrera</a></td>
+                                    Normas generales para el cambio de carrera</a></td>
                             <td style="padding:17px 15px 0 15px;"><a class="sombras" href="http://www.cenda.usb.ve/reglamentos/ver/236">
-                            Reglamento USB para los cambios de carrera</a></td>
+                                    Reglamento USB para los cambios de carrera</a></td>
                             <td style="padding:0 15px 0 60px;"><input type="submit" value="Entrar"></td>
                         </tr>
                     </table>
                 </div><!--/ lower-->
             </div>
         </form>
-    <!-- End Page Content -->
+        <!-- End Page Content -->
     </body>
 </html>

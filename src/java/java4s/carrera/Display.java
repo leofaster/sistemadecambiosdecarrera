@@ -11,64 +11,59 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 /**
  *
  * @author CHANGE Gate
  */
-public class Display extends ActionSupport implements ServletRequestAware{	
-	private static final long serialVersionUID = 1L;
-	
-	HttpServletRequest request;
-	
-	
-	/**
+public class Display extends ActionSupport implements ServletRequestAware {
+
+    private static final long serialVersionUID = 1L;
+    HttpServletRequest request;
+
+    /**
      *
      * @return
      */
-    public String execute()
-	{
-	
-	try{
-	ConexionBD.establishConnection();
-	Statement st=ConexionBD.getConnection().createStatement(); 
-	ResultSet rs = st.executeQuery("select * from carrera order by codcarrera");
-	
-    	List<Carrera> li = null;
-    	li = new ArrayList<Carrera>();   
-    	Carrera mb = null;
-    
-		while(rs.next()) 
-			{ 	
-			    mb = new Carrera ();
-			 
-			    mb.setCodcarrera(rs.getInt("codcarrera"));
-                            mb.setNombre(rs.getString("nombre"));
-			    mb.setCupos(rs.getInt("cupos"));
-                            mb.setIndice_min(rs.getDouble("indice_min"));
-			    
-			    
-			    li.add(mb);
-			    
-			}
-			
-		request.setAttribute("disp", li);
-		
-		rs.close(); 
- 		st.close(); 
-		
+    public String execute() {
 
-		    } 
-		catch(Exception e){ 
- 			e.printStackTrace(); 
- 		}
+        try {
+            ConexionBD.establishConnection();
+            Statement st = ConexionBD.getConnection().createStatement();
+            ResultSet rs = st.executeQuery("select * from carrera order by codcarrera");
 
-		
-			return SUCCESS;
-		
-	}
+            List<Carrera> li = null;
+            li = new ArrayList<Carrera>();
+            Carrera mb = null;
 
-	/**
+            while (rs.next()) {
+                mb = new Carrera();
+
+                mb.setCodcarrera(rs.getInt("codcarrera"));
+                mb.setNombre(rs.getString("nombre"));
+                mb.setCupos(rs.getInt("cupos"));
+                mb.setIndice_min(rs.getDouble("indice_min"));
+
+
+                li.add(mb);
+
+            }
+
+            request.setAttribute("disp", li);
+
+            rs.close();
+            st.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return SUCCESS;
+
+    }
+
+    /**
      *
      * @param request
      */
@@ -82,6 +77,5 @@ public class Display extends ActionSupport implements ServletRequestAware{
      */
     public HttpServletRequest getServletRequest() {
         return request;
-}
-	
+    }
 }

@@ -174,7 +174,7 @@ public class Solicitud implements Serializable {
         } catch (Exception e) {
             System.out.println("Problem in searching the database 1");
         }
-        
+
         System.out.println(mensaje);
         return mensaje;
     }

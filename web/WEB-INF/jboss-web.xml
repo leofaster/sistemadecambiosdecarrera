@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
-  <context-root>/Sistema_de_Cambios_de_Carrera</context-root>
+    <context-root>/Sistema_de_Cambios_de_Carrera</context-root>
 </jboss-web>

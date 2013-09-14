@@ -47,7 +47,7 @@
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('modifCupos');" class="menuitem">Modificar los Cupos de la Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('success');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
@@ -62,7 +62,23 @@
 
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
-                <div id="loginDiv" alt="especial">
+                <div id="loginDiv" class="hidden" alt="especial">
+                    <h4>Hola, <%=session.getAttribute("nombre")%></h4>
+                    <br /><br />
+                </div>
+
+                <div id="modifCupos" class="hidden" alt="especial">
+                    <div id="login-form"><br><br><br>
+                        <s:form action="ModificarCup">
+                            Indique la cantidad de cupos disponible que desea que tenga su carrera:
+                            <input type="text" name="cantCupos" size="15" />
+                            <br>
+                            <s:submit value="Aceptar" />
+                        </s:form>
+                    </div>
+                </div>
+
+                <div id="success" alt="especial">
                     <div id="login-form">
                         <br><br><br>
                         <s:form action="solicitudCupos">
@@ -96,8 +112,6 @@
                         </center>
                     </div>
                 </div>
-
-                
 
                 <div class="espacio" style="height:90px"></div>
             </div>

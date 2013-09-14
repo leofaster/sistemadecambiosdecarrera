@@ -185,7 +185,7 @@ public class SolicitudAction extends ActionSupport {
                         + "false,"
                         + "false" + ","
                         + "'" + motivacion + "')");
-                addActionMessage("Tu solicitud fue enviada.");
+
                 return SUCCESS;
             } else {
                 return "no success";
@@ -217,7 +217,7 @@ public class SolicitudAction extends ActionSupport {
             if (rs.next()) {
                 mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a " + rs.getString("nombre");
             } else {
-                mensaje = "No has enviado solcitudes";
+                mensaje = "No has enviado solicitudes";
             }
 
         } catch (Exception e) {

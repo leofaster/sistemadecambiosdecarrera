@@ -3,14 +3,16 @@
  * and open the template in the editor.
  */
 package clases;
+
 import java.util.*;
 import java.io.Serializable;
+
 /**
  *
  * @author CHANGE Gate
  */
-public class Estudiante extends Usuario implements Serializable{
-    
+public class Estudiante extends Usuario implements Serializable {
+
     private String usbid;
     private double indice;
     private Carrera carreraOrigen;
@@ -80,5 +82,5 @@ public class Estudiante extends Usuario implements Serializable{
      */
     public void setAsignaturas(LinkedList<AsignaturaConNota> asignaturas) {
         this.asignaturas = asignaturas;
-    }    
+    }
 }

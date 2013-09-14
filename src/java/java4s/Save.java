@@ -66,8 +66,8 @@ public class Save extends ActionSupport {
 
             ps.executeUpdate();
 
-            codcarrera = Integer.parseInt(carrera.substring(0,4));
-            
+            codcarrera = Integer.parseInt(carrera.substring(0, 4));
+
             if (mb.getRol().equals("Estudiante")) {
                 s = "insert into estudiante values(?,4,?,true)";
                 ps = ConexionBD.getConnection().prepareStatement(s);

@@ -71,11 +71,11 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
         ResultSet rs = null;
         Statement s = null;
         ConexionBD.establishConnection();
-        
+
         try {
             s = ConexionBD.getConnection().createStatement();
             rs = s.executeQuery("SELECT * FROM usuario WHERE usbid='" + getUsbid() + "' AND contrasena='" + getContrasena() + "'");
-            
+
             if (rs.next()) {
                 System.out.println("si se consiguio algo");
                 System.out.println("rol" + rs.getString("rol"));

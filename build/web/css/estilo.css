@@ -53,6 +53,28 @@ h6 {
     font-family: sans-serif;
 }
 
+#ventana {
+    position: fixed; 
+    width: 350px; 
+    height: 190px; 
+    top: 0; 
+    left: 0; 
+    font-family:Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 12px; 
+    font-weight: normal; 
+    border: #333333 3px solid; 
+    background-color: #FAFAFA; 
+    color: #000000; 
+    display:none;
+}
+
+#btnAceptar {
+    padding: 10px; 
+    background-color: #F0F0F0; 
+    text-align: center; 
+    margin-top: 44px;
+}
+
 table {
 
     color: black;

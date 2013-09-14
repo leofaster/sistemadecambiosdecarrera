@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
     </head>
     <body>
     <center>
         <h1>Lo sentimos la cantidad de cupos debe ser un número mayor o igual a 0.</h1>
     </center>
-    </body>
+</body>
 </html>

@@ -5,15 +5,15 @@
     <link rel="stylesheet" type="text/css" href="/css/java4s.css" />
     <title>Gestionar Carreras</title>
     <script type="text/javascript">
-        function deleteRecord() {	     
-            document.fom.action="del.carrera.action";
+        function deleteRecord() {
+            document.fom.action = "del.carrera.action";
             document.fom.submit();
         }
-        
-        function editr(val) {	     
-            document.fom.action="update.carrera.action?fid="+val;
+
+        function editr(val) {
+            document.fom.action = "update.carrera.action?fid=" + val;
             document.fom.submit();
-        }	
+        }
     </script>
 </head>
 
@@ -32,14 +32,14 @@
                 int tempCupos = b.getCupos();
                 Double tempIndice = b.getIndice_min();
         %>
-            <tr> 
-                <td class="bord"><input type="checkbox" value="<%= tempCodCarrera %>" name="rdel"></td>
-                <td class="bord"><%= tempCodCarrera %></td>
-                <td class="bord"><%= tempNombre %></td>
-                <td class="bord"><%= tempCupos %></td>
-                <td class="bord"><%= tempIndice %></td>
-                <td class="bord"><a href="javascript:editr('<%= tempCodCarrera %>')">Modificar</a></td>         
-            </tr> 
+        <tr> 
+            <td class="bord"><input type="checkbox" value="<%= tempCodCarrera %>" name="rdel"></td>
+            <td class="bord"><%= tempCodCarrera %></td>
+            <td class="bord"><%= tempNombre %></td>
+            <td class="bord"><%= tempCupos %></td>
+            <td class="bord"><%= tempIndice %></td>
+            <td class="bord"><a href="javascript:editr('<%= tempCodCarrera %>')">Modificar</a></td>         
+        </tr> 
         <% 		
             }
         }

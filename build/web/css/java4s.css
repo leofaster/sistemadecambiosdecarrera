@@ -3,13 +3,13 @@
 .label { font-family: verdana; font-size: 12px; }
 
 a, a:visited {
-	font-family: verdana;
-	font-size: 12px;
-	color: #2969c9;
-	border: 0px;
-	text-decoration: none;
-	}
+    font-family: verdana;
+    font-size: 12px;
+    color: #2969c9;
+    border: 0px;
+    text-decoration: none;
+}
 a:hover {
-	color: #000000;
-	text-decoration: underline;
-	}
+    color: #000000;
+    text-decoration: underline;
+}

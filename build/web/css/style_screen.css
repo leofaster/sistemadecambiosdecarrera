@@ -33,14 +33,14 @@
 /*************************/
 body {font-size: 62.5%; margin: 0em auto; padding: 0px; font-family: arial, tahoma, verdana, sans-serif; background-color: blue;}
 .page-container {
-	width: 770px; 
-	margin: 0px auto; 
-	padding: 0px; 
-	border-left: solid 2px rgb(125,125,125); 
-	border-right: solid 2px rgb(125,125,125); 
-	border-bottom: solid 2px rgb(125,125,125); 
-	background-color: rgb(200,200,200);
-	}
+    width: 770px; 
+    margin: 0px auto; 
+    padding: 0px; 
+    border-left: solid 2px rgb(125,125,125); 
+    border-right: solid 2px rgb(125,125,125); 
+    border-bottom: solid 2px rgb(125,125,125); 
+    background-color: rgb(200,200,200);
+}
 
 /**********************/
 /* SECTION 2 - HEADER */
@@ -76,8 +76,8 @@ body {font-size: 62.5%; margin: 0em auto; padding: 0px; font-family: arial, taho
 .nav-main a.selected {color: black;}
 .nav-main a:hover {background-color: inherit; color: rgb(75,75,75); text-decoration: none;}
 .buffer {
-  /*background-image: url(../img/fondo-barra2.png); background-repeat: repeat-x; background-position: top;  TODO: modificacion por eliminacion de menu */
-  float: left; width: 770px; height: 30px; margin: 0px; padding: 0px; background-color: rgb(255,255,255); /*border-top: 1px solid rgb(84,111,144);*/}
+    /*background-image: url(../img/fondo-barra2.png); background-repeat: repeat-x; background-position: top;  TODO: modificacion por eliminacion de menu */
+    float: left; width: 770px; height: 30px; margin: 0px; padding: 0px; background-color: rgb(255,255,255); /*border-top: 1px solid rgb(84,111,144);*/}
 
 
 .nav-main2 {clear: both; float: left; width: 770px;  min-height: 2.0em; height: auto !important; height: 2.0em; line-height: 2.0em; margin: 0px; padding: 0px; /*border-top: solid 1px rgb(84,111,144); border-bottom: solid 1px rgb(84,111,144); */ /* background-color: rgb(255,255,255);background-image: url(../img/fondo-barra2.png); background-repeat: repeat-x; background-position: top;*/} /* Use background-color: rgb(176,207,106);	for green */
@@ -476,45 +476,45 @@ br {clear: none;}
 .error {color: red;}
 
 table.forma th{
-  text-align: right;
+    text-align: right;
 }
 
 table.forma td{
-  text-align: left;
-  background-color: white;
+    text-align: left;
+    background-color: white;
 }
 
 table.filasgrandes td {
-  height: 2.5em;
+    height: 2.5em;
 }
 
 table.lista {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 table.lista th, table.lista td.header{
-  text-align: center;
-  font-weight: bold;
-  background-color: rgb(232,234,244);
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(232,234,244);
 }
 table.lista td{
-  text-align: left;
-  background-color: white;
+    text-align: left;
+    background-color: white;
 }
 
 img.boton{
-  border: 0px;
+    border: 0px;
 }
 
 tr.desactivada td {
-	background-color: rgb(230,230,230);
-	text-decoration: line-through;
+    background-color: rgb(230,230,230);
+    text-decoration: line-through;
 }
 
 table.cabecerascentradas th {
-	text-align: center;
+    text-align: center;
 }
 
 .centrado {
-	margin-left: auto;
-	margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }

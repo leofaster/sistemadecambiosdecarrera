@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package clases;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -10,7 +11,8 @@ import java.util.*;
  *
  * @author CHANGE Gate
  */
-public class Carrera implements Serializable{
+public class Carrera implements Serializable {
+
     private int codcarrera;
     private int cupos;
     private String nombre;
@@ -96,7 +98,4 @@ public class Carrera implements Serializable{
     public void setLista(LinkedList<Requisito> lista) {
         this.lista = lista;
     }
-    
-
-    
 }

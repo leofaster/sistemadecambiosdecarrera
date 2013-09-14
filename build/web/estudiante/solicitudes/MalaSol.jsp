@@ -43,6 +43,27 @@
                             item.className = 'unhidden';
                         }
                     }
+
+                    function confirmar() {
+
+                        document.entrar.submit()
+
+                    }
+
+                    function mostrarVentana()
+                    {
+                        var ventana = document.getElementById('miVentana'); // Accedemos al contenedor
+                        ventana.style.marginTop = "100px"; // Definimos su posición vertical. La ponemos fija para simplificar el código
+                        ventana.style.marginLeft = ((document.body.clientWidth - 350) / 2) + "px"; // Definimos su posición horizontal
+                        ventana.style.display = 'block'; // Y lo hacemos visible
+                    }
+
+                    function ocultarVentana()
+                    {
+                        var ventana = document.getElementById('miVentana'); // Accedemos al contenedor
+                        ventana.style.display = 'none'; // Y lo hacemos invisible
+
+                    }
                 </script>
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
@@ -63,7 +84,12 @@
 
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
-                <div id="loginDiv" alt="especial">
+                <div id="loginDiv" class="hidden" alt="especial">
+                    <h4>Hola, <%=session.getAttribute("nombre")%></h4>
+                    <br /><br />
+                </div>
+
+                <div id="success" alt="especial">
                     <h4>Tu solicitud no fue enviada porque</h4>
                     <h4> ya enviaste una, looser.</h4>
                     <br /><br />
@@ -71,7 +97,7 @@
 
                 <div id="solicitud" class="hidden" alt="especial">
                     <div id="login-form">
-                        <s:form action="verificarSol" >
+                        <s:form action="verificarSol" name="entrar">
                             <br /><br />
                             Carnet: <strong><%=session.getAttribute("usbid")%></strong> <br /><br />
                             Cédula: <strong><%=session.getAttribute("cedula")%></strong> <br /><br />
@@ -99,8 +125,9 @@
                                       headerKey="-1" headerValue="Seleccionar carrera..."/>
                             <s:textarea name="motivacion" cols="25" rows="4"
                                         label="Motivacion para el cambio" required="true"/>
-                            <s:submit value="Continuar" onclick="unhide('solicitud')"/>
+
                         </s:form>
+                        <input type="button" onclick="mostrarVentana();" value="Enviar">
                     </div>
                 </div>
 
@@ -155,6 +182,15 @@
                 </div>
             </div>
 
+        </div>
+
+        <div id="miVentana" style="position: fixed; width: 350px; height: 190px; top: 0; left: 0; font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; border: #333333 3px solid; background-color: #FAFAFA; color: #000000; display:none;">
+            <div style="font-weight: bold; text-align: left; color: #FFFFFF; padding: 5px; background-color:#006394">Confirmación de envío de solicitud de cambio de carrera</div>
+            <p style="padding: 5px; text-align: justify; line-height:normal">Yo sé que tu carrera es un asco pero, ¿de verdad deseas cambiarte?</p>
+            <div style="padding: 10px; background-color: #F0F0F0; text-align: center; margin-top: 44px;">
+                <input id="btnAceptar" onclick="confirmar();" name="btnAceptar" size="20" type="button" value="Sí, por favor" />
+                <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" size="20" type="button" value="Nah, tampoco así" />
+            </div>
         </div>
     </body>
 </html>

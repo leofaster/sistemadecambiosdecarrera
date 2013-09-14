@@ -14,11 +14,11 @@
     </head>
     <body>
         <s:form action="buscarEst">
-           Usuario: <input type="text" name="usbido" size="15" /><br />
-           Contraseña: <input type="password" name="password" size="15" /><br /> 
-           <div align="center">
+            Usuario: <input type="text" name="usbido" size="15" /><br />
+            Contraseña: <input type="password" name="password" size="15" /><br /> 
+            <div align="center">
                 <p><input type="submit" value="Login" /></p>
-           </div>
+            </div>
         </s:form>
     </body>
 </html>

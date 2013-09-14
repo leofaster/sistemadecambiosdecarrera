@@ -1,29 +1,29 @@
 package java4s.carrera;
+
 import java4s.*;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
  *
  * @author CHANGE Gate
  */
-public class Links extends ActionSupport{	
-	
-	/**
+public class Links extends ActionSupport {
+
+    /**
      *
      * @return
      */
-    public String save()
-	{
-		return "save";	
-		
-	}
-	/**
+    public String save() {
+        return "save";
+
+    }
+
+    /**
      *
      * @return
      */
-    public String display()
-	{
-		return "display";	
-		
-	}
-	
+    public String display() {
+        return "display";
+
+    }
 }
