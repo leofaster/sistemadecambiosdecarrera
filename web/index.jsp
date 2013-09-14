@@ -214,14 +214,12 @@
                         <s:form action="Login">
                             <table style="border: none">
                                 <tr style="border: none">
-                           <%--     <td style="border: none">USBid</td>--%>
-                                    <td style="border: none"><s:textfield label="Introduzca su USBid" type="text" name="usbid" maxlength="8" size="14" placeholder="XX-XXXXX" /></td>
+                                    <td style="border: none"><s:textfield label="Introduzca su USBid" type="text" name="usbid" maxlength="8" size="14" /></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none" colspan="2"></td>
                                 </tr>
                                 <tr style="border: none">
-                       <%--         <td style="border: none">Contraseña</td> --%>
                                     <td style="border: none"><s:password label="Introduzca su contraseña" type="password" name="contrasena" size="14" placeholder="******" /></td>
                                 </tr>
                                 <tr style="border: none">

@@ -7,9 +7,11 @@ package actions;
 import clases.ConexionBD;
 import clases.Estudiante;
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Map;
 
 /**
  *
@@ -150,7 +152,8 @@ public class SolicitudAction extends ActionSupport {
         
         ResultSet rs = null;
         Statement s = null;
-
+        Map session2 = ActionContext.getContext().getSession();
+        usbidSol = session2.get("usbid").toString();
 //        ConexionBD.establishConnection();
             System.out.println(usbidSol);
             System.out.println(carrera_dest);

@@ -6,121 +6,120 @@ package actions;
 
 import clases.ConexionBD;
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionContext;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.Map;
 
 /**
  *
  * @author CHANGE Gate
  */
 public class ModificarCupos {
-    
+
     public String cantCupos;
     public String carrera;
     public String cupos;
-    
-    public void setCantCupos(String value){
+
+    public void setCantCupos(String value) {
         cantCupos = value;
     }
-    
-    public String getCantCupos(){
-            return this.cantCupos;
+
+    public String getCantCupos() {
+        return this.cantCupos;
     }
-    
-    public String getCarrera(){
-            return this.carrera;
+
+    public String getCarrera() {
+        return this.carrera;
     }
-    
-    public void setCarrera(String c){
-            this.carrera= c;
+
+    public void setCarrera(String c) {
+        this.carrera = c;
     }
-    
-    public String getCupos(){
-            return this.cupos;
+
+    public String getCupos() {
+        return this.cupos;
     }
-    
-    public void setCupos(String cupo){
-            this.cupos = cupo;
+
+    public void setCupos(String cupo) {
+        this.cupos = cupo;
     }
-    
+
     public String actualizarCupos() throws Exception {
         ResultSet rs = null;
         Statement s = null;
         ConexionBD.establishConnection();
         String string = null;
-        try{
+        try {
             s = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
-            rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='"+"10-10055"+"'");
+            Map session2 = ActionContext.getContext().getSession();
+            String usbid = session2.get("usbid").toString();
+            rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
             System.out.println("Ejecuto");
-            String usbid;
             String carrera;
-            
+
             if (rs.next()) {
-                    
-                    usbid=rs.getString("usbid");
-                    carrera=rs.getString("codcarrera");
-                    System.out.println(carrera);
-                    
-                    for(int x=0;x<cantCupos.length();x++){
-                        if(cantCupos.charAt(x)<'0' ||cantCupos.charAt(x)>'9') return "no success";
-                        System.out.println(cantCupos.charAt(x));
+
+                carrera = rs.getString("codcarrera");
+                System.out.println(carrera);
+
+                for (int x = 0; x < cantCupos.length(); x++) {
+                    if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
+                        return "no success";
                     }
-                    
-                    System.out.println("Bien");
-                    s.executeUpdate("UPDATE carrera SET CUPOS='"+cantCupos+"' where codcarrera='"+carrera+"'");
-                    
-                    
-                    return "success";
-                    
-                } else {
-                    return "no success";
+                    System.out.println(cantCupos.charAt(x));
                 }
-            
-            
-        }
-        catch(Exception e) {
-                System.out.println("Problem in searching the database 1");
+
+                System.out.println("Bien");
+                s.executeUpdate("UPDATE carrera SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "'");
+
+
+                return "success";
+
+            } else {
+                return "no success";
             }
+
+
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database 1");
+        }
         return "no success";
     }
-    
+
     public String solicitarCupos() throws Exception {
         ResultSet rs = null;
         Statement s = null;
         ConexionBD.establishConnection();
         String string = null;
-        try{
+        try {
             s = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
             System.out.println(this.getCarrera().substring(7));
-            rs = s.executeQuery("SELECT * FROM carrera WHERE nombre='"+this.getCarrera().substring(7)+"'");
+            rs = s.executeQuery("SELECT * FROM carrera WHERE nombre='" + this.getCarrera().substring(7) + "'");
             System.out.println("Ejecuto");
             String cupos;
-            
+
             if (rs.next()) {
-                    
-                    this.setCupos(rs.getString("cupos"));
-                    
-                    
-                    System.out.println("Bien");
-                    
-                    
-                    
-                    return "success";
-                    
-                } else {
-                    return "no success";
-                }
-            
-            
-        }
-        catch(Exception e) {
-                System.out.println("Problem in searching the database 1");
+
+                this.setCupos(rs.getString("cupos"));
+
+
+                System.out.println("Bien");
+
+
+
+                return "success";
+
+            } else {
+                return "no success";
             }
+
+
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database 1");
+        }
         return "no success";
     }
-    
-    
 }
