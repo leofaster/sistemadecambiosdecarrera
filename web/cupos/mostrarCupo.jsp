@@ -116,6 +116,8 @@
                                       '3200 - Licenciatura en Comercio Internacional',
                                       '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                                       headerKey="-1" headerValue="Seleccionar carrera..."/>
+                            <br />
+                            <s:textfield key="cohorte" name="cohorte"/>
                             <s:submit value="Aceptar" />
                         </s:form>
 

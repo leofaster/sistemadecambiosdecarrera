@@ -73,6 +73,7 @@
                             Indique la cantidad de cupos disponible que desea que tenga su carrera:
                             <input type="text" name="cantCupos" size="15" />
                             <br>
+                            <s:textfield key="cohorte" name="cohorte"/>
                             <s:submit value="Aceptar" />
                         </s:form>
                     </div>
@@ -83,7 +84,7 @@
                         <br><br><br>
                         <s:form action="solicitudCupos">
                             Seleccione la carrera de la cual desea saber la cantidad de cupos:
-                            <br /><br />
+                          
                             <s:select name="carrera"  required="true"
                                       list="{'0100 - Ingenieria Electrica', 
                                       '0200 - Ingenieria Mecanica', 
@@ -104,6 +105,11 @@
                                       '3200 - Licenciatura en Comercio Internacional',
                                       '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                                       headerKey="-1" headerValue="Seleccionar carrera..."/>
+                            
+                            <br />
+                            
+                            <s:textfield key="cohorte" name="cohorte"/>
+
                             <s:submit value="Aceptar" />
                         </s:form>
 

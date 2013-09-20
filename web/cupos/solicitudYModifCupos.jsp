@@ -72,7 +72,9 @@
                         <s:form action="ModificarCup">
                             Indique la cantidad de cupos disponible que desea que tenga su carrera:
                             <input type="text" name="cantCupos" size="15" />
-                            <br>
+                            <br />
+                            <s:textfield key="cohorte" name="cohorte"/>
+                            <br />
                             <s:submit value="Aceptar" />
                         </s:form>
                     </div>
@@ -104,6 +106,9 @@
                                       '3200 - Licenciatura en Comercio Internacional',
                                       '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                                       headerKey="-1" headerValue="Seleccionar carrera..."/>
+                            <br />
+                            <s:textfield key="cohorte" name="cohorte"/>
+                            <br />
                             <s:submit value="Aceptar" />
                         </s:form>
                     </div>

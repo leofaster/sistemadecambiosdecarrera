@@ -20,6 +20,7 @@ public class ModificarCupos {
     public String cantCupos;
     public String carrera;
     public String cupos;
+    public String cohorte;
 
     public void setCantCupos(String value) {
         cantCupos = value;
@@ -44,6 +45,15 @@ public class ModificarCupos {
     public void setCupos(String cupo) {
         this.cupos = cupo;
     }
+    
+    public String getCohorte(){
+       return this.cohorte;
+    }
+    
+    public void setCohorte(String aux){
+       this.cohorte = aux;
+    }
+    
 
     public String actualizarCupos() throws Exception {
         ResultSet rs = null;
@@ -58,7 +68,9 @@ public class ModificarCupos {
             rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
             System.out.println("Ejecuto");
             String carrera;
-
+            for(int i =0 ;i<this.cohorte.length();i++) 
+                if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
+            
             if (rs.next()) {
 
                 carrera = rs.getString("codcarrera");
@@ -72,7 +84,7 @@ public class ModificarCupos {
                 }
 
                 System.out.println("Bien");
-                s.executeUpdate("UPDATE carrera SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "'");
+                s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='"+this.cohorte+"'");
 
 
                 return "success";
@@ -93,14 +105,15 @@ public class ModificarCupos {
         Statement s = null;
         ConexionBD.establishConnection();
         String string = null;
+        for(int i =0 ;i<this.cohorte.length();i++) 
+            if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
         try {
             s = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
-            System.out.println(this.getCarrera().substring(7));
-            rs = s.executeQuery("SELECT * FROM carrera WHERE nombre='" + this.getCarrera().substring(7) + "'");
+            System.out.println(this.getCarrera().substring(0,4));
+            rs = s.executeQuery("SELECT * FROM contiene WHERE codcarrera='" + this.getCarrera().substring(0,4) + "' and cohorte='"+this.cohorte+"'");
             System.out.println("Ejecuto");
             String cupos;
-
             if (rs.next()) {
 
                 this.setCupos(rs.getString("cupos"));

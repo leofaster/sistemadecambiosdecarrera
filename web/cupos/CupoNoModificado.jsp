@@ -13,7 +13,8 @@
     </head>
     <body>
     <center>
-        <h1>Lo sentimos la cantidad de cupos debe ser un número mayor o igual a 0.</h1>
+        <h1>Lo sentimos la cantidad de cupos debe ser un número mayor o igual a
+            0 y la cohorte un numero mayor o igual a 0.</h1>
     </center>
 </body>
 </html>
