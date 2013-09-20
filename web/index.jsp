@@ -119,8 +119,6 @@
         3. Podrán aspirar a cambiarse de carrera los estudiantes que cumplan con los
         siguientes requisitos:
 
-            - Que hayan ingresado a la Universidad a través del examen de admisión.
-
             - Que se encuentren cursando su segundo o tercer año de permanencia con
             respecto al año de ingreso de su cohorte, y
 
