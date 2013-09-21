@@ -1,94 +1,42 @@
 <%-- 
-    Document   : mostrarCupo
-    Created on : 27/08/2013, 03:50:54 PM
-    Author     : CHANGE Gate
+    Document    : mostrarCupo
+    Author      : CHANGE Gate
 --%>
-
 
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<style type="text/css">
-    <!--
-    .hidden{display:none;}
-    .shown{display:in-line;}
-    -->
-</style>
-<link rel="stylesheet" type="text/css" href="/Sistema_de_Cambios_de_Carrera/css/estilo.css">
+<html>
 
-<html lang="en-US">
-    <title>Sistema de Cambios de Carrera</title>
+    <head>
+        <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
+        <title>Sistema de Cambios de Carrera</title>
+    </head>
+
     <body>  
         <div id="body-content">
-            <div>
-                <div>
-                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/bannerdisfuminado.png" alt="usb">
-                </div>
-            </div>
+            
+            <img id="banner" src="images/bannerdisfuminado.png" alt="usb">
+
             <div id="sidebarL">
-                <script type="text/javascript">
-                    function unhide(divID) {
-                        var item = document.getElementById(divID);
-                        var otros = document.getElementsByTagName('div');
-                        var group;
-                        if (otros) {
-                            for (var i = 0; i < otros.length; i++) {
-                                group = otros[i].getAttribute('alt');
-                                if (group == "especial") {
-                                    otros[i].className = 'hidden';
-                                }
-                            }
-                        }
-                        if (item) {
-                            item.className = 'unhidden';
-                        }
-                    }
-
-                    function confirmar() {
-
-                        document.entrar.submit()
-
-                    }
-
-                    function mostrarVentana()
-                    {
-                        var ventana = document.getElementById('miVentana'); // Accedemos al contenedor
-                        ventana.style.marginTop = "100px"; // Definimos su posición vertical. La ponemos fija para simplificar el código
-                        ventana.style.marginLeft = ((document.body.clientWidth - 350) / 2) + "px"; // Definimos su posición horizontal
-                        ventana.style.display = 'block'; // Y lo hacemos visible
-                    }
-
-                    function ocultarVentana()
-                    {
-                        var ventana = document.getElementById('miVentana'); // Accedemos al contenedor
-                        ventana.style.display = 'none'; // Y lo hacemos invisible
-
-                    }
-                </script>
                 <div class="glossymenu" style="width: 190px">
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
                     <a style="border-bottom: none;" ><a href="<s:url action="ListarSol"/>" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('solicitud');" class="menuitem">Solicitar Cambio de Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('success');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>
+                    <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
 
             <div id="sidebarR" style="width:150px; height: 250px;">
                 <br>        
                 <div>
-                    <a href="http://www.usb.ve/"><img width="150" height="50" src="/Sistema_de_Cambios_de_Carrera/images/somosusb.gif"></a>
+                    <a href="http://www.usb.ve/"><img width="150" height="50" src="images/somosusb.gif"></a>
                 </div>
-                <br>
             </div>
 
             <div style="width:760px;margin-left:auto;margin-right:auto;">
-
-                <div id="loginDiv" class="hidden" alt="especial">
-                    <h4>Hola, <%=session.getAttribute("nombre")%></h4>
-                    <br /><br />
-                </div>
 
                 <div id="success" alt="especial">
                     <div id="login-form">
@@ -105,8 +53,6 @@
                                       '1200 - Ingenieria Geofisica',
                                       '1500 - Ingenieria de Materiales', 
                                       '1700 - Ingenieria de Produccion', 
-                                      'Ingenieria de Mantenimiento', 
-                                      'Ingenieria de Telecomunicaciones',
                                       '0400 - Licenciatura en Quimica',
                                       '0500 - Licenciatura en Matematicas',
                                       '1000 - Licenciatura en Fisica',
@@ -144,8 +90,6 @@
                                       '1200 - Ingeniería Geofísica',
                                       '1500 - Ingeniería de Materiales', 
                                       '1700 - Ingeniería de Producción', 
-                                      'Ingeniería de Mantenimiento', 
-                                      'Ingeniería de Telecomunicaciones',
                                       '0400 - Licenciatura en Química',
                                       '0500 - Licenciatura en Matemáticas',
                                       '1000 - Licenciatura en Física',
@@ -163,23 +107,12 @@
                     </div>
                 </div>
 
-
-                <div id="listarSol" class="hidden" alt="especial">
-
-
-                    <br /><br />
-                    <center><strong><s:property value="mensaje" /></strong> <br /><br /></center>
-
-
-                </div>
-
-
                 <div class="espacio" style="height:90px"></div>
             </div>
 
             <div>
                 <div id="footer">
-                    <p>Copyright © DyCicle Systems</p>
+                    <p>Copyright © CHANGE Gate</p>
                 </div>
             </div>
 
@@ -187,10 +120,10 @@
 
         <div id="miVentana" style="position: fixed; width: 350px; height: 190px; top: 0; left: 0; font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; border: #333333 3px solid; background-color: #FAFAFA; color: #000000; display:none;">
             <div style="font-weight: bold; text-align: left; color: #FFFFFF; padding: 5px; background-color:#006394">Confirmación de envío de solicitud de cambio de carrera</div>
-            <p style="padding: 5px; text-align: justify; line-height:normal">Yo sé que tu carrera es un asco pero, ¿de verdad deseas cambiarte?</p>
+            <p style="padding: 5px; text-align: justify; line-height:normal">Presionando "Aceptar" estás de acuerdo con enviar esta solicitud para que sea evaluada bajo los criterios específicos de la coordinación seleccionada. Recibirás la respuesta a tu solicitud en el correo asociado a tu USBid.</p>
             <div style="padding: 10px; background-color: #F0F0F0; text-align: center; margin-top: 44px;">
-                <input id="btnAceptar" onclick="confirmar();" name="btnAceptar" size="20" type="button" value="Sí, por favor" />
-                <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" size="20" type="button" value="Nah, tampoco así" />
+                <input id="btnAceptar" onclick="confirmar();" name="btnAceptar" size="20" type="button" value="Aceptar" />
+                <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" size="20" type="button" value="Cancelar" />
             </div>
         </div>
     </body>

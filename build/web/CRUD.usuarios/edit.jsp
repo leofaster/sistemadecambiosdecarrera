@@ -3,7 +3,7 @@
 
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/java4s.css" />
+        <link rel="stylesheet" type="text/css" href="../stylesheets/estiloCRUD.css" />
         <title>Editar Usuario</title>
     </head>
 
@@ -27,8 +27,6 @@
                           '1200 - Ingeniería Geofísica',
                           '1500 - Ingeniería de Materiales', 
                           '1700 - Ingeniería de Producción', 
-                          'Ingeniería de Mantenimiento', 
-                          'Ingeniería de Telecomunicaciones',
                           '0400 - Licenciatura en Química',
                           '0500 - Licenciatura en Matemáticas',
                           '1000 - Licenciatura en Física',

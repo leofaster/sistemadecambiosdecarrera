@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/java4s.css" />
+        <link rel="stylesheet" type="text/css" href="../stylesheets/estiloCRUD.css" />
         <title>Insertar Carrera</title>
     </head>
 

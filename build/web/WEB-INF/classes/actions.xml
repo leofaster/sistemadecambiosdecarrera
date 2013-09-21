@@ -5,30 +5,23 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="Sistema_de_Cambios_de_Carrera" extends="struts-default">      
-        
-        <action name="buscarEst" class="actions.EstudianteAction" method="buscarEstudiante"> 
-            <result name="success">estudiante/Form2.jsp</result>
-            <result name="admin">administracion/GestionarCatalogos.jsp</result>
-            <result name="coordinador">cupos/solicitudYModifCupos.jsp</result>
-            <result name="input">/index.jsp</result>
-        </action>
+    <package name="actions" extends="struts-default">      
         
         <action name="Login" class="actions.UsuarioAction">
-            <result name="Estudiante">estudiante/Form2.jsp</result>
+            <result name="Estudiante">estudiante/indexEstudiante.jsp</result>
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
-            <result name="Coordinador">cupos/solicitudYModifCupos.jsp</result>
+            <result name="Coordinador">coordinador/indexCoordinador.jsp</result>
             <result name="input">/index.jsp</result>
         </action>
        
        
-        <action name="verificarSol" class="actions.SolicitudAction" method="mostrarSolicitud"> 
-            <result name="success">estudiante/solicitudes/AgregadaSol.jsp</result> 
-            <result name="no success">estudiante/solicitudes/MalaSol.jsp</result> 
+        <action name="verificarSol" class="actions.SolicitudAction" method="crearSolicitud"> 
+            <result name="success">estudiante/solicitudes/SolicitudResult.jsp</result> 
+            <result name="input">estudiante/solicitudes/CampoInvalido.jsp</result>
         </action>
         
         <action name="ListarSol" class="actions.SolicitudAction" method="listarSolicitudes"> 
-            <result name="success">estudiante/solicitudes/ListaSol.jsp</result> 
+            <result name="success">estudiante/solicitudes/ListaSolicitudes.jsp</result> 
         </action>
         
         <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 

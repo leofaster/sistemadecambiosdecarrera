@@ -1,70 +1,40 @@
 <%-- 
-    Document   : CupoModificado
-    Created on : 06/08/2013, 08:04:29 PM
-    Author     : CHANGE Gate
+    Document    : CupoModificado
+    Author      : CHANGE Gate
 --%>
 
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<style type="text/css">
-    <!--
-    .hidden{display:none;}
-    .shown{display:in-line;}
-    -->
-</style>
-<link rel="stylesheet" type="text/css" href="/Sistema_de_Cambios_de_Carrera/css/estilo.css">
-<html lang="en-US">
-    <title>Sistema de Cambios de Carrera</title>
-    <body>
+<html>
+
+    <head>
+        <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
+        <title>Sistema de Cambios de Carrera</title>
+    </head>
+
+    <body>  
         <div id="body-content">
-            <div>
-                <div>
-                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/bannerdisfuminado.png" alt="usb">
-                </div>
-            </div>
+            <img id="banner" src="images/bannerdisfuminado.png" alt="usb">
             <div id="sidebarL">
-                <script type="text/javascript">
-                    function unhide(divID) {
-                        var item = document.getElementById(divID);
-                        var otros = document.getElementsByTagName('div');
-                        var group;
-                        if (otros) {
-                            for (var i = 0; i < otros.length; i++) {
-                                group = otros[i].getAttribute('alt');
-                                if (group == "especial") {
-                                    otros[i].className = 'hidden';
-                                }
-                            }
-                        }
-                        if (item) {
-                            item.className = 'unhidden';
-                        }
-                    }
-                </script>
+
                 <div class="glossymenu" style="width: 190px">
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Home</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('success');" class="menuitem">Modificar los Cupos de la Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('verCupos');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="/Sistema_de_Cambios_de_Carrera/index.jsp" class="menuitem">Salir</a></a>
+                    <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
 
             <div id="sidebarR" style="width:150px; height: 250px;">
                 <br>        
                 <div>
-                    <a href="http://www.usb.ve/"><img width="150" height="50" src="/Sistema_de_Cambios_de_Carrera/images/somosusb.gif"></a>
+                    <a href="http://www.usb.ve/"><img width="150" height="50" src="images/somosusb.gif"></a>
                 </div>
-                <br>
             </div>
 
             <div style="width:760px;margin-left:auto;margin-right:auto;">
-
-                <div id="loginDiv" class="hidden" alt="especial">
-                    <h4>Hola, <%=session.getAttribute("nombre")%></h4>
-                    <br /><br />
-                </div>
 
                 <div id="success" alt="especial">
                     <div id="login-form"><br><br><br>
@@ -93,8 +63,6 @@
                                       '1200 - Ingenieria Geofisica',
                                       '1500 - Ingenieria de Materiales', 
                                       '1700 - Ingenieria de Produccion', 
-                                      'Ingenieria de Mantenimiento', 
-                                      'Ingenieria de Telecomunicaciones',
                                       '0400 - Licenciatura en Quimica',
                                       '0500 - Licenciatura en Matematicas',
                                       '1000 - Licenciatura en Fisica',
@@ -114,7 +82,7 @@
 
             <div>
                 <div id="footer">
-                    <p>Copyright © DyCicle Systems</p>
+                    <p>Copyright © CHANGE Gate</p>
                 </div>
             </div>
 

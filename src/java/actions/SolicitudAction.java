@@ -26,8 +26,8 @@ public class SolicitudAction extends ActionSupport {
     private boolean solAceptada = false;
     private boolean ccAprobado;
     private String motivacion;
-    String carrera_dest;
-    String mensaje;
+    private String carrera_dest;
+    private String mensaje;
 
     public String getMensaje() {
         return mensaje;
@@ -153,29 +153,39 @@ public class SolicitudAction extends ActionSupport {
      *
      * @return @throws Exception
      */
-    public String mostrarSolicitud() throws Exception {
+    public String crearSolicitud() throws Exception {
+
+        if (getMotivacion().length() == 0) {
+            addFieldError("motivacion", "No puedes dejar este campo vacío.");
+            return "input";
+        }
 
         ResultSet rs = null;
         Statement s = null;
+
+        mensaje = null;
         Map session2 = ActionContext.getContext().getSession();
         usbidSol = session2.get("usbid").toString();
-//        ConexionBD.establishConnection();
-        System.out.println(usbidSol);
-        System.out.println(carrera_dest);
-        System.out.println(ccAprobado);
-        System.out.println(motivacion);
+
         this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0, 4)));
-        System.out.println(this.codigoCarrera);
-
         ConexionBD.establishConnection();
-
 
         try {
             s = ConexionBD.getConnection().createStatement();
+            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "'");
 
-            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "'");// AND "
-            //+"codCarrera=CAST('"+codigoCarrera+"' AS INTEGER)");
             if (!rs.next()) {
+
+                rs = s.executeQuery("SELECT * FROM estudiante WHERE usbid='" + usbidSol + "'");
+                rs.next();
+
+                int carreraest = Integer.parseInt(rs.getString("codcarrera"));
+
+                if (carreraest == codigoCarrera) {
+                    addFieldError("carrera_dest", "No puedes enviar una solicitud a tu misma carrera.");
+                    return "input";
+                }
+
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
                         + usbidSol
                         + "',"
@@ -186,17 +196,14 @@ public class SolicitudAction extends ActionSupport {
                         + "false" + ","
                         + "'" + motivacion + "')");
 
-                return SUCCESS;
+                mensaje = "Tu solicitud fue enviada, ¡éxito!";
             } else {
-                return "no success";
+                mensaje = "Ya habías enviado una solicitud de cambio.";
             }
         } catch (Exception e) {
-            System.out.println("Problem in searching the database 2");
+            System.out.println("Problem in searching the database crearSolicitud");
         }
-
-
         return SUCCESS;
-
     }
 
     public String listarSolicitudes() throws Exception {
@@ -210,9 +217,7 @@ public class SolicitudAction extends ActionSupport {
 
         try {
             s = ConexionBD.getConnection().createStatement();
-            System.out.println("Conecto");
             rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "'");
-            System.out.println("Ejecuto");
 
             if (rs.next()) {
                 mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a " + rs.getString("nombre");
@@ -221,9 +226,8 @@ public class SolicitudAction extends ActionSupport {
             }
 
         } catch (Exception e) {
-            System.out.println("Problem in searching the database 1");
+            System.out.println("Problem in searching the database listarSolicitudes");
         }
-
         return SUCCESS;
     }
 }

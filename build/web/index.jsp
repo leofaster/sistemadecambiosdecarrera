@@ -1,7 +1,5 @@
 <%--
-    Document    : indexIntercambio
-    Created on  : 09/06/2013, 06:30:38 PM
-    Modified on : $
+    Document    : index
     Author      : CHANGE Gate
 --%>
 
@@ -9,47 +7,19 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
-<style type="text/css">
-    .errors {
-        font-size: medium;
-        font: bold 90%;
-        text-align: center;
-        color: #FE2E2E;
-    }
-</style>
-<html lang="en-US">
-    <title>Sistema de Cambios de Carrera</title>
+<html>    
+    <head>
+        <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
+        <title>Sistema de Cambios de Carrera</title>
+    </head>
+
     <body>
-
         <div id="body-content">
-            <div>
-                <div>
-                    <img id="banner" src="/Sistema_de_Cambios_de_Carrera/images/bannerdisfuminado.png" alt="usb">
-                </div>
-            </div>
+
+            <img id="banner" src="images/bannerdisfuminado.png" alt="usb">
+
             <div id="sidebarL">
-
-                <script type="text/javascript">
-                    function unhide(divID) {
-                        var item = document.getElementById(divID);
-                        var otros = document.getElementsByTagName('div');
-                        var group;
-                        if (otros) {
-                            for (var i = 0; i < otros.length; i++) {
-                                group = otros[i].getAttribute('alt');
-                                if (group == "especial") {
-                                    otros[i].className = 'hidden';
-                                }
-                            }
-                        }
-                        if (item) {
-                            item.className = 'unhidden';
-                        }
-                    }
-
-
-                </script>
 
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Login</a></a>
@@ -62,9 +32,8 @@
             <div id="sidebarR" style="width:150px; height: 250px;">
                 <br>
                 <div>
-                    <a href="http://www.usb.ve/" target="_blank"><img width="150" height="50" src="/Sistema_de_Cambios_de_Carrera/images/somosusb.gif"></a>
+                    <a href="http://www.usb.ve/" target="_blank"><img width="150" height="50" src="images/somosusb.gif"></a>
                 </div>
-                <br>
             </div>
 
             <div style="width:760px;margin-left:auto;margin-right:auto;">
@@ -74,13 +43,13 @@
                     <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
 
                     <s:if test="hasActionErrors()">
-                        <div class="errors">
+                        <div id="errores">
 
                             <s:actionerror />
                         </div>
                     </s:if>
-                    <div id="login-form">
 
+                    <div id="login-form">
                         <s:form action="Login">
                             <table style="border: none">
                                 <tr style="border: none">
@@ -90,7 +59,7 @@
                                     <td style="border: none" colspan="2"></td>
                                 </tr>
                                 <tr style="border: none">
-                                    <td style="border: none"><s:password label="Introduzca su contraseña" type="password" name="contrasena" size="14" placeholder="******" /></td>
+                                    <td style="border: none"><s:password label="Introduzca su contraseña" type="password" name="contrasena" size="14" /></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none" colspan="2"></td>
@@ -99,9 +68,8 @@
                             <br><br>
                             <s:submit value="Entrar" />
                         </s:form>
-                        <!--<a href="/Intercambio-II/reccontra.do;jsessionid=335112095AD26CB34CAB224F730DD697">¿Olvid&oacute; su contraseña?</a><br />-->
                     </div>
-                    <br /><br />
+
                 </div>
 
                 <div id="normasGenerales" class="hidden" alt="especial">
@@ -162,21 +130,11 @@
                 <div class="espacio" style="height:90px"></div>
             </div>
 
-            <div>
-                <div id="footer">
-                    <p>Copyright © DyCicle Systems</p>
-                </div>
+            <div id="footer">
+                <p>Copyright © CHANGE Gate</p>
             </div>
 
         </div>
 
-        <div id="miVentana" style="position: fixed; width: 350px; height: 190px; top: 0; left: 0; font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; border: #333333 3px solid; background-color: #FAFAFA; color: #000000; display:none;">
-            <div style="font-weight: bold; text-align: left; color: #FFFFFF; padding: 5px; background-color:#006394">Título de la ventana</div>
-            <p style="padding: 5px; text-align: justify; line-height:normal">Yo sé que tu carrera es un asco pero, ¿de verdad deseas cambiarte?</p>
-            <div style="padding: 10px; background-color: #F0F0F0; text-align: center; margin-top: 44px;">
-                <input id="btnAceptar" onclick="confirmar();" name="btnAceptar" size="20" type="button" value="Sí, por favor" />
-                <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" size="20" type="button" value="Nah, tampoco así" />
-            </div>
-        </div>
     </body>
 </html>

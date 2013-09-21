@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="CRUD" extends="struts-default">      
+        
+         <!-- USUARIOS -->
+        <action name="view" class="CRUD.usuarios.Display">
+            <result name="success">retrive.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="insert" class="CRUD.usuarios.Save">
+            <result name="success">ssuccess.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="del" class="CRUD.usuarios.Delete">
+            <result name="success">dsuccess.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="update" class="CRUD.usuarios.Update">
+            <result name="success">edit.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="updates" class="CRUD.usuarios.Updates">
+            <result name="success">usuccess.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="*Link" class="CRUD.usuarios.Links" method="{1}">
+            <result name="save">insertr.jsp</result>
+            <result name="display">retrive.jsp</result>           
+        </action>
+        <!--FIN USUARIOS --> 
+        
+        <!-- CARRERAS -->
+        <action name="view.carrera" class="CRUD.carreras.Display">
+            <result name="success">retrive.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="insert.carrera" class="CRUD.carreras.Save">
+            <result name="success">ssuccess.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="del.carrera" class="CRUD.carreras.Delete">
+            <result name="success">dsuccess.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="update.carrera" class="CRUD.carreras.Update">
+            <result name="success">edit.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="updates.carrera" class="CRUD.carreras.Updates">
+            <result name="success">usuccess.jsp</result>
+            <result name="error">error.jsp</result>      
+        </action>
+        
+        <action name="*Link.carrera" class="CRUD.carreras.Links" method="{1}">
+            <result name="save">insertr.jsp</result>
+            <result name="display">retrive.jsp</result>           
+        </action>
+        <!--FIN CARRERAS --> 
+        
+    </package>
+</struts>
