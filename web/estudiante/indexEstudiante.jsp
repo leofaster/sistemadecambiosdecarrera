@@ -23,7 +23,7 @@
             <div id="sidebarL">
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="<s:url action="ListarSol"/>" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('solicitud');" class="menuitem">Solicitar Cambio de Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="<s:url action="verificarReq"/>" class="menuitem">Solicitar Cambio de Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('verCupos');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
                 </div>
@@ -39,39 +39,6 @@
 
                 <div id="loginDiv" alt="especial">
                     <h4>Hola, <%=session.getAttribute("nombre")%></h4>
-                </div>
-
-                <div id="solicitud" class="hidden" alt="especial">
-                    <div id="login-form">
-                        <s:form action="verificarSol" name="entrar">
-                            <br /><br />
-                            Carnet: <strong><%=session.getAttribute("usbid")%></strong> <br /><br />
-                            Cédula: <strong><%=session.getAttribute("cedula")%></strong> <br /><br />
-                            Nombre: <strong><%=session.getAttribute("nombre")%></strong> <br /><br />
-                            Apellido: <strong><%=session.getAttribute("apellido")%></strong> <br /><br />
-                            <s:select name="carrera_dest" label="Carrera Deseada" required="true"
-                                      list="{'0100 - Ingeniería Eléctrica', 
-                                      '0200 - Ingeniería Mecánica', 
-                                      '0300 - Ingeniería Química', 
-                                      '0600 - Ingeniería Electrónica', 
-                                      '0800 - Ingeniería de la Computación',
-                                      '1200 - Ingeniería Geofísica',
-                                      '1500 - Ingeniería de Materiales', 
-                                      '1700 - Ingeniería de Producción',
-                                      '0400 - Licenciatura en Química',
-                                      '0500 - Licenciatura en Matemáticas',
-                                      '1000 - Licenciatura en Física',
-                                      '1900 - Licenciatura en Biología',
-                                      '0700 - Arquitectura',
-                                      '1100 - Urbanismo',
-                                      '3200 - Licenciatura en Comercio Internacional',
-                                      '3000 - Licenciatura en Gestión de la Hospitalidad'}"
-                                      headerKey="-1" headerValue="Seleccionar carrera..."/>
-                            <s:textarea name="motivacion" cols="25" rows="4"
-                                        label="Motivacion para el cambio" required="true"/>
-                        </s:form>
-                        <input type="button" onclick="mostrarVentana();" value="Enviar">
-                    </div>
                 </div>
 
                 <div id="verCupos" class="hidden" alt="especial">

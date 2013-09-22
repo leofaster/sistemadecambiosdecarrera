@@ -16,8 +16,12 @@
        
        
         <action name="verificarSol" class="actions.SolicitudAction" method="crearSolicitud"> 
-            <result name="success">estudiante/solicitudes/SolicitudResult.jsp</result> 
-            <result name="input">estudiante/solicitudes/CampoInvalido.jsp</result>
+            <result name="success">estudiante/solicitudes/SolicitudResult.jsp</result>
+            <result name="input">estudiante/solicitudes/SolicitarCambio.jsp</result>
+        </action>
+        
+        <action name="verificarReq" class="actions.SolicitudAction" method="solicitarCambio">
+            <result>estudiante/solicitudes/SolicitarCambio.jsp</result>
         </action>
         
         <action name="ListarSol" class="actions.SolicitudAction" method="listarSolicitudes"> 

@@ -148,6 +148,10 @@ public class SolicitudAction extends ActionSupport {
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
     }
+    
+    public String solicitarCambio() {
+        return SUCCESS;
+    }
 
     /**
      *
@@ -185,7 +189,9 @@ public class SolicitudAction extends ActionSupport {
                     addFieldError("carrera_dest", "No puedes enviar una solicitud a tu misma carrera.");
                     return "input";
                 }
-
+                
+                motivacion = motivacion.replace("\'","");
+                
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
                         + usbidSol
                         + "',"

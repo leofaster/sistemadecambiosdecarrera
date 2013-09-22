@@ -63,8 +63,8 @@
                                       '3200 - Licenciatura en Comercio Internacional',
                                       '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                                       headerKey="-1" headerValue="Seleccionar carrera..."/>
-                            <s:textarea name="motivacion" cols="25" rows="4"
-                                        label="Motivacion para el cambio" required="true"/>
+                            <s:textarea name="motivacion" cols="25" rows="4" maxlength="1500"
+                                        label="Motivacion para el cambio (1500 caracteres)" required="true"/>
 
                         </s:form>
                         <input type="button" onclick="mostrarVentana();" value="Enviar">
