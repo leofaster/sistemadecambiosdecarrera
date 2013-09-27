@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ page import="java.util.*;" %>
 <html>
 
     <head>
@@ -74,13 +74,40 @@
                                       headerKey="-1" headerValue="Seleccionar carrera..."/>
                             <br />
 
-                            <s:textfield key="cohorte" name="cohorte"/>
+                            
 
                             <s:submit value="Aceptar" />
                         </s:form>
 
                         <center>
-                            Cantidad de cupos: <strong><%=request.getAttribute("cupos")%></strong>
+                        <table class="bordt" border="1">
+                        <form name="fom" method="post">
+                           <tr>
+                           <center><td class="bord">Cohorte</td> </center>
+                           <center><td class="bord">Cupos</td></center>
+                           </tr>
+                            <%
+                            List l = (List) request.getAttribute("disp2");
+                            if (l != null) {
+                                
+                                Iterator it = l.iterator();
+
+                                while (it.hasNext()) {
+                                    clases.Cohorte b = (clases.Cohorte) it.next();
+                                    String cuposCo = b.getCupos();
+                                    String NumCo = b.getCohorte();
+                            %>
+                            <tr> 
+                            <center><td class="bord"><%= NumCo%></td></center>
+                            <center><td class="bord"><%= cuposCo%></td></center>
+            
+                            </tr> 
+                            <%
+                            }
+                            }
+                            %>  
+                        </form>
+                        </table>
                         </center>
                     </div>
                 </div>

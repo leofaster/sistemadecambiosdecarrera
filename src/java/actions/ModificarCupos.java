@@ -5,22 +5,31 @@
 package actions;
 
 import clases.ConexionBD;
+import clases.Usuario;
+import clases.Cohorte;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  *
  * @author CHANGE Gate
  */
-public class ModificarCupos {
+public class ModificarCupos extends ActionSupport implements ServletRequestAware{
 
     public String cantCupos;
     public String carrera;
     public String cupos;
     public String cohorte;
+    private static final long serialVersionUID = 1L;
+    HttpServletRequest request;
 
     public void setCantCupos(String value) {
         cantCupos = value;
@@ -28,6 +37,18 @@ public class ModificarCupos {
 
     public String getCantCupos() {
         return this.cantCupos;
+    }
+    
+    public void setServletRequest(HttpServletRequest request) {
+        this.request = request;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public HttpServletRequest getServletRequest() {
+        return request;
     }
 
     public String getCarrera() {
@@ -102,39 +123,41 @@ public class ModificarCupos {
 
     public String solicitarCupos() throws Exception {
         ResultSet rs = null;
-        Statement s = null;
+        Statement st = null;
         ConexionBD.establishConnection();
         String string = null;
-        for(int i =0 ;i<this.cohorte.length();i++) 
-            if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
+        //for(int i =0 ;i<this.cohorte.length();i++) 
+          //  if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
         try {
-            s = ConexionBD.getConnection().createStatement();
+            st = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
             System.out.println(this.getCarrera().substring(0,4));
-            rs = s.executeQuery("SELECT * FROM contiene WHERE codcarrera='" + this.getCarrera().substring(0,4) + "' and cohorte='"+this.cohorte+"'");
+            rs = st.executeQuery("SELECT * FROM contiene WHERE codcarrera='" + this.getCarrera().substring(0,4) + "' order by cohorte");
             System.out.println("Ejecuto");
             String cupos;
-            if (rs.next()) {
+            System.out.println("hey1");
+            List<Cohorte> li = null;
+            li = new ArrayList<Cohorte>();
+            Cohorte mb = null;
+            
+            while (rs.next()) {
+                mb = new Cohorte();
 
-                this.setCupos(rs.getString("cupos"));
+                mb.setCohorte(rs.getString("cohorte"));
+                mb.setCupos(rs.getString("cupos"));
+                li.add(mb);
+                if(li.size()>=4) li.remove(0);
 
-
-                System.out.println("Bien");
-
-                Map session2 = ActionContext.getContext().getSession();
-                String rol = session2.get("rol").toString();
-
-                if (rol.equals("Coordinador")) {
-                    return "coordinador";
-                }
-
-                return "success";
-
-            } else {
-                return "no success";
             }
-
-
+            System.out.println(li.size());
+            request.setAttribute("disp2", li);
+            System.out.println("hey2");
+            System.out.println("hey2");
+            rs.close();
+            st.close();
+            
+            return SUCCESS;
+            
         } catch (Exception e) {
             System.out.println("Problem in searching the database 1");
         }
