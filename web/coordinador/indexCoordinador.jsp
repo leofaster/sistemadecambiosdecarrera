@@ -48,12 +48,12 @@
                                 
                                 <tr>
                                     <td>Cohorte</td>
-                                    <td><input type="text" name="cohorte" size="15"/></td>
+                                    <td><input type="text" name="cohorte" size="15" maxlength="4"/></td>
                                     
                                 </tr>
                                 <tr>
                                 <td>Cantidad de cupos</td>
-                                <td><input type="text" name="cantCupos" size="15" /> </td>
+                                <td><input type="text" name="cantCupos" size="15" maxlength="3"/> </td>
                                 </tr>
                                 
                                 
