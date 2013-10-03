@@ -73,6 +73,7 @@
                            <tr>
                            <center><td class="bord">Cohorte</td> </center>
                            <center><td class="bord">Cupos</td></center>
+                           <center><td class="bord">Cupos Activos</td></center>
                            </tr>
                             <%
                             List l = (List) request.getAttribute("disp2");
@@ -84,11 +85,12 @@
                                     clases.Cohorte b = (clases.Cohorte) it.next();
                                     String cuposCo = b.getCupos();
                                     String NumCo = b.getCohorte();
+                                    String cuposA=b.getCuposa();
                             %>
                             <tr> 
                             <center><td class="bord"><%= NumCo%></td></center>
                             <center><td class="bord"><%= cuposCo%></td></center>
-            
+                            <center><td class="bord"><%= cuposA%></td></center>
                             </tr> 
                             <%
                             }

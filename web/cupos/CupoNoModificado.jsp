@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,9 @@
     <body>
     <center>
         <h1>Lo sentimos la cantidad de cupos debe ser un número mayor o igual a
-            0 y la cohorte un numero mayor o igual a 0.</h1>
+            0 y la cohorte debe ser una cohorte válida.</h1>
+        <br />
+        <input type='button' value='VOLVER' onClick='javascript:history.go(-1);'>
     </center>
 </body>
 </html>

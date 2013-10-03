@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class Cohorte implements Serializable {
     private String cohorte;
     private String cupos;
+    private String cuposa;
     
     
     public String getCupos(){
@@ -21,6 +22,14 @@ public class Cohorte implements Serializable {
     
     public void setCupos(String cupos){
        this.cupos = cupos;
+    }
+    
+    public String getCuposa(){
+        return this.cuposa;
+    }
+    
+    public void setCuposa(String cupos){
+       this.cuposa = cupos;
     }
     
     public String getCohorte(){

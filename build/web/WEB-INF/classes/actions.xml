@@ -35,7 +35,7 @@
         
         <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
             <result name="success">cupos/mostrarCupo.jsp</result>
-            <result name="coordinador">cupos/mostrarCupoC.jsp</result>
+            <result name="Coordinador">cupos/mostrarCupoC.jsp</result>
             <result name="no success">cupos/errorCupo.jsp</result> 
         </action> 
         

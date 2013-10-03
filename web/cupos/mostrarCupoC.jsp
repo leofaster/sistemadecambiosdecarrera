@@ -39,10 +39,24 @@
                 <div id="modifCupos" class="hidden" alt="especial">
                     <div id="login-form"><br><br><br>
                         <s:form action="ModificarCup">
-                            Indique la cantidad de cupos disponible que desea que tenga su carrera:
-                            <input type="text" name="cantCupos" size="15" />
-                            <br>
-                            <s:textfield key="cohorte" name="cohorte"/>
+                           <center>Coordinador, coloque la cohorte y cantidad de cupos deseados</center>
+                            <table border="1">
+                                
+                                <tr>
+                                    <td>Cohorte</td>
+                                    <td><input type="text" name="cohorte" size="15"/></td>
+                                    
+                                </tr>
+                                <tr>
+                                <td>Cantidad de cupos</td>
+                                <td><input type="text" name="cantCupos" size="15" /> </td>
+                                </tr>
+                                
+                                
+                            </table>
+                            
+                            
+                            
                             <s:submit value="Aceptar" />
                         </s:form>
                     </div>
@@ -85,6 +99,7 @@
                            <tr>
                            <center><td class="bord">Cohorte</td> </center>
                            <center><td class="bord">Cupos</td></center>
+                           <center><td class="bord">Cupos Activos</td></center>
                            </tr>
                             <%
                             List l = (List) request.getAttribute("disp2");
@@ -96,11 +111,12 @@
                                     clases.Cohorte b = (clases.Cohorte) it.next();
                                     String cuposCo = b.getCupos();
                                     String NumCo = b.getCohorte();
+                                    String cuposA=b.getCuposa();
                             %>
                             <tr> 
                             <center><td class="bord"><%= NumCo%></td></center>
                             <center><td class="bord"><%= cuposCo%></td></center>
-            
+                            <center><td class="bord"><%= cuposA%></td></center>
                             </tr> 
                             <%
                             }

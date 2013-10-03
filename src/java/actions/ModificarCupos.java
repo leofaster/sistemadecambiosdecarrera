@@ -77,10 +77,10 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
     
 
     public String actualizarCupos() throws Exception {
-        ResultSet rs = null;
+        ResultSet rs = null,rs2=null;
         Statement s = null;
         ConexionBD.establishConnection();
-        String string = null;
+        //String string = null;
         try {
             s = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
@@ -90,11 +90,17 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
             System.out.println("Ejecuto");
             String carrera;
             for(int i =0 ;i<this.cohorte.length();i++) 
-                if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
+                if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') {
+                    //addActionError("Coloque una cohorte válida.");
+                    return "no success";
+                }
             
             if (rs.next()) {
 
                 carrera = rs.getString("codcarrera");
+                rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
+                        + " codcarrera='"+carrera+"'");
+                if(!rs2.next()) return "error";
                 System.out.println(carrera);
 
                 for (int x = 0; x < cantCupos.length(); x++) {
@@ -106,8 +112,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
                 System.out.println("Bien");
                 s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='"+this.cohorte+"'");
-
-
+                
                 return "success";
 
             } else {
@@ -145,17 +150,18 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
                 mb.setCohorte(rs.getString("cohorte"));
                 mb.setCupos(rs.getString("cupos"));
+                mb.setCuposa(rs.getString("activos"));
                 li.add(mb);
                 if(li.size()>=4) li.remove(0);
 
             }
             System.out.println(li.size());
             request.setAttribute("disp2", li);
-            System.out.println("hey2");
-            System.out.println("hey2");
+            
             rs.close();
             st.close();
-            
+            Map session2 = ActionContext.getContext().getSession();
+            if(session2.get("rol").toString().equals("Coordinador")) return "Coordinador";
             return SUCCESS;
             
         } catch (Exception e) {
