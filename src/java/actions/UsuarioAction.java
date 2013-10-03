@@ -25,6 +25,7 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
     private String usbid;
     private int cedula;
     private String nombre;
+    private String nombreCompleto;
     private String apellido;
     private String contrasena;
     private String rol;
@@ -82,6 +83,7 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
                 session.put("usbid", rs.getString("usbid"));
                 session.put("cedula", rs.getString("cedula"));
                 session.put("nombre", rs.getString("nombre"));
+                session.put("nombreCompleto", rs.getString("nombre")+" "+rs.getString("apellido"));
                 session.put("apellido", rs.getString("apellido"));
                 session.put("rol", rs.getString("rol"));
             } else {

@@ -41,10 +41,21 @@
                     <div id="login-form">
                         <s:form action="verificarSol" name="entrar">
                             <br /><br />
-                            Carnet: <strong><%=session.getAttribute("usbid")%></strong> <br /><br />
-                            Cédula: <strong><%=session.getAttribute("cedula")%></strong> <br /><br />
-                            Nombre: <strong><%=session.getAttribute("nombre")%></strong> <br /><br />
-                            Apellido: <strong><%=session.getAttribute("apellido")%></strong> <br /><br />
+                            Tus Datos:
+                            
+                            <table border="1">
+                            <tr>    
+                            <td>Carnet</td> <td><strong><%=session.getAttribute("usbid")%></strong></td>
+                            </tr>
+                            <tr>
+                            <td>Cédula</td> <td><strong><%=session.getAttribute("cedula")%></strong></td> 
+                            </tr>
+                            <tr>
+                            <td>Nombre</td> <td><strong><%=session.getAttribute("nombreCompleto")%></strong></td> 
+                            </tr>
+                            </table>
+                            
+                            <br/>
                             <s:select name="carrera_dest" label="Carrera Deseada" required="true"
                                       list="{'0100 - Ingeniería Eléctrica', 
                                       '0200 - Ingeniería Mecánica', 
@@ -62,11 +73,12 @@
                                       '1100 - Urbanismo',
                                       '3200 - Licenciatura en Comercio Internacional',
                                       '3000 - Licenciatura en Gestión de la Hospitalidad'}"
-                                      headerKey="-1" headerValue="Seleccionar carrera..."/>
-                            <s:textarea name="motivacion" cols="25" rows="4" maxlength="1500"
-                                        label="Motivacion para el cambio (1500 caracteres)" required="true"/>
-
+                                     headerKey="-1" headerValue="Seleccionar carrera..."/>
+                            <br/><br /> 
+                            <s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
+                                        label="Motivación" required="true"/>
                         </s:form>
+                        <center><h6>(Máximo 1500 caracteres)</h6></center>
                         <input type="button" onclick="mostrarVentana();" value="Enviar">
                     </div>
                 </div>
