@@ -100,7 +100,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
                 carrera = rs.getString("codcarrera");
                 rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
                         + " codcarrera='"+carrera+"'");
-                if(!rs2.next()) return "error";
+                if(!rs2.next()) return "no success";
                 System.out.println(carrera);
 
                 for (int x = 0; x < cantCupos.length(); x++) {
