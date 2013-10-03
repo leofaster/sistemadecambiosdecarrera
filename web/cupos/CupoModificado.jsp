@@ -38,24 +38,22 @@
 
                 <div id="success" alt="especial">
                     <div id="login-form"><br><br><br>
-                    
+
                         <s:form action="ModificarCup">
-                          <center>Coordinador, coloque la cohorte y cantidad de cupos deseados</center>
-                            <table border="1">
-                                
-                                <tr>
-                                    <td>Cohorte</td>
-                                    <td><input type="text" name="cohorte" size="15"/></td>
-                                    
-                                </tr>
-                                <tr>
-                                <td>Cantidad de cupos</td>
-                                <td><input type="text" name="cantCupos" size="15" /> </td>
-                                </tr>
-                                
-                                
-                            </table>
-                           <s:submit value="Aceptar" />
+                            <center>Coordinador, coloque la cohorte y cantidad de cupos deseados</center>
+
+                            <s:if test="hasActionErrors()">
+                                <div id="errores">
+
+                                    <s:actionerror />
+                                </div>
+                            </s:if>
+
+
+                            <s:textfield label="Cohorte" type="text" name="cohorte" size="15"/>
+                            <s:textfield type="text" label="Cantidad de Cupos" name="cantCupos" size="15" /> 
+
+                            <s:submit value="Aceptar" />
                         </s:form>
                         <center>La cantidad de cupos ha sido modificada.</center>
                     </div>
