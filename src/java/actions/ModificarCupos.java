@@ -78,54 +78,59 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
     @Override
     public void validate() {
-       
+        if (this.getCarrera()!=null && this.getCarrera().equals("-1")) {
+            addFieldError("carrera", "Seleccione una carrera válida");
+        }
+        System.out.println(this.getCarrera());
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
         //String string = null;
-        try {
-            s = ConexionBD.getConnection().createStatement();
-            System.out.println("Conecto");
-            Map session2 = ActionContext.getContext().getSession();
-            String usbid = session2.get("usbid").toString();
-            rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
-            System.out.println("Ejecuto");
-            String carrera;
-            
+        if (this.getCarrera() == null) {
+            try {
+                s = ConexionBD.getConnection().createStatement();
+                System.out.println("Conecto");
+                Map session2 = ActionContext.getContext().getSession();
+                String usbid = session2.get("usbid").toString();
+                rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
+                System.out.println("Ejecuto validate");
+                String carrera;
 
-            if (rs.next()) {
 
-                carrera = rs.getString("codcarrera");
-                rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
-                        + " codcarrera='" + carrera + "'");
-                if (!rs2.next()) {
-                    addFieldError("cohorte", "Introduzca una cohorte válida.");
-                }
-                
-                if (cantCupos.length() < 1) {
-                    addFieldError("cantCupos","Introduzca un número.");
-                }
-                for (int x = 0; x < cantCupos.length(); x++) {
-                    if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
-                        addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
+                if (rs.next()) {
+
+                    carrera = rs.getString("codcarrera");
+                    rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
+                            + " codcarrera='" + carrera + "'");
+                    if (!rs2.next()) {
+                        addFieldError("cohorte", "Introduzca una cohorte válida.");
                     }
-                    System.out.println(cantCupos.charAt(x));
+
+                    if (cantCupos.length() < 1) {
+                        addFieldError("cantCupos", "Introduzca un número.");
+                    }
+                    for (int x = 0; x < cantCupos.length(); x++) {
+                        if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
+                            addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
+                            break;
+                        }
+                        System.out.println(cantCupos.charAt(x));
+                    }
+
+                    //System.out.println("Bien");
+                    s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='" + this.cohorte + "'");
+
+
+
+                } else {
+                    addFieldError("cohorte", "Cohorte introducida inválida.");
                 }
 
-                System.out.println("Bien");
-                s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='" + this.cohorte + "'");
 
-  
-
-            } else {
-                addFieldError("cohorte", "Cohorte introducida inválida.");
+            } catch (Exception e) {
+                System.out.println("Problem in searching the database 1");
             }
-
-
-        } catch (Exception e) {
-            System.out.println("Problem in searching the database 1");
         }
-        
     }
 
     public void setCohorte(String aux) {
@@ -145,7 +150,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
             rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
             System.out.println("Ejecuto");
             String carrera;
-            
+
 
             if (rs.next()) {
 
@@ -160,8 +165,8 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
                     if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
                         return "no success";
                     }
-     
-                 System.out.println(cantCupos.charAt(x));
+
+                    System.out.println(cantCupos.charAt(x));
                 }
 
                 System.out.println("Bien");
@@ -175,7 +180,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
 
         } catch (Exception e) {
-            System.out.println("Problem in searching the database 1");
+            System.out.println("Problem in searching the database 100");
         }
         return "no success";
     }
@@ -187,12 +192,13 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         String string = null;
         //for(int i =0 ;i<this.cohorte.length();i++) 
         //  if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
+        System.out.println(this.getCarrera());
         try {
             st = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
-            System.out.println(this.getCarrera().substring(0, 4));
+            System.out.println(this.getCarrera());
             rs = st.executeQuery("SELECT * FROM contiene WHERE codcarrera='" + this.getCarrera().substring(0, 4) + "' order by cohorte");
-            System.out.println("Ejecuto");
+            System.out.println("Ejecutar solicitar cupos");
             String cupos;
             System.out.println("hey1");
             List<Cohorte> li = null;

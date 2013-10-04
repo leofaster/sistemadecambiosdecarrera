@@ -158,7 +158,10 @@ public class SolicitudAction extends ActionSupport {
      * @return @throws Exception
      */
     public String crearSolicitud() throws Exception {
-
+        if (this.carrera_dest!=null && this.carrera_dest.equals("-1")) {
+            addFieldError("carrera_dest", "Seleccione una carrera válida");
+            return "input";
+        }
         if (getMotivacion().length() == 0) {
             addFieldError("motivacion", "No puedes dejar este campo vacío.");
             return "input";
@@ -173,23 +176,28 @@ public class SolicitudAction extends ActionSupport {
 
         this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0, 4)));
         ConexionBD.establishConnection();
-
+        System.out.println("aqu0");
         try {
+            System.out.println("aqu10");
             s = ConexionBD.getConnection().createStatement();
+            System.out.println("aqu11");
             rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "'");
 
             if (!rs.next()) {
-
+                System.out.println("aq1");
                 rs = s.executeQuery("SELECT * FROM estudiante WHERE usbid='" + usbidSol + "'");
+                System.out.println("aq0");
                 rs.next();
-
+                System.out.println("aqu6");
+                System.out.println(rs.getString("codcarrera"));
                 int carreraest = Integer.parseInt(rs.getString("codcarrera"));
-
+                System.out.println(carreraest);
+                System.out.println("aqui1");
                 if (carreraest == codigoCarrera) {
                     addFieldError("carrera_dest", "No puedes enviar una solicitud a tu misma carrera.");
                     return "input";
                 }
-                
+                System.out.println("aqui2");
                 motivacion = motivacion.replace("\'","");
                 
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
@@ -201,11 +209,14 @@ public class SolicitudAction extends ActionSupport {
                         + "false,"
                         + "false" + ","
                         + "'" + motivacion + "')");
-
+                System.out.println("aqui3");
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
+                
             } else {
                 mensaje = "Ya habías enviado una solicitud de cambio.";
+               System.out.println("aqui8");
             }
+            System.out.println("aqui4");
         } catch (Exception e) {
             System.out.println("Problem in searching the database crearSolicitud");
         }
