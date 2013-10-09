@@ -73,7 +73,7 @@
                            <tr>
                            <center><td class="bord">Cohorte</td> </center>
                            <center><td class="bord">Cupos</td></center>
-                           <center><td class="bord">Cupos Activos</td></center>
+                           <center><td class="bord">Activos</td></center>
                            </tr>
                             <%
                             List l = (List) request.getAttribute("disp2");

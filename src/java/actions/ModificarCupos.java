@@ -112,7 +112,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
                     for (int x = 0; x < cantCupos.length(); x++) {
                         if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
                             addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
-                            break;
+                            return;
                         }
                         System.out.println(cantCupos.charAt(x));
                     }

@@ -51,8 +51,8 @@
                           </s:if>
 
 
-                          <s:textfield label="Cohorte" type="text" name="cohorte" size="15"/>
-                          <s:textfield type="text" label="Cantidad de Cupos" name="cantCupos" size="15" /> 
+                          <s:textfield label="Cohorte" type="text" name="cohorte" size="15" maxlength="4"/>
+                          <s:textfield type="text" label="Cantidad de Cupos" name="cantCupos" size="15" maxlength="3" /> 
 
                                 
                                 
