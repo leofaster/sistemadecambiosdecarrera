@@ -53,7 +53,7 @@
                         <s:form action="Login">
                             <table style="border: none">
                                 <tr style="border: none">
-                                    <td style="border: none"><s:textfield label="Introduzca su USBid" type="text" name="usbid" maxlength="8" size="14" /></td>
+                                    <td style="border: none"><s:textfield label="Introduzca su USBid" type="text" name="usbid" maxlength="20" size="14" /></td>
                                 </tr>
                                 <tr style="border: none">
                                     <td style="border: none" colspan="2"></td>

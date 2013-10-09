@@ -59,8 +59,8 @@
                                 
                                 
                             </table></> --%>
-                            <s:textfield label="Cohorte" type="text" name="cohorte" size="15"/>
-                                    <s:textfield type="text" label="Cantidad de Cupos" name="cantCupos" size="15" /> 
+                            <s:textfield label="Cohorte" type="text" name="cohorte" maxlength="4" size="15"/>
+                                    <s:textfield type="text" label="Cantidad de Cupos" name="cantCupos" maxlength="3" size="15" /> 
                                 
                             
                             
