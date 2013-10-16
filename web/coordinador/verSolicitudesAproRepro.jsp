@@ -47,28 +47,55 @@
                          <table class="bordt" border="1">
                         <form name="fom" method="post">
                            <tr>
-                           <center><td class="bord">Nombre del estudiante</td> </center>
-                           <center><td class="bord">Carnet</td></center>
+                           
                            </tr>
                             <%
-                            List l = (List) request.getAttribute("disp3");
-                            if (l != null) {
-                                
+                            List l = (List) request.getAttribute("disp4");
+                            if (l != null && l.size()!=0) {
+                            %>
+                            
+                           <center><td class="bord">Estudiante</td> </center>
+                           <center><td class="bord">Carnet</td></center>
+                           <center><td class="bord">Aceptada</td></center>
+                           <center><td class="bord">Rechazada</td></center>
+                            
+                            <%
                                 Iterator it = l.iterator();
 
                                 while (it.hasNext()) {
-                                    clases.Cohorte b = (clases.Cohorte) it.next();
-                                    String cuposCo = b.getCupos();
-                                    String NumCo = b.getCohorte();
-                                    String cuposA=b.getCuposa();
+                                    clases.Solicitud b = (clases.Solicitud) it.next();
+                                    String nombre = b.getEstudiante().getNombre();
+                                    String carnet = b.getEstudiante().getUsbid();
+                                    boolean ac = b.isSolAceptada();
+                                    
                             %>
                             <tr> 
-                            <center><td class="bord"><%= NumCo%></td></center>
-                            <center><td class="bord"><%= cuposCo%></td></center>
-                            <center><td class="bord"><%= cuposA%></td></center>
+                            <center><td class="bord"><%= nombre%></td></center>
+                            <center><td class="bord"><%= carnet%></td></center>
+                            <%
+                                    if(ac){
+                            %>
+                                       <center><td class="bord">X</td></center>
+                                       <center><td class="bord"></td></center>
+                            <%
+                                    }
+                                    else{
+                            %>
+                                       <center><td class="bord"></td></center>
+                                       <center><td class="bord">X</td></center>
+                             <%
+                                    }
+                              %>
                             </tr> 
                             <%
                             }
+                            }
+                            else{
+                            %>
+                            
+                            <center><b>No posee solicitudes ya gestionadas.</td></b></center>
+                            
+                            <%
                             }
                             %>  
                         </form>

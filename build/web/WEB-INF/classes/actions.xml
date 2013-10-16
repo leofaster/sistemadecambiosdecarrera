@@ -48,6 +48,7 @@
         
         <action name="SolApRep" class="actions.VisualizarSol" method="verYaGestionados"> 
             <result name="success">coordinador/verSolicitudesAproRepro.jsp</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         
