@@ -54,7 +54,7 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
             System.out.println(carr);
             rs = st.executeQuery("SELECT USUARIO.NOMBRE,SOLICITUD.USBID,SOLICITUD.CODCARRERA "
                     + "FROM SOLICITUD JOIN USUARIO ON SOLICITUD.USBID=USUARIO.USBID"
-                    + " WHERE SOL_ACEPTADA='F' AND MOTIVACION!='' AND "
+                    + " WHERE SOL_ACEPTADA='F' AND ADVERTENCIA!='-1' AND "
                     + "SOLICITUD.CODCARRERA='"+carr+"'");
             
             System.out.println("Ejecutar BUSQUEDA DE SOLICITUDES");
@@ -113,9 +113,9 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
             String carr = rs.getString("codcarrera");
             
             System.out.println(carr);
-            rs = st.executeQuery("SELECT USUARIO.NOMBRE,SOLICITUD.USBID,SOLICITUD.CODCARRERA "
+            rs = st.executeQuery("SELECT USUARIO.NOMBRE,SOLICITUD.USBID,SOLICITUD.CODCARRERA,SOLICITUD.SOL_ACEPTADA "
                     + "FROM SOLICITUD JOIN USUARIO ON SOLICITUD.USBID=USUARIO.USBID WHERE"
-                    + " MOTIVACION='' AND "
+                    + " ADVERTENCIA='-1' AND "
                     + "SOLICITUD.CODCARRERA='"+carr+"'");
             
             System.out.println("Ejecutar BUSQUEDA DE SOLICITUDES");

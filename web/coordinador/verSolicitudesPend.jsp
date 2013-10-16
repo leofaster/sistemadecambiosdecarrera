@@ -54,8 +54,8 @@
                             if (l != null && l.size()!=0) {
                             %>
                             
-                           <center><td class="bord">Nombre del estudiante</td> </center>
-                           <center><td class="bord">Carnet</td></center>
+                           <td class="bord"><center><b>Nombre del estudiante</b></center></td>
+                           <td class="bord"><center><b>Carnet</b></center></td>
                             
                             <%
                                 Iterator it = l.iterator();

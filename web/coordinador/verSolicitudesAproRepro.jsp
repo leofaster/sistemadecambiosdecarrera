@@ -54,10 +54,10 @@
                             if (l != null && l.size()!=0) {
                             %>
                             
-                           <center><td class="bord">Estudiante</td> </center>
-                           <center><td class="bord">Carnet</td></center>
-                           <center><td class="bord">Aceptada</td></center>
-                           <center><td class="bord">Rechazada</td></center>
+                           <center><td class="bord"><b>Estudiante</b></td> </center>
+                           <center><td class="bord"><b>Carnet</b></td></center>
+                           <center><td class="bord"><b>Aceptada</b></td></center>
+                           <center><td class="bord"><b>Rechazada</b></td></center>
                             
                             <%
                                 Iterator it = l.iterator();
@@ -75,14 +75,14 @@
                             <%
                                     if(ac){
                             %>
-                                       <center><td class="bord">X</td></center>
+                                       <td class="bord"><center>X</center></td>
                                        <center><td class="bord"></td></center>
                             <%
                                     }
                                     else{
                             %>
                                        <center><td class="bord"></td></center>
-                                       <center><td class="bord">X</td></center>
+                                       <td class="bord"><center>X</center></td>
                              <%
                                     }
                               %>
