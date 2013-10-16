@@ -23,6 +23,7 @@
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('modifCupos');" class="menuitem">Modificar los Cupos de la Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('verCupos');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('SolP');" class="menuitem">Gestionar solicitudes</a></a>
                     <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
@@ -39,7 +40,30 @@
                 <div id="loginDiv" alt="especial">
                     <h4>Hola, <%=session.getAttribute("nombre")%></h4>
                 </div>
-
+                
+                <div id="SolP" class="hidden" alt="especial">
+                    <div id="login-form"><br><br><br>
+                        Seleccione la opción deseada:
+                        <br><br>
+                        <table>
+                        <tr>
+                        <td>
+                        <s:form action="SolPen">
+                        <center>    <s:submit  value="Gestionar solicitudes pendientes" type="button"/></center>
+                        </s:form>
+                       </td>
+                       <td>
+                        <s:form action="SolApRep">
+                            <center><s:submit  value="Ver las solicitudes ya gestionadas" type="button"/></center>
+                        </s:form>
+                        <td>
+                        </tr>
+                        </table>
+                        
+                   </div>
+                </div>
+                
+                
                 <div id="modifCupos" class="hidden" alt="especial">
                     <div id="login-form"><br><br><br>
                         <s:form action="ModificarCup">
