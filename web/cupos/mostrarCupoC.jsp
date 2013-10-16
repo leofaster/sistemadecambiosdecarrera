@@ -22,7 +22,7 @@
 
                 <div class="glossymenu" style="width: 190px">
                     <a style="border-bottom: none;" ><a href="javascript:unhide('modifCupos');" class="menuitem">Modificar los Cupos de la Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('verCupos');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('success');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
