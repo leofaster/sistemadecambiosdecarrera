@@ -40,7 +40,7 @@
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
                 
-                <div id="SolP" alt="especial">
+                <div id="Mostrar" alt="especial">
                     <div id="login-form"><br><br><br>
                         
                         <center>
