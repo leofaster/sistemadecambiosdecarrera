@@ -235,10 +235,10 @@ public class SolicitudAction extends ActionSupport {
         try {
             s = ConexionBD.getConnection().createStatement();
             
-            rs= s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbido + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
+            rs= s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbido + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
             System.out.println("PP1");
             if(rs.next()){
-                mensaje = "Ya se le ha aceptado una solicitud de cambio de carrera.";
+                mensaje = "Ya se le ha aceptado una solicitud de cambio de carrera en la carrera "+rs.getString("nombre")+".";
                 return SUCCESS;
             }
             rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "'");
