@@ -1,3 +1,4 @@
 *.war
 /nbproject/
 /build/
+/dist/

@@ -1,11 +1,12 @@
 <%-- 
-    Document   : mostrarDatos
-    Created on : 17/10/2013, 04:17:42 AM
-    Author     : CHANGE Gate
+    Document    : indexCoordinador
+    Author      : CHANGE Gate
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <html>
 
     <head>
@@ -20,9 +21,9 @@
             <div id="sidebarL">
 
                 <div class="glossymenu" style="width: 190px">
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('modifCuposo');" class="menuitem">Modificar los Cupos de la Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('verCuposo');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('SoloP');" class="menuitem">Gestionar solicitudes</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('modifCupos');" class="menuitem">Modificar los Cupos de la Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('verCupos');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('SolP');" class="menuitem">Gestionar solicitudes</a></a>
                     <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
@@ -51,12 +52,10 @@
                         </s:form>
                         <td>
                         </tr>
-                        
-                    
                     </table>
                 </div>
                 
-                <div id="SoloP" class="hidden" alt="especial">
+                <div id="SolP" class="hidden" alt="especial">
                     <div id="login-form"><br><br><br>
                         Seleccione la opción deseada:
                         <br><br>
@@ -79,7 +78,7 @@
                 </div>
                 
                 
-                <div id="modifCuposo" class="hidden" alt="especial">
+                <div id="modifCupos" class="hidden" alt="especial">
                     <div id="login-form"><br><br><br>
                         <s:form action="ModificarCup">
                             <center>Coordinador, coloque la cohorte y cantidad de cupos deseados</center>
@@ -108,7 +107,7 @@
                     </div>
                 </div>
 
-                <div id="verCuposo" class="hidden" alt="especial">
+                <div id="verCupos" class="hidden" alt="especial">
                     <div id="login-form">
                         <br><br><br>
                         <s:form action="solicitudCupos">

@@ -6,6 +6,11 @@ package clases;
 
 import java.util.*;
 import java.io.Serializable;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Map;
 
 /**
  *
@@ -82,5 +87,55 @@ public class Estudiante extends Usuario implements Serializable {
      */
     public void setAsignaturas(LinkedList<AsignaturaConNota> asignaturas) {
         this.asignaturas = asignaturas;
+    }
+
+    public static boolean verificarCicloBasicoAprobado(String usbidE) throws Exception {
+        ResultSet rs = null;
+        Statement st = null;
+        ConexionBD.establishConnection();
+        List<String> aprobadas = null;
+        aprobadas = new ArrayList<String>();
+        List<String> obligatorias = null;
+        obligatorias = new ArrayList<String>();
+        String s = null;
+
+        try {
+            st = ConexionBD.getConnection().createStatement();
+            rs = st.executeQuery("SELECT * FROM ESTUDIANTE NATURAL JOIN CURSA NATURAL JOIN CALIFICACION WHERE NOTA >= '3' AND USBID = '" + usbidE + "'");
+
+
+            while (rs.next()) {
+                s = rs.getString("codasignatura");
+                aprobadas.add(s);
+            }
+
+            rs = st.executeQuery("SELECT CODCARRERA FROM ESTUDIANTE WHERE USBID='" + usbidE + "'");
+            rs.next();
+            int carrera;
+            carrera = rs.getInt("codcarrera");
+
+            rs = st.executeQuery("SELECT * FROM CICLO_BASICO WHERE CODCARRERA='" + carrera + "'");
+
+            while (rs.next()) {
+                s = rs.getString("codasignatura");
+                obligatorias.add(s);
+            }
+
+            rs.close();
+            st.close();
+
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database verificarCicloBasicoAprobado");
+        }
+
+        boolean aprobado = true;
+
+        for (Object objList : obligatorias) {
+            aprobado = aprobadas.contains(objList);
+            if (!aprobado) {
+                break;
+            }
+        }
+        return aprobado;
     }
 }
