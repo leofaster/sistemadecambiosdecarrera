@@ -47,12 +47,12 @@
         </action> 
         
         <action name="Aprobar" class="CRUD.usuarios.UpdateSolicitud" method="Aceptar"> 
-            <result name="success">cupos/errorCupo.jsp</result>
+            <result name="success">coordinador/solicitudExitosa.jsp</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         <action name="Denegar" class="CRUD.usuarios.UpdateSolicitud" method="Negar"> 
-            <result name="success">cupos/errorCupo.jsp</result>
+            <result name="success">coordinador/solicitudExitosa.jsp</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
