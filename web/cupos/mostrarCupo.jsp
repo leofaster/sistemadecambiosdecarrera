@@ -25,7 +25,7 @@
                     <a style="border-bottom: none;" ><a href="<s:url action="ListarSol"/>" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a></a>
                     <a style="border-bottom: none;" ><a href="<s:url action="verificarReq"/>" class="menuitem">Solicitar Cambio de Carrera</a></a>
                     <a style="border-bottom: none;" ><a href="javascript:unhide('success');" class="menuitem">Ver Cupos Disponibles por Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('SolP');" class="menuitem">Gestionar solicitudes</a></a>
+                    
                     <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
                 </div>
             </div>
