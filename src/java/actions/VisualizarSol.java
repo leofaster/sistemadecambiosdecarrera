@@ -52,7 +52,7 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
             String carr = rs.getString("codcarrera");
             
             System.out.println(carr);
-            rs = st.executeQuery("SELECT USUARIO.NOMBRE,SOLICITUD.USBID,SOLICITUD.CODCARRERA "
+            rs = st.executeQuery("SELECT USUARIO.NOMBRE,USUARIO.APELLIDO,SOLICITUD.USBID,SOLICITUD.CODCARRERA "
                     + "FROM SOLICITUD JOIN USUARIO ON SOLICITUD.USBID=USUARIO.USBID"
                     + " WHERE SOL_ACEPTADA='F' AND ADVERTENCIA!='-1' AND "
                     + "SOLICITUD.CODCARRERA='"+carr+"'");
@@ -68,7 +68,7 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
                 mb = new Solicitud();
                 Estudiante tmp = new Estudiante();
                 tmp.setUsbid(rs.getString("usbid"));
-                tmp.setNombre(rs.getString("nombre"));
+                tmp.setNombre(rs.getString("nombre")+" "+rs.getString("apellido"));
                 mb.setEstudiante(tmp);
                 
                
@@ -113,7 +113,7 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
             String carr = rs.getString("codcarrera");
             
             System.out.println(carr);
-            rs = st.executeQuery("SELECT USUARIO.NOMBRE,SOLICITUD.USBID,SOLICITUD.CODCARRERA,SOLICITUD.SOL_ACEPTADA "
+            rs = st.executeQuery("SELECT USUARIO.NOMBRE,USUARIO.APELLIDO,SOLICITUD.USBID,SOLICITUD.CODCARRERA,SOLICITUD.SOL_ACEPTADA "
                     + "FROM SOLICITUD JOIN USUARIO ON SOLICITUD.USBID=USUARIO.USBID WHERE"
                     + " ADVERTENCIA='-1' AND "
                     + "SOLICITUD.CODCARRERA='"+carr+"'");
@@ -129,7 +129,7 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
                 mb = new Solicitud();
                 Estudiante tmp = new Estudiante();
                 tmp.setUsbid(rs.getString("usbid"));
-                tmp.setNombre(rs.getString("nombre"));
+                tmp.setNombre(rs.getString("nombre")+" "+rs.getString("apellido"));
                 mb.setEstudiante(tmp);
                 mb.setSolAceptada(rs.getBoolean("sol_aceptada"));
                 
