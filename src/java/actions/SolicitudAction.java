@@ -200,12 +200,30 @@ public class SolicitudAction extends ActionSupport {
                 System.out.println("aqui2");
                 motivacion = motivacion.replace("\'","");
                 
+                String advertencia = "";
+                boolean aprobado_cb = Estudiante.verificarCicloBasicoAprobado(usbidSol);
+                if (!aprobado_cb) {
+                    advertencia = "El estudiante no ha aprobado ciclo básico.\n";
+                }
+                
+                int cohorte;
+                
+                cohorte = Integer.parseInt(usbidSol.substring(0,2));
+                System.out.println(cohorte);
+                boolean cohortebuena = (cohorte >= 10);
+                
+                if (!cohortebuena) {
+                    advertencia = advertencia + "El estudiante lleva más de 3 años en la carrera.";
+                }
+                
+                System.out.println(advertencia);
+                
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
                         + usbidSol
                         + "',"
                         + "CAST('" + codigoCarrera + "' AS INTEGER),"
-                        + "NOW(),"
-                        + "'',"
+                        + "NOW(),'"
+                        + advertencia + "',"
                         + "false,"
                         + "false" + ","
                         + "'" + motivacion + "')");
@@ -244,9 +262,9 @@ public class SolicitudAction extends ActionSupport {
             rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "' ORDER BY FECHA");
             System.out.println("PP2");
             if (rs.next()) {
-                mensaje = rs.getString("fecha") + "Has realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+                mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
                 while (rs.next()) {
-                    mensaje = mensaje + "\n\n" + rs.getString("fecha") + "Has realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+                    mensaje = mensaje + "\n\n" + rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
                 }
             } else {
                 mensaje = "No has enviado solicitudes";

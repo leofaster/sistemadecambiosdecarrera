@@ -53,12 +53,16 @@
                             <td>Aquí va el índice</td>
                         </tr>
                         <tr>
+                            <td><b>Carrera de origen:</b></td>
+                            <td>Aquí va la carrera</td>
+                        </tr>
+                        <tr>
                             <td><b>Motivación para el cambio:     </b></td>
                             <td><s:property value="motivacion" /></td>
                         </tr>
                         <tr>
                             <td><b>Observaciones:</b></td>
-                            <td>Aquí van las advertencias</td>
+                            <td><s:property escapeHtml="false" value="advertencia.replace(\"\n\", \" <br />\")" /></td>
                         </tr>
                     </table>
 

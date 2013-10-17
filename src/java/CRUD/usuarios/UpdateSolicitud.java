@@ -32,6 +32,31 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
     HttpServletRequest request;
     Map m;
     String motivacion;
+    String advertencia;
+
+    public HttpServletRequest getRequest() {
+        return request;
+    }
+
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
+
+    public Map getM() {
+        return m;
+    }
+
+    public void setM(Map m) {
+        this.m = m;
+    }
+
+    public String getAdvertencia() {
+        return advertencia;
+    }
+
+    public void setAdvertencia(String advertencia) {
+        this.advertencia = advertencia;
+    }
 
     public String getMotivacion() {
         return motivacion;
@@ -90,9 +115,10 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
             String nombre = request.getParameter("nombre");
             session2.put("carnet_aux", carn);
             System.out.println(carn);
-            rs = st.executeQuery("select * from solicitud where usbid='"+carn+"'");
+            rs = st.executeQuery("select * from solicitud where usbid='"+carn+"' AND ADVERTENCIA!='-1'");
             rs.next();
             motivacion = rs.getString("motivacion");
+            advertencia = rs.getString("advertencia");
             rs = st.executeQuery("select * from calificacion natural join asignatura"
                     + " where usbid='"+carn
                     + "' order by codasignatura");
