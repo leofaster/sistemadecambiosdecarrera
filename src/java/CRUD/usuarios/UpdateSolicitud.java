@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.ApplicationAware;
+import java.util.Date;
 
 /**
  *
@@ -73,8 +74,12 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
             Asignatura mb = null;
             AsignaturaConNota mb2= null;
 
+            Map session2 = ActionContext.getContext().getSession();
+            String usbido = session2.get("usbid").toString();
+            
             String carn = request.getParameter("carnet");
             String nombre = request.getParameter("nombre");
+            session2.put("carnet_aux", carn);
             System.out.println(carn);
             rs = st.executeQuery("select * from calificacion natural join asignatura"
                     + " where usbid='"+carn
@@ -106,6 +111,117 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
         return SUCCESS;
 
     }
+    
+    public String Aceptar(){
+        ResultSet rs = null;
+        Statement st = null;
+        String string = null;
+        ConexionBD.establishConnection();
+        try{
+            st = ConexionBD.getConnection().createStatement();
+            Map session2 = ActionContext.getContext().getSession();
+            
+            String carnet =  session2.get("carnet_aux").toString();
+            System.out.println(carnet);
+            Solicitud sol = new Solicitud();
+            rs = st.executeQuery("select * from solicitud where usbid='"+carnet+"' AND advertencia!='-1'");
+            if(rs.next()){
+                    String usbid = rs.getString("usbid");
+                    System.out.println("PP1");
+                    String cod = rs.getString("codcarrera");
+                    System.out.println("PP2");
+                    Date fecha = rs.getDate("fecha");
+                    System.out.println("PP3");
+                    boolean soli = rs.getBoolean("sol_aceptada");
+                    System.out.println("PP4");
+                    boolean cc = rs.getBoolean("cc_aprobado");
+                    System.out.println("PP5");
+                    String mot = rs.getString("motivacion");
+                    System.out.println("PP6");
+                    String  ccS;
+                    if(cc) ccS="t";
+                    else ccS="f";
+                    System.out.println("PP1");
+                    
+                    
+                    st.executeUpdate("delete from solicitud where usbid='"+carnet+"' and advertencia!='-1'");
+                    st.executeUpdate("insert into solicitud values"
+                            + "('"
+                            + carnet+"','"
+                            + cod+"',"
+                            + "now(),"
+                            + "'-1','"
+                            + "t','"
+                            + ccS+"','"
+                            + mot+"'"
+                            + ")");
+                       System.out.println("PP3");
+            }
+            
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error modificando solicitudes");
+        }
+        
+        return SUCCESS;
+    }
+    
+    public String Negar(){
+        ResultSet rs = null;
+        Statement st = null;
+        String string = null;
+        ConexionBD.establishConnection();
+        try{
+            st = ConexionBD.getConnection().createStatement();
+            Map session2 = ActionContext.getContext().getSession();
+            
+            String carnet =  session2.get("carnet_aux").toString();
+            System.out.println(carnet);
+            Solicitud sol = new Solicitud();
+            rs = st.executeQuery("select * from solicitud where usbid='"+carnet+"' AND advertencia!='-1'");
+            if(rs.next()){
+                    String usbid = rs.getString("usbid");
+                    System.out.println("PP1");
+                    String cod = rs.getString("codcarrera");
+                    System.out.println("PP2");
+                    Date fecha = rs.getDate("fecha");
+                    System.out.println("PP3");
+                    boolean soli = rs.getBoolean("sol_aceptada");
+                    System.out.println("PP4");
+                    boolean cc = rs.getBoolean("cc_aprobado");
+                    System.out.println("PP5");
+                    String mot = rs.getString("motivacion");
+                    System.out.println("PP6");
+                    String  ccS;
+                    if(cc) ccS="t";
+                    else ccS="f";
+                    System.out.println("PP1");
+                    
+                    
+                    st.executeUpdate("delete from solicitud where usbid='"+carnet+"' and advertencia!='-1'");
+                    st.executeUpdate("insert into solicitud values"
+                            + "('"
+                            + carnet+"','"
+                            + cod+"',"
+                            + "now(),"
+                            + "'-1','"
+                            + "f','"
+                            + ccS+"','"
+                            + mot+"'"
+                            + ")");
+                       System.out.println("PP3");
+            }
+            
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error modificando solicitudes");
+        }
+        
+        return SUCCESS;
+    }
+   
     
     
     

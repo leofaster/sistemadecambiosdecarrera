@@ -51,6 +51,7 @@
                         
                         
                         <%
+                            
                             List l = (List) request.getAttribute("disp5");
                             if (l != null && l.size()!=0) {
                         %>
