@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ page import="java.util.*;" %>
 <html>
 
     <head>
@@ -38,7 +38,46 @@
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
                 <div id="loginDiv" alt="especial">
-                    <h4>Hola, <%=session.getAttribute("nombre")%></h4>
+                    
+                        <h3><center><b>Informe académico</b></center></h3>
+                        <br/>
+                        <table border="1">
+                        <tr>
+                        <td><center><b>Materia</b></center></td>
+                        <td><center><b>Código</b></center></td>
+                        <td><center><b>Nota</b></center></td>
+                        </tr>
+                    
+                        
+                        
+                        <%
+                            List l = (List) request.getAttribute("disp5");
+                            if (l != null && l.size()!=0) {
+                        %>
+                        
+                        <%
+                                Iterator it = l.iterator();
+
+                                while (it.hasNext()) {
+                                    clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
+                                    String nombre = b.getAsignatura().getNombre();
+                                    String codigo = b.getAsignatura().getCodigoS();
+                                    String nota = b.getNota()+"";
+                                    
+                        %>
+                            <tr>
+                                <td><center><%= nombre%></center></td>
+                                <td><center><%= codigo%></center></td>
+                                <td><center><%= nota%></center></td>
+                            </tr>
+                        <%
+                                }
+                            }
+                        %>
+                    </table>
+                    
+                    
+                    
                     <table>
                         <tr>
                         <td>

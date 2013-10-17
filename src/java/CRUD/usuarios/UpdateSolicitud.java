@@ -6,6 +6,8 @@ package CRUD.usuarios;
 import clases.ConexionBD;
 import clases.Usuario;
 import clases.Cohorte;
+import clases.AsignaturaConNota;
+import clases.Asignatura;
 import clases.Solicitud;
 import clases.Estudiante;
 import static com.opensymphony.xwork2.Action.SUCCESS;
@@ -66,20 +68,29 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
             //System.out.println("This is" +k);
 
             
-            List<Solicitud> li = null;
-            li = new ArrayList<Solicitud>();
-            Solicitud mb = null;
+            List<AsignaturaConNota> li = null;
+            li = new ArrayList<AsignaturaConNota>();
+            Asignatura mb = null;
+            AsignaturaConNota mb2= null;
 
             String carn = request.getParameter("carnet");
             String nombre = request.getParameter("nombre");
-            
-            rs = st.executeQuery("select * from estudiante");
+            System.out.println(carn);
+            rs = st.executeQuery("select * from calificacion natural join asignatura"
+                    + " where usbid='"+carn
+                    + "' order by codasignatura");
             
             while (rs.next()) {
-                
-
+                mb = new Asignatura();
+                mb.setCodigoS(rs.getString("codasignatura"));
+                System.out.println(mb.getCodigoS());
+                mb.setNombre(rs.getString("nombre"));
+                mb2 = new AsignaturaConNota();
+                mb2.setAsignatura(mb);
+                mb2.setnota(rs.getInt("nota"));
+                li.add(mb2);
             }
-            
+            System.out.println(li.size());
             request.setAttribute("carnet",carn);
             request.setAttribute("nombre",nombre);
             request.setAttribute("disp5", li);
