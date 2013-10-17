@@ -31,6 +31,15 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
     private static final long serialVersionUID = 1L;
     HttpServletRequest request;
     Map m;
+    String motivacion;
+
+    public String getMotivacion() {
+        return motivacion;
+    }
+
+    public void setMotivacion(String motivacion) {
+        this.motivacion = motivacion;
+    }
     
     public void setServletRequest(HttpServletRequest request) {
         this.request = request;
@@ -81,6 +90,9 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
             String nombre = request.getParameter("nombre");
             session2.put("carnet_aux", carn);
             System.out.println(carn);
+            rs = st.executeQuery("select * from solicitud where usbid='"+carn+"'");
+            rs.next();
+            motivacion = rs.getString("motivacion");
             rs = st.executeQuery("select * from calificacion natural join asignatura"
                     + " where usbid='"+carn
                     + "' order by codasignatura");

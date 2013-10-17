@@ -39,6 +39,10 @@
 
                 <div id="loginDiv" alt="especial">
                     
+                    <center><s:property value="mensaje" />
+                        
+                    </center>
+                    
                         <h3><center><b>Informe académico</b></center></h3>
                         <br/>
                         <table border="1">
