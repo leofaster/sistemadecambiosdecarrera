@@ -15,6 +15,13 @@
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
         <title>Sistema de Cambios de Carrera</title>
+        <script type="text/javascript">
+        
+        function edita(val,val2) {
+            document.fom.action = "updateSol.action?carnet=" + val+"&nombre="+val2;
+            document.fom.submit();
+        }
+        </script>
     </head>
 
     <body>  
@@ -69,7 +76,7 @@
                             <tr> 
                             <center><td class="bord"><%= nombre%></td></center>
                             <center><td class="bord"><%= carnet%></td></center>
-                            
+                            <td class="bord"><center><a href="javascript:edita('<%= carnet%>','<%= nombre%>')">Gestionar</a></center></td>
                             </tr> 
                             <%
                             }

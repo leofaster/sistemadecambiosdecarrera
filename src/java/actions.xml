@@ -51,7 +51,9 @@
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
-        
+        <action name="updateSol" class="CRUD.usuarios.UpdateSolicitud">
+            <result name="success">coordinador/mostrarDatos.jsp</result>
+        </action>
         
         
     </package>

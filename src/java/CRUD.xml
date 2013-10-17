@@ -28,6 +28,9 @@
             <result name="error">error.jsp</result>      
         </action>
         
+        
+        
+        
         <action name="updates" class="CRUD.usuarios.Updates">
             <result name="success">usuccess.jsp</result>
             <result name="error">error.jsp</result>      
