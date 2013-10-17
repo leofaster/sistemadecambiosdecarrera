@@ -39,7 +39,7 @@
 
                 <div id="success" alt="especial">
                     <br /><br />
-                    <center><strong><s:property value="mensaje" /></strong></center>
+                    <center><strong><s:property escapeHtml="false" value="mensaje.replace(\"\n\", \" <br />\")" /></strong></center>
                 </div>
 
                 <div id="verCupos" class="hidden" alt="especial">

@@ -181,7 +181,7 @@ public class SolicitudAction extends ActionSupport {
             System.out.println("aqu10");
             s = ConexionBD.getConnection().createStatement();
             System.out.println("aqu11");
-            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "' AND (ADVERTENCIA!='-1' OR SOL_ACEPTADA='T')");
+            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "' AND ADVERTENCIA!='-1'");
 
             if (!rs.next()) {
                 System.out.println("aq1");
@@ -241,11 +241,13 @@ public class SolicitudAction extends ActionSupport {
                 mensaje = "Ya se le ha aceptado una solicitud de cambio de carrera en la carrera "+rs.getString("nombre")+".";
                 return SUCCESS;
             }
-            rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "'");
+            rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "' ORDER BY FECHA");
             System.out.println("PP2");
             if (rs.next()) {
-                
-                mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a " + rs.getString("nombre");
+                mensaje = rs.getString("fecha") + "Has realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+                while (rs.next()) {
+                    mensaje = mensaje + "\n\n" + rs.getString("fecha") + "Has realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+                }
             } else {
                 mensaje = "No has enviado solicitudes";
             }

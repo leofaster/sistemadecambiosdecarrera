@@ -38,114 +38,135 @@
             <div style="width:760px;margin-left:auto;margin-right:auto;">
 
                 <div id="loginDiv" alt="especial">
-                    
-                    <center><s:property value="mensaje" />
-                        
-                    </center>
-                    
-                        <h3><center><b>Informe académico</b></center></h3>
-                        <br/>
-                        <table border="1">
+                    <br/><br/><br/>
+                    <table border="0"> 
                         <tr>
-                        <td><center><b>Materia</b></center></td>
+                            <td><b>Nombre:</b></td>
+                            <td>Aquí va el nombre</td>
+                        </tr>
+                        <tr>
+                            <td><b>Carnet:</b></td>
+                            <td>Aquí va el carnet</td>
+                        </tr>
+                        <tr>
+                            <td><b>Índice:</b></td>
+                            <td>Aquí va el índice</td>
+                        </tr>
+                        <tr>
+                            <td><b>Motivación para el cambio:     </b></td>
+                            <td><s:property value="motivacion" /></td>
+                        </tr>
+                        <tr>
+                            <td><b>Observaciones:</b></td>
+                            <td>Aquí van las advertencias</td>
+                        </tr>
+                    </table>
+
+                        <center><a href="">Este link da al informe académico (si se puede)</a></center>
+
+                    <h3><center><b>Informe académico</b></center></h3>
+                    <br/>
+                    <table border="1">
+                        <tr>
+                            <td><center><b>Materia</b></center></td>
                         <td><center><b>Código</b></center></td>
                         <td><center><b>Nota</b></center></td>
                         </tr>
-                    
-                        
-                        
-                        <%
-                            
-                            List l = (List) request.getAttribute("disp5");
-                            if (l != null && l.size()!=0) {
-                        %>
-                        
-                        <%
-                                Iterator it = l.iterator();
 
-                                while (it.hasNext()) {
-                                    clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
-                                    String nombre = b.getAsignatura().getNombre();
-                                    String codigo = b.getAsignatura().getCodigoS();
-                                    String nota = b.getNota()+"";
-                                    
+
+
+                        <%
+
+                            List l = (List) request.getAttribute("disp5");
+                            if (l != null && l.size() != 0) {
                         %>
-                            <tr>
-                                <td><center><%= nombre%></center></td>
-                                <td><center><%= codigo%></center></td>
-                                <td><center><%= nota%></center></td>
-                            </tr>
+
+                        <%
+                            Iterator it = l.iterator();
+
+                            while (it.hasNext()) {
+                                clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
+                                String nombre = b.getAsignatura().getNombre();
+                                String codigo = b.getAsignatura().getCodigoS();
+                                String nota = b.getNota() + "";
+
+                        %>
+                        <tr>
+                            <td><center><%= nombre%></center></td>
+                        <td><center><%= codigo%></center></td>
+                        <td><center><%= nota%></center></td>
+                        </tr>
                         <%
                                 }
                             }
                         %>
                     </table>
-                    
-                    
-                    
+
+
+
                     <table>
                         <tr>
+                            <td>
+                                <s:form action="Aprobar">
+                            <center>    <s:submit  value="Aceptar solicitud" type="button"/></center>
+                            </s:form>
+                        </td>
                         <td>
-                        <s:form action="Aprobar">
-                        <center>    <s:submit  value="Aceptar solicitud" type="button"/></center>
-                        </s:form>
-                       </td>
-                       <td>
-                        <s:form action="Denegar">
+                            <s:form action="Denegar">
                             <center><s:submit  value="Negar solicitud" type="button"/></center>
-                        </s:form>
+                            </s:form>
                         <td>
-                        </tr>
+                            </tr>
                     </table>
                 </div>
-                
+
                 <div id="SolP" class="hidden" alt="especial">
                     <div id="login-form"><br><br><br>
                         Seleccione la opción deseada:
                         <br><br>
                         <table>
-                        <tr>
-                        <td>
-                        <s:form action="SolPen">
-                        <center>    <s:submit  value="Gestionar solicitudes pendientes" type="button"/></center>
-                        </s:form>
-                       </td>
-                       <td>
-                        <s:form action="SolApRep">
-                            <center><s:submit  value="Ver las solicitudes ya gestionadas" type="button"/></center>
-                        </s:form>
-                        <td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    <s:form action="SolPen">
+                                <center>    <s:submit  value="Gestionar solicitudes pendientes" type="button"/></center>
+                                </s:form>
+                            </td>
+                            <td>
+                                <s:form action="SolApRep">
+                                <center><s:submit  value="Ver las solicitudes ya gestionadas" type="button"/></center>
+                                </s:form>
+                            <td>
+                                </tr>
                         </table>
-                        
-                   </div>
+
+                    </div>
                 </div>
-                
-                
+
+
                 <div id="modifCupos" class="hidden" alt="especial">
                     <div id="login-form"><br><br><br>
                         <s:form action="ModificarCup">
                             <center>Coordinador, coloque la cohorte y cantidad de cupos deseados</center>
-                            
-                        <%--   <table border="1">
-                                
-                                <tr>
-                                    <td>Cohorte</td>
-                                    <td><input type="text" name="cohorte" size="15" maxlength="4"/></td>
+
+                            <%--   <table border="1">
                                     
-                                </tr>
-                                <tr>
-                                <td>Cantidad de cupos</td>
-                                <td><input type="text" name="cantCupos" size="15" maxlength="3"/> </td>
-                                </tr>
-                                
-                                
-                            </table></> --%>
+                                    <tr>
+                                        <td>Cohorte</td>
+                                        <td><input type="text" name="cohorte" size="15" maxlength="4"/></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                    <td>Cantidad de cupos</td>
+                                    <td><input type="text" name="cantCupos" size="15" maxlength="3"/> </td>
+                                    </tr>
+                                    
+                                    
+                                </table></> --%>
                             <s:textfield label="Cohorte" type="text" name="cohorte" maxlength="4" size="15"/>
-                                    <s:textfield type="text" label="Cantidad de Cupos" name="cantCupos" maxlength="3" size="15" /> 
-                                
-                            
-                            
+                            <s:textfield type="text" label="Cantidad de Cupos" name="cantCupos" maxlength="3" size="15" /> 
+
+
+
                             <s:submit value="Aceptar" />
                         </s:form>
                     </div>
@@ -176,7 +197,7 @@
                                       '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                                       headerKey="-1" headerValue="Seleccionar carrera..."/>
                             <br />
-                            
+
                             <br />
                             <s:submit value="Aceptar" />
                         </s:form>
