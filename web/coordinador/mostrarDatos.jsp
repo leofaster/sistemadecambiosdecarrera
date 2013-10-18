@@ -65,9 +65,18 @@
                             <td><s:property escapeHtml="false" value="advertencia.replace(\"\n\", \" <br />\")" /></td>
                         </tr>
                     </table>
-
-                        <center><a href="">Este link da al informe académico (si se puede)</a></center>
-
+                        <br/>
+                        <br/>
+                        <center>
+                            <s:form action="MostrarInf">
+                            <center>
+                                <center>    <s:submit  value="Mostrar informe académico" type="button"/></center>
+                                
+                            </center>
+                            </s:form>
+                        </center>
+                        <br/>
+                    <%--
                     <h3><center><b>Informe académico</b></center></h3>
                     <br/>
                     <table border="1">
@@ -77,7 +86,7 @@
                         <td><center><b>Nota</b></center></td>
                         </tr>
 
-
+                        
 
                         <%
 
@@ -105,7 +114,7 @@
                             }
                         %>
                     </table>
-
+                    --%>
 
 
                     <table>

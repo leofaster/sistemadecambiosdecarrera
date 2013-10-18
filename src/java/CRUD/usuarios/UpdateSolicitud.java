@@ -37,6 +37,7 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
     String carreraOrigen_sol;
     String nombre_est;
     String carnet_est;
+    private List<AsignaturaConNota> lista;
 
     public String getIndice_sol() {
         return indice_sol;
@@ -128,10 +129,7 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
         ResultSet rs = null;
         Statement st = null;
         String string = null;
-        
-        
-        
-        
+  
         try {
             ConexionBD.establishConnection();
             st = ConexionBD.getConnection().createStatement();
@@ -150,7 +148,13 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
             
             String carn = request.getParameter("carnet");
             String nombre = request.getParameter("nombre");
-            session2.put("carnet_aux", carn);
+            System.out.println(carn);
+            if(carn!=null)
+                session2.put("carnet_aux", carn);
+            if(nombre!=null)
+                session2.put("nombre_aux",nombre);
+            carn = session2.get("carnet_aux").toString();
+            nombre = session2.get("nombre_aux").toString();
             System.out.println(carn);
             rs = st.executeQuery("select * from solicitud where usbid='"+carn+"' AND ADVERTENCIA!='-1'");
             rs.next();
@@ -171,7 +175,7 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
                 li.add(mb2);
             }
             
-            
+           
             nombre_est=nombre;
             this.carnet_est=carn;
             

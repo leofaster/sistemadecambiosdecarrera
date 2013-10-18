@@ -56,6 +56,11 @@
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
+        <action name="MostrarInf" class="CRUD.usuarios.UpdateSolicitud" > 
+            <result name="success">coordinador/mostrarInforme.jsp</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
         <action name="SolApRep" class="actions.VisualizarSol" method="verYaGestionados"> 
             <result name="success">coordinador/verSolicitudesAproRepro.jsp</result>
             <result name="no success">cupos/errorCupo.jsp</result>
