@@ -263,8 +263,21 @@ public class SolicitudAction extends ActionSupport {
             System.out.println("PP2");
             if (rs.next()) {
                 mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+                if(rs.getString("advertencia").equals("-1")){
+                        mensaje += ". Solicitud rechazada.";
+                    }
+                else{
+                    mensaje += ". Solicitud pendiente.";
+                }
                 while (rs.next()) {
                     mensaje = mensaje + "\n\n" + rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+                    System.out.println(rs.getString("advertencia"));
+                    if(rs.getString("advertencia").equals("-1")){
+                        mensaje += ". Solicitud rechazada.";
+                    }
+                    else{
+                    mensaje += ". Solicitud pendiente.";
+                    }
                 }
             } else {
                 mensaje = "No has enviado solicitudes";
