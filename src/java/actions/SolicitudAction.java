@@ -188,9 +188,16 @@ public class SolicitudAction extends ActionSupport {
                 rs = s.executeQuery("SELECT * FROM estudiante WHERE usbid='" + usbidSol + "'");
                 System.out.println("aq0");
                 rs.next();
+                float indice;
+                indice = rs.getFloat("indice");
                 System.out.println("aqu6");
                 System.out.println(rs.getString("codcarrera"));
                 int carreraest = Integer.parseInt(rs.getString("codcarrera"));
+                rs = s.executeQuery("SELECT indice_min FROM carrera WHERE codcarrera=" + carreraest);
+                System.out.println("aq0");
+                rs.next();
+                float indice_min;
+                indice_min = rs.getFloat("indice_min");
                 System.out.println(carreraest);
                 System.out.println("aqui1");
                 if (carreraest == codigoCarrera) {
@@ -213,7 +220,13 @@ public class SolicitudAction extends ActionSupport {
                 boolean cohortebuena = (cohorte >= 10);
                 
                 if (!cohortebuena) {
-                    advertencia = advertencia + "El estudiante lleva más de 3 años en la carrera.";
+                    advertencia = advertencia + "El estudiante lleva más de 3 años en la carrera.\n";
+                }
+                
+                boolean indices = (indice >= indice_min);
+                
+                if (!indices) {
+                    advertencia = advertencia + "El índice es menor que el requerido.";
                 }
                 
                 System.out.println(advertencia);
@@ -231,8 +244,13 @@ public class SolicitudAction extends ActionSupport {
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
                 
             } else {
+                rs= s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
+                if(rs.next()){
+                    mensaje = "Ya se le ha aceptado una solicitud.";
+                    return SUCCESS;
+                }
                 mensaje = "Ya habías enviado una solicitud de cambio.";
-               System.out.println("aqui8");
+                System.out.println("aqui8");
             }
             System.out.println("aqui4");
         } catch (Exception e) {
