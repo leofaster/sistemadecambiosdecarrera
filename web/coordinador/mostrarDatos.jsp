@@ -42,19 +42,19 @@
                     <table border="0"> 
                         <tr>
                             <td><b>Nombre:</b></td>
-                            <td>Aquí va el nombre</td>
+                            <td><s:property value="nombre_est" /></td>
                         </tr>
                         <tr>
                             <td><b>Carnet:</b></td>
-                            <td>Aquí va el carnet</td>
+                            <td><s:property value="carnet_est" /></td>
                         </tr>
                         <tr>
                             <td><b>Índice:</b></td>
-                            <td>Aquí va el índice</td>
+                            <td><s:property value="indice_sol" /></td>
                         </tr>
                         <tr>
                             <td><b>Carrera de origen:</b></td>
-                            <td>Aquí va la carrera</td>
+                            <td><s:property value="carreraOrigen_sol" /></td>
                         </tr>
                         <tr>
                             <td><b>Motivación para el cambio:     </b></td>

@@ -33,6 +33,43 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
     Map m;
     String motivacion;
     String advertencia;
+    String indice_sol;
+    String carreraOrigen_sol;
+    String nombre_est;
+    String carnet_est;
+
+    public String getIndice_sol() {
+        return indice_sol;
+    }
+
+    public void setIndice_sol(String indice_sol) {
+        this.indice_sol = indice_sol;
+    }
+
+    public String getCarreraOrigen_sol() {
+        return carreraOrigen_sol;
+    }
+
+    public void setCarreraOrigen_sol(String carreraOrigen_sol) {
+        this.carreraOrigen_sol = carreraOrigen_sol;
+    }
+
+    public String getNombre_est() {
+        return nombre_est;
+    }
+
+    public void setNombre_est(String nombre_est) {
+        this.nombre_est = nombre_est;
+    }
+
+    public String getCarnet_est() {
+        return carnet_est;
+    }
+
+    public void setCarnet_est(String carnet_est) {
+        this.carnet_est = carnet_est;
+    }
+    
 
     public HttpServletRequest getRequest() {
         return request;
@@ -133,9 +170,19 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
                 mb2.setnota(rs.getInt("nota"));
                 li.add(mb2);
             }
+            
+            
+            nombre_est=nombre;
+            this.carnet_est=carn;
+            
+            
+            rs = st.executeQuery("select * from estudiante natural join carrera where usbid='"+carn+"'");
+            rs.next();
+            this.indice_sol=rs.getString("indice");
+            this.carreraOrigen_sol=rs.getString("nombre");
             System.out.println(li.size());
-            request.setAttribute("carnet",carn);
-            request.setAttribute("nombre",nombre);
+//            request.setAttribute("carnet",carn);
+//            request.setAttribute("nombre",nombre);
             request.setAttribute("disp5", li);
             rs.close();
             st.close();
