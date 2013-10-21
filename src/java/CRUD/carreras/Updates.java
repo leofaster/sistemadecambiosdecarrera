@@ -45,7 +45,7 @@ public class Updates extends ActionSupport {
             ps.setInt(4, mb.getCodcarrera());
             ps.setString(1, mb.getNombre());
             ps.setInt(2, mb.getCupos());
-            ps.setDouble(3, mb.getIndice_min());
+            ps.setDouble(3, mb.getIndiceMin());
 
 
 

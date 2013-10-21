@@ -48,7 +48,7 @@ public class Save extends ActionSupport {
             ps.setInt(1, mb.getCodcarrera());
             ps.setString(2, mb.getNombre());
             ps.setInt(3, mb.getCupos());
-            ps.setDouble(4, mb.getIndice_min());
+            ps.setDouble(4, mb.getIndiceMin());
 
             ps.executeUpdate();
 

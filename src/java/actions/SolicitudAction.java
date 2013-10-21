@@ -4,6 +4,7 @@
  */
 package actions;
 
+import clases.Carrera;
 import clases.ConexionBD;
 import clases.EmailSender;
 import clases.Estudiante;
@@ -159,6 +160,7 @@ public class SolicitudAction extends ActionSupport {
      * @return @throws Exception
      */
     public String crearSolicitud() throws Exception {
+        
         if (this.carrera_dest!=null && this.carrera_dest.equals("-1")) {
             addFieldError("carrera_dest", "Seleccione una carrera válida");
             return "input";
@@ -168,8 +170,8 @@ public class SolicitudAction extends ActionSupport {
             return "input";
         }
 
-        ResultSet rs = null;
-        Statement s = null;
+        ResultSet rs;
+        Statement s;
 
         mensaje = null;
         Map session2 = ActionContext.getContext().getSession();
@@ -177,39 +179,24 @@ public class SolicitudAction extends ActionSupport {
 
         this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0, 4)));
         ConexionBD.establishConnection();
-        System.out.println("aqu0");
+
         try {
-            System.out.println("aqu10");
             s = ConexionBD.getConnection().createStatement();
-            System.out.println("aqu11");
             rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "' AND ADVERTENCIA!='-1'");
 
             if (!rs.next()) {
-                System.out.println("aq1");
-                rs = s.executeQuery("SELECT * FROM estudiante WHERE usbid='" + usbidSol + "'");
-                System.out.println("aq0");
-                rs.next();
-                float indice;
-                indice = rs.getFloat("indice");
-                System.out.println("aqu6");
-                System.out.println(rs.getString("codcarrera"));
-                int carreraest = Integer.parseInt(rs.getString("codcarrera"));
-                rs = s.executeQuery("SELECT indice_min FROM carrera WHERE codcarrera=" + carreraest);
-                System.out.println("aq0");
-                rs.next();
-                float indice_min;
-                indice_min = rs.getFloat("indice_min");
-                System.out.println(carreraest);
-                System.out.println("aqui1");
-                if (carreraest == codigoCarrera) {
+                
+                Estudiante est = new Estudiante(usbidSol);
+                
+                if (est.getCarreraOrigen().getCodcarrera() == codigoCarrera) {
                     addFieldError("carrera_dest", "No puedes enviar una solicitud a tu misma carrera.");
                     return "input";
                 }
-                System.out.println("aqui2");
+                
                 motivacion = motivacion.replace("\'","");
                 
                 String advertencia = "";
-                boolean aprobado_cb = Estudiante.verificarCicloBasicoAprobado(usbidSol);
+                boolean aprobado_cb = est.verificarCicloBasicoAprobado();
                 if (!aprobado_cb) {
                     advertencia = "El estudiante no ha aprobado ciclo básico.\n";
                 }
@@ -224,7 +211,7 @@ public class SolicitudAction extends ActionSupport {
                     advertencia = advertencia + "El estudiante lleva más de 3 años en la carrera.\n";
                 }
                 
-                boolean indices = (indice >= indice_min);
+                boolean indices = (est.getIndice() >= est.getCarreraOrigen().getIndiceMin());
                 
                 if (!indices) {
                     advertencia = advertencia + "El índice es menor que el requerido.";
@@ -241,15 +228,15 @@ public class SolicitudAction extends ActionSupport {
                         + "false,"
                         + "false" + ","
                         + "'" + motivacion + "')");
-                System.out.println("aqui3");
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
                 
-                EmailSender emailer = new EmailSender();
-                String a = "sednanref@gmail.com"; // Aqui se forma el correo del coordinador
+                String a = "rbmachado.g@gmail.com"; // Aqui se forma el correo del coordinador
                 String asunto = "Solicitud de cambio de carrera de " + usbidSol;
-                String body = "El estudiante con el carnet " + usbidSol + " desea cambiarse a su carrera."
+                String cuerpo = "El estudiante con el carnet " + usbidSol + " desea cambiarse a su carrera. "
                         + "Ingrese al sistema para revisar su solicitud.";
-                emailer.doSendEmail(asunto,body);
+                
+                EmailSender emailer = new EmailSender(a,asunto,cuerpo);
+                emailer.sendEmail();
                 
             } else {
                 rs= s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
@@ -258,9 +245,7 @@ public class SolicitudAction extends ActionSupport {
                     return SUCCESS;
                 }
                 mensaje = "Ya habías enviado una solicitud de cambio.";
-                System.out.println("aqui8");
             }
-            System.out.println("aqui4");
         } catch (Exception e) {
             System.out.println("Problem in searching the database crearSolicitud");
         }

@@ -41,7 +41,7 @@ public class Display extends ActionSupport implements ServletRequestAware {
                 mb.setCodcarrera(rs.getInt("codcarrera"));
                 mb.setNombre(rs.getString("nombre"));
                 mb.setCupos(rs.getInt("cupos"));
-                mb.setIndice_min(rs.getDouble("indice_min"));
+                mb.setIndiceMin(rs.getDouble("indice_min"));
 
 
                 li.add(mb);
