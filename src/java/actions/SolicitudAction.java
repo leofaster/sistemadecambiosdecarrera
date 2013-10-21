@@ -245,6 +245,7 @@ public class SolicitudAction extends ActionSupport {
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
                 
                 EmailSender emailer = new EmailSender();
+                String a = "sednanref@gmail.com"; // Aqui se forma el correo del coordinador
                 String asunto = "Solicitud de cambio de carrera de " + usbidSol;
                 String body = "El estudiante con el carnet " + usbidSol + " desea cambiarse a su carrera."
                         + "Ingrese al sistema para revisar su solicitud.";

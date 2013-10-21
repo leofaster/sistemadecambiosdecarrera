@@ -26,7 +26,7 @@ public class EmailSender extends ActionSupport {
         String host = "smtp.gmail.com";
         String port = "587";
         String userName = "cambiocarrera@gmail.com";
-        String recipient = "rbmachado.g@gmail.com";
+        String recipient = "sednanref2004@gmail.com";
         EmailSender.sendEmail(host, port, userName, password, recipient,
                 subject, message);
 
