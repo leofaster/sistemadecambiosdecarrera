@@ -5,6 +5,7 @@
 package actions;
 
 import clases.ConexionBD;
+import clases.EmailSender;
 import clases.Estudiante;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
@@ -242,6 +243,12 @@ public class SolicitudAction extends ActionSupport {
                         + "'" + motivacion + "')");
                 System.out.println("aqui3");
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
+                
+                EmailSender emailer = new EmailSender();
+                String asunto = "Solicitud de cambio de carrera de " + usbidSol;
+                String body = "El estudiante con el carnet " + usbidSol + " desea cambiarse a su carrera."
+                        + "Ingrese al sistema para revisar su solicitud.";
+                emailer.doSendEmail(asunto,body);
                 
             } else {
                 rs= s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
