@@ -236,7 +236,7 @@ public class SolicitudAction extends ActionSupport {
                         + "Ingrese al sistema para revisar su solicitud.";
                 
                 EmailSender emailer = new EmailSender(a,asunto,cuerpo);
-                emailer.sendEmail();
+                //emailer.sendEmail();
                 
             } else {
                 rs= s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");

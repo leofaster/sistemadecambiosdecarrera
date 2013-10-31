@@ -10,14 +10,23 @@ import java.sql.Statement;
  */
 public class Estudiante extends Usuario {
 
-    private String usbid;
     private double indice;
     private Carrera carreraOrigen;
     private boolean cbAprobado;
 
+    /**
+     *
+     */
     public Estudiante() {
     }
 
+    /**
+     *
+     * @param usbid
+     * 
+     * Construye un estudiante a partir de la base de datos.
+     * 
+     */
     public Estudiante(String usbid) {
         this.usbid = usbid;
         ResultSet rs;
@@ -25,9 +34,12 @@ public class Estudiante extends Usuario {
         ConexionBD.establishConnection();
         try {
             st = ConexionBD.getConnection().createStatement();
-            rs = st.executeQuery("SELECT * FROM ESTUDIANTE WHERE USBID = '" + this.usbid + "'");
+            rs = st.executeQuery("SELECT * FROM ESTUDIANTE NATURAL JOIN USUARIO WHERE USBID = '" + this.usbid + "'");
 
             if (rs.next()) {
+                this.cedula = rs.getInt("cedula");
+                this.nombre = rs.getString("nombre");
+                this.apellido = rs.getString("apellido");
                 this.indice = rs.getDouble("indice");
                 this.carreraOrigen = new Carrera(rs.getInt("codcarrera"));
                 this.cbAprobado = rs.getBoolean("cb_aprobado");
@@ -43,30 +55,65 @@ public class Estudiante extends Usuario {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public double getIndice() {
         return indice;
     }
 
+    /**
+     *
+     * @param indice
+     */
     public void setIndice(double indice) {
         this.indice = indice;
     }
 
+    /**
+     *
+     * @return
+     */
     public Carrera getCarreraOrigen() {
         return carreraOrigen;
     }
 
+    /**
+     *
+     * @param carreraOrigen
+     */
     public void setCarreraOrigen(Carrera carreraOrigen) {
         this.carreraOrigen = carreraOrigen;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isCbAprobado() {
         return cbAprobado;
     }
 
+    /**
+     *
+     * @param cbAprobado
+     */
     public void setCbAprobado(boolean cbAprobado) {
         this.cbAprobado = cbAprobado;
     }
     
+    /**
+     *
+     * @return
+     * @throws Exception
+     * 
+     * Verifica si un estudiante tiene el ciclo básico aprobado. Consulta todas
+     * las materias que corresponden al ciclo básico de la carrera que el
+     * estudiante cursa y las compara con las cursadas. Si todas las materias
+     * del ciclo básico fueron cursadas y aprobadas (>3), devuelve verdadero.
+     * 
+     */
     public boolean verificarCicloBasicoAprobado() throws Exception {
         
         ResultSet rs;

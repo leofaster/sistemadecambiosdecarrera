@@ -12,10 +12,10 @@ import java.io.Serializable;
  */
 public class Usuario implements Serializable {
 
-    private String usbid;
-    private int cedula;
-    private String nombre;
-    private String apellido;
+    protected String usbid;
+    protected int cedula;
+    protected String nombre;
+    protected String apellido;
     private String contrasena;
     private String rol;
 
