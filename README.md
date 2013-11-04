@@ -14,10 +14,8 @@ USB y pertenece al Departamento de Procesos y Sistemas.
 
 - Luis D. Fernandes.
 - Rebeca Machado.
-- Wilmer Bandres.
-- Ana Arteaga.
 - Leopoldo Pimentel.
-- David Franco.
+
 
                                                         Change Gate C.A.
                                                               2013
