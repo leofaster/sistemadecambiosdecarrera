@@ -10,6 +10,8 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="false" />
     
+    
+    
     <package name="default" extends="struts-default"></package>
     
 </struts>

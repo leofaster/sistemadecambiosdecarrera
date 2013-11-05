@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="baseLayout" template="/template/baseLayout.jsp">
+        <put-attribute name="title"  value=""/>
+        <put-attribute name="header" value="/template/header.jsp"/>
+        <put-attribute name="menu"   value="/template/menu.jsp"/>
+        <put-attribute name="body"   value="/template/body.jsp"/>
+        <put-attribute name="banner" value="/template/banner.jsp"/>
+        <put-attribute name="footer"  value="/template/footer.jsp"/>
+    </definition>
+  
+    <definition name="/estudiante.welcome" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/estudiante/indexEstudiante.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
+    </definition>
+    <definition name="/estudiante.solicitud.listar" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/estudiante/solicitudes/ListaSolicitudes.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
+    </definition>
+    <definition name="/estudiante.solicitar.cambio" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/estudiante/solicitudes/SolicitarCambio.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
+    </definition>
+    <definition name="/estudiante.solicitar.cambio.resultado" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/estudiante/solicitudes/SolicitudResult.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
+    </definition>
+    <definition name="/estudiante.solicitar.cupos" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/estudiante/solicitudes/SolicitarCupos.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
+    </definition>
+    <definition name="/estudiante.mostrar.cupos" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/cupos/mostrarCupo.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
+    </definition>
+  
+</tiles-definitions>

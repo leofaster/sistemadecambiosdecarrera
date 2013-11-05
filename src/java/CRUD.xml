@@ -38,14 +38,15 @@
         
         <action name="*Link" class="CRUD.usuarios.Links" method="{1}">
             <result name="save">insertr.jsp</result>
-            <result name="display">retrive.jsp</result>           
+            <result name="display">retrive.jsp</result>
         </action>
         <!--FIN USUARIOS --> 
         
         <!-- CARRERAS -->
         <action name="view.carrera" class="CRUD.carreras.Display">
             <result name="success">retrive.jsp</result>
-            <result name="error">error.jsp</result>      
+            <result name="error">error.jsp</result>
+                  
         </action>
         
         <action name="insert.carrera" class="CRUD.carreras.Save">
