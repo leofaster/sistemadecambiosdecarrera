@@ -81,20 +81,20 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         if (this.getCarrera() != null && this.getCarrera().equals("-1")) {
             addFieldError("carrera", "Seleccione una carrera válida");
         }
-        if (this.getCohorte().equals("") ) {
-            addFieldError("cohorte","Error, Favor Colocar numeros validos");
-            
-        }
-       // if (this.getCupos()== null){
-         //   addFieldError("cantCupos","Error, Favor Colocar numeros validos2");
-       // }
+
+        // if (this.getCupos()== null){
+        //   addFieldError("cantCupos","Error, Favor Colocar numeros validos2");
+        // }
         System.out.println(this.getCarrera());
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
         String string = null;
         if (this.getCarrera() == null) {
+            if (this.getCohorte().equals("")) {
+                addFieldError("cohorte", "Error, Favor Colocar numeros validos");
 
+            }
             try {
                 System.out.println("Cohorte: ");
                 System.out.println(this.getCohorte());
@@ -153,7 +153,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         ConexionBD.establishConnection();
         String string = null;
         try {
-           
+
             s = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto1023");
             Map session2 = ActionContext.getContext().getSession();
@@ -231,10 +231,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
             rs.close();
             st.close();
-            Map session2 = ActionContext.getContext().getSession();
-            if (session2.get("rol").toString().equals("Coordinador")) {
-                return "Coordinador";
-            }
+
             return SUCCESS;
 
         } catch (Exception e) {
@@ -242,4 +239,10 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         }
         return "no success";
     }
+
+    public String solicitarCuposCoordinador() throws Exception {
+        return solicitarCupos();
+    }
+
+    
 }

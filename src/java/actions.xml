@@ -39,43 +39,49 @@
         
         <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
             <result name="success" type="tiles">/estudiante.mostrar.cupos</result>
-            <result name="Coordinador">cupos/mostrarCupoC.jsp</result>
             <result name="input" type="tiles">/estudiante.solicitar.cupos</result> 
-            <result name="no success">/estudiante.solicitar.cupos</result> 
+            <result name="no success" type="tiles">/estudiante.solicitar.cupos</result> 
+        </action> 
+        <action name="solicitudCuposCoordinador" class="actions.ModificarCupos" method="solicitarCuposCoordinador"> 
+            <result name="success" type="tiles">/coordinador.cupos.ver</result>
+            <result name="input" type="tiles">/coordinador.cupos.ver</result> 
+            <result name="no success" type="tiles">/coordinador.cupos.ver</result> 
         </action> 
         
         <action name="SolPen" class="actions.VisualizarSol" method="verPendientes"> 
-            <result name="success">coordinador/verSolicitudesPend.jsp</result>
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.Pendientes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         <action name="Aprobar" class="CRUD.usuarios.UpdateSolicitud" method="Aceptar"> 
-            <result name="success">coordinador/solicitudExitosa.jsp</result>
+            <result name="success" type="tiles">/coordinador.solicitudes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         <action name="Denegar" class="CRUD.usuarios.UpdateSolicitud" method="Negar"> 
-            <result name="success">coordinador/solicitudExitosa.jsp</result>
+            <result name="success" type="tiles">/coordinador.solicitudes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         <action name="MostrarInf" class="CRUD.usuarios.UpdateSolicitud" > 
-            <result name="success">coordinador/mostrarInforme.jsp</result>
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.informe</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         <action name="SolApRep" class="actions.VisualizarSol" method="verYaGestionados"> 
-            <result name="success">coordinador/verSolicitudesAproRepro.jsp</result>
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.historial</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         <action name="updateSol" class="CRUD.usuarios.UpdateSolicitud">
-            <result name="success">coordinador/mostrarDatos.jsp</result>
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.datos</result>
         </action>
         
         <action name="*Link2" method="{1}"  class="links.LinksActions">
             <result name="SolicitarCupoEstudiante" type="tiles">/estudiante.solicitar.cupos</result>
             <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
+            <result name="verCupos" type="tiles">/coordinador.cupos.ver</result>
+            <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
             
         </action> 
         

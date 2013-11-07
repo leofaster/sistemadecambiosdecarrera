@@ -83,9 +83,11 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
                 session.put("usbid", rs.getString("usbid"));
                 session.put("cedula", rs.getString("cedula"));
                 session.put("nombre", rs.getString("nombre"));
-                session.put("nombreCompleto", rs.getString("nombre")+" "+rs.getString("apellido"));
+                session.put("nombreCompleto", rs.getString("nombre") + " " + rs.getString("apellido"));
                 session.put("apellido", rs.getString("apellido"));
                 session.put("rol", rs.getString("rol"));
+                session.put("carrera", obtenerCarrera(rs.getString("usbid"),rs.getString("rol")));
+                System.out.println("Carrera: "+ obtenerCarrera(rs.getString("usbid"),rs.getString("rol")));
             } else {
                 System.out.println("NO se consiguio algo");
                 addActionError("Usuario o contraseña inválido.");
@@ -205,5 +207,65 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
      */
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public String obtenerCarrera(String usbid,String role) {
+       // String role = getRol();
+        String carrera = "";
+        ResultSet rs = null;
+        Statement s = null;
+        ConexionBD.establishConnection();
+
+        if (role.equals("Estudiante")) {
+            try {
+                s = ConexionBD.getConnection().createStatement();
+                rs = s.executeQuery("SELECT * FROM estudiante WHERE usbid='" + usbid + "'");
+                System.out.println("Ejecuto validate");
+
+
+
+                if (rs.next()) {
+
+                    carrera = rs.getString("codcarrera");
+
+                } else {
+                    System.out.println("NO se consiguio algo");
+                    addActionError("Usuario o contraseña inválido.");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioAction.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+        }
+        if (role.equals("Coordinador")) {
+
+            try {
+                s = ConexionBD.getConnection().createStatement();
+                rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
+                System.out.println("Ejecuto validate");
+
+
+
+                if (rs.next()) {
+
+                    carrera = rs.getString("codcarrera");
+
+                } else {
+                    System.out.println("NO se consiguio algo");
+                    addActionError("Usuario o contraseña inválido.");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioAction.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+
+
+
+
+
+        return carrera;
     }
 }
