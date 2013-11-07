@@ -45,5 +45,19 @@
         <put-attribute name="body"   value="/cupos/mostrarCupo.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
-  
+    
+    <definition name="/coordinador.welcome" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/coordinador/indexCoordinador.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    <definition name="/coordinador.cupos.modificar" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/coordinador/modificarCupos.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
+    
+    
+    
 </tiles-definitions>

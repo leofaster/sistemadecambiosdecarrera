@@ -16,6 +16,11 @@ public class LinksActions extends ActionSupport {
         return "SolicitarCupoEstudiante";
     }
     
+    public String modificarCupos(){
+        return "modificarCupos";
+    }
+    
+    
     
     
 }

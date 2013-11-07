@@ -13,14 +13,14 @@
         <action name="Login" class="actions.UsuarioAction">
             <result name="Estudiante" type="tiles">/estudiante.welcome</result>
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
-            <result name="Coordinador">coordinador/indexCoordinador.jsp</result>
+            <result name="Coordinador" type="tiles">/coordinador.welcome</result>
             <result name="input">/index.jsp</result>
         </action>
        
        
         <action name="verificarSol" class="actions.SolicitudAction" method="crearSolicitud"> 
             <result name="success" type="tiles">/estudiante.solicitar.cambio.resultado</result>
-            <result name="input" type="tiles">/estudiante.solicitud.listar</result>
+            <result name="input" type="tiles">/estudiante.solicitar.cambio</result>
         </action>
         
         <action name="verificarReq" class="actions.SolicitudAction" method="solicitarCambio">
@@ -32,9 +32,9 @@
         </action>
         
         <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 
-            <result name="success">cupos/CupoModificado.jsp</result> 
-            <result name="no success">cupos/cambiarCupos.jsp</result> 
-            <result name="input">cupos/cambiarCupos.jsp</result> 
+            <result name="success" type="tiles">/coordinador.cupos.modificar</result> 
+            <result name="no success" type="tiles">/coordinador.cupos.modificar</result> 
+            <result name="input"  type="tiles">/coordinador.cupos.modificar</result> 
         </action> 
         
         <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
@@ -75,6 +75,8 @@
         
         <action name="*Link2" method="{1}"  class="links.LinksActions">
             <result name="SolicitarCupoEstudiante" type="tiles">/estudiante.solicitar.cupos</result>
+            <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
+            
         </action> 
         
         
