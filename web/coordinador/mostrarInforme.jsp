@@ -7,25 +7,15 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
-
+<head>
 <script type="text/javascript">
         
         function edita(val,val2) {
             document.fom.action = "updateSol.action?carnet=" + val+"&nombre="+val2;
             document.fom.submit();
         }
-</script>
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CHANGE GATE</title>
-    </head>
-    <body>
-        </table>
-
+</script>  
+</head>
                     <br/>
                     <center>
                         <h3><center><b>Informe académico</b></center></h3>
@@ -81,5 +71,5 @@
                         </form>
                     </center>
                     
-    </body>
-</html>
+   
+

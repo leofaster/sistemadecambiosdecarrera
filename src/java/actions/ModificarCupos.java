@@ -78,18 +78,30 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
     @Override
     public void validate() {
-        if (this.getCarrera()!=null && this.getCarrera().equals("-1")) {
+        if (this.getCarrera() != null && this.getCarrera().equals("-1")) {
             addFieldError("carrera", "Seleccione una carrera válida");
         }
+
+        // if (this.getCupos()== null){
+        //   addFieldError("cantCupos","Error, Favor Colocar numeros validos2");
+        // }
         System.out.println(this.getCarrera());
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
-        //String string = null;
+        String string = null;
         if (this.getCarrera() == null) {
+            if (this.getCohorte().equals("")) {
+                addFieldError("cohorte", "Error, Favor Colocar numeros validos");
+
+            }
             try {
-                s = ConexionBD.getConnection().createStatement();
+                System.out.println("Cohorte: ");
+                System.out.println(this.getCohorte());
+
                 System.out.println("Conecto");
+                s = ConexionBD.getConnection().createStatement();
+                System.out.println("Conecto2");
                 Map session2 = ActionContext.getContext().getSession();
                 String usbid = session2.get("usbid").toString();
                 rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
@@ -114,15 +126,13 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
                             addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
                             return;
                         }
-                        System.out.println(cantCupos.charAt(x));
+                        //System.out.println(cantCupos.charAt(x));
                     }
-
-                    //System.out.println("Bien");
-                    s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='" + this.cohorte + "'");
 
 
 
                 } else {
+                    addActionError("Error en la Operacion");
                     addFieldError("cohorte", "Cohorte introducida inválida.");
                 }
 
@@ -141,10 +151,11 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
-        //String string = null;
+        String string = null;
         try {
+
             s = ConexionBD.getConnection().createStatement();
-            System.out.println("Conecto");
+            System.out.println("Conecto1023");
             Map session2 = ActionContext.getContext().getSession();
             String usbid = session2.get("usbid").toString();
             rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
@@ -171,7 +182,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
                 System.out.println("Bien");
                 s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='" + this.cohorte + "'");
-
+                addActionMessage("Cupos Cambiados");
                 return "success";
 
             } else {
@@ -189,9 +200,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         ResultSet rs = null;
         Statement st = null;
         ConexionBD.establishConnection();
-        String string = null;
-        //for(int i =0 ;i<this.cohorte.length();i++) 
-        //  if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
+
         System.out.println(this.getCarrera());
         try {
             st = ConexionBD.getConnection().createStatement();
@@ -222,10 +231,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
             rs.close();
             st.close();
-            Map session2 = ActionContext.getContext().getSession();
-            if (session2.get("rol").toString().equals("Coordinador")) {
-                return "Coordinador";
-            }
+
             return SUCCESS;
 
         } catch (Exception e) {
@@ -233,4 +239,10 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         }
         return "no success";
     }
+
+    public String solicitarCuposCoordinador() throws Exception {
+        return solicitarCupos();
+    }
+
+    
 }

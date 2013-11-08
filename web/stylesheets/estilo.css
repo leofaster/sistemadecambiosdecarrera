@@ -13,6 +13,12 @@
     color: red;  
     font-size: 0.8em;  
 }
+#aproveMessage {
+    color: greenyellow;  
+    font-size: 0.8em;
+    font-weight: normal;
+    font-family: sans-serif;
+}
 
 body {
     margin-left: auto;
