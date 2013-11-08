@@ -150,7 +150,7 @@ public class SolicitudAction extends ActionSupport {
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
     }
-    
+
     public String solicitarCambio() {
         return SUCCESS;
     }
@@ -160,8 +160,8 @@ public class SolicitudAction extends ActionSupport {
      * @return @throws Exception
      */
     public String crearSolicitud() throws Exception {
-        
-        if (this.carrera_dest!=null && this.carrera_dest.equals("-1")) {
+
+        if (this.carrera_dest != null && this.carrera_dest.equals("-1")) {
             addFieldError("carrera_dest", "Seleccione una carrera válida");
             return "input";
         }
@@ -185,40 +185,40 @@ public class SolicitudAction extends ActionSupport {
             rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "' AND ADVERTENCIA!='-1'");
 
             if (!rs.next()) {
-                
+
                 Estudiante est = new Estudiante(usbidSol);
-                
+
                 if (est.getCarreraOrigen().getCodcarrera() == codigoCarrera) {
                     addFieldError("carrera_dest", "No puedes enviar una solicitud a tu misma carrera.");
                     return "input";
                 }
-                
-                motivacion = motivacion.replace("\'","");
-                
+
+                motivacion = motivacion.replace("\'", "");
+
                 String advertencia = "";
                 boolean aprobado_cb = est.verificarCicloBasicoAprobado();
                 if (!aprobado_cb) {
                     advertencia = "El estudiante no ha aprobado ciclo básico.\n";
                 }
-                
+
                 int cohorte;
-                
-                cohorte = Integer.parseInt(usbidSol.substring(0,2));
+
+                cohorte = Integer.parseInt(usbidSol.substring(0, 2));
                 System.out.println(cohorte);
                 boolean cohortebuena = (cohorte >= 10);
-                
+
                 if (!cohortebuena) {
                     advertencia = advertencia + "El estudiante lleva más de 3 años en la carrera.\n";
                 }
-                
+
                 boolean indices = (est.getIndice() >= est.getCarreraOrigen().getIndiceMin());
-                
+
                 if (!indices) {
                     advertencia = advertencia + "El índice es menor que el requerido.";
                 }
-                
+
                 System.out.println(advertencia);
-                
+
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
                         + usbidSol
                         + "',"
@@ -229,18 +229,18 @@ public class SolicitudAction extends ActionSupport {
                         + "false" + ","
                         + "'" + motivacion + "')");
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
-                
-                String a = "rbmachado.g@gmail.com"; // Aqui se forma el correo del coordinador
+
+                String a = "leofaster@gmail.com"; // Aqui se forma el correo del coordinador
                 String asunto = "Solicitud de cambio de carrera de " + usbidSol;
                 String cuerpo = "El estudiante con el carnet " + usbidSol + " desea cambiarse a su carrera. "
                         + "Ingrese al sistema para revisar su solicitud.";
-                
-                EmailSender emailer = new EmailSender(a,asunto,cuerpo);
-                //emailer.sendEmail();
-                
+
+                EmailSender emailer = new EmailSender(a, asunto, cuerpo);
+                emailer.sendEmail();
+
             } else {
-                rs= s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
-                if(rs.next()){
+                rs = s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
+                if (rs.next()) {
                     mensaje = "Ya se le ha aceptado una solicitud.";
                     return SUCCESS;
                 }
@@ -254,7 +254,7 @@ public class SolicitudAction extends ActionSupport {
 
     public String listarSolicitudes() throws Exception {
 
-        ResultSet rs = null,rs2=null;
+        ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
 
@@ -263,31 +263,29 @@ public class SolicitudAction extends ActionSupport {
 
         try {
             s = ConexionBD.getConnection().createStatement();
-            
-            rs= s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbido + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
+
+            rs = s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbido + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
             System.out.println("PP1");
-            if(rs.next()){
-                mensaje = "Ya se le ha aceptado una solicitud de cambio de carrera en la carrera "+rs.getString("nombre")+".";
+            if (rs.next()) {
+                mensaje = "Ya se le ha aceptado una solicitud de cambio de carrera en la carrera " + rs.getString("nombre") + ".";
                 return SUCCESS;
             }
             rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "' ORDER BY FECHA");
             System.out.println("PP2");
             if (rs.next()) {
                 mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
-                if(rs.getString("advertencia").equals("-1")){
-                        mensaje += ". Solicitud rechazada.";
-                    }
-                else{
+                if (rs.getString("advertencia").equals("-1")) {
+                    mensaje += ". Solicitud rechazada.";
+                } else {
                     mensaje += ". Solicitud pendiente.";
                 }
                 while (rs.next()) {
                     mensaje = mensaje + "\n\n" + rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
                     System.out.println(rs.getString("advertencia"));
-                    if(rs.getString("advertencia").equals("-1")){
+                    if (rs.getString("advertencia").equals("-1")) {
                         mensaje += ". Solicitud rechazada.";
-                    }
-                    else{
-                    mensaje += ". Solicitud pendiente.";
+                    } else {
+                        mensaje += ". Solicitud pendiente.";
                     }
                 }
             } else {
