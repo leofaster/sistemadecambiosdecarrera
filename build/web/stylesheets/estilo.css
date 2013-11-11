@@ -1,0 +1,659 @@
+.hidden {display: none;}
+.unhidden {display: block;}
+.shown{display:in-line;}
+
+#errores {
+    font-size: medium;
+    font: bold 90%;
+    text-align: center;
+    color: black;
+}
+
+.errorMessage {
+    color: red;  
+    font-size: 0.8em;  
+}
+#aproveMessage {
+    color: greenyellow;  
+    font-size: 0.8em;
+    font-weight: normal;
+    font-family: sans-serif;
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    font-size: medium;
+    color: #555;
+    background-color: white;
+}
+
+h1 {
+    letter-spacing: 3px;
+    font-size: 1.4em;
+    color: #369;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+h2 {
+    letter-spacing: 3px;
+    font-size: 1.2em;
+    color: #369;
+    font-weight: normal;
+    font-family: sans-serif;
+}
+
+h4 {
+    letter-spacing: 3px;
+    font-size: 1.5em;
+    color: #369;
+    font-weight: bold;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h5 {
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h6 {
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 0.875em;
+    color:#B22222;
+    font-family: sans-serif;
+}
+
+#ventana {
+    position: fixed; 
+    width: 350px; 
+    height: 190px; 
+    top: 0; 
+    left: 0; 
+    font-family:Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 12px; 
+    font-weight: normal; 
+    border: #333333 3px solid; 
+    background-color: #FAFAFA; 
+    color: #000000; 
+    display:none;
+}
+
+#btnAceptar {
+    padding: 10px; 
+    background-color: #F0F0F0; 
+    text-align: center; 
+    margin-top: 44px;
+}
+
+table {
+
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    alignment-adjust: auto;
+    font-family: sans-serif;
+}
+
+td {
+    /*    background-color: rgba(0,0,255,0.1);*/
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-family: sans-serif;
+}
+
+tr{
+
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+}
+
+/* Links */
+a {
+    color: #126598;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+a:hover {
+    color: #198a15;
+    text-decoration: underline;
+    font-family: sans-serif;
+}
+
+
+/********************
+      ESTRUCTURA
+*********************/
+
+#body-content {
+    margin: auto;
+    background-color: white;
+    width: 80%;
+    min-height: 100%;
+    position: relative;
+
+}
+
+#banner{
+    alignment-adjust: central;
+    height: 300px;
+    width: 100%;
+}
+
+.nav li a{
+    font-size: 0.8em;
+    color: #1C6EA0;
+}
+
+.nav li a:hover{
+    color: white;
+    background-color: #42a142;
+    text-decoration: none
+}
+
+.nav > li{
+    float:left;	
+}
+
+#login-form{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    text-align: center;
+    padding: 3px;
+}
+
+#login-form2{
+    position: relative;
+    width: 400px;
+    left:-20px;
+    background-color: white;
+}
+
+#login-form table {
+    width: 100%;
+    color: white;
+}
+
+#sidebarR {
+
+    width: 150px;
+    float: right;
+    margin-top: 50px;
+}
+
+#sidebarL {
+
+    width: 170px;
+    float: left;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+#contacto{
+    float:right;
+    margin-top: 240px;
+    margin-right: -150px
+}
+
+#footer{
+    width:80%;
+    margin:auto;
+    clear: both;
+    position: relative;
+    background-color: white;
+    color: #1C6EA0;
+    font-size: 0.8em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.error{
+    border-color: red;
+}
+
+#Bienve{
+    float: left;
+    color:#369;
+    font-size: 1.0em;
+    /*top:280px;
+    left:150px;
+    position: absolute;*/
+}
+
+#Bienve h1{
+    letter-spacing: 1px;
+    color:#369;
+    font-size: 0.9em;
+    margin-left: 50px;
+}
+
+#NombreUser{
+    letter-spacing: 1px;
+    font-weight: normal;
+    float: right;
+    width: 640px;
+    color:#369;
+    font-size: 1.0em;
+    /*top:280px;
+    left:250px;
+    position: absolute;*/
+}
+
+#NombreUser h1{
+    letter-spacing: 1px;
+    font-weight: normal;
+    color:#369;
+    font-size: 1.2em;
+}
+
+table.altrowstable th {
+    background-color: #126598;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+    color: #000000;
+    font-weight: bold;
+}
+
+table.altrowstable {
+    color:#333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+table.altrowstable tr {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+table.altrowstable td {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+.oddrowcolor{
+    background-color:#e6f0ef;
+}
+.evenrowcolor{
+    background-color:#c3dde0;
+}
+
+/*Paginacion de las tablas*/
+#alternatecolor{
+    width: 100%;
+}
+
+#alternatecolor tr{
+    height: 70px;
+    text-align: center;
+
+}
+
+#testTable { 
+    width : 585px;
+    height: 500px;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+#tablePagination { 
+    background-color: #DCDCDC; 
+    font-size: 0.8em; 
+    padding: 0px 5px; 
+    height: 20px
+}
+
+#tablePagination_paginater { 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#tablePagination img { 
+    padding: 0px 2px; 
+}
+
+#tablePagination_perPage { 
+    float: left; 
+}
+
+#tablePagination_paginater { 
+    float: right; 
+}
+
+.glossymenu{
+    margin: 0 auto;
+    padding: 0;
+    width: 170px;
+    border: solid;
+}
+
+a.menuitem{
+    background-color: #369;
+    color: white;
+    display: block;
+    position: relative; 
+    width: auto;
+    padding: 4px 0;
+    padding-left: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-bottom-color: black;
+    border-collapse:collapse;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.glossymenu a.menuitem.statusicon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+}
+
+a.menuitem:hover{
+    background-color:midnightblue;
+}
+
+.glossymenu div.submenu{ 
+    background: white;
+}
+
+.glossymenu div.submenu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.glossymenu div.submenu ul li{
+    border-bottom: 1px solid black;
+}
+
+.glossymenu submenu{
+    display: block;
+    color: #369;
+    text-decoration: none;
+    padding: 2px 2px;
+    padding-left: 10px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    width: auto;
+    padding: 4px 0;
+    padding-left: 10px
+}
+
+/*Botones siguientes y anterior en formulario*/
+.button {
+    border-top: 1px solid #96d1f8;
+    background: #4686b0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4684b0), to(#4686b0));
+    background: -webkit-linear-gradient(top, #4684b0, #4686b0);
+    background: -moz-linear-gradient(top, #4684b0, #4686b0);
+    background: -ms-linear-gradient(top, #4684b0, #4686b0);
+    background: -o-linear-gradient(top, #4684b0, #4686b0);
+    padding: 4.5px 9px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 14px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.button:active {
+    border-top-color: #0a293d;
+    background: #0a293d;
+}
+
+.divformulario{       
+    width:450px;
+    border:3px solid #126598;
+    border-radius: 10px;
+    background: #dcebe8
+}
+
+
+/* Accordion Menu powered by www.menucool.com */
+
+/* ##### Top level items #####*/
+#acdnmenu 
+{
+    /* Note about height: 
+    Set "height:auto;" if flexible height is required. 
+    A fixed height is prefered as content below the menu won't be pulled down/up when the menu is expanding/collapsing. */
+    height: 300px;
+    width: 240px;
+    font-size:0;
+}
+
+
+#acdnmenu ul.top
+{
+    padding-left:0;
+    background:#484037;
+    border:1px solid #000;
+}
+
+#acdnmenu div.heading, #acdnmenu a.link
+{
+    padding:8px; padding-left:24px;
+    text-align:left;
+    font:normal 12px Verdana;
+    color:#A98; 
+    background:#3A332C url(bg.jpg) repeat-x 0 0;
+    text-decoration:none;
+    outline:none;
+}
+
+#acdnmenu div.current, #acdnmenu div:hover, #acdnmenu a.link:hover, #acdnmenu div.current a.link
+{
+    color:#CBA;
+    font-weight:normal;
+    text-decoration:none;   
+}
+
+/*Top level link without children*/
+#acdnmenu a.current, #acdnmenu a.current:hover
+{
+    color:#CBA;
+    text-decoration:underline;   
+}
+/* arrow image for the top headings */
+#acdnmenu div.arrowImage {
+    width:12px;
+    height:12px;
+    top:9px;
+    right:4px; /* Changing it to "left:8px;" will position the arrow image to the left */
+    background-image:url(arrows.gif);
+    background-position:0 0;
+}
+
+#acdnmenu div.current div.arrowImage {
+    background-position:0 -12px;
+}
+
+#acdnmenu li.separator
+{
+    border-top:1px solid #000;
+    border-bottom:none; 
+}
+
+
+/* ##### Sub level items #####*/
+#acdnmenu ul.sub
+{
+    padding-left:14px; /*This determines the hierarchical offset*/ 
+}
+
+#acdnmenu ul.sub div.heading
+{
+    text-align:left;
+    font:normal 12px Arial;
+    padding:5px; padding-left:20px;
+    color:#CCC;
+    background:none; 
+}
+#acdnmenu ul.sub div.heading a
+{
+    color:#CBA;
+}
+
+#acdnmenu ul.sub div.current
+{
+    color:#F90;
+    background:none; 
+}
+
+#acdnmenu ul.sub a.link
+{
+    font:normal 11px Arial;
+    color:#CBA;
+    padding:5px; padding-left:20px;
+    text-decoration:none;
+    background:none; 
+}
+
+#acdnmenu ul.sub a.link:hover, #acdnmenu ul.sub a.current, #acdnmenu ul.sub div.heading a:hover, #acdnmenu ul.sub div.heading a.current
+{
+    color:#F90;
+    text-decoration:underline;
+    background:none; 
+}
+
+
+#acdnmenu ul.sub div.arrowImage {
+    width:12px;
+    height:12px;
+    top:6px;
+    left:4px;
+    background-image:url(arrows.gif);
+    background-position:0 -24px;
+}
+#acdnmenu ul.sub div.current div.arrowImage {
+    background-position:0 -36px;
+}
+
+
+
+/* ##### Followings usually don't need modification ###### */
+/*Hack the font-size:0 bug for IE6 */
+#acdnmenu,  #acdnmenu ul
+{
+    display:block;
+    font-size:0px;
+    line-height:0px;
+}
+#acdnmenu li {font-size:12px; line-height:16px;}
+#acdnmenu:after {content:'.';height:0;clear:both;display:block;visibility:hidden;} 
+
+/*Hack for IE6-7*/
+#acdnmenu ul, #acdnmenu li, #acdnmenu div.heading, #acdnmenu a.smLink, #acdnmenu div.description {*zoom:1;}
+#acdnmenu li {*float:left;*width:100%;}
+
+#acdnmenu ul
+{
+    position:relative;/*!*/
+    overflow:hidden;
+    padding:0;margin:0;list-style-type: none;padding-left:10px;
+}
+#acdnmenu>ul{visibility: hidden;}
+#acdnmenu li {padding:0;margin:0;}
+
+#acdnmenu div.heading, #acdnmenu div.current
+{
+    position:relative;
+    cursor: pointer;
+}
+#acdnmenu div.arrowImage {position:absolute; overflow:hidden;}
+
+
+/* First Level UL List */
+#accordion {
+    margin:0;
+    padding:0;    
+    list-style:none;
+}
+
+#accordion li {
+    width:267px;
+}
+
+#accordion li a {
+    display: block;
+    width: 268px;
+    height: 43px;    
+    text-indent:-999em;
+    outline:none;
+}
+
+/* Using CSS Sprite for menu item */
+#accordion li a.popular {
+    background:url(menu.jpg) no-repeat 0 0;    
+}
+#accordion li a.popular:hover, .popularOver {
+    background:url(menu.jpg) no-repeat -268px 0 !important;    
+}
+
+#accordion li a.category {
+    background:url(menu.jpg) no-repeat 0 -43px;    
+}
+#accordion li a.category:hover, .categoryOver {
+    background:url(menu.jpg) no-repeat -268px -43px !important;    
+}
+
+#accordion li a.comment {
+    background:url(menu.jpg) no-repeat 0 -86px;    
+}
+#accordion li a.comment:hover, .commentOver {
+    background:url(menu.jpg) no-repeat -268px -86px !important;    
+}
+
+
+/* Second Level UL List*/
+#accordion ul {
+    background:url(bg.gif) repeat-y 0 0;
+    width:268px;
+    margin:0;
+    padding:0;
+    display:none;    
+}
+
+#accordion ul li {
+    height:30px;
+}
+
+/* styling of submenu item */
+#accordion ul li a {
+    width:240px;
+    height:25px;
+    margin-left:15px;
+    padding-top:5px;
+    border-bottom: 1px dotted #777;
+    text-indent:0;
+    color:#ccc;
+    text-decoration:none;
+}
+/* remove border bottom of the last item */
+#accordion ul li a.last {
+    border-bottom: none;
+}    

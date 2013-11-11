@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="actions" extends="struts-default">      
+        <result-types>
+            <result-type name="tiles"
+                         class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <action name="Login" class="actions.UsuarioAction">
+            <result name="Estudiante" type="tiles">/estudiante.welcome</result>
+            <result name="admin">administracion/GestionarCatalogos.jsp</result>
+            <result name="Coordinador" type="tiles">/coordinador.welcome</result>
+            <result name="input">/index.jsp</result>
+        </action>
+       
+       
+        <action name="verificarSol" class="actions.SolicitudAction" method="crearSolicitud"> 
+            <result name="success" type="tiles">/estudiante.solicitar.cambio.resultado</result>
+            <result name="input" type="tiles">/estudiante.solicitar.cambio</result>
+        </action>
+        
+        <action name="verificarReq" class="actions.SolicitudAction" method="solicitarCambio">
+            <result type="tiles">/estudiante.solicitar.cambio</result>
+        </action>
+        
+        <action name="ListarSol" class="actions.SolicitudAction" method="listarSolicitudes"> 
+            <result name="success" type="tiles">/estudiante.solicitud.listar</result> 
+        </action>
+        
+        <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 
+            <result name="success" type="tiles">/coordinador.cupos.modificar</result> 
+            <result name="no success" type="tiles">/coordinador.cupos.modificar</result> 
+            <result name="input"  type="tiles">/coordinador.cupos.modificar</result> 
+        </action> 
+        
+        <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
+            <result name="success" type="tiles">/estudiante.mostrar.cupos</result>
+            <result name="input" type="tiles">/estudiante.solicitar.cupos</result> 
+            <result name="no success" type="tiles">/estudiante.solicitar.cupos</result> 
+        </action> 
+        <action name="solicitudCuposCoordinador" class="actions.ModificarCupos" method="solicitarCuposCoordinador"> 
+            <result name="success" type="tiles">/coordinador.cupos.ver</result>
+            <result name="input" type="tiles">/coordinador.cupos.ver</result> 
+            <result name="no success" type="tiles">/coordinador.cupos.ver</result> 
+        </action> 
+        
+        <action name="SolPen" class="actions.VisualizarSol" method="verPendientes"> 
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.Pendientes</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
+        <action name="Aprobar" class="CRUD.usuarios.UpdateSolicitud" method="Aceptar"> 
+            <result name="success" type="tiles">/coordinador.solicitudes</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
+        <action name="Denegar" class="CRUD.usuarios.UpdateSolicitud" method="Negar"> 
+            <result name="success" type="tiles">/coordinador.solicitudes</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
+        <action name="MostrarInf" class="CRUD.usuarios.UpdateSolicitud" > 
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.informe</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
+        <action name="SolApRep" class="actions.VisualizarSol" method="verYaGestionados"> 
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.historial</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
+        <action name="updateSol" class="CRUD.usuarios.UpdateSolicitud">
+            <result name="success" type="tiles">/coordinador.solicitudes.ver.datos</result>
+        </action>
+        
+        <action name="*Link2" method="{1}"  class="links.LinksActions">
+            <result name="SolicitarCupoEstudiante" type="tiles">/estudiante.solicitar.cupos</result>
+            <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
+            <result name="verCupos" type="tiles">/coordinador.cupos.ver</result>
+            <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
+            
+        </action> 
+        
+        
+    </package>
+</struts>
