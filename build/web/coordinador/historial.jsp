@@ -57,7 +57,7 @@
                 } else {
                 %>
 
-                <center><b>No posee solicitudes ya gestionadas.</td></b></center>
+                <center><b>No posee solicitudes gestionadas.</td></b></center>
 
                 <%                                }
                 %>  

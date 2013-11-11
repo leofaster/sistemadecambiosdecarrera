@@ -22,9 +22,9 @@
             <div id="sidebarL">
 
                 <div class="glossymenu" style="width: 190px">
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Login</a></a>
-                    <a style="border-bottom: none;" ><a href="javascript:unhide('normasGenerales');" class="menuitem">Normas Generales para el Cambio de Carrera</a></a>
-                    <a style="border-bottom: none;" ><a href="http://topacio.cenda.usb.ve/reglamentos/ver/236" target="_blank" class="menuitem">Reglamento USB sobre los Cambios de Carrera</a></a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('loginDiv');" class="menuitem">Login</a>
+                    <a style="border-bottom: none;" ><a href="javascript:unhide('normasGenerales');" class="menuitem">¿Cómo solicitar un cambio de carrera mediante este sistema?</a>
+                    <a style="border-bottom: none;" ><a href="http://topacio.cenda.usb.ve/reglamentos/ver/236" target="_blank" class="menuitem">Reglamento USB sobre los Cambios de Carrera</a>
                 </div>
 
             </div>
@@ -75,55 +75,25 @@
                 <div id="normasGenerales" class="hidden" alt="especial">
                     <pre>
             <h2>
-                Normas Generales para el Cambio de Carrera:</h2>
-        1. Los estudiantes regulares de la Universidad Simón Bolívar, podrán aspirar a
-        realizar un solo cambio de carrera durante sus estudios universitarios, siempre
-        y cuando hayan cumplido con los requisitos de admisión y mantengan las
-        condiciones mínimas establecidas en el régimen académico.
+                Instrucciones para solicitar tu cambio:</h2>
+        1. Entra al sistema con tu USBid y tu contraseña.
 
-        2. Las presentes normas no se aplicarán a los estudiantes que hayan ingresado a
-        la Universidad Simón Bolívar por el régimen de equivalencias o traslados.
+        2. Una vez iniciada tu sesión, haz click en "Solicitar Cambio" en el menú
+        de la izquierda.
 
-        3. Podrán aspirar a cambiarse de carrera los estudiantes que cumplan con los
-        siguientes requisitos:
+         3. Selecciona la carrera a la que deseas cambiarte y escribe tu motivación
+         para el cambio. Ten en cuenta que la leerá el coordinador de la carrera que 
+         seleccionaste.
 
-            - Que se encuentren cursando su segundo o tercer año de permanencia con
-            respecto al año de ingreso de su cohorte, y
+         4. Presiona "Enviar" y aparecerá una ventana emergente. Si estás de acuerdo con
+         las condiciones, presiona "Aceptar". De lo contrario, presiona "Cancelar" y tu
+         solicitud no será enviada.
 
-            - Que hayan aprobado todas las asignaturas de los primeros tres (3) períodos
-            académicos. Cada Coordinación de Estudios podrá fijar requisitos específicos
-            de ingreso de acuerdo a las características propias de cada carrera.
+         NOTA: No puedes cambiarte a tu misma carrera ni enviar más de una solicitud, a
+         menos que la última enviada haya sido negada. No puedes enviar solicitudes si
+         ya te aceptaron una.
 
-        4. Las solicitudes de cambio de carrera podrán realizarse en las respectivas
-        Coordinaciones de Estudios durante los tres (3) trimestres del año académico.
-
-        5. Cada Coordinación de Estudios podrá fijar requisitos específicos de ingreso de
-        acuerdo a las características propias de cada carrera.
-
-        6. Los estudiantes que cumplan con los requisitos establecidos, que se encuentren
-        interesados en cambiarse de carrera, previa entrevista con el orientador y el
-        Coordinador de la carrera a la cual aspiren cambiarse, deberán introducir su
-        solicitud de cambio de carrera, debidamente acompañada de los recaudos
-        requeridos, en la Coordinación de Estudio de la Carrera a la cual desean
-        ingresar, durante la quinta semana del trimestre.
-
-        7. La selección se realizará en base a los méritos académicos de los aspirantes y
-        en base al cupo disponible de cada carrera, el cual será fijado por la
-        Coordinación de Estudios correspondiente. Se considerarán entre otros, el
-        índice académico acumulado, el rendimiento del estudiante en asignaturas
-        propias de la carrera así como las asignaturas aprobadas, reprobadas y
-        retiradas que presente al aspirante en su expediente.
-
-        8. La respuesta sobre el cambio de carrera se le dará al estudiante interesado en
-        un máximo de dos trimestres.
-
-        9. Las solicitudes serán procesadas -aprobadas o rechazadas- trimestralmente, por
-        el Consejo Asesor del Decanato de Estudios Profesionales, el cuál notificará a la
-        Dirección de Admisión y Control de Estudios, con copia a cada Coordinación,
-        acerca de los cambios de carrera que hayan sido aprobados.
-
-        10.El Decanato de Estudios Profesionales resolverá los casos dudosos o no
-        previstos.
+                                         ¡ÉXITO!
                     </pre>
                 </div>
 

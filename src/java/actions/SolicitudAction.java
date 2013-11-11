@@ -182,6 +182,11 @@ public class SolicitudAction extends ActionSupport {
 
         try {
             s = ConexionBD.getConnection().createStatement();
+            rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
+            if (rs.next()) {
+                mensaje = "Ya se le ha aceptado una solicitud.";
+                return SUCCESS;
+            }
             rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "' AND ADVERTENCIA!='-1'");
 
             if (!rs.next()) {
@@ -230,7 +235,7 @@ public class SolicitudAction extends ActionSupport {
                         + "'" + motivacion + "')");
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
 
-                String a = "leofaster@gmail.com"; // Aqui se forma el correo del coordinador
+                String a = "rbmachado.g@gmail.com"; // Aqui se forma el correo del coordinador
                 String asunto = "Solicitud de cambio de carrera de " + usbidSol;
                 String cuerpo = "El estudiante con el carnet " + usbidSol + " desea cambiarse a su carrera. "
                         + "Ingrese al sistema para revisar su solicitud.";
@@ -239,11 +244,7 @@ public class SolicitudAction extends ActionSupport {
                 emailer.sendEmail();
 
             } else {
-                rs = s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
-                if (rs.next()) {
-                    mensaje = "Ya se le ha aceptado una solicitud.";
-                    return SUCCESS;
-                }
+
                 mensaje = "Ya habías enviado una solicitud de cambio.";
             }
         } catch (Exception e) {
@@ -267,7 +268,7 @@ public class SolicitudAction extends ActionSupport {
             rs = s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbido + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
             System.out.println("PP1");
             if (rs.next()) {
-                mensaje = "Ya se le ha aceptado una solicitud de cambio de carrera en la carrera " + rs.getString("nombre") + ".";
+                mensaje = "Ya se le ha aceptado una solicitud de\ncambio de carrera a " + rs.getString("nombre") + ".";
                 return SUCCESS;
             }
             rs = s.executeQuery("SELECT * FROM solicitud NATURAL JOIN carrera WHERE usbid='" + usbido + "' ORDER BY FECHA");

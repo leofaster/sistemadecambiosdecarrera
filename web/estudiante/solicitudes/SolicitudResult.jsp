@@ -10,6 +10,6 @@
 <div id="success">
     <br /><br /><br /><br />
     <center>
-        <strong><s:property value="mensaje" /></strong> 
+        <strong><s:property escapeHtml="false" value="mensaje.replace(\"\n\", \" <br />\")" /></strong> 
     </center>
 </div>
