@@ -32,11 +32,12 @@
                 <tiles:insertAttribute name="banner" />
             </div>
 
-            <div style="width:760px;margin-left:auto;margin-right:auto;">
+            <div style="width:750px;margin-left:auto;margin-right:auto;">
 
                 <tiles:insertAttribute name="body" />
-
-                <div id="footer">
+<br /><br /><br />
+                <div class="footer">
+                    
                     <tiles:insertAttribute name="footer" />
                 </div>
 

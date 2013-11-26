@@ -82,7 +82,9 @@
             <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
             <result name="verCupos" type="tiles">/coordinador.cupos.ver</result>
             <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
-            
+            <result name="home" type="tiles">/home</result>
+            <result name="login" type="tiles">/login</result>
+            <result name="instrucciones" type="tiles">/instrucciones</result>
         </action> 
         
         

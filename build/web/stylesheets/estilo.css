@@ -8,6 +8,13 @@
     text-align: center;
     color: black;
 }
+#welcome {
+    border-radius: 15px;
+    margin:1em 0 1em;
+    padding:15px;
+    background:#eee; 
+    position:relative;}
+
 
 .errorMessage {
     color: red;  
@@ -17,15 +24,18 @@
     color: green;  
     font-size: 1em;
     font-weight: normal;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 body {
     margin-left: auto;
     margin-right: auto;
-    font-family: sans-serif;
-    font-size: medium;
-    color: #555;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+    color: black;
     background-color: white;
 }
 
@@ -34,7 +44,7 @@ h1 {
     font-size: 1.4em;
     color: #369;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 h2 {
@@ -42,7 +52,7 @@ h2 {
     font-size: 1.2em;
     color: #369;
     font-weight: normal;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 h4 {
@@ -51,14 +61,14 @@ h4 {
     color: #369;
     font-weight: bold;
     text-align: center;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 h5 {
     letter-spacing: 1px;
     font-weight: normal;
     text-align: center;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 h6 {
@@ -67,7 +77,7 @@ h6 {
     text-align: center;
     font-size: 0.875em;
     color:#B22222;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 #ventana {
@@ -76,7 +86,7 @@ h6 {
     height: 190px; 
     top: 0; 
     left: 0; 
-    font-family:Verdana, Arial, Helvetica, sans-serif; 
+    font-family:Verdana, Arial, Helvetica, sans-serif;
     font-size: 12px; 
     font-weight: normal; 
     border: #333333 3px solid; 
@@ -98,7 +108,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     alignment-adjust: auto;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 td {
@@ -106,27 +116,27 @@ td {
     margin-left: auto;
     margin-right: auto;
     color: black;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 tr{
 
     margin-left: auto;
     margin-right: auto;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 /* Links */
 a {
     color: #126598;
     text-decoration: none;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 a:hover {
-    color: #198a15;
-    text-decoration: underline;
-    font-family: sans-serif;
+
+    text-decoration: none;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 
@@ -202,22 +212,25 @@ a:hover {
     font-weight: bold;
 }
 
-#contacto{
-    float:right;
-    margin-top: 240px;
-    margin-right: -150px
-}
 
-#footer{
+
+.footer{
+    padding: 1em 0;
     width:80%;
-    margin:auto;
+    margin:0px auto;
     clear: both;
-    position: relative;
+    position: absolute;
+    z-index:-1;
     background-color: white;
-    color: #1C6EA0;
-    font-size: 0.8em;
-    text-align: center;
+    color: black;
+    text-align: left;
     margin-bottom: 10px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 1.6em;
+}
+a.footer a.footer:hover{
+    color: #128FC3;
 }
 
 .error{
@@ -348,7 +361,7 @@ a.menuitem{
     width: auto;
     padding: 4px 0;
     padding-left: 10px;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;;
     font-weight: bold;
     border-bottom-color: black;
     border-collapse:collapse;
@@ -364,7 +377,7 @@ a.menuitem{
 }
 
 a.menuitem:hover{
-    background-color:midnightblue;
+
 }
 
 .glossymenu div.submenu{ 
@@ -387,7 +400,7 @@ a.menuitem:hover{
     text-decoration: none;
     padding: 2px 2px;
     padding-left: 10px;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -415,7 +428,7 @@ a.menuitem:hover{
     text-shadow: rgba(0,0,0,.4) 0 1px 0;
     color: white;
     font-size: 14px;
-    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;;
     text-decoration: none;
     vertical-align: middle;
 }
@@ -467,7 +480,7 @@ a.menuitem:hover{
 
 #acdnmenu div.current, #acdnmenu div:hover, #acdnmenu a.link:hover, #acdnmenu div.current a.link
 {
-    color:#CBA;
+
     font-weight:normal;
     text-decoration:none;   
 }
@@ -475,7 +488,7 @@ a.menuitem:hover{
 /*Top level link without children*/
 #acdnmenu a.current, #acdnmenu a.current:hover
 {
-    color:#CBA;
+
     text-decoration:underline;   
 }
 /* arrow image for the top headings */
@@ -535,7 +548,7 @@ a.menuitem:hover{
 
 #acdnmenu ul.sub a.link:hover, #acdnmenu ul.sub a.current, #acdnmenu ul.sub div.heading a:hover, #acdnmenu ul.sub div.heading a.current
 {
-    color:#F90;
+
     text-decoration:underline;
     background:none; 
 }
@@ -587,73 +600,4 @@ a.menuitem:hover{
 #acdnmenu div.arrowImage {position:absolute; overflow:hidden;}
 
 
-/* First Level UL List */
-#accordion {
-    margin:0;
-    padding:0;    
-    list-style:none;
-}
 
-#accordion li {
-    width:267px;
-}
-
-#accordion li a {
-    display: block;
-    width: 268px;
-    height: 43px;    
-    text-indent:-999em;
-    outline:none;
-}
-
-/* Using CSS Sprite for menu item */
-#accordion li a.popular {
-    background:url(menu.jpg) no-repeat 0 0;    
-}
-#accordion li a.popular:hover, .popularOver {
-    background:url(menu.jpg) no-repeat -268px 0 !important;    
-}
-
-#accordion li a.category {
-    background:url(menu.jpg) no-repeat 0 -43px;    
-}
-#accordion li a.category:hover, .categoryOver {
-    background:url(menu.jpg) no-repeat -268px -43px !important;    
-}
-
-#accordion li a.comment {
-    background:url(menu.jpg) no-repeat 0 -86px;    
-}
-#accordion li a.comment:hover, .commentOver {
-    background:url(menu.jpg) no-repeat -268px -86px !important;    
-}
-
-
-/* Second Level UL List*/
-#accordion ul {
-    background:url(bg.gif) repeat-y 0 0;
-    width:268px;
-    margin:0;
-    padding:0;
-    display:none;    
-}
-
-#accordion ul li {
-    height:30px;
-}
-
-/* styling of submenu item */
-#accordion ul li a {
-    width:240px;
-    height:25px;
-    margin-left:15px;
-    padding-top:5px;
-    border-bottom: 1px dotted #777;
-    text-indent:0;
-    color:#ccc;
-    text-decoration:none;
-}
-/* remove border bottom of the last item */
-#accordion ul li a.last {
-    border-bottom: none;
-}    

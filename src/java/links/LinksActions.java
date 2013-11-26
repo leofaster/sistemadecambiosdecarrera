@@ -27,5 +27,14 @@ public class LinksActions extends ActionSupport {
     public String verSolicitudes() {
         return "verSolicitudes";
     }
+    public String home() {
+        return "home";
+    }
+    public String login() {
+        return "login";
+    }
+    public String instrucciones() {
+        return "instrucciones";
+    }
 }
 
