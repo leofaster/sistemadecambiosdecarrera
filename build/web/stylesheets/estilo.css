@@ -4,7 +4,7 @@
 
 #errores {
     font-size: medium;
-    font: bold 90%;
+    font: bold;
     text-align: center;
     color: black;
 }
@@ -13,7 +13,8 @@
     margin:1em 0 1em;
     padding:15px;
     background:#eee; 
-    position:relative;}
+    position:relative;
+}
 
 
 .errorMessage {
@@ -215,22 +216,28 @@ a:hover {
 
 
 .footer{
-    padding: 1em 0;
-    width:80%;
-    margin:0px auto;
-    clear: both;
-    position: absolute;
-    z-index:-1;
-    background-color: white;
+    position: relative;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     color: black;
-    text-align: left;
-    margin-bottom: 10px;
+    text-align: justify;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 11px;
-    line-height: 1.6em;
+    z-index: 0;
+
 }
+
+
 a.footer a.footer:hover{
-    color: #128FC3;
+    color: #42A9CC;
+}
+.footer-content{
+
+    position: absolute;
+    bottom: 0px;
+
+
 }
 
 .error{
@@ -350,33 +357,27 @@ table.altrowstable td {
     margin: 0 auto;
     padding: 0;
     width: 170px;
-    border: solid;
 }
 
 a.menuitem{
-    background-color: #369;
-    color: white;
+    text-align: right;
     display: block;
     position: relative; 
     width: auto;
-    padding: 4px 0;
-    padding-left: 10px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;;
-    font-weight: bold;
-    border-bottom-color: black;
-    border-collapse:collapse;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    line-height: 20px;
+    font-size: 11px;
+
 }
 
 .glossymenu a.menuitem.statusicon{
     position: absolute;
-    top: 5px;
-    right: 5px;
     border: none;
 }
 
 a.menuitem:hover{
+    color: #42A9CC;
+    text-decoration: underline;
 
 }
 
@@ -395,7 +396,6 @@ a.menuitem:hover{
 }
 
 .glossymenu submenu{
-    display: block;
     color: #369;
     text-decoration: none;
     padding: 2px 2px;
