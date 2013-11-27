@@ -35,7 +35,7 @@
             <div style="width:750px;margin-left:auto;margin-right:auto;">
 
                 <tiles:insertAttribute name="body" />
-<br /><br /><br />
+                <br /><br /><br /><br /><br /><br />
                 <div class="footer">
                     
                     <tiles:insertAttribute name="footer" />
