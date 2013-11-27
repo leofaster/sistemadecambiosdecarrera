@@ -2,3 +2,4 @@ nbproject/
 dist/
 build/
 *.war
+nbproject/private/*
