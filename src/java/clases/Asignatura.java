@@ -24,9 +24,17 @@ public class Asignatura implements Serializable {
         this.codigo = -1;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getCodigoS(){
        return this.codigoS;
     }
+    /**
+     *
+     * @param value
+     */
     public void setCodigoS(String value){
        this.codigoS=value;
     }

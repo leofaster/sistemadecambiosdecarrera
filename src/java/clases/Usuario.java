@@ -12,9 +12,21 @@ import java.io.Serializable;
  */
 public class Usuario implements Serializable {
 
+    /**
+     *
+     */
     protected String usbid;
+    /**
+     *
+     */
     protected int cedula;
+    /**
+     *
+     */
     protected String nombre;
+    /**
+     *
+     */
     protected String apellido;
     private String contrasena;
     private String rol;

@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
-                    <h4>Bienvenido</h4>
-                    
-
-              
+<center>
+    <h2>
+        Bienvenido al Sistema de cambio <br /> 
+        de Carrera de la USB
+    </h2>
+</center>

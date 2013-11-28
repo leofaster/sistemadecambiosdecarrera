@@ -10,38 +10,29 @@
     <head>
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/estructura1.css">
         <title>
             <tiles:insertAttribute name="title" ignore="true" />
         </title>
     </head>
-
     <body>
-        <div id="body-content">
+        <div id="pagewrap">
 
-            <tiles:insertAttribute name="header" />
-
-            <div id="sidebarL">
-                <tiles:insertAttribute name="menu" />
-
-
-
+            <div id="header">
+                <tiles:insertAttribute name="header" />
             </div>
-
-            <div id="sidebarR" style="width:150px; height: 250px;">
-                <br>
+            <div id="content">
+                <tiles:insertAttribute name="menu" />
+            </div>
+            <div id="middle">
+                <tiles:insertAttribute name="body" />
+            </div>
+            <div id="sidebar">
                 <tiles:insertAttribute name="banner" />
             </div>
-
-            <div style="width:750px;margin-left:auto;margin-right:auto;">
-
-                <tiles:insertAttribute name="body" />
-                <br /><br /><br /><br /><br /><br />
-                <div class="footer">
-                    
-                    <tiles:insertAttribute name="footer" />
-                </div>
-
+            <div id="footer">
+                <tiles:insertAttribute name="footer" />
             </div>
-
+        </div>
     </body>
 </html>

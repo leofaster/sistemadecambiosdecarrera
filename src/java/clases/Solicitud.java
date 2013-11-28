@@ -152,6 +152,12 @@ public class Solicitud implements Serializable {
         this.reportes = reportes;
     }
 
+    /**
+     *
+     * @param usbido
+     * @return
+     * @throws Exception
+     */
     public static String verificarSolicitudes(String usbido) throws Exception {
 
         String mensaje = null;

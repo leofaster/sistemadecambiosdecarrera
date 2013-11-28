@@ -6,7 +6,6 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<br /><br /><br />
 <div id="welcome">
     <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
     <br />
@@ -33,6 +32,6 @@
             </tr>
         </table>
         <br><br>
-        <div style="position: relative;text-align: center"><s:submit  value="Entrar" /><s:reset value="Borrar" /></div>
+        <div style="margin: 0 auto"><s:submit  value="Entrar" /><s:reset value="Borrar" /></div>
     </s:form>
 </div>

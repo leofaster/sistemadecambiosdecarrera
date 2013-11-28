@@ -32,10 +32,18 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
     private Map session;
     private String mensaje;
 
+    /**
+     *
+     * @return
+     */
     public String getMensaje() {
         return mensaje;
     }
 
+    /**
+     *
+     * @param mensaje
+     */
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
@@ -209,6 +217,12 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
         this.rol = rol;
     }
 
+    /**
+     *
+     * @param usbid
+     * @param role
+     * @return
+     */
     public String obtenerCarrera(String usbid,String role) {
        // String role = getRol();
         String carrera = "";

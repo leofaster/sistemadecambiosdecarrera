@@ -31,26 +31,50 @@ public class SolicitudAction extends ActionSupport {
     private String carrera_dest;
     private String mensaje;
 
+    /**
+     *
+     * @return
+     */
     public String getMensaje() {
         return mensaje;
     }
 
+    /**
+     *
+     * @param mensaje
+     */
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCarrera_dest() {
         return carrera_dest;
     }
 
+    /**
+     *
+     * @param carrera_dest
+     */
     public void setCarrera_dest(String carrera_dest) {
         this.carrera_dest = carrera_dest;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsbidSol() {
         return usbidSol;
     }
 
+    /**
+     *
+     * @param usbidSol
+     */
     public void setUsbidSol(String usbidSol) {
         this.usbidSol = usbidSol;
     }
@@ -151,13 +175,18 @@ public class SolicitudAction extends ActionSupport {
         this.motivacion = motivacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String solicitarCambio() {
         return SUCCESS;
     }
 
     /**
      *
-     * @return @throws Exception
+     * @return @throws Exception 
+     * @throws Exception
      */
     public String crearSolicitud() throws Exception {
 
@@ -253,6 +282,11 @@ public class SolicitudAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String listarSolicitudes() throws Exception {
 
         ResultSet rs = null, rs2 = null;

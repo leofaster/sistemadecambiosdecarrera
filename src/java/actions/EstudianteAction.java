@@ -24,26 +24,50 @@ public class EstudianteAction extends UsuarioAction {
     private String password;
     private String mensaje;
 
+    /**
+     *
+     * @return
+     */
     public String getMensaje() {
         return mensaje;
     }
 
+    /**
+     *
+     * @param mensaje
+     */
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsbido() {
         return usbido;
     }
 
+    /**
+     *
+     * @param usbido
+     */
     public void setUsbido(String usbido) {
         this.usbido = usbido;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
@@ -98,7 +122,8 @@ public class EstudianteAction extends UsuarioAction {
 
     /**
      *
-     * @return @throws Exception
+     * @return @throws Exception 
+     * @throws Exception
      */
     public String buscarEstudiante() throws Exception {
 

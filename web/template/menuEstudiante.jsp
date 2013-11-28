@@ -8,9 +8,11 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
-    <div class="glossymenu" style="width: 190px">
-        <a style="border-bottom: none;" ><a href="<s:url action="ListarSol"/>" class="menuitem">Ver Solicitudes de Cambio de Carrera Enviadas</a>
-        <a style="border-bottom: none;" ><a href="<s:url action="verificarReq"/>" class="menuitem">Solicitar Cambio de Carrera</a>
-        <a style="border-bottom: none;" ><a href="index.jsp" class="menuitem">Salir</a></a>
-    </div>
+    <ul style="list-style-type: none;line-height: 2em ">
+        <strong>
+            <li><a href="<s:url action="ListarSol"/>" class="menuitem">Solicitudes de Cambio Enviadas</a></li>
+            <li><a href="<s:url action="verificarReq"/>" class="menuitem">Solicitar Cambio de Carrera</a></li>
+            <li><a href="index.jsp" class="menuitem">Salir</a>
+        </strong>
+    </ul>
 </html>

@@ -16,17 +16,32 @@ public class Carrera implements Serializable {
     
     private int cupos;
 
+    /**
+     *
+     * @return
+     */
     public int getCupos() {
         return cupos;
     }
 
+    /**
+     *
+     * @param cupos
+     */
     public void setCupos(int cupos) {
         this.cupos = cupos;
     }
     
+    /**
+     *
+     */
     public Carrera() {
     }
 
+    /**
+     *
+     * @param codcarrera
+     */
     public Carrera(int codcarrera) {
         this.codcarrera = codcarrera;
         ResultSet rs;
@@ -51,26 +66,50 @@ public class Carrera implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCodcarrera() {
         return codcarrera;
     }
 
+    /**
+     *
+     * @param codcarrera
+     */
     public void setCodcarrera(int codcarrera) {
         this.codcarrera = codcarrera;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getIndiceMin() {
         return indiceMin;
     }
 
+    /**
+     *
+     * @param indiceMin
+     */
     public void setIndiceMin(double indiceMin) {
         this.indiceMin = indiceMin;
     }

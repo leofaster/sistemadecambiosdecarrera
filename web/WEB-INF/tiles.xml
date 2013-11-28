@@ -5,7 +5,14 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-
+    <definition name="baseLayout2" template="/template/base2.jsp">
+        <put-attribute name="title"  value=""/>
+        <put-attribute name="header" value="/template/header.jsp"/>
+        <put-attribute name="menu"   value="/template/menu.jsp"/>
+        <put-attribute name="body"   value="/template/body.jsp"/>
+        <put-attribute name="banner" value="/template/banner.jsp"/>
+        <put-attribute name="footer"  value="/template/footer.jsp"/>
+    </definition>
     <definition name="baseLayout" template="/template/baseLayout.jsp">
         <put-attribute name="title"  value=""/>
         <put-attribute name="header" value="/template/header.jsp"/>
@@ -20,7 +27,7 @@
         <put-attribute name="body"   value="/home/home.jsp"/>  
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
     </definition>
-    <definition name="/login" extends="baseLayout">
+    <definition name="/login" extends="baseLayout2">
         <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/home/login.jsp"/>  
         <put-attribute name="menu"   value="/home/menu.jsp"/>  

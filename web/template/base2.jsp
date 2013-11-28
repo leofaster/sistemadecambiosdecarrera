@@ -1,5 +1,5 @@
 <%-- 
-    Document   : baseLayout
+    Document   : base2
     Created on : Nov 4, 2013, 6:04:01 PM
     Author     : CHANGE Gate 
 --%>
@@ -10,7 +10,7 @@
     <head>
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/estructura1.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/estructura2.css">
         <title>
             <tiles:insertAttribute name="title" ignore="true" />
         </title>
@@ -21,18 +21,19 @@
             <div id="header">
                 <tiles:insertAttribute name="header" />
             </div>
+
             <div id="content">
                 <tiles:insertAttribute name="menu" />
             </div>
-            <div id="middle">
+
+            <div id="sidebar">
                 <tiles:insertAttribute name="body" />
             </div>
-            <div id="sidebar">
-                <tiles:insertAttribute name="banner" />
-            </div>
+
             <div id="footer">
                 <tiles:insertAttribute name="footer" />
             </div>
+
         </div>
     </body>
 </html>

@@ -6,9 +6,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<br /><br /><br />
 
-<div style="margin-left:auto;margin-right:auto;">
     <center><h2>Instrucciones para solicitar tu cambio:</h2><br /></center>
     1. Entra al sistema con tu USBid y tu contraseña.<br /><br />
 
@@ -26,7 +24,6 @@
     NOTA: No puedes cambiarte a tu misma carrera ni enviar más de una solicitud, a
     menos que la última enviada haya sido negada. No puedes enviar solicitudes si
     ya te aceptaron una.<br /><br />
-</div>
 
 <center><strong> ¡ÉXITO!</strong></center>
 

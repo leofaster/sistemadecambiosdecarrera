@@ -7,10 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <div style="margin-left: -100px;top: 10px"> 
+    <div style="float:left;display: block"> 
         <a href="http://usb.ve"> <img alt="Universidad Simon Bolivar" src="images/footer/cebolla_70_45.jpg"></a>
     </div>
-    <div class="footer-content">
+    <div style="float:left;display: block"> 
     <a href="http://www.usb.ve/home/node/68" target="_blank"> e-virtual</a> |
     <a href="https://webmail.usb.ve/" target="_blank">Correo</a> |
     <a href="https://esopo.usb.ve" target="_blank">esopo</a> |

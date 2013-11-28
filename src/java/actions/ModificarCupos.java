@@ -24,22 +24,46 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ModificarCupos extends ActionSupport implements ServletRequestAware {
 
+    /**
+     *
+     */
     public String cantCupos;
+    /**
+     *
+     */
     public String carrera;
+    /**
+     *
+     */
     public String cupos;
+    /**
+     *
+     */
     public String cohorte;
     private static final long serialVersionUID = 1L;
     HttpServletRequest request;
     private int x;
 
+    /**
+     *
+     * @param value
+     */
     public void setCantCupos(String value) {
         cantCupos = value;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCantCupos() {
         return this.cantCupos;
     }
 
+    /**
+     *
+     * @param request
+     */
     public void setServletRequest(HttpServletRequest request) {
         this.request = request;
     }
@@ -52,30 +76,57 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         return request;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCarrera() {
         return this.carrera;
     }
 
+    /**
+     *
+     * @param c
+     */
     public void setCarrera(String c) {
         this.carrera = c;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCupos() {
         return this.cupos;
     }
 
+    /**
+     *
+     * @param cupo
+     */
     public void setCupos(String cupo) {
         this.cupos = cupo;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCohorte() {
         return this.cohorte;
     }
 
+    /**
+     *
+     * @return
+     */
     public String cambiarCupos() {
         return SUCCESS;
     }
 
+    /**
+     *
+     */
     @Override
     public void validate() {
         if (this.getCarrera() != null && this.getCarrera().equals("-1")) {
@@ -143,10 +194,19 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         }
     }
 
+    /**
+     *
+     * @param aux
+     */
     public void setCohorte(String aux) {
         this.cohorte = aux;
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String actualizarCupos() throws Exception {
         ResultSet rs = null, rs2 = null;
         Statement s = null;
@@ -196,6 +256,11 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         return "no success";
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String solicitarCupos() throws Exception {
         ResultSet rs = null;
         Statement st = null;
@@ -240,6 +305,11 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         return "no success";
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String solicitarCuposCoordinador() throws Exception {
         return solicitarCupos();
     }

@@ -28,11 +28,20 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
     private static final long serialVersionUID = 1L;
     HttpServletRequest request;
     
+    /**
+     *
+     * @param request
+     */
     public void setServletRequest(HttpServletRequest request) {
         this.request = request;
     }
     
     
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String verPendientes() throws Exception {
         ResultSet rs = null;
         Statement st = null;
@@ -94,6 +103,11 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
     
     
     
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public String verYaGestionados() throws Exception {
         ResultSet rs = null;
         Statement st = null;

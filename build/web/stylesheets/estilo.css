@@ -4,7 +4,6 @@
 
 #errores {
     font-size: medium;
-    font: bold;
     text-align: center;
     color: black;
 }
@@ -29,8 +28,6 @@
 }
 
 body {
-    margin-left: auto;
-    margin-right: auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 1.6em;
@@ -40,46 +37,44 @@ body {
     background-color: white;
 }
 
-h1 {
-    letter-spacing: 3px;
-    font-size: 1.4em;
-    color: #369;
+/* Headings
+-------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1em;
+    padding: 0;
+    margin: 24px 0 12px 0;
 }
-
-h2 {
-    letter-spacing: 3px;
-    font-size: 1.2em;
-    color: #369;
-    font-weight: normal;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+h1 { font-size: 1.154em; } /* 28px */
+h2 { font-size: 1.692em; } /* 22px */
+h3 { font-size: 1.385em; } /* 18px */
+h4 { font-size: 1.231em; } /* 16px */
+h5 { font-size: 1.077em; } /* 14px */
+h6 { font-size: 1em; }
+h1.title{
+    margin-top: 7px;
 }
-
-h4 {
-    letter-spacing: 3px;
-    font-size: 1.5em;
-    color: #369;
-    font-weight: bold;
-    text-align: center;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+h2.title {
+    color:#336699;
+    margin-top: 0;
+    margin-bottom: 0.2em;
 }
-
-h5 {
-    letter-spacing: 1px;
-    font-weight: normal;
-    text-align: center;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+h2.block-title {
+    font-size: 1.385em;
+    line-height: 1.2;
+    margin: 0 0 0.4em 0;
 }
-
-h6 {
-    letter-spacing: 1px;
-    font-weight: normal;
-    text-align: center;
-    font-size: 0.875em;
-    color:#B22222;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+h1.site-name { /* 48px */
+    font-size: 3.692em;
+    margin: 0 0 0.2em 0;
+    padding: 0;
 }
+h2.site-slogan {
+    font-size: 1.077em;
+    margin: 0;
+    padding: 0;
+}
+/*-------------------------------------------*/
 
 #ventana {
     position: fixed; 
@@ -88,7 +83,7 @@ h6 {
     top: 0; 
     left: 0; 
     font-family:Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px; 
+    font-size: 14px; 
     font-weight: normal; 
     border: #333333 3px solid; 
     background-color: #FAFAFA; 
@@ -145,19 +140,26 @@ a:hover {
       ESTRUCTURA
 *********************/
 
+#container {
+
+    position:relative;
+
+}
+
 #body-content {
     margin: auto;
     background-color: white;
     width: 80%;
-    min-height: 100%;
+
     position: relative;
+    padding-bottom: 100px;
 
 }
 
 #banner{
     alignment-adjust: central;
-    height: 300px;
-    width: 100%;
+    width: 990px;
+    height: 250px;
 }
 
 .nav li a{
@@ -212,34 +214,6 @@ a:hover {
     font-size: 0.9em;
     font-weight: bold;
 }
-
-
-
-.footer{
-    position: relative;
-    margin: 0 auto;
-    margin-left: auto;
-    margin-right: auto;
-    color: black;
-    text-align: justify;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    z-index: 0;
-
-}
-
-
-a.footer a.footer:hover{
-    color: #42A9CC;
-}
-.footer-content{
-
-    position: absolute;
-    bottom: 0px;
-
-
-}
-
 .error{
     border-color: red;
 }
@@ -248,9 +222,7 @@ a.footer a.footer:hover{
     float: left;
     color:#369;
     font-size: 1.0em;
-    /*top:280px;
-    left:150px;
-    position: absolute;*/
+
 }
 
 #Bienve h1{
@@ -356,7 +328,7 @@ table.altrowstable td {
 .glossymenu{
     margin: 0 auto;
     padding: 0;
-    width: 170px;
+    width: 130px;
 }
 
 a.menuitem{
@@ -366,7 +338,7 @@ a.menuitem{
     width: auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     line-height: 20px;
-    font-size: 11px;
+    font-size: 14px;
 
 }
 
@@ -446,158 +418,14 @@ a.menuitem:hover{
 }
 
 
-/* Accordion Menu powered by www.menucool.com */
 
-/* ##### Top level items #####*/
-#acdnmenu 
-{
-    /* Note about height: 
-    Set "height:auto;" if flexible height is required. 
-    A fixed height is prefered as content below the menu won't be pulled down/up when the menu is expanding/collapsing. */
-    height: 300px;
-    width: 240px;
-    font-size:0;
+body {
+    margin: 0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.6em;
+    color: black;
+    background-color: white;
 }
-
-
-#acdnmenu ul.top
-{
-    padding-left:0;
-    background:#484037;
-    border:1px solid #000;
-}
-
-#acdnmenu div.heading, #acdnmenu a.link
-{
-    padding:8px; padding-left:24px;
-    text-align:left;
-    font:normal 12px Verdana;
-    color:#A98; 
-    background:#3A332C url(bg.jpg) repeat-x 0 0;
-    text-decoration:none;
-    outline:none;
-}
-
-#acdnmenu div.current, #acdnmenu div:hover, #acdnmenu a.link:hover, #acdnmenu div.current a.link
-{
-
-    font-weight:normal;
-    text-decoration:none;   
-}
-
-/*Top level link without children*/
-#acdnmenu a.current, #acdnmenu a.current:hover
-{
-
-    text-decoration:underline;   
-}
-/* arrow image for the top headings */
-#acdnmenu div.arrowImage {
-    width:12px;
-    height:12px;
-    top:9px;
-    right:4px; /* Changing it to "left:8px;" will position the arrow image to the left */
-    background-image:url(arrows.gif);
-    background-position:0 0;
-}
-
-#acdnmenu div.current div.arrowImage {
-    background-position:0 -12px;
-}
-
-#acdnmenu li.separator
-{
-    border-top:1px solid #000;
-    border-bottom:none; 
-}
-
-
-/* ##### Sub level items #####*/
-#acdnmenu ul.sub
-{
-    padding-left:14px; /*This determines the hierarchical offset*/ 
-}
-
-#acdnmenu ul.sub div.heading
-{
-    text-align:left;
-    font:normal 12px Arial;
-    padding:5px; padding-left:20px;
-    color:#CCC;
-    background:none; 
-}
-#acdnmenu ul.sub div.heading a
-{
-    color:#CBA;
-}
-
-#acdnmenu ul.sub div.current
-{
-    color:#F90;
-    background:none; 
-}
-
-#acdnmenu ul.sub a.link
-{
-    font:normal 11px Arial;
-    color:#CBA;
-    padding:5px; padding-left:20px;
-    text-decoration:none;
-    background:none; 
-}
-
-#acdnmenu ul.sub a.link:hover, #acdnmenu ul.sub a.current, #acdnmenu ul.sub div.heading a:hover, #acdnmenu ul.sub div.heading a.current
-{
-
-    text-decoration:underline;
-    background:none; 
-}
-
-
-#acdnmenu ul.sub div.arrowImage {
-    width:12px;
-    height:12px;
-    top:6px;
-    left:4px;
-    background-image:url(arrows.gif);
-    background-position:0 -24px;
-}
-#acdnmenu ul.sub div.current div.arrowImage {
-    background-position:0 -36px;
-}
-
-
-
-/* ##### Followings usually don't need modification ###### */
-/*Hack the font-size:0 bug for IE6 */
-#acdnmenu,  #acdnmenu ul
-{
-    display:block;
-    font-size:0px;
-    line-height:0px;
-}
-#acdnmenu li {font-size:12px; line-height:16px;}
-#acdnmenu:after {content:'.';height:0;clear:both;display:block;visibility:hidden;} 
-
-/*Hack for IE6-7*/
-#acdnmenu ul, #acdnmenu li, #acdnmenu div.heading, #acdnmenu a.smLink, #acdnmenu div.description {*zoom:1;}
-#acdnmenu li {*float:left;*width:100%;}
-
-#acdnmenu ul
-{
-    position:relative;/*!*/
-    overflow:hidden;
-    padding:0;margin:0;list-style-type: none;padding-left:10px;
-}
-#acdnmenu>ul{visibility: hidden;}
-#acdnmenu li {padding:0;margin:0;}
-
-#acdnmenu div.heading, #acdnmenu div.current
-{
-    position:relative;
-    cursor: pointer;
-}
-#acdnmenu div.arrowImage {position:absolute; overflow:hidden;}
-
 
 

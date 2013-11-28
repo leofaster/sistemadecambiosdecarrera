@@ -1,0 +1,114 @@
+#pagewrap {
+    padding: 5px;
+    width: 990px;
+    margin: 0 auto;
+    margin: 10px auto;
+}
+#header {
+    height: 300px;
+    padding: 0 15px;
+}
+#content {
+    width: 170px;
+    float: left;
+    padding: 3px 10px;
+    border-right: solid 1px #ccc;
+    line-height: 1.6em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#middle {
+    width: 574px; /* Account for margins + border values */
+    float: left;
+    padding: 5px 15px;
+    margin: 0px 5px 5px 4px;
+    line-height: 1.6em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#sidebar {
+    width: 150px;
+    padding: 5px 15px;
+    float: right;
+}
+#footer {
+    
+    clear: both;
+    padding: 0 15px;
+    font-size: 11px;
+    line-height: 1.6em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+
+    #pagewrap {
+        width: 94%;
+    }
+    #content {
+        width: 41%;
+        padding: 1% 4%;
+    }
+    #middle {
+        width: 41%;
+        padding: 1% 4%;
+        margin: 0px 0px 5px 5px;
+        float: right;
+    }
+
+    #sidebar {
+        clear: both;
+        padding: 1% 4%;
+        width: auto;
+        float: none;
+    }
+
+    #header, #footer {
+        padding: 1% 4%;
+    }
+}
+
+/* for 700px or less */
+@media screen and (max-width: 600px) {
+
+    #content {
+        width: auto;
+        float: none;
+    }
+
+    #middle {
+        width: auto;
+        float: none;
+        margin-left: 0px;
+    }
+
+    #sidebar {
+        width: auto;
+        float: none;
+    }
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+    #header {
+        height: auto;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    #sidebar {
+        display: none;
+    }
+
+}
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
