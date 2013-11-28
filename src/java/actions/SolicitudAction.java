@@ -88,7 +88,7 @@ public class SolicitudAction extends ActionSupport {
     }
 
     /**
-     *
+      *
      * @param estudiante
      */
     public void setEstudiante(Estudiante estudiante) {
