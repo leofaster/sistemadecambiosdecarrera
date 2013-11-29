@@ -16,7 +16,6 @@
         }
 </script>  
 </head>
-                    <br/>
                     <center>
                         <h3><center><b>Informe académico</b></center></h3>
                     <br/>

@@ -22,7 +22,7 @@
         </script>
     </head>
 
-                    <div id="login-form"><br><br><br>
+                    <div id="login-form">
                         
                         <center>
                             <h4>Solicitudes Pendientes</h4><br />

@@ -14,7 +14,6 @@
                 <s:actionmessage/>
             </div>
         </s:if>
-        <br><br>
         Seleccione la opción deseada:
         <br><br>
         <table>

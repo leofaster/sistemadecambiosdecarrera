@@ -10,7 +10,6 @@
 
 
 <div id="login-form">
-    <br><br><br>
     <s:if test="hasActionErrors()">
         <div id="errores">
             <s:actionerror />
