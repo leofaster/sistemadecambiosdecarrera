@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <br><br>
     <div style="float:left;display: block"> 
         <a href="http://usb.ve"> <img alt="Universidad Simon Bolivar" src="images/footer/cebolla_70_45.jpg"></a>
     </div>
@@ -22,6 +23,6 @@
     Apartado 89000 - Cable Unibolivar -
     Caracas Venezuela. Teléfono +58 0212-9063111<br />
     Sede Litoral, Camurí Grande, Edo. Vargas Parroquia Naiguatá. Teléfono +58 0212-9069000<br />
-    Diseñada y desarrollada por CHANGE Gate <a href="mailto:webmaster@usb.ve">webmaster@usb.ve</a>
+    Diseñada y desarrollada por CHANGE Gate <a href="mailto:change_gate@googlegroups.com">change_gate@googlegroups.com</a>
     </div>
 </html>

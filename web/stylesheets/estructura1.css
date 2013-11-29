@@ -4,21 +4,24 @@
     margin: 0 auto;
     margin: 10px auto;
 }
+
 #header {
     height: 300px;
     padding: 0 15px;
 }
+
 #content {
     width: 170px;
     float: left;
-    padding: 3px 10px;
-    border-right: solid 1px #ccc;
-    line-height: 1.6em;
+    line-height: 2em;
+    font-size: 12px;
     font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-align: right;
+    font-weight: bold;
 }
 
 #middle {
-    width: 574px; /* Account for margins + border values */
+    width: 600px; /* Account for margins + border values */
     float: left;
     padding: 5px 15px;
     margin: 0px 5px 5px 4px;
@@ -27,12 +30,12 @@
 }
 
 #sidebar {
-    width: 150px;
-    padding: 5px 15px;
+    width: 140px;
     float: right;
+    line-height: 3em;
 }
+
 #footer {
-    
     clear: both;
     padding: 0 15px;
     font-size: 11px;

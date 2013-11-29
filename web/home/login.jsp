@@ -7,11 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div id="welcome">
-    <h5>Para ingresar al sistema introduzca su usuario y contraseña.</h5>
+    <h5><center>Para ingresar al sistema introduzca su usuario y contraseña.</center></h5>
     <br />
     <s:if test="hasActionErrors()">
         <div id="errores">
-
             <s:actionerror />
         </div>
     </s:if>
@@ -31,7 +30,14 @@
                 <td style="border: none" colspan="2"></td>
             </tr>
         </table>
-        <br><br>
-        <div style="margin: 0 auto"><s:submit  value="Entrar" /><s:reset value="Borrar" /></div>
+
+        <center>
+            <table>
+                <tr>
+                    <td><s:submit value="Entrar" /></td>
+                    <td><s:reset value="Limpiar" /></td>                    
+                </tr>                    
+            </table>
+        </center>
     </s:form>
 </div>

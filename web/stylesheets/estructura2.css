@@ -27,13 +27,17 @@ STRUCTURE
     height: 300px;
     padding: 0 15px;
 }
+
 #content {
-    text-align:right;
     width: 170px;
     float: left;
-    padding: 3px 20px;
-    border-right: solid 1px #ccc;
+    line-height: 2em;
+    font-size: 12px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-align: right;
+    font-weight: bold;
 }
+
 #sidebar {
     width: 730px;
     float: left;
