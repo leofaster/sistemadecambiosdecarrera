@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <br><br>
-    <div style="float:left;display: block"> 
+    <div id="usb-footer" style="float:left"> 
         <a href="http://usb.ve"> <img alt="Universidad Simon Bolivar" src="images/footer/cebolla_70_45.jpg"></a>
     </div>
     <div style="float:left;display: block"> 

@@ -326,24 +326,12 @@ table.altrowstable td {
 .glossymenu{
     margin: 0 auto;
     padding: 0;
-    width: 130px;
 }
 
 a.menuitem{
-    text-align: right;
-    display: block;
-    position: relative; 
-    width: auto;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    line-height: 20px;
-    font-size: 14px;
 
 }
 
-.glossymenu a.menuitem.statusicon{
-    position: absolute;
-    border: none;
-}
 
 a.menuitem:hover{
     color: #42A9CC;
@@ -427,3 +415,7 @@ body {
 }
 
 
+a:hover{
+    color: #42A9CC;
+    text-decoration: underline;
+}

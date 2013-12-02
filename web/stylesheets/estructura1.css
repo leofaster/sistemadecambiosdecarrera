@@ -3,6 +3,8 @@
     width: 990px;
     margin: 0 auto;
     margin: 10px auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+
 }
 
 #header {
@@ -10,23 +12,21 @@
     padding: 0 15px;
 }
 
-#content {
+.menu {
     width: 170px;
     float: left;
     line-height: 2em;
     font-size: 12px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
     text-align: right;
     font-weight: bold;
 }
 
-#middle {
+.content {
     width: 600px; /* Account for margins + border values */
     float: left;
     padding: 5px 15px;
     margin: 0px 5px 5px 4px;
     line-height: 1.6em;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 #sidebar {
@@ -35,55 +35,71 @@
     line-height: 3em;
 }
 
-#footer {
+.footer {
+    position: fixed;
+    bottom: 0;
     clear: both;
     padding: 0 15px;
     font-size: 11px;
     line-height: 1.6em;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 /************************************************************************************
 MEDIA QUERIES
 *************************************************************************************/
+@media screen and (max-height: 902px){
+    .footer{
+        position: static;
+        bottom: auto; 
+    } 
+}
+
+
 /* for 980px or less */
 @media screen and (max-width: 980px) {
 
     #pagewrap {
         width: 94%;
     }
-    #content {
-        width: 41%;
+    .menu {
         padding: 1% 4%;
     }
-    #middle {
-        width: 41%;
+    .content {
+        width: 61%;
         padding: 1% 4%;
         margin: 0px 0px 5px 5px;
-        float: right;
     }
 
     #sidebar {
-        clear: both;
-        padding: 1% 4%;
-        width: auto;
-        float: none;
+        display: none;
     }
-
-    #header, #footer {
+    .footer{
+        position: static;
+        bottom: auto; 
+    }
+    #header{
+        height: 250px;
+    }
+    #header, .footer {
         padding: 1% 4%;
     }
 }
+@media screen and (max-width: 925px) {
+    #usb-footer{
+        display: none;
+    }
+}
+/* for 825px or less */
+@media screen and (max-width: 825px) {
 
-/* for 700px or less */
-@media screen and (max-width: 600px) {
-
-    #content {
+    .menu {
         width: auto;
         float: none;
+        text-align: center;
+        font-size: 16px;
     }
 
-    #middle {
+    .content {
         width: auto;
         float: none;
         margin-left: 0px;
@@ -92,6 +108,22 @@ MEDIA QUERIES
     #sidebar {
         width: auto;
         float: none;
+
+    }
+    #navlist li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+    }
+
+}
+@media screen and (max-width: 610px) {
+    .menu {
+        margin: 0 auto;
+        width: 400px;
+        float: none;
+        text-align: center;
+        font-size: 16px;
     }
 
 }
@@ -107,6 +139,9 @@ MEDIA QUERIES
     }
     #sidebar {
         display: none;
+    }
+    .menu {
+        padding: 0;
     }
 
 }

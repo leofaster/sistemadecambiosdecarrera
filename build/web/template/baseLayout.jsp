@@ -11,6 +11,7 @@
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/estructura1.css">
+
         <title>
             <tiles:insertAttribute name="title" ignore="true" />
         </title>
@@ -21,16 +22,16 @@
             <div id="header">
                 <tiles:insertAttribute name="header" />
             </div>
-            <div id="content">
+            <div class="menu">
                 <tiles:insertAttribute name="menu" />
             </div>
-            <div id="middle">
+            <div class="content">
                 <tiles:insertAttribute name="body" />
             </div>
             <div id="sidebar">
                 <tiles:insertAttribute name="banner" />
             </div>
-            <div id="footer">
+            <div class="footer">
                 <tiles:insertAttribute name="footer" />
             </div>
         </div>

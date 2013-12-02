@@ -32,12 +32,8 @@
         </table>
 
         <center>
-            <table>
-                <tr>
-                    <td><s:submit value="Entrar" /></td>
-                    <td><s:reset value="Limpiar" /></td>                    
-                </tr>                    
-            </table>
+            <input type="submit" id="Login_0" value="Entrar">
+            <input type="reset" value="Limpiar">
         </center>
     </s:form>
 </div>
