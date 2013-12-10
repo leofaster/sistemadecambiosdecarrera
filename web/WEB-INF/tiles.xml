@@ -6,7 +6,7 @@
 
 <tiles-definitions>
     <definition name="baseLayout2" template="/template/base2.jsp">
-        <put-attribute name="title"  value=""/>
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="header" value="/template/header.jsp"/>
         <put-attribute name="menu"   value="/template/menu.jsp"/>
         <put-attribute name="body"   value="/template/body.jsp"/>
@@ -14,7 +14,7 @@
         <put-attribute name="footer"  value="/template/footer.jsp"/>
     </definition>
     <definition name="baseLayout" template="/template/baseLayout.jsp">
-        <put-attribute name="title"  value=""/>
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="header" value="/template/header.jsp"/>
         <put-attribute name="menu"   value="/template/menu.jsp"/>
         <put-attribute name="body"   value="/template/body.jsp"/>
@@ -23,58 +23,47 @@
     </definition>
   
     <definition name="/home" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/home/home.jsp"/>  
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
     </definition>
     <definition name="/login" extends="baseLayout2">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/home/login.jsp"/>  
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
     </definition>
     <definition name="/instrucciones" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/home/instrucciones.jsp"/>  
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
     </definition>
     <definition name="/estudiante.welcome" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/estudiante/indexEstudiante.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
     <definition name="/estudiante.solicitud.listar" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/estudiante/solicitudes/ListaSolicitudes.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
     <definition name="/estudiante.solicitar.cambio" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/estudiante/solicitudes/SolicitarCambio.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
     <definition name="/estudiante.solicitar.cambio.resultado" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/estudiante/solicitudes/SolicitudResult.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
     <definition name="/estudiante.solicitar.cupos" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/estudiante/solicitudes/SolicitarCupos.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
     <definition name="/estudiante.mostrar.cupos" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/estudiante/mostrarCupo.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
     
     <definition name="/coordinador.welcome" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/indexCoordinador.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     <definition name="/coordinador.cupos.modificar" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/modificarCupos.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
@@ -86,34 +75,36 @@
     </definition>
     
     <definition name="/coordinador.solicitudes" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/solicitudes.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     <definition name="/coordinador.solicitudes.ver.Pendientes" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/verSolicitudesPend.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
     <definition name="/coordinador.solicitudes.ver.datos" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/mostrarDatos.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     <definition name="/coordinador.solicitudes.ver.informe" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/mostrarInforme.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
     <definition name="/coordinador.solicitudes.ver.historial" extends="baseLayout">
-        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/historial.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
+    <definition name="/decanato.solicitud.cupos" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/solicitarCupos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
+    </definition>
     
-    
+    <definition name="/decanato.mostrar.cupos" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/mostrarCupos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
+    </definition>
     
 </tiles-definitions>

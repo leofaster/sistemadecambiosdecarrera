@@ -30,10 +30,11 @@
                 <td style="border: none" colspan="2"></td>
             </tr>
         </table>
-
+        <br/>
         <center>
             <input type="submit" id="Login_0" value="Entrar">
             <input type="reset" value="Limpiar">
         </center>
+        <br/>
     </s:form>
 </div>

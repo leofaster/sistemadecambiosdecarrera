@@ -139,9 +139,7 @@ a:hover {
 *********************/
 
 #container {
-
     position:relative;
-
 }
 
 #body-content {
@@ -157,7 +155,7 @@ a:hover {
 #banner{
     alignment-adjust: central;
     width: 990px;
-    height: 250px;
+    height: 160px;
 }
 
 .nav li a{
