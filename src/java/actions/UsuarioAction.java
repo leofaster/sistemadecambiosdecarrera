@@ -76,6 +76,12 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
             session.put("rol", "admin");
             return;
         }
+        
+        if (getUsbid().equals("decanato") && getContrasena().equals("decanato")) {
+            session.put("usbid", "Decanato");
+            session.put("rol", "Decanato");
+            return;
+        }
 
         ResultSet rs = null;
         Statement s = null;

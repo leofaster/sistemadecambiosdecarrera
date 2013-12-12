@@ -63,9 +63,10 @@
         <put-attribute name="body"   value="/coordinador/indexCoordinador.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
-    <definition name="/coordinador.cupos.modificar" extends="baseLayout">
-        <put-attribute name="body"   value="/coordinador/modificarCupos.jsp"/>  
-        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    
+    <definition name="/decanato.cupos.modificar" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/modificarCupos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
     </definition>
     
     <definition name="/coordinador.cupos.ver" extends="baseLayout">
@@ -95,6 +96,11 @@
     <definition name="/coordinador.solicitudes.ver.historial" extends="baseLayout">
         <put-attribute name="body"   value="/coordinador/historial.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
+    <definition name="/decanato.welcome" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/indexDecanato.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
     </definition>
     
     <definition name="/decanato.solicitud.cupos" extends="baseLayout">

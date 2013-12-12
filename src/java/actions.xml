@@ -13,6 +13,7 @@
         <action name="Login" class="actions.UsuarioAction">
             <result name="Estudiante" type="tiles">/estudiante.welcome</result>
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
+            <result name="Decanato" type="tiles">/decanato.welcome</result>
             <result name="Coordinador" type="tiles">/coordinador.welcome</result>
             <result name="input">/index.jsp</result>
         </action>
@@ -32,15 +33,15 @@
         </action>
         
         <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 
-            <result name="success" type="tiles">/coordinador.cupos.modificar</result> 
-            <result name="no success" type="tiles">/coordinador.cupos.modificar</result> 
-            <result name="input"  type="tiles">/coordinador.cupos.modificar</result> 
+            <result name="success" type="tiles">/decanato.cupos.modificar</result> 
+            <result name="no success" type="tiles">/decanato.cupos.modificar</result> 
+            <result name="input"  type="tiles">/decanato.cupos.modificar</result> 
         </action> 
         
-        <action name="solicitudCupos" class="actions.ModificarCupos" method="solicitarCupos"> 
-            <result name="success" type="tiles">/estudiante.mostrar.cupos</result>
-            <result name="input" type="tiles">/estudiante.solicitar.cupos</result> 
-            <result name="no success" type="tiles">/estudiante.solicitar.cupos</result> 
+        <action name="solicitudCupos" class="actions.VerCupos" method="solicitarCupos"> 
+            <result name="success" type="tiles">/decanato.mostrar.cupos</result>
+            <result name="input" type="tiles">/decanato.solicitud.cupos</result> 
+            <result name="no success" type="tiles">/decanato.solicitud.cupos</result> 
         </action>
         
         <action name="solicitudCuposCoordinador" class="actions.ModificarCupos" method="solicitarCuposCoordinador"> 

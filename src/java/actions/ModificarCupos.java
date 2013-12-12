@@ -129,7 +129,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
      */
     @Override
     public void validate() {
-        if (this.getCarrera() != null && this.getCarrera().equals("-1")) {
+        if (this.getCarrera().equals("-1")) {
             addFieldError("carrera", "Seleccione una carrera válida");
         }
 
@@ -140,8 +140,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
-        String string = null;
-        if (this.getCarrera() == null) {
+        String string = null;        
             if (this.getCohorte().equals("")) {
                 addFieldError("cohorte", "Error, Favor Colocar numeros validos");
 
@@ -155,16 +154,14 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
                 System.out.println("Conecto2");
                 Map session2 = ActionContext.getContext().getSession();
                 String usbid = session2.get("usbid").toString();
-                rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
                 System.out.println("Ejecuto validate");
                 String carrera;
 
 
-                if (rs.next()) {
+                
 
-                    carrera = rs.getString("codcarrera");
                     rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
-                            + " codcarrera='" + carrera + "'");
+                            + " codcarrera='" + this.carrera + "'");
                     if (!rs2.next()) {
                         addFieldError("cohorte", "Introduzca una cohorte válida.");
                     }
@@ -182,17 +179,12 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
 
 
-                } else {
-                    addActionError("Error en la Operacion");
-                    addFieldError("cohorte", "Cohorte introducida inválida.");
-                }
-
+             
 
             } catch (Exception e) {
                 System.out.println("Problem in searching the database 1");
             }
         }
-    }
 
     /**
      *
@@ -217,17 +209,15 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
             s = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto1023");
             Map session2 = ActionContext.getContext().getSession();
-            String usbid = session2.get("usbid").toString();
-            rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
+            String usbid = session2.get("usbid").toString();            
             System.out.println("Ejecuto");
             String carrera;
 
 
             if (rs.next()) {
-
-                carrera = rs.getString("codcarrera");
+                
                 rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
-                        + " codcarrera='" + carrera + "'");
+                        + " codcarrera='" + this.carrera + "'");
                 if (!rs2.next()) {
                     return "no success";
                 }
@@ -241,7 +231,7 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
                 }
 
                 System.out.println("Bien");
-                s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='" + this.cohorte + "'");
+                s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + this.carrera + "' and cohorte='" + this.cohorte + "'");
                 addActionMessage("Cupos Cambiados");
                 return "success";
 
