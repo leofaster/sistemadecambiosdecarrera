@@ -10,7 +10,7 @@
 <script type="text/javascript">
         
         function edita(val,val2) {
-            document.fom.action = "modifCupos.action?carrera=" + val+"&cohorte="+val2;
+            document.fom.action = "pedirModifCupos.action?carrera=" + val+"&cohorte="+val2;
             document.fom.submit();
         }
         </script>

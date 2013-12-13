@@ -33,11 +33,17 @@
             <result name="success" type="tiles">/estudiante.solicitud.listar</result> 
         </action>
         
-        <action name="ModificarCup" class="actions.ModificarCupos" method="actualizarCupos"> 
+        <action name="pedirModifCupos" class="actions.ModificarCupos" method="cambiarCupos"> 
             <result name="success" type="tiles">/decanato.cupos.modificar</result> 
             <result name="no success" type="tiles">/decanato.cupos.modificar</result> 
             <result name="input"  type="tiles">/decanato.cupos.modificar</result> 
         </action> 
+        
+        <action name="ModificarCupos" class="actions.ModificarCupos" method="actualizarCupos"> 
+            <result name="success" type="tiles">/decanato.cupos.modificar</result> 
+            <result name="no success" type="tiles">/decanato.cupos.modificar</result> 
+            <result name="input"  type="tiles">/decanato.cupos.modificar</result> 
+        </action>
         
         <action name="GestionarCupos" class="actions.GestionCupos"> 
             <result name="success" type="tiles">/decanato.mostrar.cupos</result>
