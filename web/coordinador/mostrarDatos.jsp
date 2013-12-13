@@ -40,11 +40,7 @@
     <br/>
     <br/>
     <center>
-        <s:form action="MostrarInf">
-            <center>
-                <center>    <s:submit  value="Mostrar informe académico" type="button"/></center>
-            </center>
-        </s:form>
+        
     </center>
     <br/>
     <table>
