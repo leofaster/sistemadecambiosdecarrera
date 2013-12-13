@@ -69,6 +69,11 @@
         <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
     </definition>
     
+    <definition name="/decanato.plazos.modificar" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/modificar_plazos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
+    </definition>
+    
     <definition name="/coordinador.cupos.ver" extends="baseLayout">
         <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="body"   value="/coordinador/mostrarCupos.jsp"/>  
@@ -120,8 +125,18 @@
         <put-attribute name="menu"   value="/decanato/menu.jsp"/>
     </definition>
     
+    <definition name="/decanato.gestion.plazos" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/gestion_plazos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>
+    </definition>
+    
     <definition name="/decanato.mostrar.cupos" extends="baseLayout">
         <put-attribute name="body"   value="/decanato/mostrar_cupos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
+    </definition>
+    
+    <definition name="/decanato.mostrar.plazos" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/mostrar_plazos.jsp"/>  
         <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
     </definition>
     

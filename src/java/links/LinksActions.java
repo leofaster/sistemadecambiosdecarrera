@@ -16,6 +16,10 @@ public class LinksActions extends ActionSupport {
         return "GestionCupos";
     }
     
+    public String GestionPlazos() {
+        return "GestionPlazos";
+    }
+    
     public String SolicitudesEstudiantes() {
         return "SolicitudesEstudiantes";
     }
