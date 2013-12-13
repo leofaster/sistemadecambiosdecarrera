@@ -88,14 +88,26 @@
         <put-attribute name="body"   value="/coordinador/mostrarDatos.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
+    <definition name="/dide.solicitudes.ver.datos" extends="baseLayout">
+        <put-attribute name="body"   value="/coordinador/mostrarDatos.jsp"/>  
+        <put-attribute name="menu"   value="/dide/menu.jsp"/>  
+    </definition>
     <definition name="/coordinador.solicitudes.ver.informe" extends="baseLayout">
         <put-attribute name="body"   value="/coordinador/mostrarInforme.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    <definition name="/coordinador.solicitudes.ver.informe" extends="baseLayout">
+        <put-attribute name="body"   value="/coordinador/mostrarInforme.jsp"/>  
+        <put-attribute name="menu"   value="/dide/menu.jsp"/>  
     </definition>
     
     <definition name="/coordinador.solicitudes.ver.historial" extends="baseLayout">
         <put-attribute name="body"   value="/coordinador/historial.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    <definition name="/dide.solicitudes.ver.historial" extends="baseLayout">
+        <put-attribute name="body"   value="/dide/historial.jsp"/>  
+        <put-attribute name="menu"   value="/dide/menu.jsp"/>  
     </definition>
     
     <definition name="/decanato.welcome" extends="baseLayout">
@@ -103,14 +115,29 @@
         <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
     </definition>
     
-    <definition name="/decanato.solicitud.cupos" extends="baseLayout">
-        <put-attribute name="body"   value="/decanato/solicitarCupos.jsp"/>  
-        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
+    <definition name="/decanato.gestion.cupos" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/gestion_cupos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>
     </definition>
     
     <definition name="/decanato.mostrar.cupos" extends="baseLayout">
-        <put-attribute name="body"   value="/decanato/mostrarCupos.jsp"/>  
+        <put-attribute name="body"   value="/decanato/mostrar_cupos.jsp"/>  
         <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
+    </definition>
+    
+    <definition name="/dide.welcome" extends="baseLayout">
+        <put-attribute name="body"   value="/dide/indexDIDE.jsp"/>  
+        <put-attribute name="menu"   value="/dide/menu.jsp"/>  
+    </definition>
+    
+    <definition name="/dide.solicitudes.estudiantes" extends="baseLayout">
+        <put-attribute name="body"   value="/dide/solicitudes_estudiantes.jsp"/>  
+        <put-attribute name="menu"   value="/dide/menu.jsp"/>  
+    </definition>
+    
+    <definition name="/dide.ver.solicitudes.pendientes" extends="baseLayout">
+        <put-attribute name="body"   value="/dide/solicitudes_pendientes.jsp"/>  
+        <put-attribute name="menu"   value="/dide/menu.jsp"/>  
     </definition>
     
 </tiles-definitions>

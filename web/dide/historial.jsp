@@ -9,23 +9,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
-<div id="login-form"><br><br><br>
-    <h4>Historial de Solicitudes</h4>
+<div><br>
     <center>
-        <table class="bordt" border="1">
+    <h4>Historial de Solicitudes Recientes</h4>
+        <table class="bordt" border="1" style="white-space: nowrap">
             <form name="fom" method="post">
                 <tr>
 
                 </tr>
                 <%
-                    List l = (List) request.getAttribute("disp4");
+                    List l = (List) request.getAttribute("disp40");
                     if (l != null && l.size() != 0) {
                 %>
 
                 <center><td class="bord"><b>Estudiante</b></td> </center>
                 <center><td class="bord"><b>Carnet</b></td></center>
-                <center><td class="bord"><b>Aceptada</b></td></center>
-                <center><td class="bord"><b>Rechazada</b></td></center>
+                <center><td class="bord"><b>Recomendada</b></td></center>
+                <center><td class="bord"><b>No Recomendada</b></td></center>
 
                 <%
                     Iterator it = l.iterator();
@@ -34,7 +34,7 @@
                         clases.Solicitud b = (clases.Solicitud) it.next();
                         String nombre = b.getEstudiante().getNombre();
                         String carnet = b.getEstudiante().getUsbid();
-                        boolean ac = b.isSolAceptada();
+                        boolean ac = b.isRecomendada();
 
                 %>
                 <tr> 
@@ -66,7 +66,7 @@
     </center>
             <br />
             <br />
-    <center><a href="<s:url action="verSolicitudesLink2"/>">Volver</a></center>
+    <center><a href="<s:url action="SolicitudesEstudiantesLink2"/>">Volver</a></center>
 
 
 </div>

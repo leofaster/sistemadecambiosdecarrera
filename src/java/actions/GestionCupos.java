@@ -1,28 +1,29 @@
-/**
- *
- * @author CHANGE Gate
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
-
 package actions;
 
-import clases.Cohorte;
 import clases.ConexionBD;
+import clases.Usuario;
+import clases.Cohorte;
 import static com.opensymphony.xwork2.Action.SUCCESS;
-import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ActionContext;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
-
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  *
- * @author Becca
+ * @author CHANGE Gate
  */
-public class VerCupos extends ActionSupport implements ServletRequestAware {
-    
+public class GestionCupos extends ActionSupport implements ServletRequestAware {
+
     /**
      *
      */
@@ -41,59 +42,113 @@ public class VerCupos extends ActionSupport implements ServletRequestAware {
     public String cohorte;
     private static final long serialVersionUID = 1L;
     HttpServletRequest request;
+    private int x;
 
-    
+    /**
+     *
+     * @param value
+     */
+    public void setCantCupos(String value) {
+        cantCupos = value;
+    }
+
+    /**
+     *
+     * @return
+     */
     public String getCantCupos() {
-        return cantCupos;
+        return this.cantCupos;
     }
 
-    public void setCantCupos(String cantCupos) {
-        this.cantCupos = cantCupos;
+    /**
+     *
+     * @param request
+     */
+    public void setServletRequest(HttpServletRequest request) {
+        this.request = request;
     }
 
-    public String getCarrera() {
-        return carrera;
-    }
-
-    public void setCarrera(String carrera) {
-        this.carrera = carrera;
-    }
-
-    public String getCupos() {
-        return cupos;
-    }
-
-    public void setCupos(String cupos) {
-        this.cupos = cupos;
-    }
-
-    public String getCohorte() {
-        return cohorte;
-    }
-
-    public void setCohorte(String cohorte) {
-        this.cohorte = cohorte;
-    }
-
-    public HttpServletRequest getRequest() {
+    /**
+     *
+     * @return
+     */
+    public HttpServletRequest getServletRequest() {
         return request;
     }
 
-    public void setRequest(HttpServletRequest request) {
-        this.request = request;
+    /**
+     *
+     * @return
+     */
+    public String getCarrera() {
+        return this.carrera;
     }
-    
+
+    /**
+     *
+     * @param c
+     */
+    public void setCarrera(String c) {
+        this.carrera = c;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getCupos() {
+        return this.cupos;
+    }
+
+    /**
+     *
+     * @param cupo
+     */
+    public void setCupos(String cupo) {
+        this.cupos = cupo;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getCohorte() {
+        return this.cohorte;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String cambiarCupos() {
+        return SUCCESS;
+    }
+
+    /**
+     *
+     */
     @Override
     public void validate() {
-        
+        if (this.getCarrera().equals("-1")) {
+            addFieldError("carrera", "Seleccione una carrera válida");
+        }
     }
+
+    /**
+     *
+     * @param aux
+     */
+    public void setCohorte(String aux) {
+        this.cohorte = aux;
+    }
+        
     
     /**
      *
      * @return
      * @throws Exception
      */
-    public String solicitarCupos() throws Exception {
+    public String execute() throws Exception {
         ResultSet rs = null;
         Statement st = null;
         ConexionBD.establishConnection();
@@ -113,7 +168,7 @@ public class VerCupos extends ActionSupport implements ServletRequestAware {
 
             while (rs.next()) {
                 mb = new Cohorte();
-
+                mb.setCarrera(this.getCarrera().substring(0, 4));
                 mb.setCohorte(rs.getString("cohorte"));
                 mb.setCupos(rs.getString("cupos"));
                 mb.setCuposa(rs.getString("activos"));
@@ -135,10 +190,6 @@ public class VerCupos extends ActionSupport implements ServletRequestAware {
             System.out.println("Problem in searching the database 1");
         }
         return "no success";
-    }
-
-    public void setServletRequest(HttpServletRequest hsr) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

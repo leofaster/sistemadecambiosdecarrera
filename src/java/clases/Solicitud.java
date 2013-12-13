@@ -23,6 +23,15 @@ public class Solicitud implements Serializable {
     private boolean ccAprobado;
     private String motivacion;
     private LinkedList<Reporte> reportes;
+    private boolean recomendada;
+
+    public boolean isRecomendada() {
+        return recomendada;
+    }
+
+    public void setRecomendada(boolean recomendada) {
+        this.recomendada = recomendada;
+    }
 
     /**
      *

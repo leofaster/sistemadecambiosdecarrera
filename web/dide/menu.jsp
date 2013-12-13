@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <ul id="navlist" style="list-style-type: none;">
-    <li><a href="<s:url action="loginLink2"/>">Solicitudes de Estudiantes</a></li>
-    <li><a href="<s:url action="loginLink2"/>">Estudiantes en Proceso de Cambio</a></li>
+    <li><a href="<s:url action="SolicitudesEstudiantesLink2"/>">Solicitudes de Estudiantes</a></li>
+<!--    <li><a href="s:url action="loginLink2"/>">Estudiantes en Proceso de Cambio</a></li>-->
     <li><a href="index.jsp" >Salir</a></li>
 </ul>

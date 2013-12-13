@@ -262,6 +262,10 @@ public class SolicitudAction extends ActionSupport {
                         + "false,"
                         + "false" + ","
                         + "'" + motivacion + "')");
+                
+                s.executeUpdate("INSERT INTO RECOMENDACION VALUES('"
+                        + usbidSol
+                        + "',false,false)");
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
 
                 String a = "rbmachado.g@gmail.com"; // Aqui se forma el correo del coordinador

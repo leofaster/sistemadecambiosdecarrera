@@ -7,15 +7,21 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
-
-
+<script type="text/javascript">
+        
+        function edita(val,val2) {
+            document.fom.action = "modifCupos.action?carrera=" + val+"&cohorte="+val2;
+            document.fom.submit();
+        }
+        </script>
 <div id="login-form">
     <s:if test="hasActionErrors()">
         <div id="errores">
             <s:actionerror />
         </div>
     </s:if>
-    <s:form action="solicitudCupos">
+    <br/>
+    <s:form action="GestionarCupos">
         Seleccione la carrera de la cual desea saber la cantidad de cupos:
         <br /><br />
         <s:select name="carrera"  required="true"
@@ -37,7 +43,6 @@
                   '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                   headerKey="-1" headerValue="Seleccionar carrera..."/>
         <br />
-
         <s:submit value="Aceptar" />
     </s:form>
 
@@ -60,11 +65,13 @@
                             String cuposCo = b.getCupos();
                             String NumCo = b.getCohorte();
                             String cuposA = b.getCuposa();
+                            String carrera = b.getCarrera();
                 %>
                 <tr> 
                 <center><td class="bord"><%= NumCo%></td></center>
                 <center><td class="bord"><%= cuposCo%></td></center>
                 <center><td class="bord"><%= cuposA%></td></center>
+                 <td class="bord"><center><a href="javascript:edita('<%=carrera%>','<%=NumCo%>')">Modificar</a></center></td>
                 </tr> 
                 <%
                         }

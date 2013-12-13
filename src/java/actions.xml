@@ -14,6 +14,7 @@
             <result name="Estudiante" type="tiles">/estudiante.welcome</result>
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
             <result name="Decanato" type="tiles">/decanato.welcome</result>
+            <result name="DIDE" type="tiles">/dide.welcome</result>
             <result name="Coordinador" type="tiles">/coordinador.welcome</result>
             <result name="input">/index.jsp</result>
         </action>
@@ -38,16 +39,16 @@
             <result name="input"  type="tiles">/decanato.cupos.modificar</result> 
         </action> 
         
-        <action name="solicitudCupos" class="actions.VerCupos" method="solicitarCupos"> 
+        <action name="GestionarCupos" class="actions.GestionCupos"> 
             <result name="success" type="tiles">/decanato.mostrar.cupos</result>
-            <result name="input" type="tiles">/decanato.solicitud.cupos</result> 
-            <result name="no success" type="tiles">/decanato.solicitud.cupos</result> 
+            <result name="input" type="tiles">/decanato.gestion.cupos</result> 
+            <result name="no success" type="tiles">/decanato.gestion.cupos</result> 
         </action>
         
-        <action name="solicitudCuposCoordinador" class="actions.ModificarCupos" method="solicitarCuposCoordinador"> 
+        <action name="solicitudCuposCoordinador" class="actions.ModificarCupos" method="solicitarCupos"> 
             <result name="success" type="tiles">/coordinador.cupos.ver</result>
             <result name="input" type="tiles">/coordinador.cupos.ver</result> 
-            <result name="no success" type="tiles">/coordinador.cupos.ver</result> 
+            <result name="no success" type="tiles">/decanato.cupos.ver</result> 
         </action>
         
         <action name="SolPen" class="actions.VisualizarSol" method="verPendientes"> 
@@ -55,18 +56,32 @@
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
-        <action name="Aprobar" class="CRUD.usuarios.UpdateSolicitud" method="Aceptar"> 
-            <result name="success" type="tiles">/coordinador.solicitudes</result>
+        <action name="SolicitarPendientes" class="actions.VisualizarSol" method="verSolicitudesPendientes"> 
+            <result name="success" type="tiles">/dide.ver.solicitudes.pendientes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
-        <action name="Denegar" class="CRUD.usuarios.UpdateSolicitud" method="Negar"> 
+        <action name="Aprobar" class="actions.UpdateSolicitud" method="Aceptar"> 
             <result name="success" type="tiles">/coordinador.solicitudes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
+        <action name="Recomendar" class="actions.UpdateSolicitud" method="Recomendar"> 
+            <result name="success" type="tiles">/dide.solicitudes.estudiantes</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
         
-        <action name="MostrarInf" class="CRUD.usuarios.UpdateSolicitud" > 
-            <result name="success" type="tiles">/coordinador.solicitudes.ver.informe</result>
+        <action name="Denegar" class="actions.UpdateSolicitud" method="Negar"> 
+            <result name="success" type="tiles">/coordinador.solicitudes</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        <action name="NoRecomendar" class="actions.UpdateSolicitud" method="NoRecomendar"> 
+            <result name="success" type="tiles">/dide.solicitudes.estudiantes</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
+        <action name="MostrarInf" class="actions.UpdateSolicitud" > 
+            <result name="Coordinador" type="tiles">/coordinador.solicitudes.ver.informe</result>
+            <result name="DIDE" type="tiles">/dide.solicitudes.ver.informe</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
@@ -75,15 +90,22 @@
             <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
-        <action name="updateSol" class="CRUD.usuarios.UpdateSolicitud">
-            <result name="success" type="tiles">/coordinador.solicitudes.ver.datos</result>
+        <action name="HistorialSolicitudes" class="actions.VisualizarSol" method="verDIDEHistorial"> 
+            <result name="success" type="tiles">/dide.solicitudes.ver.historial</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action> 
+        
+        <action name="updateSol" class="actions.UpdateSolicitud">
+            <result name="Coordinador" type="tiles">/coordinador.solicitudes.ver.datos</result>
+            <result name="DIDE" type="tiles">/dide.solicitudes.ver.datos</result>
         </action>
         
         <action name="*Link2" method="{1}"  class="links.LinksActions">
-            <result name="SolicitarCupoEstudiante" type="tiles">/estudiante.solicitar.cupos</result>
+            <result name="GestionCupos" type="tiles">/decanato.gestion.cupos</result>
             <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
             <result name="verCupos" type="tiles">/coordinador.cupos.ver</result>
             <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
+            <result name="SolicitudesEstudiantes" type="tiles">/dide.solicitudes.estudiantes</result>
             <result name="home" type="tiles">/home</result>
             <result name="login" type="tiles">/login</result>
             <result name="instrucciones" type="tiles">/instrucciones</result>

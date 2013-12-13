@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package CRUD.usuarios;
+package actions;
 
 import clases.ConexionBD;
 import clases.AsignaturaConNota;
@@ -197,7 +197,8 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
         }
 
 
-        return SUCCESS;
+        Map session2 = ActionContext.getContext().getSession();
+        return session2.get("rol").toString();
 
     }
 
@@ -258,6 +259,59 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
 
         return SUCCESS;
     }
+    
+    public String Recomendar() {
+        ResultSet rs = null;
+        Statement st = null;
+        String string = null;
+        ConexionBD.establishConnection();
+        try {
+            st = ConexionBD.getConnection().createStatement();
+            Map session2 = ActionContext.getContext().getSession();
+
+            String carnet = session2.get("carnet_aux").toString();
+            System.out.println(carnet);
+            Solicitud sol = new Solicitud();
+            rs = st.executeQuery("select * from solicitud where usbid='" + carnet + "' AND advertencia!='-1'");
+            if (rs.next()) {
+                String usbid = rs.getString("usbid");
+                System.out.println("PP1");
+                String cod = rs.getString("codcarrera");
+                System.out.println("PP2");
+                Date fecha = rs.getDate("fecha");
+                System.out.println("PP3");
+                boolean soli = rs.getBoolean("sol_aceptada");
+                System.out.println("PP4");
+                boolean cc = rs.getBoolean("cc_aprobado");
+                System.out.println("PP5");
+                String mot = rs.getString("motivacion");
+                String adver = rs.getString("advertencia");
+                System.out.println("PP6");
+                String ccS;
+                if (cc) {
+                    ccS = "t";
+                } else {
+                    ccS = "f";
+                }
+                System.out.println("PP1");
+                String adverAux = "El estudiante ha sido recomendado por DIDE.\n" + adver;
+                
+                st.executeUpdate("update solicitud set advertencia='" + adverAux + "' where usbid='" + carnet + "'");
+                st.executeUpdate("delete from recomendacion where usbid='" + carnet + "'");
+                st.executeUpdate("insert into recomendacion values"
+                        + "('"
+                        + carnet + "',true,true)");
+                System.out.println("PP3");
+                addActionMessage("La solicitud se ha procesado con éxito.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error modificando solicitudes");
+        }
+
+        return SUCCESS;
+    }
 
     public String Negar() {
         ResultSet rs = null;
@@ -305,6 +359,61 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
                         + ccS + "','"
                         + mot + "'"
                         + ")");
+                st.executeUpdate("delete from recomendacion where usbid='" + carnet + "'");
+                System.out.println("PP3");
+                addActionMessage("La solicitud se ha procesado con éxito.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error modificando solicitudes");
+        }
+
+        return SUCCESS;
+    }
+    
+    public String NoRecomendar() {
+        ResultSet rs = null;
+        Statement st = null;
+        String string = null;
+        ConexionBD.establishConnection();
+        try {
+            st = ConexionBD.getConnection().createStatement();
+            Map session2 = ActionContext.getContext().getSession();
+
+            String carnet = session2.get("carnet_aux").toString();
+            System.out.println(carnet);
+            Solicitud sol = new Solicitud();
+            rs = st.executeQuery("select * from solicitud where usbid='" + carnet + "' AND advertencia!='-1'");
+            if (rs.next()) {
+                String usbid = rs.getString("usbid");
+                System.out.println("PP1");
+                String cod = rs.getString("codcarrera");
+                System.out.println("PP2");
+                Date fecha = rs.getDate("fecha");
+                System.out.println("PP3");
+                boolean soli = rs.getBoolean("sol_aceptada");
+                System.out.println("PP4");
+                boolean cc = rs.getBoolean("cc_aprobado");
+                System.out.println("PP5");
+                String mot = rs.getString("motivacion");
+                System.out.println("PP6");
+                String adver = rs.getString("advertencia");
+                String ccS;
+                if (cc) {
+                    ccS = "t";
+                } else {
+                    ccS = "f";
+                }
+                System.out.println("PP1");
+
+                String adverAux = "DIDE no recomienda al estudiante.\n" + adver;
+                
+                st.executeUpdate("update solicitud set advertencia='" + adverAux + "' where usbid='" + carnet + "'");
+                st.executeUpdate("delete from recomendacion where usbid='" + carnet + "'");
+                st.executeUpdate("insert into recomendacion values"
+                        + "('"
+                        + carnet + "',false,true)");
                 System.out.println("PP3");
                 addActionMessage("La solicitud se ha procesado con éxito.");
             }

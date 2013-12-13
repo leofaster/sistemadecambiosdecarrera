@@ -12,8 +12,12 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LinksActions extends ActionSupport {
 
-    public String SolicitarCupoEstudiante() {
-        return "SolicitarCupoEstudiante";
+    public String GestionCupos() {
+        return "GestionCupos";
+    }
+    
+    public String SolicitudesEstudiantes() {
+        return "SolicitudesEstudiantes";
     }
 
     public String modificarCupos() {

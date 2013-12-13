@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 
 <div id="login-form">
-    <br><br><br>
-    <s:form action="solicitudCupos">
+    <br>
+    <s:form action="GestionarCupos">
         Seleccione la carrera de la cual desea saber la cantidad de cupos:
         <br /><br />
         <s:select name="carrera"  required="true"
@@ -30,8 +30,6 @@
                   '3200 - Licenciatura en Comercio Internacional',
                   '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                   headerKey="-1" headerValue="Seleccionar carrera..."/>
-        <br />
-
         <br />
         <s:submit value="Aceptar" />
     </s:form>

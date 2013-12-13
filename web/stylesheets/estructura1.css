@@ -1,5 +1,4 @@
 #pagewrap {
-    padding: 5px;
     width: 990px;
     margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -12,7 +11,7 @@
 }
 
 .menu {
-    width: 170px;
+    width: 180px;
     float: left;
     line-height: 2em;
     font-size: 12px;

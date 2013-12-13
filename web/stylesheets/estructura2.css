@@ -2,19 +2,18 @@
 STRUCTURE
 *************************************************************************************/
 #pagewrap {
-    padding: 5px;
     width: 990px;
-    margin: 10px auto;
+    margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-
 }
+
 #header {
     height: 180px;
     padding: 0 15px;
 }
 
 .menu{
-    width: 170px;
+    width: 180px;
     float: left;
     line-height: 2em;
     font-size: 12px;
@@ -27,11 +26,14 @@ STRUCTURE
     float: left;
     padding: 5px 15px;
     margin: 0px 5px 5px 4px;
+    line-height: 1.6em;
 }
+
 .footer {
     position: fixed;
     bottom: 0;
     clear: both;
+    padding: 0 15px;
     font-size: 11px;
     line-height: 1.6em;
 }

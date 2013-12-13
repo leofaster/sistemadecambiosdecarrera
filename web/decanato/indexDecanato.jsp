@@ -9,6 +9,6 @@
 
 <html>
     <div id="loginDiv" alt="especial">
-        <h4>Hola, <%=session.getAttribute("nombre")%></h4>
+        <center><h4>Hola, Decanato</h4></center>
     </div>
 </html>
