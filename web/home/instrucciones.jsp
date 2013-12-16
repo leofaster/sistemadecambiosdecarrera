@@ -6,7 +6,6 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
     <center><h2>Instrucciones para solicitar tu cambio:</h2><br /></center>
     1. Entra al sistema con tu USBid y tu contraseña.<br /><br />
 

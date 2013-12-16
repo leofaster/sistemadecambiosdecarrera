@@ -121,78 +121,38 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
      * @return
      */
     public String cambiarCupos() {
+        String cohor = request.getParameter("cohorte");
+        String carr = request.getParameter("carrera");
+        Map session2 = ActionContext.getContext().getSession();
+        System.out.println(carr);
+        System.out.println(cohor);
+        session2.put("carrera_aux", carr);
+        session2.put("cohorte_aux", cohor);
+
+        ResultSet rs = null, rs2 = null;
+        Statement s = null;
+        ConexionBD.establishConnection();
+        String string = null;
+
+        try {
+            s = ConexionBD.getConnection().createStatement();
+            System.out.println("Conecto2");
+
+            rs = s.executeQuery("SELECT * FROM carrera WHERE codcarrera='" + carr + "'");
+            if (rs.next()) {
+                session2.put("carrera_aux_nombre", rs.getString("nombre"));
+            }
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database cambiarCupos");
+            return "no sucess";
+        }
         return SUCCESS;
     }
 
     /**
      *
      */
-    @Override
-    public void validate() {
-        if (this.getCarrera() != null && this.getCarrera().equals("-1")) {
-            addFieldError("carrera", "Seleccione una carrera válida");
-        }
-
-        // if (this.getCupos()== null){
-        //   addFieldError("cantCupos","Error, Favor Colocar numeros validos2");
-        // }
-        System.out.println(this.getCarrera());
-        ResultSet rs = null, rs2 = null;
-        Statement s = null;
-        ConexionBD.establishConnection();
-        String string = null;
-        if (this.getCarrera() == null) {
-            if (this.getCohorte().equals("")) {
-                addFieldError("cohorte", "Error, Favor Colocar numeros validos");
-
-            }
-            try {
-                System.out.println("Cohorte: ");
-                System.out.println(this.getCohorte());
-
-                System.out.println("Conecto");
-                s = ConexionBD.getConnection().createStatement();
-                System.out.println("Conecto2");
-                Map session2 = ActionContext.getContext().getSession();
-                String usbid = session2.get("usbid").toString();
-                rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
-                System.out.println("Ejecuto validate");
-                String carrera;
-
-
-                if (rs.next()) {
-
-                    carrera = rs.getString("codcarrera");
-                    rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
-                            + " codcarrera='" + carrera + "'");
-                    if (!rs2.next()) {
-                        addFieldError("cohorte", "Introduzca una cohorte válida.");
-                    }
-
-                    if (cantCupos.length() < 1) {
-                        addFieldError("cantCupos", "Introduzca un número.");
-                    }
-                    for (int x = 0; x < cantCupos.length(); x++) {
-                        if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
-                            addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
-                            return;
-                        }
-                        //System.out.println(cantCupos.charAt(x));
-                    }
-
-
-
-                } else {
-                    addActionError("Error en la Operacion");
-                    addFieldError("cohorte", "Cohorte introducida inválida.");
-                }
-
-
-            } catch (Exception e) {
-                System.out.println("Problem in searching the database 1");
-            }
-        }
-    }
+    
 
     /**
      *
@@ -204,10 +164,21 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
 
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
     public String actualizarCupos() throws Exception {
+        
+        if (cantCupos.length() < 1) {
+            addFieldError("cantCupos", "Introduzca un número.");
+            return "input";
+        }
+        for (int x = 0; x < cantCupos.length(); x++) {
+            if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
+                addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
+                return "input";
+            }
+            //System.out.println(cantCupos.charAt(x));
+        }
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
@@ -217,38 +188,12 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
             s = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto1023");
             Map session2 = ActionContext.getContext().getSession();
-            String usbid = session2.get("usbid").toString();
-            rs = s.executeQuery("SELECT * FROM coordinador WHERE usbid='" + usbid + "'");
-            System.out.println("Ejecuto");
-            String carrera;
+            String carrera1 = session2.get("carrera_aux").toString();
+            String cohorte1 = session2.get("cohorte_aux").toString();
 
-
-            if (rs.next()) {
-
-                carrera = rs.getString("codcarrera");
-                rs2 = s.executeQuery("SELECT * FROM contiene WHERE cohorte='" + this.cohorte + "' AND "
-                        + " codcarrera='" + carrera + "'");
-                if (!rs2.next()) {
-                    return "no success";
-                }
-
-                for (int x = 0; x < cantCupos.length(); x++) {
-                    if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
-                        return "no success";
-                    }
-
-                    System.out.println(cantCupos.charAt(x));
-                }
-
-                System.out.println("Bien");
-                s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera + "' and cohorte='" + this.cohorte + "'");
-                addActionMessage("Cupos Cambiados");
-                return "success";
-
-            } else {
-                return "no success";
-            }
-
+            s.executeUpdate("UPDATE contiene SET CUPOS='" + cantCupos + "' where codcarrera='" + carrera1 + "' and cohorte='" + cohorte1 + "'");
+            addActionMessage("Cupos Cambiados");
+            return "success";
 
         } catch (Exception e) {
             System.out.println("Problem in searching the database 100");
@@ -256,17 +201,18 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         return "no success";
     }
 
-    /**
-     *
-     * @return
-     * @throws Exception
-     */
     public String solicitarCupos() throws Exception {
         ResultSet rs = null;
         Statement st = null;
         ConexionBD.establishConnection();
 
         System.out.println(this.getCarrera());
+        
+        if (this.getCarrera().equals("-1")){
+             addActionError("Seleccione una opcion");
+             return "no success";
+        }
+                
         try {
             st = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
@@ -304,15 +250,4 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         }
         return "no success";
     }
-
-    /**
-     *
-     * @return
-     * @throws Exception
-     */
-    public String solicitarCuposCoordinador() throws Exception {
-        return solicitarCupos();
-    }
-
-    
 }

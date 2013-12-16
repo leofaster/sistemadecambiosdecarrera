@@ -45,30 +45,30 @@ function init() {
 }
 
 // REGULAR EXPRESSION TO HIGHLIGHT ONLY FORM ELEMENTS
-var intended = /INPUT|TEXTAREA|SELECT|OPTION/
+var intended = /INPUT|TEXTAREA|SELECT|OPTION/;
 
 // FUNCTION TO CHECK WHETHER ELEMENT CLICKED IS FORM ELEMENT
 function checkel(which) {
     if (which.style && intended.test(which.tagName)) {
-        return true
+        return true;
     }
     else
-        return false
+        return false;
 }
 function highlight(e) {
     if (!ns6) {
-        eventobj = event.srcElement
-        if (previous != '') {
+        eventobj = event.srcElement;
+        if (previous !== '') {
             if (checkel(previous))
-                previous.style.backgroundColor = ''
-            previous = eventobj
+                previous.style.backgroundColor = '';
+            previous = eventobj;
             if (checkel(eventobj))
-                eventobj.style.backgroundColor = highlightcolor
+                eventobj.style.backgroundColor = highlightcolor;
         }
         else {
             if (checkel(eventobj))
-                eventobj.style.backgroundColor = highlightcolor
-            previous = eventobj
+                eventobj.style.backgroundColor = highlightcolor;
+            previous = eventobj;
         }
     }
 }

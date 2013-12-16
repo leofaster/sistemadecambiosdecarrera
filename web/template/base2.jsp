@@ -22,15 +22,15 @@
                 <tiles:insertAttribute name="header" />
             </div>
 
-            <div id="content">
+            <div class="menu">
                 <tiles:insertAttribute name="menu" />
             </div>
 
-            <div id="sidebar">
+            <div class="content">
                 <tiles:insertAttribute name="body" />
             </div>
 
-            <div id="footer">
+            <div class="footer">
                 <tiles:insertAttribute name="footer" />
             </div>
 

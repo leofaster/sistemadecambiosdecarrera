@@ -12,64 +12,51 @@
 <html>
 
     <head>
-       
+
         <script type="text/javascript">
-        
-        function edita(val,val2) {
-            document.fom.action = "updateSol.action?carnet=" + val+"&nombre="+val2;
-            document.fom.submit();
-        }
+            function edita(val, val2) {
+                document.fom.action = "updateSol.action?carnet=" + val + "&nombre=" + val2;
+                document.fom.submit();
+            }
         </script>
     </head>
 
-                    <div id="login-form">
-                        
-                        <center>
-                            <h4>Solicitudes Pendientes</h4><br />
-                         <table class="bordt" border="1">
-                        <form name="fom" method="post">
-                           <tr>
-                           
-                           </tr>
-                            <%
-                            List l = (List) request.getAttribute("disp3");
-                            if (l != null && l.size()!=0) {
-                            %>
-                            
-                           <td class="bord"><center><b>Nombre del estudiante</b></center></td>
-                           <td class="bord"><center><b>Carnet</b></center></td>
-                           <td class="bord"><center><b>Accion</b></center></td>
-                            
-                            <%
-                                Iterator it = l.iterator();
+    <div>
 
-                                while (it.hasNext()) {
-                                    clases.Solicitud b = (clases.Solicitud) it.next();
-                                    String nombre = b.getEstudiante().getNombre();
-                                    String carnet = b.getEstudiante().getUsbid();
-                                    
-                            %>
-                            <tr> 
-                            <center><td class="bord"><%= nombre%></td></center>
-                            <center><td class="bord"><%= carnet%></td></center>
-                            <td class="bord"><center><a href="javascript:edita('<%= carnet%>','<%= nombre%>')">Gestionar</a></center></td>
-                            </tr> 
-                            <%
-                            }
-                            }
-                            else{
-                            %>
-                            
-                            <center><b>No posee solicitudes pendientes.</td></b></center>
-                            
-                            <%
-                            }
-                            %>  
-                        </form>
-                        </table>    
-                        </center>
-                        
-                        
-                        
-                   </div>
-              
+        <h4>Solicitudes Pendientes:</h4><br />
+
+        <%
+            List l = (List) request.getAttribute("disp3");
+            if (l != null && l.size() != 0) {
+        %>
+        <div class="tabla">
+            <table>
+                <form name="fom" method="post">
+                    <tr> 
+                        <td>Nombre del estudiante</td>
+                        <td>Carnet</td>
+                        <td>Accion</td>
+                    </tr> 
+                    <%
+                        Iterator it = l.iterator();
+
+                        while (it.hasNext()) {
+                            clases.Solicitud b = (clases.Solicitud) it.next();
+                            String nombre = b.getEstudiante().getNombre();
+                            String carnet = b.getEstudiante().getUsbid();
+
+                    %>
+                    <tr> 
+                        <td><%= nombre%></td>
+                        <td><%= carnet%></td>
+                        <td><a href="javascript:edita('<%= carnet%>','<%= nombre%>')">Gestionar</a></td>
+                    </tr> 
+                    <%}%>
+                </form>
+            </table>  
+        </div>
+        <%} else {%>
+        <center><b>No posee solicitudes pendientes.</td></b></center>
+            <%}%>  
+    </div>
+<center><br /><a href="<s:url action="verSolicitudesLink2"/>">Volver</a></center>

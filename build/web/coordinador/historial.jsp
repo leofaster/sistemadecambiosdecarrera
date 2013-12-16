@@ -9,65 +9,66 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
-<div id="login-form"><br><br><br>
-    <h4>Historial del Solicitudes</h4>
-    <center>
-        <table class="bordt" border="1">
-            <form name="fom" method="post">
-                <tr>
+<h4>Historial de Solicitudes:</h4>
 
-                </tr>
+
+
+<%
+    List l = (List) request.getAttribute("disp4");
+    if (l != null && l.size() != 0) {
+%>
+<div class="tabla">
+    <table>
+        <form name="fom" method="post">
+            <tr>
+            <center><td class="bord"><b>Estudiante</b></td> </center>
+            <center><td class="bord"><b>Carnet</b></td></center>
+            <center><td class="bord"><b>Aceptada</b></td></center>
+            <center><td class="bord"><b>Rechazada</b></td></center>
+            </tr>
+            <%
+                Iterator it = l.iterator();
+
+                while (it.hasNext()) {
+                    clases.Solicitud b = (clases.Solicitud) it.next();
+                    String nombre = b.getEstudiante().getNombre();
+                    String carnet = b.getEstudiante().getUsbid();
+                    boolean ac = b.isSolAceptada();
+
+            %>
+            <tr> 
+            <center><td class="bord"><%= nombre%></td></center>
+            <center><td class="bord"><%= carnet%></td></center>
                 <%
-                    List l = (List) request.getAttribute("disp4");
-                    if (l != null && l.size() != 0) {
+                    if (ac) {
                 %>
-
-                <center><td class="bord"><b>Estudiante</b></td> </center>
-                <center><td class="bord"><b>Carnet</b></td></center>
-                <center><td class="bord"><b>Aceptada</b></td></center>
-                <center><td class="bord"><b>Rechazada</b></td></center>
-
-                <%
-                    Iterator it = l.iterator();
-
-                    while (it.hasNext()) {
-                        clases.Solicitud b = (clases.Solicitud) it.next();
-                        String nombre = b.getEstudiante().getNombre();
-                        String carnet = b.getEstudiante().getUsbid();
-                        boolean ac = b.isSolAceptada();
-
-                %>
-                <tr> 
-                <center><td class="bord"><%= nombre%></td></center>
-                <center><td class="bord"><%= carnet%></td></center>
-                    <%
-                        if (ac) {
-                    %>
-                <td class="bord"><center>X</center></td>
-                <center><td class="bord"></td></center>
-                    <%                            } else {
-                    %>
-                <center><td class="bord"></td></center>
-                <td class="bord"><center>X</center></td>
-                    <%                                 }
-                    %>
-                </tr> 
-                <%
-                    }
-                } else {
-                %>
-
-                <center><b>No posee solicitudes gestionadas.</td></b></center>
-
-                <%                                }
-                %>  
-            </form>
-        </table>    
-    </center>
-            <br />
-            <br />
-    <center><a href="<s:url action="verSolicitudesLink2"/>">Volver</a></center>
-
-
+            <td >X</td>
+            <td ></td>
+            <%                            } else {
+            %>
+            <td ></td>
+            <td >X</td>
+            <%}%>
+            </tr> 
+            <%
+                }
+            %>
+        </form>
+    </table>   
 </div>
+
+<%
+} else {
+%>
+
+<b><center><br />No posee solicitudes gestionadas.</center></b>
+
+<%                                }
+%>  
+
+<br />
+<br />
+<center><a href="<s:url action="verSolicitudesLink2"/>">Volver</a></center>
+
+
 

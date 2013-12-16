@@ -8,6 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div id="loginDiv">
-    <h4>Hola, <%=session.getAttribute("nombre")%></h4>
+    <center><h4>Hola, <%=session.getAttribute("nombre")%></h4></center>
 </div>
 

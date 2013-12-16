@@ -7,5 +7,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <img id="banner" src="images/bannerdisfuminado.png" alt="Universidad Simon Bolivar">
+    <img id="banner" src="images/banners/top_uni.jpg" alt="Universidad Simon Bolivar">
 </html>

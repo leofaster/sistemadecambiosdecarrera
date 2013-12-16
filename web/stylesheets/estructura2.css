@@ -1,84 +1,100 @@
-
-html { padding: 0; margin: 0; }
-
-body {
-    font: 1em/150% Arial, Helvetica, sans-serif;
-}
-a {
-    color: #669;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
-h1 {
-    font: bold 36px/100% Arial, Helvetica, sans-serif;
-}
-
 /************************************************************************************
 STRUCTURE
 *************************************************************************************/
 #pagewrap {
-    padding: 5px;
     width: 990px;
-    margin: 10px auto;
+    margin: 0 auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
+
 #header {
-    height: 300px;
+    height: 180px;
     padding: 0 15px;
 }
-#content {
-    text-align:right;
-    width: 170px;
+
+.menu{
+    width: 180px;
     float: left;
-    padding: 3px 20px;
-    border-right: solid 1px #ccc;
+    line-height: 2em;
+    font-size: 12px;
+    text-align: right;
+    font-weight: bold;
 }
-#sidebar {
+
+.content {
     width: 730px;
     float: left;
     padding: 5px 15px;
     margin: 0px 5px 5px 4px;
+    line-height: 1.6em;
 }
-#footer {
+
+.footer {
+    position: fixed;
+    bottom: 0;
     clear: both;
+    padding: 0 15px;
     font-size: 11px;
     line-height: 1.6em;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 /************************************************************************************
 MEDIA QUERIES
 *************************************************************************************/
+@media screen and (max-height: 902px){
+    .footer{
+        position: static;
+        bottom: auto; 
+    } 
+}
+
 /* for 980px or less */
 @media screen and (max-width: 980px) {
 
     #pagewrap {
         width: 94%;
     }
-    #content {
+    .menu{
+    }
+    .content {
         width: 65%;
     }
-    #sidebar {
-        width: 30%;
+    .footer{
+        position: static;
+        bottom: auto; 
     }
 
 }
 
 /* for 700px or less */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 825px) {
 
-    #content {
+    .menu{
         width: auto;
         float: none;
-        
+        text-align: center;
+        font-size: 16px;
+
     }
-    #sidebar {
+    .content {
         width: auto;
         float: none;
     }
+    #navlist li
+    {
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+    }  
 
 }
+@media screen and (max-width: 550px){
+    #menu{
+        margin: 0 auto;
+        width: 400px;
+    }
+}
+
 
 /* for 480px or less */
 @media screen and (max-width: 480px) {
@@ -89,14 +105,16 @@ MEDIA QUERIES
     h1 {
         font-size: 24px;
     }
-    #sidebar {
-        display: none;
-    }
-
 }
 
 img {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
+}
+
+@media screen and (max-width: 925px) {
+    #usb-footer{
+        display: none;
+    }
 }
