@@ -65,5 +65,6 @@
 
     <%                        }
     %>  
-
+    <br />
+<center><a href="<s:url action="SolicitudesEstudiantesLink2"/>">Volver</a></center>
 </center>

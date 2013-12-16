@@ -9,9 +9,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
-<div><br>
-    <center>
-        <h4>Historial de Solicitudes Recientes:</h4><br />
+<div>
+        <h4>Historial de Solicitudes Recientes</h4><br />
 
         <%
             List l = (List) request.getAttribute("disp40");

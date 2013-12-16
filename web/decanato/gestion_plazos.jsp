@@ -6,12 +6,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<div id="login-form">
-    <br>
+<h4>Gestión de Plazos</h4>
     <s:form action="GestionarPlazos">
-        Seleccione la carrera cuyos plazos desea consultar o modificar:
-        <br /><br />
+        Seleccione una carrera:
         <s:select name="carrera"  required="true"
                   list="{'0100 - Ingenieria Electrica', 
                   '0200 - Ingenieria Mecanica', 
@@ -30,7 +27,5 @@
                   '3200 - Licenciatura en Comercio Internacional',
                   '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                   headerKey="-1" headerValue="Seleccionar carrera..."/>
-        <br />
         <s:submit value="Aceptar" />
     </s:form>
-</div>

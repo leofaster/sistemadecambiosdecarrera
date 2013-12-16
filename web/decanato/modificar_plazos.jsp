@@ -7,8 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<div id="loginDiv">
-    <div id="login-form"><br><br><br>
         <center><b>Cambiando los plazos de <%=session.getAttribute("carrera_bux_nombre")%>:</b></center>
          <br/>
         <s:form action="ModificarPlazos">
@@ -22,7 +20,4 @@
             </div>
         </s:if>
          <br/>
-         <center><center><a href="<s:url action="GestionPlazosLink2"/>">Volver</a></center></center>
-    </div>
-</div>
-
+         <center><a href="<s:url action="GestionPlazosLink2"/>">Volver</a></center>

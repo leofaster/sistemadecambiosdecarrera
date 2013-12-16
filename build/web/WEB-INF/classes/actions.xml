@@ -15,6 +15,7 @@
             <result name="admin">administracion/GestionarCatalogos.jsp</result>
             <result name="Decanato" type="tiles">/decanato.welcome</result>
             <result name="Orientador(DIDE)" type="tiles">/dide.welcome</result>
+            <result name="DIDE" type="tiles">/dide.welcome</result>
             <result name="Coordinador" type="tiles">/coordinador.welcome</result>
             <result name="input" type="tiles">/login</result>
         </action>

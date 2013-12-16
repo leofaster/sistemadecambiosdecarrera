@@ -7,22 +7,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<div id="loginDiv">
-    <div id="login-form"><br><br><br>
-        <center><b>Cambiando los cupos de la cohorte <%=session.getAttribute("cohorte_aux")%><br/>
-                en <%=session.getAttribute("carrera_aux_nombre")%>:</b></center>
-         <br/>
-        <s:form action="ModificarCupos">
-            <s:textfield type="text" label="Nueva cantidad de Cupos" name="cantCupos" maxlength="3" size="15" /> 
-            <s:submit value="Aceptar" />
-        </s:form>
-        <s:if test="hasActionMessages()">
-            <div id="aproveMessage">
-                <s:actionmessage/>
-            </div>
-        </s:if>
-         <br/>
-         <center><center><a href="<s:url action="GestionCuposLink2"/>">Volver</a></center></center>
+<center><b>Cambiando los cupos de la cohorte <%=session.getAttribute("cohorte_aux")%><br/>
+        en <%=session.getAttribute("carrera_aux_nombre")%>:</b></center>
+<br/>
+<s:form action="ModificarCupos">
+    <s:textfield type="text" label="Nueva cantidad de Cupos" name="cantCupos" maxlength="3" size="15" /> 
+    <s:submit value="Aceptar" />
+</s:form>
+<s:if test="hasActionMessages()">
+    <div id="aproveMessage">
+        <s:actionmessage/>
     </div>
-</div>
+</s:if>
+<br/>
+<center><center><a href="<s:url action="GestionCuposLink2"/>">Volver</a></center></center>
 
