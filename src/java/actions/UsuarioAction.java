@@ -67,6 +67,7 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
         if (getUsbid().length() == 0) {
             addFieldError("usbid", getText("usbid.required"));
         }
+        
         if (getContrasena().length() == 0) {
             addFieldError("contrasena", getText("contrasena.required"));
         }

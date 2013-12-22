@@ -40,7 +40,11 @@
     <br/>
     <br/>
     <center>
-        
+        <s:form action="MostrarInf">
+            <center>
+                <center><s:submit  value="Mostrar informe académico" type="button"/></center>
+            </center>
+        </s:form>
     </center>
     <br/>
     <table>
@@ -49,7 +53,6 @@
                 <%
                     Map session2 = ActionContext.getContext().getSession();
                     if (session2.get("rol").toString().equals("Coordinador")) {
-
                 %>
                 <s:form action="Aprobar">
             <center>    <s:submit  value="Aceptar solicitud" type="button"/></center>
@@ -64,9 +67,9 @@
         </td>
         <td>
             <%
-                    if (session2.get("rol").toString().equals("Coordinador")) {
+                if (session2.get("rol").toString().equals("Coordinador")) {
 
-                %>
+            %>
             <s:form action="Denegar">
             <center><s:submit  value="Negar solicitud" type="button"/></center>
             </s:form>
@@ -81,4 +84,3 @@
             </tr>
     </table>
 </div>
-

@@ -9,8 +9,8 @@
 <!DOCTYPE html>
 <html>
         <ul id="navlist" style="list-style-type: none">
-            <strong> <li><a href="<s:url action="verificarReq"/>" >Solicitar Cambio de Carrera</a></li></strong>
-            <strong> <li><a href="<s:url action="ListarSol"/>" >Solicitudes de Cambio Enviadas</a></li></strong>
+            <strong><li><a href="<s:url action="verificarReq"/>" >Solicitar Cambio de Carrera</a></li></strong>
+            <strong><li><a href="<s:url action="ListarSol"/>" >Solicitudes de Cambio Enviadas</a></li></strong>
             <strong><li><a href="index.jsp" >Salir</a></li></strong> 
         </ul>
 </html>

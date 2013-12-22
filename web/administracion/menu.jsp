@@ -10,9 +10,9 @@
 <html>
     <ul id="navlist" style="list-style-type: none">
         <strong>
-            <li><a href="<s:url action="verSolicitudesLink2"/>" >Gestionar solicitudes</a></li>
-            <li> <a href="<s:url action="verCuposLink2"/>" >Ver cupos disponibles por carrera</a></li>
-            <li><a href="index.jsp">Salir</a></li>
+            <li><a href="/CambioCarrera/CRUD.usuarios/index.jsp" >Gestionar Usuarios</a></li>
+            <li> <a href="/CambioCarrera/CRUD.carreras/index.jsp" >Gestionar Carreras</a></li>
+            <li><a href="">Salir</a></li>
         </strong>
     </ul>
 </html>

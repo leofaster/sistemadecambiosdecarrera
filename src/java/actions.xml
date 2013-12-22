@@ -11,12 +11,12 @@
                          class="org.apache.struts2.views.tiles.TilesResult" />
         </result-types>
         <action name="Login" class="actions.UsuarioAction">
-            <result name="Estudiante" type="tiles">/estudiante.welcome</result>
-            <result name="admin">administracion/GestionarCatalogos.jsp</result>
-            <result name="Decanato" type="tiles">/decanato.welcome</result>
-            <result name="DIDE" type="tiles">/dide.welcome</result>
-            <result name="Coordinador" type="tiles">/coordinador.welcome</result>
-            <result name="input">/index.jsp</result>
+            <result name="Estudiante"   type="tiles">/estudiante.welcome</result>
+            <result name="admin"        type="tiles">/administracion.welcome</result>
+            <result name="Decanato"     type="tiles">/decanato.welcome</result>
+            <result name="DIDE"         type="tiles">/dide.welcome</result>
+            <result name="Coordinador"  type="tiles">/coordinador.welcome</result>
+            <result name="input"        type="tiles">/login</result>
         </action>
        
        
@@ -106,7 +106,6 @@
         <action name="MostrarInf" class="actions.UpdateSolicitud" > 
             <result name="Coordinador" type="tiles">/coordinador.solicitudes.ver.informe</result>
             <result name="DIDE" type="tiles">/dide.solicitudes.ver.informe</result>
-            <result name="no success">cupos/errorCupo.jsp</result>
         </action> 
         
         <action name="SolApRep" class="actions.VisualizarSol" method="verYaGestionados"> 
@@ -125,15 +124,18 @@
         </action>
         
         <action name="*Link2" method="{1}"  class="links.LinksActions">
-            <result name="GestionCupos" type="tiles">/decanato.gestion.cupos</result>
-            <result name="GestionPlazos" type="tiles">/decanato.gestion.plazos</result>
-            <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
-            <result name="verCupos" type="tiles">/coordinador.cupos.ver</result>
-            <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
-            <result name="SolicitudesEstudiantes" type="tiles">/dide.solicitudes.estudiantes</result>
             <result name="home" type="tiles">/home</result>
             <result name="login" type="tiles">/login</result>
             <result name="instrucciones" type="tiles">/instrucciones</result>
+
+            <result name="GestionCupos" type="tiles">/decanato.gestion.cupos</result>
+            <result name="GestionPlazos" type="tiles">/decanato.gestion.plazos</result>
+            
+            <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
+            <result name="verCupos" type="tiles">/coordinador.cupos.ver</result>
+            <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
+            
+            <result name="SolicitudesEstudiantes" type="tiles">/dide.solicitudes.estudiantes</result>
         </action> 
         
         

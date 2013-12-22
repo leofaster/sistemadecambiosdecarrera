@@ -51,4 +51,4 @@
     </form>
 </table>
 <br />
-<a href="/Sistema_de_Cambios_de_Carrera/administracion/GestionarCatalogos.jsp">Volver</a>
+<a href="/CambioCarrera/administracion/GestionarCatalogos.jsp">Volver</a>

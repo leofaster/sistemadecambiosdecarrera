@@ -5,6 +5,7 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
+    
     <definition name="baseLayout2" template="/template/base2.jsp">
         <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="header" value="/template/header.jsp"/>
@@ -13,6 +14,7 @@
         <put-attribute name="banner" value="/template/banner.jsp"/>
         <put-attribute name="footer"  value="/template/footer.jsp"/>
     </definition>
+    
     <definition name="baseLayout" template="/template/baseLayout.jsp">
         <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="header" value="/template/header.jsp"/>
@@ -22,10 +24,27 @@
         <put-attribute name="footer"  value="/template/footer.jsp"/>
     </definition>
   
+  
+    <definition name="/administracion.welcome" extends="baseLayout2">
+        <put-attribute name="body"   value="/administracion/GestionarCatalogos.jsp"/>  
+        <put-attribute name="menu"   value="/administracion/menu.jsp"/>  
+    </definition>
+    
+    <definition name="/administracion.usuarios" extends="baseLayout2">
+        <put-attribute name="body"   value="/CRUD.usuarios/index.jsp"/>  
+        <put-attribute name="menu"   value="/administracion/menu.jsp"/>  
+    </definition>
+    
+    <definition name="/administracion.carreras" extends="baseLayout2">
+        <put-attribute name="body"   value="/CRUD.carreras/index.jsp"/>  
+        <put-attribute name="menu"   value="/administracion/menu.jsp"/>  
+    </definition>
+    
     <definition name="/home" extends="baseLayout">
         <put-attribute name="body"   value="/home/home.jsp"/>  
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
     </definition>
+    
     <definition name="/login" extends="baseLayout2">
         <put-attribute name="body"   value="/home/login.jsp"/>  
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
@@ -84,6 +103,7 @@
         <put-attribute name="body"   value="/coordinador/solicitudes.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
+    
     <definition name="/coordinador.solicitudes.ver.Pendientes" extends="baseLayout">
         <put-attribute name="body"   value="/coordinador/verSolicitudesPend.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
@@ -101,7 +121,7 @@
         <put-attribute name="body"   value="/coordinador/mostrarInforme.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
-    <definition name="/coordinador.solicitudes.ver.informe" extends="baseLayout">
+    <definition name="/dide.solicitudes.ver.informe" extends="baseLayout">
         <put-attribute name="body"   value="/coordinador/mostrarInforme.jsp"/>  
         <put-attribute name="menu"   value="/dide/menu.jsp"/>  
     </definition>

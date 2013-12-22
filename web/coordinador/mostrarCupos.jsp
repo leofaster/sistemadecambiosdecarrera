@@ -8,16 +8,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
-<div id="login-form">
-    <s:if test="hasActionErrors()">
-        <div id="errores">
-            <s:actionerror />
-        </div>
-    </s:if>
+<div>
     <s:form action="solicitudCuposCoordinador">
-        Seleccione la carrera de la cual desea saber la cantidad de cupos:
-      <br><br>
-
+        <h4>Seleccione la carrera:</h4>
+            <s:if test="hasActionErrors()">
+            <div id="errores">
+                Error:    
+                <s:actionerror  />
+            </div>
+        </s:if>
         <s:select name="carrera"  required="true"
                   list="{'0100 - Ingenieria Electrica', 
                   '0200 - Ingenieria Mecanica', 
@@ -36,44 +35,52 @@
                   '3200 - Licenciatura en Comercio Internacional',
                   '3000 - Licenciatura en Gestión de la Hospitalidad'}"
                   headerKey="-1" headerValue="Seleccionar carrera..."/>
-        <br />
 
         <s:submit value="Aceptar" />
     </s:form>
+    <div>
+        <center>
 
-    <center>
-        <table class="bordt" border="1">
-            <form name="fom" method="post">
-                <tr>
-                <center><td class="bord">Cohorte</td> </center>
-                <center><td class="bord">Cupos</td></center>
-                <center><td class="bord">Activos</td></center>
-                
-                </tr>
-                <%
-                    List l = (List) request.getAttribute("disp2");
-                    if (l != null) {
+            <%
+                List l = (List) request.getAttribute("disp2");
+                if (l != null) {
+                    String Cohorte = "Cohorte";
+                    String Cupos = "Cupos";
+                    String Activos = "Activos";
+            %>
+            <div class="tabla">
+                <table>
+                    <form name="fom" method="post">
+                        <tr>
+                        <center><td ><%= Cohorte%></td> </center>
+                        <center><td ><%= Cupos%></td></center>
+                        <center><td ><%= Activos%></td></center>
+                            <% }%>  
+                        </tr>
+                        <%
+                            if (l != null) {
+                                Iterator it = l.iterator();
+                                while (it.hasNext()) {
+                                    clases.Cohorte b = (clases.Cohorte) it.next();
+                                    String cuposCo = b.getCupos();
+                                    String NumCo = b.getCohorte();
+                                    String cuposA = b.getCuposa();
+                        %>
+                        <tr> 
+                        <center><td ><%= NumCo%></td></center>
+                        <center><td ><%= cuposCo%></td></center>
+                        <center><td ><%= cuposA%></td></center>
 
-                        Iterator it = l.iterator();
+                        </tr> 
 
-                        while (it.hasNext()) {
-                            clases.Cohorte b = (clases.Cohorte) it.next();
-                            String cuposCo = b.getCupos();
-                            String NumCo = b.getCohorte();
-                            String cuposA = b.getCuposa();
-                %>
-                <tr> 
-                <center><td class="bord"><%= NumCo%></td></center>
-                <center><td class="bord"><%= cuposCo%></td></center>
-                <center><td class="bord"><%= cuposA%></td></center>
-                
-                </tr> 
-                <%
-                        }
-                    }
-                %>  
-            </form>
-        </table>
-    </center>
+                        <% }%>
+                    </form>
+                </table>
+            </div>
+            <% }%>
+
+
+
+        </center>
+    </div>
 </div>
-
