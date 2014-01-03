@@ -123,6 +123,15 @@
             <result name="DIDE" type="tiles">/dide.solicitudes.ver.datos</result>
         </action>
         
+        <action name="agregarPlantillas" class="actions.Plantillas">
+            <result type="tiles">/coordinador.plantillas.agregar</result>
+        </action>
+        
+        <action name="crearPlantilla" class="actions.Plantillas" method="crearPlantilla">
+            <result name="success" type="tiles">/coordinador.plantillas.agregar.success</result>
+            <result name="input" type="tiles">/coordinador.plantillas.agregar</result>
+        </action>
+        
         <action name="*Link2" method="{1}"  class="links.LinksActions">
             <result name="home" type="tiles">/home</result>
             <result name="login" type="tiles">/login</result>

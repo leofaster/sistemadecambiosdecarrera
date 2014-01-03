@@ -104,6 +104,16 @@
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
+    <definition name="/coordinador.plantillas.agregar" extends="baseLayout">
+        <put-attribute name="body"   value="/coordinador/plantillas/agregar_plantillas.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
+    <definition name="/coordinador.plantillas.agregar.success" extends="baseLayout">
+        <put-attribute name="body"   value="/coordinador/plantillas/agregar_success.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
     <definition name="/coordinador.solicitudes.ver.Pendientes" extends="baseLayout">
         <put-attribute name="body"   value="/coordinador/verSolicitudesPend.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  

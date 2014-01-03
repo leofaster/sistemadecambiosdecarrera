@@ -43,6 +43,7 @@ public class LinksActions extends ActionSupport {
     public String verSolicitudes() {
         return "verSolicitudes";
     }
+      
     public String home() {
         return "home";
     }
