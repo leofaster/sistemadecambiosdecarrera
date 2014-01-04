@@ -28,8 +28,10 @@
                     clases.Asignatura materia = (clases.Asignatura) it.next();
                     String codigo = materia.getCodigoS();
                     String nombre = materia.getNombre();
-                %>                
+                %>
+                
                     input.push({value: "<%=codigo%>", content: "<%=codigo%> - <%=nombre%>"});
+            
                 <%}
                     
                 l = (List) request.getAttribute("lista_materias_plantilla");
@@ -51,16 +53,19 @@
             
                 t.populate(input);
                 t.set_values(defaultValues);
+                
             });
     
-            function selectAllOptions() {
+            function selectAllOptions(val) {
                 var nombre_plantilla = $("#nombrePlantilla").val();
                 var materias = t.get_values();
-                var nombre_old = request.getAttribute("nombre_aux");
-                
-                document.fom.action = "updatePlantilla.action?nombreNuevo=" 
-                        + nombre_plantilla + "&lista=" + materias
-                        + "&nombre=" + nombre_old;
+                document.fom.action = "updatePlantilla.action?nombre=" 
+                        + val + "&lista=" + materias + "&nombreNuevo=" + nombre_plantilla;
+                document.fom.submit();
+             }
+             
+            function salir() {
+                document.fom.action = "GestionPlantillas.action";
                 document.fom.submit();
              }
         </script>
@@ -68,8 +73,7 @@
     
     <body>
         
-        <p>Modificando la plantilla "<s:property value="nombre" />".
-        </p><br/>
+        <p>Modificando la plantilla "<%=request.getAttribute("nombre")%>".</p><br/>
         <s:if test="hasActionErrors()">
             <div id="errores">
                 <s:actionerror />
@@ -81,9 +85,10 @@
         <form name="fom" method="post">
             <center>
                 <span><label for="nombrePlantilla">Nombre de la Plantilla *</label></span>
-                <input id="nombrePlantilla" name="nombrePlantilla" type="text" value="<s:property value="nombre" />"/><br/>
+                <input id="nombrePlantilla" name="nombrePlantilla" type="text" value="<%=request.getAttribute("nombre")%>"/><br/>
                 <br/>
-                <input type="submit" value="Modificar Plantilla" onClick="selectAllOptions();"/>
+                <input type="button" value="Modificar Plantilla" onClick="selectAllOptions('<%=request.getAttribute("nombre")%>');"/><br/>
+                <input type="button" value="Cancelar" onClick="salir();"/>
             </center>
         </form>
         

@@ -95,6 +95,7 @@
                 <param name="operationMode">RETRIEVE</param>
             </interceptor-ref>
             <interceptor-ref name="defaultStack" />
+            <result name="input" type="redirectAction">GestionPlantillas</result>
             <result type="tiles">/coordinador.gestion.plantillas</result>
         </action>
         
@@ -130,7 +131,7 @@
             </interceptor-ref>
             <interceptor-ref name="defaultStack" />
             <result name="success" type="redirectAction">GestionPlantillas</result>
-            <result name="input" type="redirectAction">ModificarPlantilla</result>
+            <result name="input" type="tiles">/coordinador.plantillas.modificar</result>
         </action>
         
         <action name="Recomendar" class="actions.UpdateSolicitud" method="Recomendar"> 

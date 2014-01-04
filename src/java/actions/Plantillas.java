@@ -29,6 +29,15 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
     String nombre;
     String listaMaterias;
     String coordinador;
+    String nombreAux = null;
+
+    public String getNombreAux() {
+        return nombreAux;
+    }
+
+    public void setNombreAux(String nombreAux) {
+        this.nombreAux = nombreAux;
+    }
     
     public String getCoordinador() {
         return coordinador;
@@ -150,7 +159,12 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
 
             request.setAttribute("lista_materias", li);
             nombre = request.getParameter("nombre");
-            request.setAttribute("nombre_aux", nombre);
+            if (nombreAux != null) {
+                System.out.println("El nombre es null " + nombre);
+                System.out.println("El nombreAux es " + nombreAux);
+                nombre = nombreAux;
+            }
+            System.out.println("Entro en modificar con " + nombre);
             
             Map session2 = ActionContext.getContext().getSession();
             coordinador = session2.get("usbid").toString();
@@ -298,20 +312,22 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
         return SUCCESS;
     }
     
-    public String updatePlantilla() throws Exception {
-        
-        eliminarPlantillaAux();
+    public String updatePlantilla() throws Exception {                     
         ResultSet rs = null;
         Statement st = null;
+        String nombre2;
+        nombreAux = request.getParameter("nombre");
+        System.out.println("El nombre viejo es " + nombreAux);
         
         listaMaterias = request.getParameter("lista");
-        nombre = request.getParameter("nombreNuevo");
-        request.setAttribute("nombre", nombre);
-        System.out.println(nombre);
+        nombre2 = request.getParameter("nombreNuevo");
+        System.out.println("El nombre nuevo es " + nombre2);
         
-        if (listaMaterias.length() < 1 || nombre.length() < 1) {
+        if (listaMaterias.length() < 1 || nombre2.length() < 1) {
             addActionError("Por favor seleccione al menos una asignatura e introduzca un nombre.");
+            System.out.println("Antes de mod " + request.getParameter("nombre"));
             modificarPlantilla();
+            System.out.println("Despues de mod " + request.getParameter("nombre"));
             return "input";
         }
         
@@ -325,16 +341,20 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
             ConexionBD.establishConnection();
             st = ConexionBD.getConnection().createStatement();
 
-            rs = st.executeQuery("select * from plantilla where nombre='"+nombre+"' and usbid='"+coordinador+"'");
+            rs = st.executeQuery("select * from plantilla where nombre='"+nombre2+"' and nombre!='"+nombreAux+"'and usbid='"+coordinador+"'");
             
             if (rs.next()) {
                 addActionError("El nombre de la plantilla ya existe");
+                System.out.println("Ya existe " + nombre2);
                 modificarPlantilla();
                 return "input";
             }
             
+            System.out.println("Se va a borrar " + request.getParameter("nombre"));
+            eliminarPlantillaAux();
+            
             st.executeUpdate("INSERT INTO PLANTILLA VALUES('"
-                        + nombre
+                        + nombre2
                         + "','"
                         + coordinador
                         + "')");
@@ -342,7 +362,7 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
             for (int i = 0; i < materias.length; i++ ) {
                 System.out.println(materias[i]);
                 st.executeUpdate("INSERT INTO CONTEMPLA VALUES('"
-                        + nombre
+                        + nombre2
                         + "','"
                         + coordinador
                         + "','"

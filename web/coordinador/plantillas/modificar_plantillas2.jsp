@@ -17,21 +17,33 @@
         <script type="text/javascript">
  
            var t;
+           var nombre_old = request.getAttribute("nombre");
            input = [];
+           defaultValues = [];
            
            <%
                 List l = (List) request.getAttribute("lista_materias");
                 Iterator it = l.iterator();
+                String nombre_old = (String) request.getAttribute("nombre");
                
                 while (it.hasNext()) {
                     clases.Asignatura materia = (clases.Asignatura) it.next();
                     String codigo = materia.getCodigoS();
                     String nombre = materia.getNombre();
-            %>
-                
+                %>                
                     input.push({value: "<%=codigo%>", content: "<%=codigo%> - <%=nombre%>"});
-            
-                <%}%>
+                <%}
+                    
+                l = (List) request.getAttribute("lista_materias_plantilla");
+                it = l.iterator();
+                
+                while (it.hasNext()) {
+                    clases.Asignatura materia = (clases.Asignatura) it.next();
+                    String codigo = materia.getCodigoS();
+                %>                
+                    defaultValues.push("<%=codigo%>");
+                <%}
+            %>
                     
             $(function() {
                 t = $('#test').bootstrapTransfer(
@@ -40,20 +52,17 @@
                             'hilite_selection': true});
             
                 t.populate(input);
-                //t.set_values(["2", "4"]);
-                
+                t.set_values(defaultValues);
             });
     
             function selectAllOptions() {
                 var nombre_plantilla = $("#nombrePlantilla").val();
                 var materias = t.get_values();
-                document.fom.action = "crearPlantilla.action?nombre=" 
-                        + nombre_plantilla + "&lista=" + materias;
-                document.fom.submit();
-             }
-             
-             function salir() {
-                document.fom.action = "GestionPlantillas.action";
+                var nombre_old = request.getAttribute("nombre_aux");
+                
+                document.fom.action = "updatePlantilla.action?nombreNuevo=" 
+                        + nombre_plantilla + "&lista=" + materias
+                        + "&nombre=" + nombre_old;
                 document.fom.submit();
              }
         </script>
@@ -61,12 +70,7 @@
     
     <body>
         
-        <p>Seleccione las asignaturas que desee en la lista de la izquierda.<br/><br/>
-            Puede usar la función de búsqueda si lo desea. Cuando seleccione una asignatura, 
-            presione las flechas que se encuentran en el medio hasta incorporar todas
-            las deseadas a la lista de la derecha.<br/><br/>
-            No olvide colocarle un nombre a la plantilla.
-        </p><br/>
+        <p>Modificando la plantilla "<%=nombre_old%>".</p><br/>
         <s:if test="hasActionErrors()">
             <div id="errores">
                 <s:actionerror />
@@ -78,10 +82,9 @@
         <form name="fom" method="post">
             <center>
                 <span><label for="nombrePlantilla">Nombre de la Plantilla *</label></span>
-                <input id="nombrePlantilla" name="nombrePlantilla" type="text" placeholder="Ej: 'Plantilla Estandar'"/><br/>
+                <input id="nombrePlantilla" name="nombrePlantilla" type="text" value="<%=nombre_old%>"/><br/>
                 <br/>
-                <input type="submit" value="Crear Plantilla" onClick="selectAllOptions();"/><br/>
-                <input type="button" value="Cancelar" onClick="salir();"/>                
+                <input type="submit" value="Modificar Plantilla" onClick="selectAllOptions();"/>
             </center>
         </form>
         
