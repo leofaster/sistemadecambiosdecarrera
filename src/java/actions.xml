@@ -88,7 +88,51 @@
         <action name="Aprobar" class="actions.UpdateSolicitud" method="Aceptar"> 
             <result name="success" type="tiles">/coordinador.solicitudes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
-        </action> 
+        </action>
+        
+        <action name="GestionPlantillas" class="actions.Plantillas" method="listarPlantillas">
+            <interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+            <result type="tiles">/coordinador.gestion.plantillas</result>
+        </action>
+        
+        <action name="EliminarPlantilla" class="actions.Plantillas" method="eliminarPlantilla">
+            <interceptor-ref name="store">
+                <param name="operationMode">STORE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+            <result name="success" type="redirectAction">GestionPlantillas</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action>
+        
+        <action name="ModificarPlantilla" class="actions.Plantillas" method="modificarPlantilla">
+            <result type="tiles">/coordinador.plantillas.modificar</result>
+        </action>
+        
+        <action name="AgregarPlantilla" class="actions.Plantillas" method="execute">
+            <result type="tiles">/coordinador.plantillas.agregar</result>
+        </action>
+        
+        <action name="crearPlantilla" class="actions.Plantillas" method="crearPlantilla">
+            <interceptor-ref name="store">
+                <param name="operationMode">STORE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+            <result name="success" type="redirectAction">GestionPlantillas</result>
+            <result name="input" type="tiles">/coordinador.plantillas.agregar</result>
+        </action>
+        
+        <action name="updatePlantilla" class="actions.Plantillas" method="updatePlantilla">
+            <interceptor-ref name="store">
+                <param name="operationMode">STORE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+            <result name="success" type="redirectAction">GestionPlantillas</result>
+            <result name="input" type="redirectAction">ModificarPlantilla</result>
+        </action>
+        
         <action name="Recomendar" class="actions.UpdateSolicitud" method="Recomendar"> 
             <result name="success" type="tiles">/dide.solicitudes.estudiantes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
@@ -121,15 +165,6 @@
         <action name="updateSol" class="actions.UpdateSolicitud">
             <result name="Coordinador" type="tiles">/coordinador.solicitudes.ver.datos</result>
             <result name="DIDE" type="tiles">/dide.solicitudes.ver.datos</result>
-        </action>
-        
-        <action name="agregarPlantillas" class="actions.Plantillas">
-            <result type="tiles">/coordinador.plantillas.agregar</result>
-        </action>
-        
-        <action name="crearPlantilla" class="actions.Plantillas" method="crearPlantilla">
-            <result name="success" type="tiles">/coordinador.plantillas.agregar.success</result>
-            <result name="input" type="tiles">/coordinador.plantillas.agregar</result>
         </action>
         
         <action name="*Link2" method="{1}"  class="links.LinksActions">

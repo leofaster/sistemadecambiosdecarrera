@@ -104,8 +104,18 @@
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
+    <definition name="/coordinador.gestion.plantillas" extends="baseLayout">
+        <put-attribute name="body"   value="/coordinador/plantillas/gestionar_plantillas.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
     <definition name="/coordinador.plantillas.agregar" extends="baseLayout">
         <put-attribute name="body"   value="/coordinador/plantillas/agregar_plantillas.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
+    <definition name="/coordinador.plantillas.modificar" extends="baseLayout">
+        <put-attribute name="body"   value="/coordinador/plantillas/modificar_plantillas.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
