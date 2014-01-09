@@ -39,6 +39,12 @@
             <result name="input"  type="tiles">/decanato.cupos.modificar</result> 
         </action> 
         
+        <action name="pedirModifActivos" class="actions.ModificarCupos" method="cambiarCupos"> 
+            <result name="success" type="tiles">/decanato.activos.modificar</result> 
+            <result name="no success" type="tiles">/decanato.activos.modificar</result> 
+            <result name="input"  type="tiles">/decanato.activos.modificar</result> 
+        </action> 
+        
         <action name="pedirModifPlazos" class="actions.ModificarPlazos" method="cambiarPlazos"> 
             <result name="success" type="tiles">/decanato.plazos.modificar</result> 
             <result name="no success" type="tiles">/decanato.plazos.modificar</result> 
@@ -49,6 +55,12 @@
             <result name="success" type="tiles">/decanato.cupos.modificar</result> 
             <result name="no success" type="tiles">/decanato.cupos.modificar</result> 
             <result name="input"  type="tiles">/decanato.cupos.modificar</result> 
+        </action>
+        
+        <action name="ModificarActivos" class="actions.ModificarCupos" method="actualizarActivos"> 
+            <result name="success" type="tiles">/decanato.activos.modificar</result> 
+            <result name="no success" type="tiles">/decanato.activos.modificar</result> 
+            <result name="input"  type="tiles">/decanato.activos.modificar</result> 
         </action>
         
         <action name="ModificarPlazos" class="actions.ModificarPlazos" method="actualizarPlazos"> 

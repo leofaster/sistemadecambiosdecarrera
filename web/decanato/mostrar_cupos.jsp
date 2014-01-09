@@ -13,6 +13,10 @@
             document.fom.action = "pedirModifCupos.action?carrera=" + val+"&cohorte="+val2;
             document.fom.submit();
         }
+        function editact(val,val2) {
+            document.fom.action = "pedirModifActivos.action?carrera=" + val+"&cohorte="+val2;
+            document.fom.submit();
+        }
         </script>
 <div id="login-form">
     <s:if test="hasActionErrors()">
@@ -47,12 +51,14 @@
     </s:form>
 
     <center>
-        <table class="bordt" border="1">
+        <div class="tablaFormal">
+        <table>
             <form name="fom" method="post">
                 <tr>
                 <center><td class="bord">Cohorte</td> </center>
-                <center><td class="bord">Cupos</td></center>
+                <center><td class="bord">Cupos Aprobados por Consejo</td></center>
                 <center><td class="bord">Activos</td></center>
+                <center><td class="bord">Cupos Disponibles</td></center>
                 </tr>
                 <%
                     List l = (List) request.getAttribute("disp2");
@@ -66,12 +72,16 @@
                             String NumCo = b.getCohorte();
                             String cuposA = b.getCuposa();
                             String carrera = b.getCarrera();
+                            int total = Integer.parseInt(cuposCo) - Integer.parseInt(cuposA); 
+                            if (total < 0) {
+                                total = 0;
+                            }
                 %>
                 <tr> 
                 <center><td class="bord"><%= NumCo%></td></center>
-                <center><td class="bord"><%= cuposCo%></td></center>
-                <center><td class="bord"><%= cuposA%></td></center>
-                 <td class="bord"><center><a href="javascript:edita('<%=carrera%>','<%=NumCo%>')">Modificar</a></center></td>
+                <center><td class="bord"><%= cuposCo%><a href="javascript:edita('<%=carrera%>','<%=NumCo%>')"><img src="images/edit.png" width="20" height="20"></a></td></center>
+                <center><td class="bord"><%= cuposA%> <a href="javascript:editact('<%=carrera%>','<%=NumCo%>')"><img src="images/edit.png" width="20" height="20"></a></td></center>
+                <center><td class="bord"><%= total%></td></center>
                 </tr> 
                 <%
                         }
@@ -79,6 +89,7 @@
                 %>  
             </form>
         </table>    
+        </div>
     </center>
 </div>
 

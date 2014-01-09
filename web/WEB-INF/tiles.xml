@@ -88,6 +88,11 @@
         <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
     </definition>
     
+    <definition name="/decanato.activos.modificar" extends="baseLayout">
+        <put-attribute name="body"   value="/decanato/modificarActivos.jsp"/>  
+        <put-attribute name="menu"   value="/decanato/menu.jsp"/>  
+    </definition>
+    
     <definition name="/decanato.plazos.modificar" extends="baseLayout">
         <put-attribute name="body"   value="/decanato/modificar_plazos.jsp"/>  
         <put-attribute name="menu"   value="/decanato/menu.jsp"/>  

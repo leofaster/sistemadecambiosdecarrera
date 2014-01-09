@@ -9,11 +9,11 @@
 <!DOCTYPE html>
 <div id="loginDiv">
     <div id="login-form"><br><br><br>
-        <center><b>Cambiando los plazos de <%=session.getAttribute("carrera_bux_nombre")%>:</b></center>
+        <center><b>Cambiando los activos de la cohorte <%=session.getAttribute("cohorte_aux")%><br/>
+                en <%=session.getAttribute("carrera_aux_nombre")%>:</b></center>
          <br/>
-        <s:form action="ModificarPlazos">
-            <s:textfield type="text" label="Cantidad mínima de trimestres aprobados para solicitar el cambio de carrera:" name="trimmin" maxlength="3" size="15" /> 
-            <s:textfield type="text" label="Cantidad máxima de trimestres cursando extraplanes" name="trimmax" maxlength="3" size="15" /> 
+        <s:form action="ModificarActivos">
+            <s:textfield type="text" label="Nueva cantidad de Activos" name="cantCupos" maxlength="3" size="15" /> 
             <s:submit value="Aceptar" />
         </s:form>
         <s:if test="hasActionMessages()">
@@ -22,7 +22,7 @@
             </div>
         </s:if>
          <br/>
-         <center><center><a href="<s:url action="GestionPlazosLink2"/>">Volver</a></center></center>
+         <center><center><a href="<s:url action="GestionCuposLink2"/>">Volver</a></center></center>
     </div>
 </div>
 

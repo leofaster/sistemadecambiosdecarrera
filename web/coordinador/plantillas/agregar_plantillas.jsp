@@ -13,7 +13,9 @@
     <head>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap-transfer.css" rel="stylesheet">        
-
+        <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/estructura1.css">
+        
         <script type="text/javascript">
  
            var t;
