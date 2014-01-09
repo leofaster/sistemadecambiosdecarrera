@@ -7,8 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<div id="loginDiv">
-    <div id="login-form"><br><br><br>
         <center><b>Cambiando los cupos de la cohorte <%=session.getAttribute("cohorte_aux")%><br/>
                 en <%=session.getAttribute("carrera_aux_nombre")%>:</b></center>
          <br/>
@@ -23,6 +21,3 @@
         </s:if>
          <br/>
          <center><center><a href="<s:url action="GestionCuposLink2"/>">Volver</a></center></center>
-    </div>
-</div>
-

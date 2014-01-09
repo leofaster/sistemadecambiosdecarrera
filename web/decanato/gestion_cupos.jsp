@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<div id="login-form">
     <br>
     <s:form action="GestionarCupos">
         Seleccione la carrera de la cual desea saber la cantidad de cupos:
@@ -33,4 +32,3 @@
         <br />
         <s:submit value="Aceptar" />
     </s:form>
-</div>

@@ -14,7 +14,6 @@
             document.fom.submit();
         }
         </script>
-<div id="login-form">
     <s:if test="hasActionErrors()">
         <div id="errores">
             <s:actionerror />
@@ -47,7 +46,8 @@
     </s:form>
         <br/>
     <center>
-        <table class="bordt" border="1">
+	<div class="tablaFormal">
+        <table>
             <form name="fom" method="post">
                 <tr>
                 <center><td class="bord"><b>Trimestres mínimos</b></td> </center>
@@ -76,10 +76,5 @@
                 %>  
             </form>
         </table>    
+	</div>
     </center>
-</div>
-
-
-
-
-

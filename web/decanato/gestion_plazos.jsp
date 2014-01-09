@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<div id="login-form">
     <br>
     <s:form action="GestionarPlazos">
         Seleccione la carrera cuyos plazos desea consultar o modificar:
@@ -33,4 +32,3 @@
         <br />
         <s:submit value="Aceptar" />
     </s:form>
-</div>

@@ -18,7 +18,6 @@
             document.fom.submit();
         }
         </script>
-<div id="login-form">
     <s:if test="hasActionErrors()">
         <div id="errores">
             <s:actionerror />
@@ -91,7 +90,6 @@
         </table>    
         </div>
     </center>
-</div>
 
 
 
