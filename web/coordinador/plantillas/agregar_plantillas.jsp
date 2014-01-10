@@ -13,8 +13,6 @@
     <head>
         <link href="css/bootstrap.css" rel="stylesheet"> 
         <link href="css/bootstrap-transfer.css" rel="stylesheet">        
-        <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/estructura2.css">
         <style>
             .footer{
                 position: static;
