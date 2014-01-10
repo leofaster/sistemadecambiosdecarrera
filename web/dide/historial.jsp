@@ -12,20 +12,21 @@
 <div><br>
     <center>
     <h4>Historial de Solicitudes Recientes</h4>
-        <table class="bordt" border="1" style="white-space: nowrap">
-            <form name="fom" method="post">
-                <tr>
+    <div class="tablaFormal">
 
-                </tr>
                 <%
                     List l = (List) request.getAttribute("disp40");
                     if (l != null && l.size() != 0) {
                 %>
 
-                <center><td class="bord"><b>Estudiante</b></td> </center>
-                <center><td class="bord"><b>Carnet</b></td></center>
-                <center><td class="bord"><b>Recomendada</b></td></center>
-                <center><td class="bord"><b>No Recomendada</b></td></center>
+        <table  border="1" style="white-space: nowrap">
+            <form name="fom" method="post">
+                <tr>
+                <center><td ><b>Estudiante</b></td> </center>
+                <center><td ><b>Carnet</b></td></center>
+                <center><td ><b>Recomendada</b></td></center>
+                <center><td ><b>No Recomendada</b></td></center>
+                </tr>
 
                 <%
                     Iterator it = l.iterator();
@@ -38,8 +39,8 @@
 
                 %>
                 <tr> 
-                <center><td class="bord"><%= nombre%></td></center>
-                <center><td class="bord"><%= carnet%></td></center>
+                <center><td ><%= nombre%></td></center>
+                <center><td ><%= carnet%></td></center>
                     <%
                         if (ac) {
                     %>
@@ -63,6 +64,7 @@
                 %>  
             </form>
         </table>    
+            </div>
     </center>
             <br />
             <br />

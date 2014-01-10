@@ -22,49 +22,48 @@
         </script>
     </head>
 
-    <div id="login-form">
 
-        <center>
             <h4>Solicitudes Pendientes</h4><br />
-            <table class="bordt" border="1">
-                <form name="fom" method="post">
-                    <tr>
+    <div class="tablaFormal">
+                <table >
+                    <form name="fom" method="post">
 
-                    </tr>
-                    <%
-                        List l = (List) request.getAttribute("disp3");
-                        if (l != null && l.size() != 0) {
-                    %>
 
-                    <td class="bord"><center><b>Nombre del estudiante</b></center></td>
-                    <td class="bord"><center><b>Carnet</b></center></td>
-                    <td class="bord"><center><b>Accion</b></center></td>
+                        <%
+                            List l = (List) request.getAttribute("disp3");
+                            if (l != null && l.size() != 0) {
+                        %>
+                        <tr>
 
-                    <%
-                        Iterator it = l.iterator();
+                            <td class="bord"><center><b>Nombre del estudiante</b></center></td>
+                        <td class="bord"><center><b>Carnet</b></center></td>
+                        <td class="bord"><center><b>Accion</b></center></td>
+                        </tr>
+                        <%
+                            Iterator it = l.iterator();
 
-                        while (it.hasNext()) {
-                            clases.Solicitud b = (clases.Solicitud) it.next();
-                            String nombre = b.getEstudiante().getNombre();
-                            String carnet = b.getEstudiante().getUsbid();
+                            while (it.hasNext()) {
+                                clases.Solicitud b = (clases.Solicitud) it.next();
+                                String nombre = b.getEstudiante().getNombre();
+                                String carnet = b.getEstudiante().getUsbid();
 
-                    %>
-                    <tr> 
-                    <center><td class="bord"><%= nombre%></td></center>
-                    <center><td class="bord"><%= carnet%></td></center>
-                    <td class="bord"><center><a href="javascript:edita('<%= carnet%>','<%= nombre%>')">Ver</a></center></td>
-                    </tr> 
-                    <%
-                        }
-                    } else {
-                    %>
+                        %>
+                        <tr> 
+                        <center><td class="bord"><%= nombre%></td></center>
+                        <center><td class="bord"><%= carnet%></td></center>
+                        <td class="bord"><center><a href="javascript:edita('<%= carnet%>','<%= nombre%>')">Ver</a></center></td>
+                        </tr> 
+                        <%
+                            }
+                        } else {
+                        %>
 
-                    <center><b>No posee solicitudes pendientes.</td></b></center>
+                        <center><b>No posee solicitudes pendientes.</td></b></center>
 
-                    <%
-                        }
-                    %>  
-                </form>
-            </table>    
-        </center>
-    </div>
+                        <%                        }
+                        %>  
+                    </form>
+                </table>    
+            </div>
+                    <center><br /><a href="<s:url action="SolicitudesEstudiantesLink2"/>">Volver</a></center>
+            

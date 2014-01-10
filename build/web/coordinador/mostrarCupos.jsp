@@ -38,6 +38,7 @@
 
         <s:submit value="Aceptar" />
     </s:form>
+        <br />
     <div>
         <center>
 
@@ -48,7 +49,7 @@
                     String Cupos = "Cupos";
                     String Activos = "Activos";
             %>
-            <div class="tabla">
+            <div class="tablaFormal">
                 <table>
                     <form name="fom" method="post">
                         <tr>

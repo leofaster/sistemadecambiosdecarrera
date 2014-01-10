@@ -64,7 +64,7 @@
                     <td><%= nombre%></td>
                     <td><%= lista%></td>
                     <td><a href="javascript:edita('<%= nombre%>')"><img src="images/edit.png" alt="Editar"  title="Editar" width="20" height="20"></a></td>
-                    <td><a href="javascript:deleteRecord('<%= nombre%>')"><img src="images/delete.png" alt="Ëliminar" title="Ëliminar" width="20" height="20"></a></td>
+                    <td><a href="javascript:deleteRecord('<%= nombre%>')"><img src="images/delete.png" alt="Eliminar" title="Eliminar" width="20" height="20"></a></td>
                 </tr> 
                 <%}%>
             </form>

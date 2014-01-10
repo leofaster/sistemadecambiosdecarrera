@@ -7,15 +7,14 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
-
+<h4>Seleccione la opción deseada:</h4>
 <div id="login-form"><br>
     <s:if test="hasActionMessages()">
         <div id="aproveMessage">
             <s:actionmessage/>
         </div>
     </s:if>
-    Seleccione la opción deseada:
-    <br><br>
+    
     <table>
         <tr>
             <td>

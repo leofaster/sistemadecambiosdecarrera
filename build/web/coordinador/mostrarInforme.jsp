@@ -15,6 +15,13 @@
             document.fom.submit();
         }
     </script>  
+            <style>
+            .footer{
+                position: static;
+                bottom: auto; 
+            } 
+
+        </style>
 </head>
 <h3><center><b>Informe académico</b></center></h3>  
         <%

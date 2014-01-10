@@ -29,7 +29,7 @@
             List l = (List) request.getAttribute("disp3");
             if (l != null && l.size() != 0) {
         %>
-        <div class="tabla">
+        <div class="tablaFormal">
             <table>
                 <form name="fom" method="post">
                     <tr> 
