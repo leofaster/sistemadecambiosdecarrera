@@ -11,6 +11,9 @@
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/estructura1.css">
+        
+        <script src="javascripts/jquery.js"></script>
+        <script src="javascripts/bootstrap-transfer.js"></script>
 
         <title>
             <tiles:insertAttribute name="title" ignore="true" />

@@ -59,4 +59,5 @@
         <center><b>No posee solicitudes pendientes.</td></b></center>
             <%}%>  
     </div>
-<center><br /><a href="<s:url action="verSolicitudesLink2"/>">Volver</a></center>
+    <center><br /><a href="<s:url action="verSolicitudesLink2"/>">Volver</a></center>
+</html>

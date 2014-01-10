@@ -1,19 +1,20 @@
 <%-- 
-    Document    : Solicitudes_Estudiantes
+    Document    : indexCoordinador
     Author      : CHANGE Gate
 --%>
 
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*;" %>
 
-<div>
+<div id="login-form"><br>
     <s:if test="hasActionMessages()">
         <div id="aproveMessage">
             <s:actionmessage/>
         </div>
     </s:if>
-    <h4>Seleccione la opción deseada:</h4>
+    Seleccione la opción deseada:
     <br><br>
     <table>
         <tr>

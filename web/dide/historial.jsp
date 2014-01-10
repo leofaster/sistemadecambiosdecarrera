@@ -9,64 +9,63 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
-<div>
-        <h4>Historial de Solicitudes Recientes</h4><br />
+<div><br>
+    <center>
+    <h4>Historial de Solicitudes Recientes</h4>
+        <table class="bordt" border="1" style="white-space: nowrap">
+            <form name="fom" method="post">
+                <tr>
 
-        <%
-            List l = (List) request.getAttribute("disp40");
-            if (l != null && l.size() != 0) {
-        %>
-        <div class="tabla">
-            <table>
-                <form name="fom" method="post">
-                    <tr>
-                    <center><td class="bord"><b>Estudiante</b></td> </center>
-                    <center><td class="bord"><b>Carnet</b></td></center>
-                    <center><td class="bord"><b>Recomendada</b></td></center>
-                    <center><td class="bord"><b>No Recomendada</b></td></center>
-                    </tr>
+                </tr>
+                <%
+                    List l = (List) request.getAttribute("disp40");
+                    if (l != null && l.size() != 0) {
+                %>
+
+                <center><td class="bord"><b>Estudiante</b></td> </center>
+                <center><td class="bord"><b>Carnet</b></td></center>
+                <center><td class="bord"><b>Recomendada</b></td></center>
+                <center><td class="bord"><b>No Recomendada</b></td></center>
+
+                <%
+                    Iterator it = l.iterator();
+
+                    while (it.hasNext()) {
+                        clases.Solicitud b = (clases.Solicitud) it.next();
+                        String nombre = b.getEstudiante().getNombre();
+                        String carnet = b.getEstudiante().getUsbid();
+                        boolean ac = b.isRecomendada();
+
+                %>
+                <tr> 
+                <center><td class="bord"><%= nombre%></td></center>
+                <center><td class="bord"><%= carnet%></td></center>
                     <%
-                        Iterator it = l.iterator();
-
-                        while (it.hasNext()) {
-                            clases.Solicitud b = (clases.Solicitud) it.next();
-                            String nombre = b.getEstudiante().getNombre();
-                            String carnet = b.getEstudiante().getUsbid();
-                            boolean ac = b.isRecomendada();
-
+                        if (ac) {
                     %>
-                    <tr> 
-                    <center><td class="bord"><%= nombre%></td></center>
-                    <center><td class="bord"><%= carnet%></td></center>
-                        <%
-                            if (ac) {
-                        %>
-                    <td class="bord"><center>X</center></td>
-                    <center><td class="bord"></td></center>
-                        <%                            } else {
-                        %>
-                    <center><td class="bord"></td></center>
-                    <td class="bord"><center>X</center></td>
-                        <%                                 }
-                        %>
-                    </tr> 
-                    <%
-                        }
+                <td class="bord"><center>X</center></td>
+                <center><td class="bord"></td></center>
+                    <%                            } else {
                     %>
-                </form>
-            </table>  
-        </div>
-        <%
-        } else {
-        %>
+                <center><td class="bord"></td></center>
+                <td class="bord"><center>X</center></td>
+                    <%                                 }
+                    %>
+                </tr> 
+                <%
+                    }
+                } else {
+                %>
 
-        <center><b>No posee solicitudes gestionadas.</td></b></center>
+                <center><b>No posee solicitudes gestionadas.</td></b></center>
 
-        <%                                }
-        %>  
-
-    <br />
-    <br />
+                <%                                }
+                %>  
+            </form>
+        </table>    
+    </center>
+            <br />
+            <br />
     <center><a href="<s:url action="SolicitudesEstudiantesLink2"/>">Volver</a></center>
 
 

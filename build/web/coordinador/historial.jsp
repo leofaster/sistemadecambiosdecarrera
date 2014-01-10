@@ -69,6 +69,3 @@
 <br />
 <br />
 <center><a href="<s:url action="verSolicitudesLink2"/>">Volver</a></center>
-
-
-

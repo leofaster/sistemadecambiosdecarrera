@@ -9,8 +9,7 @@
 
 <h4>Solicitud de Cambio de Carrera:</h4><br />
 
-Tus Datos:
-<div class="tabla" style="box-shadow:   none">
+<div class="tabla" style="box-shadow: none; width: 80%; margin: 0 auto;">
     <table>
         <tr>
             <td>Carnet</td>
@@ -47,8 +46,8 @@ Tus Datos:
     <s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
                 label="Motivación" required="true"/>
 </s:form>
-    <center><h6>(Máximo 1500 caracteres)</h6></center>
-    <input type="button" onclick="mostrarVentana();" value="Enviar">
+<center><h6>(Máximo 1500 caracteres)</h6>
+<input type="button" onclick="mostrarVentana();" value="Enviar"></center>
 
 <div id="miVentana" style="position: fixed; width: 350px; height: 190px; top: 0; left: 0; font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; border: #333333 3px solid; background-color: #FAFAFA; color: #000000; display:none;">
     <div style="font-weight: bold; text-align: left; color: #FFFFFF; padding: 5px; background-color:#006394">Confirmación de envío de solicitud de cambio de carrera</div>
@@ -58,4 +57,3 @@ Tus Datos:
         <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" size="20" type="button" value="Cancelar" />
     </div>
 </div>
-

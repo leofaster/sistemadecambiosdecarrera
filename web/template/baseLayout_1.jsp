@@ -9,6 +9,8 @@
 <html>    
     <head>
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
+        <script src="javascripts/jquery.js"></script>
+        <script src="javascripts/bootstrap-transfer.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
         <title>
             <tiles:insertAttribute name="title" ignore="true" />

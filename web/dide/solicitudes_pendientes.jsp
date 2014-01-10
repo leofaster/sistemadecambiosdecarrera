@@ -22,49 +22,49 @@
         </script>
     </head>
 
+    <div id="login-form">
 
+        <center>
+            <h4>Solicitudes Pendientes</h4><br />
+            <table class="bordt" border="1">
+                <form name="fom" method="post">
+                    <tr>
 
-    <h4>Solicitudes Pendientes:</h4><br />
+                    </tr>
+                    <%
+                        List l = (List) request.getAttribute("disp3");
+                        if (l != null && l.size() != 0) {
+                    %>
 
-    <%
-        List l = (List) request.getAttribute("disp3");
-        if (l != null && l.size() != 0) {
-    %>
-    <div class="tabla">
-        <table>
-            <form name="fom" method="post">
-                <tr>
-                    <td ><center><b>Nombre del estudiante</b></center></td>
-                <td><center><b>Carnet</b></center></td>
-                <td><center><b>Accion</b></center></td>
-                </tr>
-                <%
-                    Iterator it = l.iterator();
+                    <td class="bord"><center><b>Nombre del estudiante</b></center></td>
+                    <td class="bord"><center><b>Carnet</b></center></td>
+                    <td class="bord"><center><b>Accion</b></center></td>
 
-                    while (it.hasNext()) {
-                        clases.Solicitud b = (clases.Solicitud) it.next();
-                        String nombre = b.getEstudiante().getNombre();
-                        String carnet = b.getEstudiante().getUsbid();
+                    <%
+                        Iterator it = l.iterator();
 
-                %>
-                <tr> 
-                <center><td class="bord"><%= nombre%></td></center>
-                <center><td class="bord"><%= carnet%></td></center>
-                <td class="bord"><center><a href="javascript:edita('<%= carnet%>','<%= nombre%>')">Ver</a></center></td>
-                </tr> 
-                <%
-                    }
-                %>
-            </form>
-        </table>  
+                        while (it.hasNext()) {
+                            clases.Solicitud b = (clases.Solicitud) it.next();
+                            String nombre = b.getEstudiante().getNombre();
+                            String carnet = b.getEstudiante().getUsbid();
+
+                    %>
+                    <tr> 
+                    <center><td class="bord"><%= nombre%></td></center>
+                    <center><td class="bord"><%= carnet%></td></center>
+                    <td class="bord"><center><a href="javascript:edita('<%= carnet%>','<%= nombre%>')">Ver</a></center></td>
+                    </tr> 
+                    <%
+                        }
+                    } else {
+                    %>
+
+                    <center><b>No posee solicitudes pendientes.</td></b></center>
+
+                    <%
+                        }
+                    %>  
+                </form>
+            </table>    
+        </center>
     </div>
-    <%} else {
-    %>
-
-    <center><b>No posee solicitudes pendientes.</td></b></center>
-
-    <%                        }
-    %>  
-    <br />
-<center><a href="<s:url action="SolicitudesEstudiantesLink2"/>">Volver</a></center>
-</center>

@@ -1,6 +1,6 @@
 #pagewrap {
     width: 990px;
-    margin: 10px auto;
+    margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 
 }
@@ -11,7 +11,6 @@
 }
 
 .menu {
-    width: 180px;
     float: left;
     line-height: 2em;
     font-size: 12px;
@@ -45,13 +44,13 @@
 /************************************************************************************
 MEDIA QUERIES
 *************************************************************************************/
-@media screen and (max-height: 902px){
+/*@media screen and (max-height: 902px){
     .footer{
         position: static;
         bottom: auto; 
     } 
 }
-
+*/
 
 /* for 980px or less */
 @media screen and (max-width: 980px) {

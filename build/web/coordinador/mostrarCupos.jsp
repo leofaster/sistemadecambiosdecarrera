@@ -7,13 +7,13 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
-<div>
 
+<div>
     <s:form action="solicitudCuposCoordinador">
         <h4>Seleccione la carrera:</h4>
             <s:if test="hasActionErrors()">
             <div id="errores">
-                Error:    
+                Error:
                 <s:actionerror  />
             </div>
         </s:if>
@@ -84,4 +84,3 @@
         </center>
     </div>
 </div>
-

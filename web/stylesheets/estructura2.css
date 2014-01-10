@@ -13,7 +13,6 @@ STRUCTURE
 }
 
 .menu{
-    width: 180px;
     float: left;
     line-height: 2em;
     font-size: 12px;
@@ -22,7 +21,7 @@ STRUCTURE
 }
 
 .content {
-    width: 730px;
+    width: 600px;
     float: left;
     padding: 5px 15px;
     margin: 0px 5px 5px 4px;
@@ -36,18 +35,19 @@ STRUCTURE
     padding: 0 15px;
     font-size: 11px;
     line-height: 1.6em;
+    line-height: 1.6em;
 }
 
 /************************************************************************************
 MEDIA QUERIES
 *************************************************************************************/
-@media screen and (max-height: 902px){
+/*@media screen and (max-height: 902px){
     .footer{
         position: static;
         bottom: auto; 
     } 
 }
-
+*/
 /* for 980px or less */
 @media screen and (max-width: 980px) {
 

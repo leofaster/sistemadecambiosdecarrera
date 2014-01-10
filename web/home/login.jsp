@@ -11,7 +11,7 @@
     <br />
     <s:if test="hasActionErrors()">
         <div id="errores">
-            <s:actionerror/>
+            <s:actionerror />
         </div>
     </s:if>
 

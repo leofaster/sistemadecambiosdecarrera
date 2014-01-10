@@ -200,6 +200,41 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         }
         return "no success";
     }
+    
+    public String actualizarActivos() throws Exception {
+        
+        if (cantCupos.length() < 1) {
+            addFieldError("cantCupos", "Introduzca un número.");
+            return "input";
+        }
+        for (int x = 0; x < cantCupos.length(); x++) {
+            if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
+                addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
+                return "input";
+            }
+            //System.out.println(cantCupos.charAt(x));
+        }
+        ResultSet rs = null, rs2 = null;
+        Statement s = null;
+        ConexionBD.establishConnection();
+        String string = null;
+        try {
+
+            s = ConexionBD.getConnection().createStatement();
+            System.out.println("Conecto1023");
+            Map session2 = ActionContext.getContext().getSession();
+            String carrera1 = session2.get("carrera_aux").toString();
+            String cohorte1 = session2.get("cohorte_aux").toString();
+
+            s.executeUpdate("UPDATE contiene SET ACTIVOS='" + cantCupos + "' where codcarrera='" + carrera1 + "' and cohorte='" + cohorte1 + "'");
+            addActionMessage("Activos Cambiados");
+            return "success";
+
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database 100");
+        }
+        return "no success";
+    }
 
     public String solicitarCupos() throws Exception {
         ResultSet rs = null;
@@ -207,12 +242,6 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         ConexionBD.establishConnection();
 
         System.out.println(this.getCarrera());
-        
-        if (this.getCarrera().equals("-1")){
-             addActionError("Seleccione una opcion");
-             return "no success";
-        }
-                
         try {
             st = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
@@ -246,8 +275,10 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
             return SUCCESS;
 
         } catch (Exception e) {
+            
             System.out.println("Problem in searching the database 1");
         }
+        addFieldError("carrera", "Seleccione una carrera válida.");
         return "no success";
     }
 }

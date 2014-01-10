@@ -199,7 +199,6 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
 
         Map session2 = ActionContext.getContext().getSession();
         return session2.get("rol").toString();
-
     }
 
     public String Aceptar() {

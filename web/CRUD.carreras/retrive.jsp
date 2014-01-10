@@ -30,7 +30,7 @@
                 int tempCodCarrera = b.getCodcarrera();
                 String tempNombre = b.getNombre();
                 int tempCupos = b.getCupos();
-                Double tempIndice = b.getIndice_min();
+                Double tempIndice = b.getIndiceMin();
         %>
         <tr> 
             <td class="bord"><input type="checkbox" value="<%= tempCodCarrera %>" name="rdel"></td>
@@ -48,4 +48,4 @@
     </form>
 </table>
 <br />
-<a href="/Sistema_de_Cambios_de_Carrera/administracion/GestionarCatalogos.jsp">Volver</a>
+<a href="/CambioCarrera/administracion/GestionarCatalogos.jsp">Volver</a>

@@ -12,6 +12,14 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LinksActions extends ActionSupport {
 
+    public String GestionUsuarios() {
+        return "GestionUsuarios";
+    }
+    
+    public String GestionCarreras() {
+        return "GestionCarreras";
+    }
+    
     public String GestionCupos() {
         return "GestionCupos";
     }
@@ -35,6 +43,7 @@ public class LinksActions extends ActionSupport {
     public String verSolicitudes() {
         return "verSolicitudes";
     }
+      
     public String home() {
         return "home";
     }

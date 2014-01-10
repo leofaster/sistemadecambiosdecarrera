@@ -6,10 +6,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-    <h4> Gestión de Cupos </h4>
+<h4>Gestión de Cupos:</h4>
     <s:form action="GestionarCupos">
-        Seleccione una Carrera:
+        Seleccione la carrera de la cual desea saber la cantidad de cupos:<br />
         <s:select name="carrera"  required="true"
                   list="{'0100 - Ingenieria Electrica', 
                   '0200 - Ingenieria Mecanica', 
