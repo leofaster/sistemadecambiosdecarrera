@@ -195,23 +195,27 @@ public class ModificarPlazos extends ActionSupport implements ServletRequestAwar
     public String actualizarPlazos() throws Exception {
         
         if (trimmin.length() < 1) {
-            addFieldError("trimmin", "Introduzca un número.");
+            addActionError("Introduzca un número.");
+           // addFieldError("trimmin", "Introduzca un número.");
             return "input";
         }
         for (int x = 0; x < trimmin.length(); x++) {
             if (trimmin.charAt(x) < '0' || trimmin.charAt(x) > '9') {
-                addFieldError("trimmin", "Introduzca un número válido.");
+                addActionError("Introduzca un número válido.");
+               // addFieldError("trimmin", "Introduzca un número válido.");
                 return "input";
             }
             //System.out.println(cantCupos.charAt(x));
         }
         if (trimmax.length() < 1) {
-            addFieldError("trimmax", "Introduzca un número.");
+            addActionError("Introduzca un número.");
+           // addFieldError("trimmax", "Introduzca un número.");
             return "input";
         }
         for (int x = 0; x < trimmax.length(); x++) {
             if (trimmax.charAt(x) < '0' || trimmax.charAt(x) > '9') {
-                addFieldError("trimmax", "Introduzca un número válido.");
+                addActionError("Introduzca un número válido.");
+              //  addFieldError("trimmax", "Introduzca un número válido.");
                 return "input";
             }
             //System.out.println(cantCupos.charAt(x));

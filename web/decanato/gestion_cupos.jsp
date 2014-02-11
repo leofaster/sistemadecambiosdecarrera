@@ -7,6 +7,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <h4>Gestión de Cupos:</h4>
+<s:if test="hasActionErrors()">
+    <div class="denyDiv">
+        <s:iterator value="actionErrors">
+            <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
+            </span>
+        </s:iterator>
+    </div>
+    <br />
+</s:if>
     <s:form action="GestionarCupos">
         Seleccione la carrera de la cual desea saber la cantidad de cupos:<br />
         <s:select name="carrera"  required="true"

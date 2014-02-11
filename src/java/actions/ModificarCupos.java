@@ -152,8 +152,6 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
     /**
      *
      */
-    
-
     /**
      *
      * @param aux
@@ -167,14 +165,16 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
      * @return @throws Exception
      */
     public String actualizarCupos() throws Exception {
-        
+
         if (cantCupos.length() < 1) {
-            addFieldError("cantCupos", "Introduzca un número.");
+            addActionError("Introduzca una cantidad de cupos válida.");
+            // addFieldError("cantCupos", "Introduzca un número.");
             return "input";
         }
         for (int x = 0; x < cantCupos.length(); x++) {
             if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
-                addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
+                addActionError("Introduzca una cantidad de cupos válida.");
+                //addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
                 return "input";
             }
             //System.out.println(cantCupos.charAt(x));
@@ -200,16 +200,18 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
         }
         return "no success";
     }
-    
+
     public String actualizarActivos() throws Exception {
-        
+
         if (cantCupos.length() < 1) {
-            addFieldError("cantCupos", "Introduzca un número.");
+            addActionError("Introduzca una cantidad de cupos válida.");
+            //addFieldError("cantCupos", "Introduzca un número.");
             return "input";
         }
         for (int x = 0; x < cantCupos.length(); x++) {
             if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
-                addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
+                addActionError("Introduzca una cantidad de cupos válida.");
+                //addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
                 return "input";
             }
             //System.out.println(cantCupos.charAt(x));
@@ -275,10 +277,11 @@ public class ModificarCupos extends ActionSupport implements ServletRequestAware
             return SUCCESS;
 
         } catch (Exception e) {
-            
+
             System.out.println("Problem in searching the database 1");
         }
-        addFieldError("carrera", "Seleccione una carrera válida.");
+        //addFieldError("carrera", "Seleccione una carrera válida.");
+        addActionError("Seleccione una carrera válida.");
         return "no success";
     }
 }

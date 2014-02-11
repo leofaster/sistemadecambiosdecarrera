@@ -130,7 +130,8 @@ public class GestionPlazos extends ActionSupport implements ServletRequestAware 
     @Override
     public void validate() {
         if (this.getCarrera().equals("-1")) {
-            addFieldError("carrera", "Seleccione una carrera válida");
+            addActionError("Seleccione una carrera válida.");
+           // addFieldError("carrera", "Seleccione una carrera válida");
         }
     }
 

@@ -16,6 +16,16 @@
     </style>
 </head>
 <h4>Solicitud de Cambio de Carrera:</h4><br />
+<s:if test="hasActionErrors()">
+    <div class="denyDiv">
+        <s:iterator value="actionErrors">
+            <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
+            </span>
+        </s:iterator>
+
+    </div>
+    <br />
+</s:if>
 
 <div class="tabla" style="box-shadow: none; width: 80%; margin: 0 auto;">
     <table>
@@ -31,6 +41,8 @@
         </tr>
     </table>
 </div>      
+
+
 <s:form action="verificarSol" name="entrar">
     <s:select name="carrera_dest" label="Carrera Deseada" required="true"
               list="{'0100 - Ingeniería Eléctrica', 

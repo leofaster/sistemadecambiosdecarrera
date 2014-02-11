@@ -48,8 +48,6 @@ public class Plazos extends ActionSupport implements ServletRequestAware {
      *
      * @param value
      */
-    
-
     /**
      *
      * @param request
@@ -86,7 +84,6 @@ public class Plazos extends ActionSupport implements ServletRequestAware {
      *
      * @return
      */
-   
     /**
      *
      * @return
@@ -109,7 +106,8 @@ public class Plazos extends ActionSupport implements ServletRequestAware {
     @Override
     public void validate() {
         if (this.getCarrera().equals("-1")) {
-            addFieldError("carrera", "Seleccione una carrera válida");
+            addActionError("Seleccione una carrera válida.");
+            //addFieldError("carrera", "Seleccione una carrera válida");
         }
 
         // if (this.getCupos()== null){
@@ -119,28 +117,30 @@ public class Plazos extends ActionSupport implements ServletRequestAware {
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();
-        String string = null;        
-            try {
+        String string = null;
+        try {
 
-                System.out.println("Conecto");
-                s = ConexionBD.getConnection().createStatement();
-                System.out.println("Conecto2");
-                
-                
-                System.out.println("Ejecuto validate");
-                String carrera;
+            System.out.println("Conecto");
+            s = ConexionBD.getConnection().createStatement();
+            System.out.println("Conecto2");
 
 
-                if (rs.next()) {
+            System.out.println("Ejecuto validate");
+            String carrera;
 
-                    rs2 = s.executeQuery("SELECT * FROM PLAZOS WHERE codcarrera='" + this.carrera + "'");
-                    if (!rs2.next()) {
-                        addFieldError("carrera", "Introduzca una carrera válida.");
-                    }
 
-                    if (trimMin.length() < 1) {
-                        addFieldError("cantCupos", "Introduzca un número.");
-                    }
+            if (rs.next()) {
+
+                rs2 = s.executeQuery("SELECT * FROM PLAZOS WHERE codcarrera='" + this.carrera + "'");
+                if (!rs2.next()) {
+                    addActionError("Seleccione una carrera válida.");
+                    //addFieldError("carrera", "Introduzca una carrera válida.");
+                }
+
+                if (trimMin.length() < 1) {
+                    addActionError("Introduzca un número.");
+                    // addFieldError("cantCupos", "Introduzca un número.");
+                }
 //                    for (int x = 0; x < cantCupos.length(); x++) {
 //                        if (cantCupos.charAt(x) < '0' || cantCupos.charAt(x) > '9') {
 //                            addFieldError("cantCupos", "Introduzca una cantidad de cupos válida.");
@@ -151,16 +151,16 @@ public class Plazos extends ActionSupport implements ServletRequestAware {
 
 
 
-                } else {
-                    addActionError("Error en la Operacion");
-                    addFieldError("cohorte", "Cohorte introducida inválida.");
-                }
-
-
-            } catch (Exception e) {
-                System.out.println("Problem in searching the database 1");
+            } else {
+                addActionError("Error en la Operacion");
+                addFieldError("cohorte", "Cohorte introducida inválida.");
             }
+
+
+        } catch (Exception e) {
+            System.out.println("Problem in searching the database 1");
         }
+    }
 
     /**
      *
@@ -169,11 +169,9 @@ public class Plazos extends ActionSupport implements ServletRequestAware {
     public void setCohorte(String aux) {
         this.cohorte = aux;
     }
-
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
 //    public String actualizarCupos() throws Exception {
 //        ResultSet rs = null, rs2 = null;
@@ -221,5 +219,4 @@ public class Plazos extends ActionSupport implements ServletRequestAware {
 //        }
 //        return "no success";
 //    }
-    
 }

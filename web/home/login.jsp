@@ -5,15 +5,19 @@
 --%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html>  <s:if test="hasActionErrors()">
+    <div class="denyDiv">
+        <s:iterator value="actionErrors">
+            <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
+            </span>
+        </s:iterator>
+    </div>
+    <br />
+</s:if>
 <div id="welcome">
     <h5><center>Para ingresar al sistema introduzca su usuario y contraseña.</center></h5>
     <br />
-    <s:if test="hasActionErrors()">
-        <div id="errores">
-            <s:actionerror />
-        </div>
-    </s:if>
+
 
     <s:form action="Login">
         <table style="border: none">

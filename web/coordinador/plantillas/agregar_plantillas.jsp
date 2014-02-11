@@ -73,10 +73,14 @@
             las deseadas a la lista de la derecha.<br/><br/>
             No olvide colocarle un nombre a la plantilla.
         </p><br/>
-        <s:if test="hasActionErrors()">
-            <div id="errores">
-                <s:actionerror />
+      <s:if test="hasActionErrors()">
+            <div class="denyDiv">
+                <s:iterator value="actionErrors">
+                    <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
+                    </span>
+                </s:iterator>
             </div>
+            <br />
         </s:if>
     <center><div id="test" name="listas"></div></center>
     <br/>

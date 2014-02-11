@@ -9,6 +9,13 @@
 <%@ page import="java.util.*;" %>
 
 <head>
+    <style>
+        .footer{
+            position: static;
+            bottom: auto; 
+        } 
+
+    </style>
     <script type="text/javascript">
         function deleteRecord(val) {
             document.fom.action = "EliminarPlantilla.action?nombre=" + val;
@@ -29,11 +36,14 @@
 
     <h4>Plantillas de Plan de Estudio:</h4>
     <s:if test="hasActionMessages()">
-        <div id="aproveMessage">
-            <s:actionmessage/>
-        </div>
+        <div class="aproveDiv">
+            <s:iterator value="actionMessages">
+                <span class="aproveMsg"><s:property escape="false" />
+                </span>
+            </s:iterator>
+        </div><br />
     </s:if>
- 
+
     <form name="fom2" method="post">
         <input type="submit" value="Crear Plantilla" onClick="create();"/>
     </form>

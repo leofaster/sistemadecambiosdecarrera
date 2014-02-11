@@ -27,25 +27,25 @@
             defaultValues = [];
 
             <%
-               List l = (List) request.getAttribute("lista_materias");
-               Iterator it = l.iterator();
+                List l = (List) request.getAttribute("lista_materias");
+                Iterator it = l.iterator();
 
-               while (it.hasNext()) {
-                   clases.Asignatura materia = (clases.Asignatura) it.next();
-                   String codigo = materia.getCodigoS();
-                   String nombre = materia.getNombre();
+                while (it.hasNext()) {
+                    clases.Asignatura materia = (clases.Asignatura) it.next();
+                    String codigo = materia.getCodigoS();
+                    String nombre = materia.getNombre();
             %>
 
             input.push({value: "<%=codigo%>", content: "<%=codigo%> - <%=nombre%>"});
 
             <%}
 
-                    l = (List) request.getAttribute("lista_materias_plantilla");
-                    it = l.iterator();
+                l = (List) request.getAttribute("lista_materias_plantilla");
+                it = l.iterator();
 
-                    while (it.hasNext()) {
-                        clases.Asignatura materia = (clases.Asignatura) it.next();
-                        String codigo = materia.getCodigoS();
+                while (it.hasNext()) {
+                    clases.Asignatura materia = (clases.Asignatura) it.next();
+                    String codigo = materia.getCodigoS();
             %>
             defaultValues.push("<%=codigo%>");
             <%}
@@ -81,9 +81,13 @@
 
         <p>Modificando la plantilla "<%=request.getAttribute("nombre")%>".</p><br/>
         <s:if test="hasActionErrors()">
-            <div id="errores">
-                <s:actionerror />
+            <div class="denyDiv">
+                <s:iterator value="actionErrors">
+                    <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
+                    </span>
+                </s:iterator>
             </div>
+            <br />
         </s:if>
     <center><div id="test" name="listas"></div></center>
     <br/>

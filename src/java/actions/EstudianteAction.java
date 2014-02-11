@@ -160,7 +160,7 @@ public class EstudianteAction extends UsuarioAction {
                     }
                 } else {
                     System.out.println("NO se consiguio algo");
-                    addActionError("Usuario o contraseña inválido.");
+                    addActionError("Inicio de sesión inválido.");
                     string = "no success";
                     return string;
                 }

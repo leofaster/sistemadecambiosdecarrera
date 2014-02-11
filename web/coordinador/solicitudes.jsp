@@ -10,10 +10,13 @@
 <h4>Seleccione la opción deseada:</h4>
 <div id="login-form"><br>
     <s:if test="hasActionMessages()">
-        <div id="aproveMessage">
-            <s:actionmessage/>
-        </div>
-    </s:if>
+    <div class="aproveDiv">
+        <s:iterator value="actionMessages">
+            <span class="aproveMsg"><s:property escape="false" />
+            </span>
+        </s:iterator>
+    </div><br />
+</s:if>
 
     <table>
         <tr>

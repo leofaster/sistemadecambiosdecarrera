@@ -11,9 +11,13 @@
 
 <div id="login-form">
     <s:if test="hasActionErrors()">
-        <div id="errores">
-            <s:actionerror />
+        <div class="denyDiv">
+            <s:iterator value="actionErrors">
+                <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
+                </span>
+            </s:iterator>
         </div>
+        <br />
     </s:if>
     <s:form action="solicitudCupos">
         Seleccione la carrera de la cual desea saber la cantidad de cupos:

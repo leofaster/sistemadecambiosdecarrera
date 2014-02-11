@@ -111,7 +111,7 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
                 System.out.println("Carrera: "+ obtenerCarrera(rs.getString("usbid"),rs.getString("rol")));
             } else {
                 System.out.println("NO se consiguio algo");
-                addActionError("Usuario o contraseña inválido.");
+                addActionError("Inicio de sesión inválido.");
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioAction.class.getName()).log(Level.SEVERE, null, ex);

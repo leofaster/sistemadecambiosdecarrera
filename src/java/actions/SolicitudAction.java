@@ -88,7 +88,7 @@ public class SolicitudAction extends ActionSupport {
     }
 
     /**
-      *
+     *
      * @param estudiante
      */
     public void setEstudiante(Estudiante estudiante) {
@@ -185,17 +185,19 @@ public class SolicitudAction extends ActionSupport {
 
     /**
      *
-     * @return @throws Exception 
+     * @return @throws Exception
      * @throws Exception
      */
     public String crearSolicitud() throws Exception {
 
         if (this.carrera_dest != null && this.carrera_dest.equals("-1")) {
             addFieldError("carrera_dest", "Seleccione una carrera válida");
+            addActionError("Error en la Solicitud.");
             return "input";
         }
         if (getMotivacion().length() == 0) {
             addFieldError("motivacion", "No puedes dejar este campo vacío.");
+            addActionError("Error en la Solicitud.");
             return "input";
         }
 
@@ -213,6 +215,7 @@ public class SolicitudAction extends ActionSupport {
             s = ConexionBD.getConnection().createStatement();
             rs = s.executeQuery("SELECT * FROM solicitud WHERE usbid='" + usbidSol + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
             if (rs.next()) {
+                addActionError("Error en la Solicitud.");
                 mensaje = "Ya se le ha aceptado una solicitud.";
                 return SUCCESS;
             }
@@ -223,6 +226,7 @@ public class SolicitudAction extends ActionSupport {
                 Estudiante est = new Estudiante(usbidSol);
 
                 if (est.getCarreraOrigen().getCodcarrera() == codigoCarrera) {
+                    addActionError("Error en la Solicitud.");
                     addFieldError("carrera_dest", "No puedes enviar una solicitud a tu misma carrera.");
                     return "input";
                 }
@@ -262,11 +266,12 @@ public class SolicitudAction extends ActionSupport {
                         + "false,"
                         + "false" + ","
                         + "'" + motivacion + "')");
-                
+
                 s.executeUpdate("INSERT INTO RECOMENDACION VALUES('"
                         + usbidSol
                         + "',false,false)");
                 mensaje = "Tu solicitud fue enviada, ¡éxito!";
+                addActionMessage("Solicitud Exitosa.");
 
                 String a = "rbmachado.g@gmail.com"; // Aqui se forma el correo del coordinador
                 String asunto = "Solicitud de cambio de carrera de " + usbidSol;
@@ -277,7 +282,7 @@ public class SolicitudAction extends ActionSupport {
                 emailer.sendEmail();
 
             } else {
-
+                addActionError("Error en la Solicitud.");
                 mensaje = "Ya habías enviado una solicitud de cambio.";
             }
         } catch (Exception e) {
@@ -288,8 +293,7 @@ public class SolicitudAction extends ActionSupport {
 
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
     public String listarSolicitudes() throws Exception {
 
@@ -306,6 +310,7 @@ public class SolicitudAction extends ActionSupport {
             rs = s.executeQuery("SELECT * FROM solicitud natural join carrera WHERE usbid='" + usbido + "' AND ADVERTENCIA='-1' AND SOL_ACEPTADA='T'");
             System.out.println("PP1");
             if (rs.next()) {
+                 addActionError("Error en la Solicitud.");
                 mensaje = "Ya se le ha aceptado una solicitud de\ncambio de carrera a " + rs.getString("nombre") + ".";
                 return SUCCESS;
             }

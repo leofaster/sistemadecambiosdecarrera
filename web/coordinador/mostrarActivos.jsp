@@ -11,11 +11,14 @@
 <div>
     <s:form action="solicitudCuposCoordinador">
         <h4>Seleccione la carrera:</h4>
-            <s:if test="hasActionErrors()">
-            <div id="errores">
-                Error:    
-                <s:actionerror  />
+        <s:if test="hasActionErrors()">
+            <div class="denyDiv">
+                <s:iterator value="actionErrors">
+                    <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
+                    </span>
+                </s:iterator>
             </div>
+            <br />
         </s:if>
         <s:select name="carrera"  required="true"
                   list="{'0100 - Ingenieria Electrica', 
