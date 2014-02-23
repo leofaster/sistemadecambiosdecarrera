@@ -63,28 +63,20 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
         ResultSet rs = null;
         Statement st = null;
         ConexionBD.establishConnection();
-        String string = null;
-        //for(int i =0 ;i<this.cohorte.length();i++) 
-        //  if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
         
         try {
             st = ConexionBD.getConnection().createStatement();
-            System.out.println("Conecto");
             Map session2 = ActionContext.getContext().getSession();
             String uscoor = session2.get("usbid").toString();
-            System.out.println(uscoor);
+
             rs = st.executeQuery("SELECT * FROM COORDINADOR WHERE USBID='"+uscoor+"'");
             rs.next();
             String carr = rs.getString("codcarrera");
             
-            System.out.println(carr);
-            rs = st.executeQuery("SELECT USUARIO.NOMBRE,USUARIO.APELLIDO,SOLICITUD.USBID,SOLICITUD.CODCARRERA "
-                    + "FROM SOLICITUD JOIN USUARIO ON SOLICITUD.USBID=USUARIO.USBID"
-                    + " WHERE SOL_ACEPTADA='F' AND ADVERTENCIA!='-1' AND "
-                    + "SOLICITUD.CODCARRERA='"+carr+"'");
-            
-            System.out.println("Ejecutar BUSQUEDA DE SOLICITUDES");
-            
+            // Todas las solicitudes a esa carrera
+            rs = st.executeQuery("SELECT * FROM SOLICITUD NATURAL JOIN USUARIO "
+                    + "WHERE SOL_ACEPTADA='P' "
+                    + "AND CODCARRERA='" + carr + "'");
             
             List<Solicitud> li = null;
             li = new ArrayList<Solicitud>();
@@ -96,12 +88,10 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
                 tmp.setUsbid(rs.getString("usbid"));
                 tmp.setNombre(rs.getString("nombre")+" "+rs.getString("apellido"));
                 mb.setEstudiante(tmp);
-                
-               
+
                 li.add(mb);
 
             }
-            System.out.println(li.size());
             request.setAttribute("disp3", li);
 
             rs.close();
@@ -110,10 +100,9 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
             if (session3.get("rol").toString().equals("Coordinador")) {
                 return SUCCESS;
             }
-            
 
         } catch (Exception e) {
-            System.out.println("Problem in searching the database 1");
+            System.out.println("Problem in searching the database verPendientes");
         }
         return "no success";
     }
@@ -122,18 +111,11 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
         ResultSet rs = null;
         Statement st = null;
         ConexionBD.establishConnection();
-        //for(int i =0 ;i<this.cohorte.length();i++) 
-        //  if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
         
         try {
             st = ConexionBD.getConnection().createStatement();
-            System.out.println("Conecto");
-            rs = st.executeQuery("SELECT NOMBRE,APELLIDO,USBID,CODCARRERA "
-                    + "FROM SOLICITUD NATURAL JOIN USUARIO NATURAL JOIN RECOMENDACION "
-                    + " WHERE SOL_ACEPTADA='F' AND ADVERTENCIA!='-1' AND PROC='F'");
-            
-            System.out.println("Ejecutar BUSQUEDA DE SOLICITUDES");
-            
+            rs = st.executeQuery("SELECT * FROM SOLICITUD NATURAL JOIN USUARIO "
+                    + "WHERE SOL_ACEPTADA='P' AND SOL_RECOMENDADA='P'");
             
             List<Solicitud> li = null;
             li = new ArrayList<Solicitud>();
@@ -145,12 +127,10 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
                 tmp.setUsbid(rs.getString("usbid"));
                 tmp.setNombre(rs.getString("nombre")+" "+rs.getString("apellido"));
                 mb.setEstudiante(tmp);
-                
                
                 li.add(mb);
-
             }
-            System.out.println(li.size());
+            
             request.setAttribute("disp3", li);
 
             rs.close();
@@ -160,13 +140,11 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
                 return SUCCESS;
             }
             
-
         } catch (Exception e) {
             System.out.println("Problem in searching the database 1");
         }
         return "no success";
     }
-    
     
     /**
      *
@@ -177,28 +155,19 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
         ResultSet rs = null;
         Statement st = null;
         ConexionBD.establishConnection();
-        String string = null;
-        //for(int i =0 ;i<this.cohorte.length();i++) 
-        //  if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
         
         try {
             st = ConexionBD.getConnection().createStatement();
-            System.out.println("Conecto");
             Map session2 = ActionContext.getContext().getSession();
             String uscoor = session2.get("usbid").toString();
-            System.out.println(uscoor);
+
             rs = st.executeQuery("SELECT * FROM COORDINADOR WHERE USBID='"+uscoor+"'");
             rs.next();
             String carr = rs.getString("codcarrera");
             
-            System.out.println(carr);
-            rs = st.executeQuery("SELECT USUARIO.NOMBRE,USUARIO.APELLIDO,SOLICITUD.USBID,SOLICITUD.CODCARRERA,SOLICITUD.SOL_ACEPTADA "
-                    + "FROM SOLICITUD JOIN USUARIO ON SOLICITUD.USBID=USUARIO.USBID WHERE"
-                    + " ADVERTENCIA='-1' AND "
-                    + "SOLICITUD.CODCARRERA='"+carr+"'");
-            
-            System.out.println("Ejecutar BUSQUEDA DE SOLICITUDES");
-            
+            rs = st.executeQuery("SELECT * FROM SOLICITUD NATURAL JOIN USUARIO "
+                    + "WHERE SOL_ACEPTADA!='P' "
+                    + "AND CODCARRERA='" + carr + "'");
             
             List<Solicitud> li = null;
             li = new ArrayList<Solicitud>();
@@ -210,13 +179,11 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
                 tmp.setUsbid(rs.getString("usbid"));
                 tmp.setNombre(rs.getString("nombre")+" "+rs.getString("apellido"));
                 mb.setEstudiante(tmp);
-                mb.setSolAceptada(rs.getBoolean("sol_aceptada"));
-                
+                mb.setSolAceptada(rs.getString("sol_aceptada").equals("A"));
                
                 li.add(mb);
-
             }
-            System.out.println(li.size());
+            
             request.setAttribute("disp4", li);
 
             rs.close();
@@ -225,7 +192,6 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
             if (session3.get("rol").toString().equals("Coordinador")) {
                 return SUCCESS;
             }
-            
 
         } catch (Exception e) {
             System.out.println("Problem in searching the database 1");
@@ -237,57 +203,36 @@ public class VisualizarSol extends ActionSupport implements ServletRequestAware{
         ResultSet rs = null;
         Statement st = null;
         ConexionBD.establishConnection();
-        String string = null;
-        //for(int i =0 ;i<this.cohorte.length();i++) 
-        //  if(this.cohorte.charAt(i)<'0' ||this.cohorte.charAt(i)>'9') return "no success";
         
         try {
             st = ConexionBD.getConnection().createStatement();
-            System.out.println("Conecto");
-            Map session2 = ActionContext.getContext().getSession();
-            String uscoor = session2.get("usbid").toString();
-            System.out.println(uscoor);
-            
-            rs = st.executeQuery("SELECT NOMBRE,APELLIDO,USBID,CODCARRERA,SOL_ACEPTADA, ADVERTENCIA, REC "
-                    + "FROM SOLICITUD NATURAL JOIN USUARIO NATURAL JOIN RECOMENDACION WHERE"
-                    + " PROC='T' AND ADVERTENCIA!='-1'");
-            
-            System.out.println("Ejecutar BUSQUEDA DE SOLICITUDES");
-            
+            rs = st.executeQuery("SELECT * FROM SOLICITUD NATURAL JOIN USUARIO "
+                    + "WHERE SOL_RECOMENDADA!='P'");
             
             List<Solicitud> li = null;
             li = new ArrayList<Solicitud>();
             Solicitud mb = null;
 
             while (rs.next()) {
-                System.out.println("Consigue solicitudes");
                 mb = new Solicitud();
                 Estudiante tmp = new Estudiante();
                 tmp.setUsbid(rs.getString("usbid"));
                 tmp.setNombre(rs.getString("nombre")+" "+rs.getString("apellido"));
                 mb.setEstudiante(tmp);
-                mb.setRecomendada(rs.getBoolean("rec"));
-                
+                mb.setRecomendada(rs.getString("SOL_RECOMENDADA").equals("A"));
                
                 li.add(mb);
-
             }
-            System.out.println(li.size());
+
             request.setAttribute("disp40", li);
 
             rs.close();
             st.close();
-            Map session3 = ActionContext.getContext().getSession();
-           
-                return SUCCESS;
-           
-            
+            return SUCCESS;
 
         } catch (Exception e) {
             System.out.println("Problem in searching the database verYaGestionados2");
         }
         return "no success";
     }
-    
-    
 }

@@ -1,0 +1,55 @@
+/**
+ *
+ * @author CHANGE Gate
+ */
+
+package clases;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DIDE extends Usuario {
+
+    public String estudiantesEnCambio() throws Exception {
+        ResultSet rs;
+        Statement st;
+        ConexionBD.establishConnection();
+        
+        try {
+            st = ConexionBD.getConnection().createStatement();
+            rs = st.executeQuery(
+                      "SELECT * "
+                    + "FROM SOLICITUD NATURAL JOIN USUARIO "
+                    + "WHERE SOL_ACEPTADA='A'"
+                    );
+            
+            List<Solicitud> li;
+            li = new ArrayList<Solicitud>();
+            Solicitud sol;
+            Estudiante es;
+
+            while (rs.next()) {
+                sol = new Solicitud();
+                es = new Estudiante();
+                es.setUsbid(rs.getString("usbid"));
+                es.setNombre(rs.getString("nombre") + " " + 
+                             rs.getString("apellido"));
+                sol.setEstudiante(es);
+               
+                li.add(sol);
+            }
+            
+            request.setAttribute("listaSolicitudes", li);
+
+            rs.close();
+            st.close();
+            return "success";
+            
+        } catch (Exception e) {
+            System.out.println("Problem in DIDE.estudiantesEnCambio");
+            return "no success";
+        }
+    }
+}

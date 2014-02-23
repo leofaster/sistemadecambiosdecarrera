@@ -19,7 +19,6 @@
             <result name="input"        type="tiles">/login</result>
         </action>
        
-       
         <action name="verificarSol" class="actions.SolicitudAction" method="crearSolicitud"> 
             <result name="success" type="tiles">/estudiante.solicitar.cambio.resultado</result>
             <result name="input" type="tiles">/estudiante.solicitar.cambio</result>
@@ -95,7 +94,17 @@
         <action name="SolicitarPendientes" class="actions.VisualizarSol" method="verSolicitudesPendientes"> 
             <result name="success" type="tiles">/dide.ver.solicitudes.pendientes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
-        </action> 
+        </action>
+        
+        <action name="EstudiantesCambioDIDE" class="clases.DIDE" method="estudiantesEnCambio"> 
+            <result name="success" type="tiles">/dide.estudiantes.proceso.cambio</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action>
+        
+        <action name="EstudiantesCambioCoord" class="clases.Coordinador" method="estudiantesEnCambio"> 
+            <result name="success" type="tiles">/coordinador.estudiantes.proceso.cambio</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action>
         
         <action name="Aprobar" class="actions.UpdateSolicitud" method="Aceptar"> 
             <result name="success" type="tiles">/coordinador.solicitudes</result>
@@ -180,6 +189,12 @@
             <result name="DIDE" type="tiles">/dide.solicitudes.ver.datos</result>
         </action>
         
+        <action name="verDatosEstudiante" class="clases.Estudiante" method="visualizarDatosCambio">
+            <result name="DIDE" type="tiles">/dide.estudiante.datos.cambio</result>
+            <result name="Coordinador" type="tiles">/coordinador.estudiante.datos.cambio</result>
+            <result name="no success" type="tiles">/home</result>
+        </action>
+        
         <action name="*Link2" method="{1}"  class="links.LinksActions">
             <result name="home" type="tiles">/home</result>
             <result name="login" type="tiles">/login</result>
@@ -193,6 +208,8 @@
             <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
             
             <result name="SolicitudesEstudiantes" type="tiles">/dide.solicitudes.estudiantes</result>
+            <result name="EstudiantesCambioDIDE" type="tiles">/dide.estudiantes.cambio</result>
+            <result name="EstudiantesCambioCoord" type="tiles">/coordinador.estudiantes.cambio</result>
         </action> 
         
         

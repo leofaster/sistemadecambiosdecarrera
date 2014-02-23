@@ -12,6 +12,14 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LinksActions extends ActionSupport {
 
+    public String EstudiantesCambioDIDE() {
+        return "EstudiantesCambioDIDE";
+    }
+    
+    public String EstudiantesCambioCoord() {
+        return "EstudiantesCambioCoord";
+    }
+    
     public String GestionUsuarios() {
         return "GestionUsuarios";
     }

@@ -5,16 +5,27 @@
 package clases;
 
 import java.io.Serializable;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.interceptor.ServletRequestAware;
 
 /**
  *
  * @author CHANGE Gate
  */
-public class Usuario implements Serializable {
+public class Usuario implements ServletRequestAware {
 
     /**
      *
      */
+    protected HttpServletRequest request;
+
+    public HttpServletRequest getRequest() {
+        return request;
+    }
+
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
     protected String usbid;
     /**
      *
@@ -125,5 +136,9 @@ public class Usuario implements Serializable {
      */
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public void setServletRequest(HttpServletRequest request) {
+        this.request = request;
     }
 }

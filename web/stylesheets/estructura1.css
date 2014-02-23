@@ -1,5 +1,5 @@
 #pagewrap {
-    width: 990px;
+    width: 1040px;
     margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 
@@ -7,11 +7,11 @@
 
 #header {
     height: 180px;
-    padding: 0 15px;
 }
 
 .menu {
     float: left;
+    margin-left: -40px;
     line-height: 2em;
     font-size: 12px;
     text-align: right;
@@ -21,20 +21,19 @@
 .content {
     width: 600px; /* Account for margins + border values */
     float: left;
-    padding: 5px 15px;
     margin: 0px 5px 5px 4px;
     line-height: 1.6em;
 }
 
 #sidebar {
     width: 140px;
-    float: right;
+    float: left;
     line-height: 3em;
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    bottom: auto;
     clear: both;
     padding: 0 15px;
     font-size: 11px;

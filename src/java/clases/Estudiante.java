@@ -1,5 +1,6 @@
 package clases;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.util.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -13,6 +14,15 @@ public class Estudiante extends Usuario {
     private double indice;
     private Carrera carreraOrigen;
     private boolean cbAprobado;
+    private Solicitud solicitud;
+
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
+    }
 
     /**
      *
@@ -27,14 +37,19 @@ public class Estudiante extends Usuario {
      * Construye un estudiante a partir de la base de datos.
      * 
      */
-    public Estudiante(String usbid) {
+    public void cargarDatos(String usbid) {
         this.usbid = usbid;
         ResultSet rs;
         Statement st;
         ConexionBD.establishConnection();
+        
         try {
             st = ConexionBD.getConnection().createStatement();
-            rs = st.executeQuery("SELECT * FROM ESTUDIANTE NATURAL JOIN USUARIO WHERE USBID = '" + this.usbid + "'");
+            rs = st.executeQuery(
+                      "SELECT * "
+                    + "FROM ESTUDIANTE NATURAL JOIN USUARIO "
+                    + "WHERE USBID = '" + this.usbid + "'"
+                    );
 
             if (rs.next()) {
                 this.cedula = rs.getInt("cedula");
@@ -51,7 +66,49 @@ public class Estudiante extends Usuario {
             st.close();
 
         } catch (Exception e) {
-            System.out.println("Problem in searching the database Estudiante");
+            System.out.println("Problem in Estudiante.Estudiante(usbid)");
+        }
+    }
+    
+    public String visualizarDatosCambio() {
+        ResultSet rs;
+        Statement st;
+
+        try {
+            ConexionBD.establishConnection();
+            st = ConexionBD.getConnection().createStatement();
+
+            // Se obtiene el carnet y el nombre del request
+            String carn = request.getParameter("carnet");
+            
+            // Se obtiene la sesión para guardar los datos conseguidos
+            Map sesion = ActionContext.getContext().getSession();
+            if (carn != null) {
+                sesion.put("carnet_aux", carn);
+            }
+            carn = sesion.get("carnet_aux").toString();
+
+            rs = st.executeQuery(
+                      "SELECT * "
+                    + "FROM SOLICITUD "
+                    + "WHERE USBID='" + carn + "' "
+                      + "AND SOL_ACEPTADA='A'");
+            rs.next();
+            
+            this.cargarDatos(carn);
+            Carrera aux = new Carrera(rs.getInt("codcarrera"));
+            this.solicitud = new Solicitud();
+            this.solicitud.setMotivacion(rs.getString("motivacion"));
+            this.solicitud.setAdvertencia(rs.getString("advertencia"));
+            this.solicitud.setCarrera(aux);          
+
+            rs.close();
+            st.close();
+            
+            return sesion.get("rol").toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "no success";
         }
     }
     
