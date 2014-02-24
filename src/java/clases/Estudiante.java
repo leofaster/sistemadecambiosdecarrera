@@ -70,6 +70,46 @@ public class Estudiante extends Usuario {
         }
     }
     
+    public void cargarInformeAcademico() {
+        ResultSet rs;
+        Statement st;
+
+        try {
+            ConexionBD.establishConnection();
+            st = ConexionBD.getConnection().createStatement();
+
+            List<AsignaturaConNota> li = null;
+            li = new ArrayList<AsignaturaConNota>();
+            Asignatura mb = null;
+            AsignaturaConNota mb2 = null;
+
+            String carn = request.getParameter("carnet");
+            
+            rs = st.executeQuery("select * from calificacion natural join asignatura"
+                    + " where usbid='" + carn
+                    + "' order by codasignatura");
+
+            while (rs.next()) {
+                mb = new Asignatura();
+                mb.setCodigoS(rs.getString("codasignatura"));
+                mb.setNombre(rs.getString("nombre"));
+
+                mb2 = new AsignaturaConNota();
+                mb2.setAsignatura(mb);
+                mb2.setnota(rs.getInt("nota"));
+                
+                li.add(mb2);
+            }
+
+            request.setAttribute("materias", li);
+            rs.close();
+            st.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public String visualizarDatosCambio() {
         ResultSet rs;
         Statement st;
@@ -104,6 +144,8 @@ public class Estudiante extends Usuario {
 
             rs.close();
             st.close();
+            
+            this.cargarInformeAcademico();
             
             return sesion.get("rol").toString();
         } catch (Exception e) {

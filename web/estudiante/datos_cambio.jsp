@@ -9,8 +9,73 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+    $(function() {
+
+        $("#dialog").dialog({
+            height: 580,
+            width: 800,
+            modal: true,
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            }
+        });
+
+
+        $("#opener").click(function() {
+            $("#dialog").dialog("open");
+        });
+    });
+</script>
+
+
+<div id="dialog" title="Informe Académico" style="overflow: scroll;">
+    <%
+        List l = (List) request.getAttribute("materias");
+        if (l != null && l.size() != 0) {
+    %>
+    <center>
+        <div class="tablaFormal">
+            <table>
+                <tr>
+                    <td><center><b>Materia</b></center></td>
+                    <td><center><b>Código</b></center></td>
+                    <td><center><b>Nota</b></center></td>
+                </tr>
+    <%
+            Iterator it = l.iterator();
+                while (it.hasNext()) {
+                    clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
+                    String nombre = b.getAsignatura().getNombre();
+                    String codigo = b.getAsignatura().getCodigoS();
+                    String nota = b.getNota() + "";
+    %>
+                <tr>
+                    <td><center><%= nombre%></center></td>
+                    <td><center><%= codigo%></center></td>
+                    <td><center><%= nota%></center></td>
+                </tr>
+    <%
+                }
+    %>
+
+            </table>
+        </div>
+
+    <%
+            }
+    %>
+    </center>
+</div>
+    
 <center><h4>Perfil del Estudiante</h4> </center>
-<br/><br/>
+<br/>
 <table border="0"> 
     <tr>
         <td><b>Nombre:</b></td>
@@ -41,6 +106,8 @@
         <td>Aqui van extraplanes</td>
     </tr>
 </table>
+    <br/>
+    <center><button id="opener">Mostrar Informe Académico</button></center>
 <br/>
 <center><b>Archivos asociados</b></center><br />
 <div class="tablaFormal">
@@ -48,7 +115,7 @@
 
         <%
             //List l = (List) request.getAttribute("listaSolicitudes");
-        %>
+%>
         <tr>
             <td class="bord"><center><b>Nombre del archivo</b></center></td>
         <td class="bord"><center><b>Descargar</b></center></td>
@@ -57,34 +124,34 @@
             //Iterator it = l.iterator();
 
             //while (it.hasNext()) {
-              //  clases.Solicitud b = (clases.Solicitud) it.next();
-                //String nombre = b.getEstudiante().getNombre();
-                //String carnet = b.getEstudiante().getUsbid();
+            //  clases.Solicitud b = (clases.Solicitud) it.next();
+            //String nombre = b.getEstudiante().getNombre();
+            //String carnet = b.getEstudiante().getUsbid();
 
         %>
         <tr> 
             <td class="bord"><center>nombre</center></td>
-            <td class="bord">
-                <center>
-                    <a href="javascript:editact('')">
-                        <img src="images/save.png" alt="Editar" 
-                             title="Editar" width="20" height="20">
-                    </a>
-                </center>
-            </td>
+        <td class="bord">
+        <center>
+            <a href="javascript:editact('')">
+                <img src="images/save.png" alt="Editar" 
+                     title="Editar" width="20" height="20">
+            </a>
+        </center>
+        </td>
         </tr> 
         <%
             //}
-        %>
+%>
     </table>    
 </div>
 <br/>
 <center>
     <form action="upload" method="post" enctype="multipart/form-data">
-      <label for="archivo">Cargar archivo:</label>
-      <input type="file" name="archivo" /><br>
-      <input type="submit" value="Cargar"/>
-   </form>
+        <label for="archivo">Cargar archivo:</label>
+        <input type="file" name="archivo" /><br>
+        <input type="submit" value="Cargar"/>
+    </form>
 </center>
 <br/>
 <%
@@ -95,18 +162,18 @@
     <tr>
         <td>
             <s:form action="Aprobar">
-                <center>    
-                    <s:submit  value="Aprobar Cambio" type="button"/>
-                </center>
-            </s:form>
-        </td>
-        <td>
-            <s:form action="Denegar">
-                <center>
-                    <s:submit  value="Negar Cambio" type="button"/>
-                </center>
-            </s:form>
-        <td>
+        <center>    
+            <s:submit  value="Aprobar Cambio" type="button"/>
+        </center>
+    </s:form>
+</td>
+<td>
+    <s:form action="Denegar">
+    <center>
+        <s:submit  value="Negar Cambio" type="button"/>
+    </center>
+</s:form>
+<td>
     </tr>
 </table>
 <%  }
