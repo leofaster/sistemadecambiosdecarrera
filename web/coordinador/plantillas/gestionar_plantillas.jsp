@@ -82,5 +82,5 @@
     </div>
     <%} else {%>
     <center><b>No hay plantillas de plan de estudio en el sistema.</td></b></center>
-        <%}%>
+    <%}%>
 </div>

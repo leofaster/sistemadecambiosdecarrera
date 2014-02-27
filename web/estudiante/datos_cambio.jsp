@@ -34,6 +34,13 @@
     });
 </script>
 
+<script type="text/javascript">
+    function descargar(val) {
+        document.fom.action = "download.action?ruta=" + val;
+        document.fom.submit();
+    }
+</script>
+
 
 <div id="dialog" title="Informe Académico" style="overflow: scroll;">
     <%
@@ -113,35 +120,38 @@
 <div class="tablaFormal">
     <table >
 
-        <%
-            //List l = (List) request.getAttribute("listaSolicitudes");
-%>
         <tr>
             <td class="bord"><center><b>Nombre del archivo</b></center></td>
         <td class="bord"><center><b>Descargar</b></center></td>
         </tr>
         <%
-            //Iterator it = l.iterator();
+           List l2 = (List) request.getAttribute("archivos");
+           if (l2 != null && l2.size() != 0) {
+        %>
+        <%
+            Iterator it = l2.iterator();
 
-            //while (it.hasNext()) {
-            //  clases.Solicitud b = (clases.Solicitud) it.next();
-            //String nombre = b.getEstudiante().getNombre();
-            //String carnet = b.getEstudiante().getUsbid();
-
+            while (it.hasNext()) {
+                clases.Reporte b = (clases.Reporte) it.next();
+                String nombre = b.getNombre();
+                String ruta = b.getRuta();
         %>
         <tr> 
-            <td class="bord"><center>nombre</center></td>
-        <td class="bord">
-        <center>
-            <a href="javascript:editact('')">
-                <img src="images/save.png" alt="Editar" 
-                     title="Editar" width="20" height="20">
-            </a>
-        </center>
-        </td>
+            <td class="bord"><center><%= nombre%></center></td>
+            <td class="bord">
+                <center>
+                    <form name="fom" method="post">
+                        <a href="javascript:descargar('<%= ruta%>')">
+                            <img src="images/save.png" alt="Guardar" 
+                            title="Guardar" width="20" height="20">
+                        </a>
+                    </form>
+                </center>
+            </td>
         </tr> 
         <%
-            //}
+            }
+        }
 %>
     </table>    
 </div>

@@ -4,61 +4,58 @@
  */
 package clases;
 
-import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
  * @author CHANGE Gate
  */
-public class Reporte implements Serializable {
+public class Reporte {
 
-    private int codigo;
-    private String descripcion;
+    private String usbid;
+    private int codcarrera;
+    private Date fecha;
+    private String nombre;
+    private String ruta;
 
-    /**
-     *
-     */
-    public Reporte() {
+    public String getUsbid() {
+        return usbid;
     }
 
-    /**
-     *
-     * @param reporte
-     */
-    public Reporte(Reporte reporte) {
-        this.codigo = reporte.codigo;
-        this.descripcion = reporte.descripcion;
+    public void setUsbid(String usbid) {
+        this.usbid = usbid;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getCodigo() {
-        return this.codigo;
+    public int getCodcarrera() {
+        return codcarrera;
     }
 
-    /**
-     *
-     * @param identificador
-     */
-    public void setCodigo(int identificador) {
-        this.codigo = identificador;
+    public void setCodcarrera(int codcarrera) {
+        this.codcarrera = codcarrera;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getDescripcion() {
-        return this.descripcion;
+    public Date getFecha() {
+        return fecha;
     }
 
-    /**
-     *
-     * @param descripcion
-     */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = new String(descripcion);
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+    
 }

@@ -110,6 +110,40 @@ public class Estudiante extends Usuario {
         }
     }
     
+    public void cargarArchivos() {
+        ResultSet rs;
+        Statement st;
+
+        try {
+            ConexionBD.establishConnection();
+            st = ConexionBD.getConnection().createStatement();
+
+            List<Reporte> li = null;
+            li = new ArrayList<Reporte>();
+            Reporte rep = null;
+
+            String carn = request.getParameter("carnet");
+            
+            rs = st.executeQuery("select * from reporte "
+                    + "where usbid='" + carn
+                    + "'");
+
+            while (rs.next()) {
+                rep = new Reporte();
+                rep.setNombre(rs.getString("nombre"));
+                rep.setRuta(rs.getString("ruta"));
+                li.add(rep);
+            }
+
+            request.setAttribute("archivos", li);
+            rs.close();
+            st.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public String visualizarDatosCambio() {
         ResultSet rs;
         Statement st;
@@ -146,6 +180,7 @@ public class Estudiante extends Usuario {
             st.close();
             
             this.cargarInformeAcademico();
+            this.cargarArchivos();
             
             return sesion.get("rol").toString();
         } catch (Exception e) {
