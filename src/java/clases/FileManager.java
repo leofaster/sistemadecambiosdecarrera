@@ -29,16 +29,12 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
     private long contentLength;
 
 
-    public String download() throws Exception {        
-        String ruta = request.getParameter("ruta");
-        System.out.println("la ruta es " + ruta);
-        File tmp = new File(ruta);
+    public String download() throws Exception {      
+        File tmp = new File(destPath);
         archivoInputStream = new FileInputStream(tmp);
-        fileName = tmp.getName();
         contentLength = tmp.length();
         return SUCCESS;
      }
-
 
     public String upload() {
        /* Copy file to a safe location */

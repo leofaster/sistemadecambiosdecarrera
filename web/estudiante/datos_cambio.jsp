@@ -12,7 +12,12 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.9.1.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
+<script type="text/javascript">
+    function descargar(val) {
+        document.fom.action = "download.action?ruta=" + val;
+        document.fom.submit();
+    }
+</script>
 <script>
     $(function() {
 
@@ -34,12 +39,7 @@
     });
 </script>
 
-<script type="text/javascript">
-    function descargar(val) {
-        document.fom.action = "download.action?ruta=" + val;
-        document.fom.submit();
-    }
-</script>
+
 
 
 <div id="dialog" title="Informe Académico" style="overflow: scroll;">
@@ -141,10 +141,14 @@
             <td class="bord">
                 <center>
                     <form name="fom" method="post">
-                        <a href="javascript:descargar('<%= ruta%>')">
+                        <s:url id="fileDownload" namespace="/" action="download" >
+                            <s:param name="fileName"><%= nombre%></s:param>
+                            <s:param name="destPath"><%= ruta%></s:param>
+                        </s:url>
+                        <s:a href="%{fileDownload}">
                             <img src="images/save.png" alt="Guardar" 
                             title="Guardar" width="20" height="20">
-                        </a>
+                        </s:a>
                     </form>
                 </center>
             </td>

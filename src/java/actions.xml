@@ -139,7 +139,7 @@
                 <param name="contentType">application/octet-stream</param>
                 <param name="inputName">archivoInputStream</param>
                 <param name="contentDisposition">attachment;filename="${fileName}"</param>
-                <param name="bufferSize">4096</param>
+                <param name="bufferSize">1024</param>
             </result>
             <result name="error">cupos/errorCupo.jsp</result>
         </action>
