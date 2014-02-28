@@ -66,8 +66,8 @@
     </head>
 
     <body>
-
-        <p>Seleccione las asignaturas que desee en la lista de la izquierda.<br/><br/>
+    <center><h4>Creación de Plantilla</h4></center><br><br>
+        <p align="justify">Seleccione las asignaturas que desee en la lista de la izquierda.<br/><br/>
             Puede usar la función de búsqueda si lo desea. Cuando seleccione una asignatura, 
             presione las flechas que se encuentran en el medio hasta incorporar todas
             las deseadas a la lista de la derecha.<br/><br/>
