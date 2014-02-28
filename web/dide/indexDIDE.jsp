@@ -9,6 +9,11 @@
 
 <html>
     <div id="loginDiv" alt="especial">
-        <center><h4>Hola, DIDE</h4></center>
+        <br><br>
+        <center><h4>
+            Usted ha ingresado satisfactoriamente al Sistema para la Gestión de
+            Cambios de Carrera como el usuario <br>
+            "DIDE"
+        </h4></center>
     </div>
 </html>

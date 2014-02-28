@@ -49,8 +49,8 @@
                 List l = (List) request.getAttribute("disp2");
                 if (l != null) {
                     String Cohorte = "Cohorte";
-                    String Cupos = "Cupos";
-                    String Activos = "Activos";
+                    String Cupos = "Cupos Aprobados por Consejo";
+                    String Activos = "Estudiantes Activos";
             %>
             <div class="tablaFormal">
                 <table>
@@ -59,6 +59,7 @@
                         <center><td ><%= Cohorte%></td> </center>
                         <center><td ><%= Cupos%></td></center>
                         <center><td ><%= Activos%></td></center>
+                        <center><td >Cupos Disponibles</td></center>
                             <% }%>  
                         </tr>
                         <%
@@ -69,12 +70,16 @@
                                     String cuposCo = b.getCupos();
                                     String NumCo = b.getCohorte();
                                     String cuposA = b.getCuposa();
+                                    int total = Integer.parseInt(cuposCo) - Integer.parseInt(cuposA);
+                                    if (total < 0) {
+                                        total = 0;
+                                    }
                         %>
                         <tr> 
                         <center><td ><%= NumCo%></td></center>
                         <center><td ><%= cuposCo%></td></center>
                         <center><td ><%= cuposA%></td></center>
-
+                        <center><td ><%= total%></td></center>
                         </tr> 
 
                         <% }%>
