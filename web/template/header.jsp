@@ -8,4 +8,12 @@
 <!DOCTYPE html>
 <html>
     <img id="banner" src="images/banners/top_uni.jpg" alt="Universidad Simon Bolivar">
+    <%@ page import="java.util.*;" %>
+    <%if (session.getAttribute("usbid") != null){%>
+    <p align="right"><font color="blue" ><u><b>
+                <%=session.getAttribute("nombre")%>
+                <%=session.getAttribute("apellido")%>
+    </b></u></font></p>
+
+   <%}%>
 </html>
