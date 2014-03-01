@@ -83,10 +83,8 @@ public class Estudiante extends Usuario {
             Asignatura mb = null;
             AsignaturaConNota mb2 = null;
 
-            String carn = request.getParameter("carnet");
-            
             rs = st.executeQuery("select * from calificacion natural join asignatura"
-                    + " where usbid='" + carn
+                    + " where usbid='" + this.usbid
                     + "' order by codasignatura");
 
             while (rs.next()) {
@@ -125,7 +123,7 @@ public class Estudiante extends Usuario {
             String carn = request.getParameter("carnet");
             
             rs = st.executeQuery("select * from reporte "
-                    + "where usbid='" + carn
+                    + "where usbid='" + this.usbid
                     + "'");
 
             while (rs.next()) {
@@ -157,9 +155,11 @@ public class Estudiante extends Usuario {
             
             // Se obtiene la sesión para guardar los datos conseguidos
             Map sesion = ActionContext.getContext().getSession();
+            
             if (carn != null) {
                 sesion.put("carnet_aux", carn);
             }
+            
             carn = sesion.get("carnet_aux").toString();
 
             rs = st.executeQuery(

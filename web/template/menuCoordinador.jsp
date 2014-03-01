@@ -10,8 +10,8 @@
 <html>
     <ul id="navlist" style="list-style-type: none">
         <strong>
-            <li><a href="<s:url action="EstudiantesCambioCoordLink2"/>">Estudiantes en Cambio de Carrera</a></li>
             <li><a href="<s:url action="verSolicitudesLink2"/>" >Gestionar Pre-Solicitudes</a></li>
+            <li><a href="<s:url action="EstudiantesCambioCoordLink2"/>">Estudiantes en Cambio de Carrera</a></li>
             <li><a href="<s:url action="GestionPlantillas"/>"   >Gestionar Plantillas</a></li>
             <li><a href="<s:url action="verCuposLink2"/>"       >Consultar Cupos</a></li>
             <li><a href="index.jsp">Salir</a></li>

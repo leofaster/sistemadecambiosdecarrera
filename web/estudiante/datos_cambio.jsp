@@ -116,7 +116,17 @@
     <br/>
     <center><button id="opener">Mostrar Informe Académico</button></center>
 <br/>
-<center><b>Archivos asociados</b></center><br />
+
+<s:if test="hasActionMessages()">
+    <div class="aproveDiv">
+        <s:iterator value="actionMessages">
+            <span class="aproveMsg"><s:property escape="false" />
+            </span>
+        </s:iterator>
+    </div><br />
+</s:if>
+        
+<center><b>Archivos de la evaluación de DIDE</b></center><br />
 <div class="tablaFormal">
     <table >
 
@@ -160,6 +170,10 @@
     </table>    
 </div>
 <br/>
+<%
+    Map sesion = ActionContext.getContext().getSession();
+    if (sesion.get("rol").toString().equals("DIDE")) {
+%>
 <center>
     <form action="upload" method="post" enctype="multipart/form-data">
         <label for="archivo">Cargar archivo:</label>
@@ -167,9 +181,10 @@
         <input type="submit" value="Cargar"/>
     </form>
 </center>
+<%  }
+%>
 <br/>
 <%
-    Map sesion = ActionContext.getContext().getSession();
     if (sesion.get("rol").toString().equals("Coordinador")) {
 %>
 <table>

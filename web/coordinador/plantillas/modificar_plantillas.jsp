@@ -12,7 +12,8 @@
 
     <head>
         <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/bootstrap-transfer.css" rel="stylesheet">        
+        <link href="css/bootstrap-transfer.css" rel="stylesheet">
+        <script src="javascripts/bootstrap-transfer.js"></script>
         <style>
             .footer{
                 position: static;

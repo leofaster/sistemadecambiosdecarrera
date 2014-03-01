@@ -242,8 +242,6 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
             request.setAttribute("lista_plantillas", li);
             rs.close();
             st.close();
-            rs2.close();
-            st2.close();
 
         } catch (Exception e) {
             e.printStackTrace();

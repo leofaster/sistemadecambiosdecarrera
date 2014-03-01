@@ -13,6 +13,7 @@
     <head>
         <link href="css/bootstrap.css" rel="stylesheet"> 
         <link href="css/bootstrap-transfer.css" rel="stylesheet">        
+        <script src="javascripts/bootstrap-transfer.js"></script>
         <style>
             .footer{
                 position: static;
@@ -27,6 +28,7 @@
 
             <%
                List l = (List) request.getAttribute("lista_materias");
+               System.out.println("holaaaa");
                Iterator it = l.iterator();
 
                while (it.hasNext()) {
@@ -36,8 +38,11 @@
             %>
 
             input.push({value: "<%=codigo%>", content: "<%=codigo%> - <%=nombre%>"});
-
-            <%}%>
+            
+            <%
+               }
+               
+            %>
 
             $(function() {
                 t = $('#test').bootstrapTransfer(

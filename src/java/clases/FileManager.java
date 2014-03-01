@@ -30,10 +30,16 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
 
 
     public String download() throws Exception {      
-        File tmp = new File(destPath);
-        archivoInputStream = new FileInputStream(tmp);
-        contentLength = tmp.length();
-        return SUCCESS;
+        try {
+            File tmp = new File(destPath);
+            archivoInputStream = new FileInputStream(tmp);
+            contentLength = tmp.length();
+            return SUCCESS;
+        } 
+        
+        catch (Exception e) {
+            return "no success";
+        }
      }
 
     public String upload() {
@@ -66,7 +72,7 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
                          + archivoFileName + "','"
                          + destFile.toString() + "')");
 
-          addActionMessage("Solicitud Exitosa.");
+          addActionMessage("Archivo subido con éxito.");
 
           System.out.println("Quedo como: " + destFile);
 

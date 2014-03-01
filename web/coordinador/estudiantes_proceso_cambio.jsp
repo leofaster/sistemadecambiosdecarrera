@@ -23,7 +23,7 @@
     </head>
 
 
-            <h4>Solicitudes Pendientes</h4><br />
+            <h4>Solicitudes en Curso</h4><br />
     <div class="tablaFormal">
                 <table >
                     <form name="fom" method="post">

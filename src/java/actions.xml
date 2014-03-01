@@ -130,7 +130,11 @@
         </action>
         
         <action name="upload" class="clases.FileManager" method="upload">
-            <result name="success">/home</result>
+            <interceptor-ref name="store">
+                <param name="operationMode">STORE</param>
+            </interceptor-ref>
+            
+            <result name="success" type="redirectAction">verDatosEstudiante</result>
             <result name="error">cupos/errorCupo.jsp</result>
         </action>
         
@@ -205,6 +209,10 @@
         </action>
         
         <action name="verDatosEstudiante" class="clases.Estudiante" method="visualizarDatosCambio">
+            <interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
             <result name="DIDE" type="tiles">/dide.estudiante.datos.cambio</result>
             <result name="Coordinador" type="tiles">/coordinador.estudiante.datos.cambio</result>
             <result name="no success" type="tiles">/home</result>
