@@ -59,8 +59,8 @@
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
     </definition>
     <definition name="/instrucciones" extends="baseLayout">
-        <put-attribute name="body"   value="/home/instrucciones.jsp"/>  
-        <put-attribute name="menu"   value="/home/menu.jsp"/>  
+        <put-attribute name="body"   value="/estudiante/instrucciones.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
     </definition>
     <definition name="/estudiante.welcome" extends="baseLayout">
         <put-attribute name="body"   value="/estudiante/indexEstudiante.jsp"/>  

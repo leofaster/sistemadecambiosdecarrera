@@ -23,7 +23,8 @@
     </head>
 
 
-            <h4>Solicitudes en Curso</h4><br />
+            <h4>Solicitudes en Curso:</h4><br />
+
     <div class="tablaFormal">
                 <table >
                     <form name="fom" method="post">
@@ -57,7 +58,7 @@
                         } else {
                         %>
 
-                        <center><b>No posee solicitudes pendientes.</td></b></center>
+                        <center><b>No existen solicitudes en curso.</td></b></center>
 
                         <%                        }
                         %>  
