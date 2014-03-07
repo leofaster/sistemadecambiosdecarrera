@@ -238,18 +238,6 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
 
     /**
      *
-     * @return
-     */    
-    public String salir() {
-        session.put("usbid", null);
-        session.put("nombre", null);
-        session.put("apellido", null);
-        session.put("rol", null);
-        return "success";
-    }
-    
-    /**
-     *
      * @param usbid
      * @param role
      * @return

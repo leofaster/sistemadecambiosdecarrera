@@ -19,8 +19,8 @@
             <result name="input"        type="tiles">/login</result>
         </action>
         
-        <action name="salir" class="actions.UsuarioAction" method="salir">
-            <result name="success" type="tiles">/login</result>
+        <action name="salir" class="clases.Usuario" method="salir">
+            <result name="success" type="tiles">/home</result>
         </action>
        
         <action name="verificarSol" class="actions.SolicitudAction" method="crearSolicitud"> 

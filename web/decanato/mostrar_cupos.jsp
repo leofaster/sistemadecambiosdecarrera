@@ -42,6 +42,7 @@
               '1200 - Ingenieria Geofisica',
               '1500 - Ingenieria de Materiales', 
               '1700 - Ingenieria de Produccion', 
+              '1800 - Ingenieria de Telecomunicaciones',
               '0400 - Licenciatura en Quimica',
               '0500 - Licenciatura en Matematicas',
               '1000 - Licenciatura en Fisica',
@@ -62,7 +63,7 @@
                 <tr>
                 <center><td class="bord">Cohorte</td> </center>
                 <center><td class="bord">Cupos Aprobados por Consejo</td></center>
-                <center><td class="bord">Activos</td></center>
+                <center><td class="bord">Estudiantes Activos</td></center>
                 <center><td class="bord">Cupos Disponibles</td></center>
                 </tr>
                 <%
