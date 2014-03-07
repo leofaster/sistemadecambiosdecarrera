@@ -56,8 +56,8 @@
         <table>
             <form name="fom" method="post">
                 <tr>
-                <center><td><b>Trimestres mínimos</b></td> </center>
-                <center><td><b>Trimestres máximos</b></td></center>
+                <center><td><b>Trimestres mínimos para solicitar cambio</b></td> </center>
+                <center><td><b>Trimestres máximos para cursar extraplanes</b></td></center>
                 <center><td><b>Acción</b></td></center>
                 </tr>
                 <%
