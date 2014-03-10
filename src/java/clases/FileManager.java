@@ -43,7 +43,7 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
      }
 
     public String upload() {
-       /* Copy file to a safe location */
+        addActionMessage("Archivo subido con éxito.");
          try{
           destPath = request.getSession().getServletContext().getRealPath("/");
           Map sesion = ActionContext.getContext().getSession();
@@ -72,7 +72,7 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
                          + archivoFileName + "','"
                          + destFile.toString() + "')");
 
-          addActionMessage("Archivo subido con éxito.");
+          
 
           System.out.println("Quedo como: " + destFile);
 

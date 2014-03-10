@@ -133,7 +133,7 @@
             <interceptor-ref name="store">
                 <param name="operationMode">STORE</param>
             </interceptor-ref>
-            
+            <interceptor-ref name="defaultStack" />
             <result name="success" type="redirectAction">verDatosEstudiante</result>
             <result name="error">cupos/errorCupo.jsp</result>
         </action>

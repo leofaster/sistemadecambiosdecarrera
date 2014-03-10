@@ -81,6 +81,14 @@
     </center>
 </div>
     
+<s:if test="hasActionMessages()">
+    
+        <s:iterator value="actionMessages">
+            
+        </s:iterator>
+    
+</s:if>
+
 <center><h4>Perfil del Estudiante</h4> </center>
 <br/>
 <table border="0"> 
@@ -117,14 +125,7 @@
     <center><button id="opener">Mostrar Informe Académico</button></center>
 <br/>
 
-<s:if test="hasActionMessages()">
-    <div class="aproveDiv">
-        <s:iterator value="actionMessages">
-            <span class="aproveMsg"><s:property escape="false" />
-            </span>
-        </s:iterator>
-    </div><br />
-</s:if>
+
         
 <center><b>Archivos de la evaluación de DIDE</b></center><br />
 <div class="tablaFormal">
