@@ -233,6 +233,7 @@
             <result name="modificarCupos" type="tiles">/coordinador.cupos.modificar</result>
             <result name="verCupos" type="tiles">/coordinador.cupos.ver</result>
             <result name="verSolicitudes" type="tiles">/coordinador.solicitudes</result>
+            <result name="recomendarExtraplanes" type="tiles">/coordinador.rec.extra</result>
             
             <result name="SolicitudesEstudiantes" type="tiles">/dide.solicitudes.estudiantes</result>
             <result name="EstudiantesCambioDIDE" type="tiles">/dide.estudiantes.cambio</result>

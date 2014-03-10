@@ -221,6 +221,7 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
             rs = st.executeQuery("select * from plantilla where usbid='"+ coordinador +"' order by nombre");
 
             while (rs.next()) {
+                System.out.println("Si tiene plantillas");
                 listaAux = "";
                 mb = new Plantillas();
                 mb.setNombre(rs.getString("nombre"));
@@ -234,12 +235,17 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
                     while (rs2.next()) {
                         listaAux = listaAux + ", " + rs2.getString("nombre");
                     }
+                    System.out.println(listaAux);
                 }
                 mb.setListaMaterias(listaAux);
                 li.add(mb);
             }
-
-            request.setAttribute("lista_plantillas", li);
+            
+            if (request != null) {
+                request.setAttribute("lista_plantillas", li);
+            } else {
+                session2.put("rec_plantillas",li);
+            }
             rs.close();
             st.close();
 

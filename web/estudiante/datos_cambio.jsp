@@ -118,7 +118,24 @@
     </tr>
     <tr>
         <td><b>Extraplanes asignados:</b></td>
-        <td>Aqui van extraplanes</td>
+        
+        
+        <td>Aqui van extraplanes<br/>
+        <%
+            Map sesion = ActionContext.getContext().getSession();
+            if (sesion.get("rol").toString().equals("Coordinador")) {
+        %>
+        <s:url id="recomendarExtraplanes" namespace="/" action="recomendarExtraplanesLink2" >
+            <s:param name="usbid"><s:property value="usbid" /></s:param>
+            <s:param name="nombre"><s:property value="nombre" /> <s:property value="apellido" /></s:param>
+            <s:param name="indice"><s:property value="indice" /></s:param>
+            <s:param name="cOrigen"><s:property value="carreraOrigen.nombre" /></s:param>
+        </s:url>
+        <s:a href="%{recomendarExtraplanes}">
+            <input type="button" value="Asignar Extraplanes">
+        </s:a>
+        <%  }
+        %></td>
     </tr>
 </table>
     <br/>
@@ -151,16 +168,14 @@
             <td class="bord"><center><%= nombre%></center></td>
             <td class="bord">
                 <center>
-                    <form name="fom" method="post">
-                        <s:url id="fileDownload" namespace="/" action="download" >
-                            <s:param name="fileName"><%= nombre%></s:param>
-                            <s:param name="destPath"><%= ruta%></s:param>
-                        </s:url>
-                        <s:a href="%{fileDownload}">
-                            <img src="images/save.png" alt="Guardar" 
-                            title="Guardar" width="20" height="20">
-                        </s:a>
-                    </form>
+                    <s:url id="fileDownload" namespace="/" action="download" >
+                        <s:param name="fileName"><%= nombre%></s:param>
+                        <s:param name="destPath"><%= ruta%></s:param>
+                    </s:url>
+                    <s:a href="%{fileDownload}">
+                        <img src="images/save.png" alt="Guardar" 
+                        title="Guardar" width="20" height="20">
+                    </s:a>
                 </center>
             </td>
         </tr> 
@@ -172,7 +187,6 @@
 </div>
 <br/>
 <%
-    Map sesion = ActionContext.getContext().getSession();
     if (sesion.get("rol").toString().equals("DIDE")) {
 %>
 <center>

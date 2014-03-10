@@ -121,6 +121,12 @@
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
+    <definition name="/coordinador.rec.extra" extends="baseLayout">
+        <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
+        <put-attribute name="body"   value="/coordinador/recomendar_extraplanes.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
     <definition name="/coordinador.solicitudes" extends="baseLayout2">
         <put-attribute name="body"   value="/coordinador/solicitudes.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
