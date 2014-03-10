@@ -38,6 +38,7 @@
               '1200 - Ingenieria Geofisica',
               '1500 - Ingenieria de Materiales', 
               '1700 - Ingenieria de Produccion', 
+              '1800 - Ingenieria de Telecomunicaciones',
               '0400 - Licenciatura en Quimica',
               '0500 - Licenciatura en Matematicas',
               '1000 - Licenciatura en Fisica',
@@ -56,8 +57,8 @@
         <table>
             <form name="fom" method="post">
                 <tr>
-                <center><td><b>Trimestres mínimos</b></td> </center>
-                <center><td><b>Trimestres máximos</b></td></center>
+                <center><td><b>Trimestres mínimos para solicitar cambio</b></td> </center>
+                <center><td><b>Trimestres máximos para cursar extraplanes</b></td></center>
                 <center><td><b>Acción</b></td></center>
                 </tr>
                 <%

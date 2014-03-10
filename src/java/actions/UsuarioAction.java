@@ -74,18 +74,24 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
 
         if (getUsbid().equals("admin") && getContrasena().equals("admin")) {
             session.put("usbid", getUsbid());
+            session.put("nombre", "Administrador");
+            session.put("apellido", "del Sistema");
             session.put("rol", "admin");
             return;
         }
         
         if (getUsbid().equals("dec-ep") && getContrasena().equals("dec-ep")) {
             session.put("usbid", "Decanato");
+            session.put("nombre", "Decanato");
+            session.put("apellido", "de Estudios Generales");
             session.put("rol", "Decanato");
             return;
         }
         
         if (getUsbid().equals("DIDE") && getContrasena().equals("dide")) {
             session.put("usbid", "DIDE");
+            session.put("nombre", "DIDE");
+            session.put("apellido", "USB");
             session.put("rol", "DIDE");
             return;
         }

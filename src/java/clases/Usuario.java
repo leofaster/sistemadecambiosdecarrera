@@ -4,9 +4,11 @@
  */
 package clases;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.io.Serializable;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import java.util.Map;
 
 /**
  *
@@ -140,5 +142,14 @@ public class Usuario implements ServletRequestAware {
 
     public void setServletRequest(HttpServletRequest request) {
         this.request = request;
+    }
+    
+    public String salir() {
+        Map session = ActionContext.getContext().getSession();
+        session.put("usbid", null);
+        session.put("nombre", null);
+        session.put("apellido", null);
+        session.put("rol", null);
+        return "success";
     }
 }

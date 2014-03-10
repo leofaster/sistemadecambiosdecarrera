@@ -18,6 +18,10 @@
             <result name="Coordinador"  type="tiles">/coordinador.welcome</result>
             <result name="input"        type="tiles">/login</result>
         </action>
+        
+        <action name="salir" class="clases.Usuario" method="salir">
+            <result name="success" type="tiles">/home</result>
+        </action>
        
         <action name="verificarSol" class="actions.SolicitudAction" method="crearSolicitud"> 
             <result name="success" type="tiles">/estudiante.solicitar.cambio.resultado</result>
