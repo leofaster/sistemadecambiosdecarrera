@@ -21,6 +21,10 @@ function unhide(divID) {
     }
 }
 
+function goBack() {
+    window.history.back()
+}
+
 function confirmar() {
     document.entrar.submit()
 }

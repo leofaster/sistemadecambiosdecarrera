@@ -142,8 +142,18 @@
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     
+    <definition name="/coordinador.nuevo.plan" extends="baseLayout2">
+        <put-attribute name="body"   value="/coordinador/extraplanes/nuevo_plan.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
     <definition name="/coordinador.plantillas.modificar" extends="baseLayout2">
         <put-attribute name="body"   value="/coordinador/plantillas/modificar_plantillas.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    
+    <definition name="/coordinador.plantillas.modificar.antes" extends="baseLayout2">
+        <put-attribute name="body"   value="/coordinador/extraplanes/modificar_plan.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     

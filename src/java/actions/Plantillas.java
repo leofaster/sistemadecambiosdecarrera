@@ -16,6 +16,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
+import java.sql.Date;
+import java.sql.Timestamp;
 import org.apache.struts2.interceptor.ApplicationAware;
 
 /**
@@ -450,6 +452,52 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
             e.printStackTrace();
         }
         
+        return SUCCESS;
+    }
+    
+    public String guardarPlan() throws Exception {
+        
+        ResultSet rs = null;
+        Statement st = null;
+        
+        listaMaterias = request.getParameter("lista");
+        
+        if (listaMaterias.length() < 1) {
+            addActionError("Por favor seleccione al menos una asignatura e introduzca un nombre.");
+            execute();
+            return "input";
+        }
+        
+        String materias[] = listaMaterias.split(",");
+        
+        
+
+        try {
+            
+            ConexionBD.establishConnection();
+            st = ConexionBD.getConnection().createStatement();
+            
+            List<Asignatura> li = null;
+            li = new ArrayList<Asignatura>();
+            Asignatura mb = null;
+            
+            for (int i = 0; i < materias.length; i++ ) {
+                rs = st.executeQuery("select * from asignatura where codasignatura='"+materias[i]+"'");
+                rs.next();
+                mb = new Asignatura();
+                mb.setCodigoS(rs.getString("codasignatura"));
+                mb.setNombre(rs.getString("nombre"));
+                li.add(mb);
+            }
+            
+            request.setAttribute("lista_materias", li);
+            st.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        addActionMessage("La plantilla se creó correctamente.");
         return SUCCESS;
     }
 }

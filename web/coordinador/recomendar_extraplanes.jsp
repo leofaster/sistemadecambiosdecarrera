@@ -17,6 +17,28 @@
         document.fom.action = "download.action?ruta=" + val;
         document.fom.submit();
     }
+    function modificar() {
+        var nombre_plantilla = $('input[name="plantilla"]:checked').val();
+        document.fom.action = "ModificarPlantillaAntes.action?nombre=" + nombre_plantilla;
+        document.fom.submit()
+    }
+    function nomodificar() {
+        var nombre_plantilla = $('input[name="plantilla"]:checked').val();
+        document.fom.action = "NoModificarPlantillaAntes.action?nombre=" + nombre_plantilla;
+        document.fom.submit();
+    }
+    function mostrarVentana2() {
+        var nombre_plantilla = $('input[name="plantilla"]:checked').val();
+        if (!(nombre_plantilla == "newPlantilla")) {
+            var ventana = document.getElementById('miVentana'); // Accedemos al contenedor
+            ventana.style.marginTop = "100px"; // Definimos su posición vertical. La ponemos fija para simplificar el código
+            ventana.style.marginLeft = ((document.body.clientWidth - 350) / 2) + "px"; // Definimos su posición horizontal
+            ventana.style.display = 'block'; // Y lo hacemos visible
+        } else {
+            document.fom.action = "NuevoPlan.action";
+            document.fom.submit();
+        }
+    }
 </script>
 
  <%
@@ -84,7 +106,7 @@
             </table>  
         </div>
         <div align="right">
-            <input type="button" onclick="mostrarVentana();" value="Siguiente ->">
+            <input type="button" onclick="mostrarVentana2();" value="Siguiente ->">
         </div>
     </form>
                 
@@ -93,7 +115,7 @@
     <div style="font-weight: bold; text-align: left; color: #FFFFFF; padding: 5px; background-color:#006394">Modificación de Plan de Estudio</div>
     <p style="padding: 5px; text-align: justify; line-height:normal">¿Desea agregar o eliminar alguna materia del plan de estudio seleccionado?</p>
     <div style="padding: 5px; background-color: #F0F0F0; text-align: center; margin-top: -65px;">
-        <input id="btnAceptar" onclick="confirmar();" name="btnAceptar" size="20" type="button" value="Sí" />
-        <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" size="20" type="button" value="No" />
+        <input id="btnAceptar" onclick="modificar();" name="btnAceptar" size="20" type="button" value="Sí" />
+        <input id="btnAceptar" onclick="nomodificar();" name="btnAceptar" size="20" type="button" value="No" />
     </div>
 </div>
