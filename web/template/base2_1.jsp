@@ -18,7 +18,6 @@
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/estructura2.css">
-
         <title>
             <tiles:insertAttribute name="title" ignore="true" />
         </title>
@@ -27,9 +26,7 @@
         <div id="pagewrap" class="container">
 
             <div id="header" class="row">
-                <div class="col-xs-12">
-                    <tiles:insertAttribute name="header" />
-                </div>
+                <tiles:insertAttribute name="header" />
             </div>
             
             <div class="row">
@@ -37,15 +34,13 @@
                     <tiles:insertAttribute name="menu" />
                 </div>
 
-                <div class="content col-md-12 col-xs-12">
+                <div class="content col-md-6 col-xs-12">
                     <tiles:insertAttribute name="body" />
                 </div>
             </div>
 
             <div class="footer row">
-                <div class="col-xs-12">
-                    <tiles:insertAttribute name="footer" />
-                </div>
+                <tiles:insertAttribute name="footer" />
             </div>
 
         </div>

@@ -27,7 +27,9 @@
         <div id="pagewrap" class="container">
             
             <div id="header" class="row">
-                <tiles:insertAttribute name="header" />
+                <div class="col-md-12">
+                    <tiles:insertAttribute name="header" />
+                </div>
             </div>
             <div class="row">
                 <div class="menu col-md-3">
@@ -42,7 +44,9 @@
             </div>
             
             <div class="footer row">
-                <tiles:insertAttribute name="footer" />
+                <div class="col-md-12">
+                    <tiles:insertAttribute name="footer" />
+                </div>
             </div>
         </div>
     </body>
