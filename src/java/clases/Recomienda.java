@@ -33,8 +33,6 @@ public class Recomienda extends ActionSupport implements ServletRequestAware {
 //    ArrayList notas2 = new ArrayList();
 
     public ArrayList getNotas() {
-        System.out.println("hola");
-        
         return notas;
     }
 
@@ -66,10 +64,39 @@ public class Recomienda extends ActionSupport implements ServletRequestAware {
     public String execute() throws Exception {
         
         Iterator<AsignaturaConNota> iter = notas.iterator();
+        Map sesion = ActionContext.getContext().getSession();
+        String estudiante = sesion.get("rec_usbid").toString();
+        
+        Statement st;
+        ResultSet rs;
 
-        while(iter.hasNext()) {
-            AsignaturaConNota array = iter.next();
-            System.out.println(array.getCodigo() + ": " + array.getNota());
+        try {
+            ConexionBD.establishConnection();
+            st = ConexionBD.getConnection().createStatement();
+
+            rs = st.executeQuery("SELECT * "
+                    + "FROM SOLICITUD "
+                    + "WHERE usbid='"+estudiante+"' "
+                      + "AND sol_aceptada='A'"
+                );
+            
+            rs.next();
+            int carrera = rs.getInt("codcarrera");
+            java.util.Date date = new java.util.Date();
+            Timestamp ts = new Timestamp(date.getTime());
+            
+            while(iter.hasNext()) {
+                AsignaturaConNota materia = iter.next();
+                st.executeUpdate("INSERT INTO RECOMIENDA VALUES('"
+                        + estudiante + "',"
+                        + carrera + ",'"
+                        + ts + "','"
+                        + materia.getCodigo() + "',"
+                        + materia.getNota() + ")");
+                System.out.println(materia.getCodigo() + ": " + materia.getNota());
+            }
+        } catch (Exception e) {
+            return "no success";
         }
   
         return SUCCESS;

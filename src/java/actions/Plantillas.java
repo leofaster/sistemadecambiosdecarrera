@@ -16,8 +16,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
-import java.sql.Date;
-import java.sql.Timestamp;
 import org.apache.struts2.interceptor.ApplicationAware;
 
 /**
