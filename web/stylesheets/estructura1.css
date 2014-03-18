@@ -21,7 +21,7 @@
 .content {
     width: 600px; /* Account for margins + border values */
     float: left;
-    margin: 0px 5px 5px 4px;
+    margin: 0px 20px 5px 20px;
     line-height: 1.6em;
 }
 

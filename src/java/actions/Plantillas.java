@@ -455,6 +455,7 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
         return SUCCESS;
     }
     
+    
     public String guardarPlan() throws Exception {
         
         ResultSet rs = null;
@@ -490,7 +491,10 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
                 li.add(mb);
             }
             
+            Map sesion = ActionContext.getContext().getSession();
+            sesion.put("rec_materias",li);
             request.setAttribute("lista_materias", li);
+            
             st.close();
 
         } catch (Exception e) {

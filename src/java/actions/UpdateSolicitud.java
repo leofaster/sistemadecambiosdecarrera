@@ -165,7 +165,7 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
 
                 mb2 = new AsignaturaConNota();
                 mb2.setAsignatura(mb);
-                mb2.setnota(rs.getInt("nota"));
+                mb2.setNota(rs.getInt("nota"));
                 
                 li.add(mb2);
             }
