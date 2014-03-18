@@ -122,7 +122,7 @@
         </action>
         
         <action name="NoModificarPlantillaAntes" class="actions.Plantillas" method="skipModification">
-            <result type="tiles">/coordinador.plantillas.nomodificar.antes</result>
+            <result type="tiles">/coordinador.asignar.nota</result>
         </action>
         
         <action name="NuevoPlan" class="actions.Plantillas" method="execute">
