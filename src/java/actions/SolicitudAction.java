@@ -5,21 +5,27 @@
 package actions;
 
 import clases.Carrera;
+import clases.Cohorte;
 import clases.ConexionBD;
 import clases.EmailSender;
 import clases.Estudiante;
+import clases.Solicitud;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.interceptor.ServletRequestAware;
 
 /**
  *
  * @author CHANGE Gate
  */
-public class SolicitudAction extends ActionSupport {
+public class SolicitudAction extends ActionSupport implements ServletRequestAware {
 
     private String usbidSol;
     private Estudiante estudiante;
@@ -30,6 +36,7 @@ public class SolicitudAction extends ActionSupport {
     private String motivacion;
     private String carrera_dest;
     private String mensaje;
+    HttpServletRequest request;
 
     /**
      *
@@ -183,6 +190,14 @@ public class SolicitudAction extends ActionSupport {
         return SUCCESS;
     }
 
+    public HttpServletRequest getRequest() {
+        return request;
+    }
+
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
+    
     /**
      *
      * @return @throws Exception
@@ -195,7 +210,7 @@ public class SolicitudAction extends ActionSupport {
             addActionError("Error en la Solicitud.");
             return "input";
         }
-        
+
         if (getMotivacion().length() == 0) {
             addFieldError("motivacion", "No puedes dejar este campo vacío.");
             addActionError("Error en la Solicitud.");
@@ -211,24 +226,24 @@ public class SolicitudAction extends ActionSupport {
 
         this.setCodigoCarrera(Integer.parseInt(carrera_dest.substring(0, 4)));
         ConexionBD.establishConnection();
-        
+
         try {
             s = ConexionBD.getConnection().createStatement();
-            
+
             // Pregunta si el estudiante no tiene solicitudes aceptadas
             rs = s.executeQuery("SELECT * FROM solicitud "
-                                + "WHERE usbid='" + usbidSol + "' "
-                                + "AND SOL_ACEPTADA='A'");
+                    + "WHERE usbid='" + usbidSol + "' "
+                    + "AND SOL_ACEPTADA='A'");
             if (rs.next()) { // Si las tiene, error
                 addActionError("Error en la Solicitud.");
                 mensaje = "Ya se le ha aceptado una solicitud.";
                 return SUCCESS;
             }
-            
+
             // Pregunta si el estudiante tiene solicitudes pendientes
             rs = s.executeQuery("SELECT * FROM solicitud "
-                                + "WHERE usbid='" + usbidSol + "' "
-                                + "AND SOL_ACEPTADA='P'");
+                    + "WHERE usbid='" + usbidSol + "' "
+                    + "AND SOL_ACEPTADA='P'");
 
             if (!rs.next()) { // Si no las tiene, la crea
 
@@ -251,7 +266,7 @@ public class SolicitudAction extends ActionSupport {
                 if (!aprobado_cb) {
                     advertencia = "El estudiante no ha aprobado ciclo básico.\n";
                 }
-                
+
                 // Verificación de que el estudiante tenga más de 3 años en su carrera
                 int cohorte;
 
@@ -262,7 +277,7 @@ public class SolicitudAction extends ActionSupport {
                 if (!cohortebuena) {
                     advertencia = advertencia + "El estudiante lleva más de 3 años en la carrera.\n";
                 }
-                
+
                 // Verificación de que el estudiante tenga el índice mínimo para 
                 // cambiarse a esa carrera
                 boolean indices = (est.getIndice() >= est.getCarreraOrigen().getIndiceMin());
@@ -272,7 +287,7 @@ public class SolicitudAction extends ActionSupport {
                 }
 
                 System.out.println(advertencia);
-                
+
                 // Se crea la solicitud
                 s.executeUpdate("INSERT INTO SOLICITUD VALUES('"
                         + usbidSol + "',"
@@ -280,7 +295,7 @@ public class SolicitudAction extends ActionSupport {
                         + "NOW(),'"
                         + advertencia + "',"
                         + "'P',"
-                        + "'P'," 
+                        + "'P',"
                         + "'P',"
                         + "'" + motivacion + "')");
 
@@ -294,13 +309,13 @@ public class SolicitudAction extends ActionSupport {
 
 //                EmailSender emailer = new EmailSender(a, asunto, cuerpo);
 //                emailer.sendEmail();
-                
-            // Si ya tenía solicitudes enviadas
+
+                // Si ya tenía solicitudes enviadas
             } else {
                 addActionError("Error en la Solicitud.");
                 mensaje = "Ya habías enviado una solicitud de cambio.";
             }
-            
+
         } catch (Exception e) {
             System.out.println("Problem in searching the database crearSolicitud");
         }
@@ -313,8 +328,8 @@ public class SolicitudAction extends ActionSupport {
      */
     public String listarSolicitudes() throws Exception {
 
-        ResultSet rs = null, rs2 = null;
-        Statement s = null;
+        ResultSet rs;
+        Statement s;
         ConexionBD.establishConnection();
 
         Map session2 = ActionContext.getContext().getSession();
@@ -322,31 +337,65 @@ public class SolicitudAction extends ActionSupport {
 
         try {
             s = ConexionBD.getConnection().createStatement();
-            
+
             // Si ya se le aceptó una solicitud
-            rs = s.executeQuery("SELECT * FROM solicitud "
-                                + "natural join carrera "
-                                + "WHERE usbid='" + usbido + "' "
-                                + "AND SOL_ACEPTADA='A'");
+            /*rs = s.executeQuery("SELECT * FROM solicitud "
+             + "natural join carrera "
+             + "WHERE usbid='" + usbido + "' "
+             + "AND SOL_ACEPTADA='A'"
+             + "ORDER BY  fecha");
             
-            if (rs.next()) {
-                mensaje = "Ya se le ha aceptado una solicitud de\ncambio de carrera a " + rs.getString("nombre") + ".";
-                return SUCCESS;
-            }
-            
+             if (rs.next()) {
+             mensaje = "Ya se le ha aceptado una solicitud de\ncambio de carrera a " + rs.getString("nombre") + ".";
+             return SUCCESS;
+             }*/
+
             // Lista el historial de solicitudes
             rs = s.executeQuery("SELECT * FROM solicitud "
-                                + "NATURAL JOIN carrera "
-                                + "WHERE usbid='" + usbido + "' ORDER BY FECHA");
+                    + "NATURAL JOIN carrera "
+                    + "WHERE usbid='" + usbido + "' ORDER BY FECHA");
+
+            List<Solicitud> li = new ArrayList<Solicitud>();
+            Solicitud solicitudAux;
+            Carrera carreraAux;
+            System.out.println("A listar solicitudes...");
+            int i = 0;
+            while (rs.next()){
+                i = i + 1 ;
+                System.out.println(i);
+                solicitudAux = new Solicitud();
+                carreraAux = new Carrera();
+                
+                solicitudAux.setFecha(rs.getString("FECHA"));
+                solicitudAux.setCarrera(carreraAux);
+                carreraAux.setNombre(rs.getString("NOMBRE"));
+                System.out.println("wepawe");
+                if (rs.getString("SOL_ACEPTADA").equals("R")) {
+                    solicitudAux.setPreAceptacion("Rechazada");
+                } else if (rs.getString("SOL_ACEPTADA").equals("A")) {
+                    solicitudAux.setPreAceptacion("Aceptada");
+                } else {
+                    solicitudAux.setPreAceptacion("En espera.");
+                }
+                
+                System.out.println("sol de: " + usbido + " a " + solicitudAux.getCarrera().getNombre());
+                li.add(solicitudAux);
+                System.out.println("jiji ola");
+            }
             
-            if (rs.next()) {
+            request.setAttribute("lista_solicitudes", li);
+            rs.close();
+            s.close();
+            return SUCCESS;
+            
+            /*if (rs.next()) {
                 mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
                 if (rs.getString("SOL_ACEPTADA").equals("R")) {
                     mensaje += ". Solicitud rechazada.";
                 } else {
                     mensaje += ". Solicitud pendiente.";
                 }
-                
+
                 while (rs.next()) {
                     mensaje = mensaje + "\n\n" + rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
                     if (rs.getString("SOL_ACEPTADA").equals("R")) {
@@ -355,14 +404,15 @@ public class SolicitudAction extends ActionSupport {
                         mensaje += ". Solicitud pendiente.";
                     }
                 }
-                
+
             } else {
                 mensaje = "No has enviado solicitudes";
             }
-
+            */
         } catch (Exception e) {
             System.out.println("Problem in searching the database listarSolicitudes");
+            return "no success";
         }
-        return SUCCESS;
+
     }
 }

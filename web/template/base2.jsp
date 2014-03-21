@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <html>    
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
         <script src="javascripts/jquery.js"></script>
         <script src="javascripts/bootstrap-transfer.js"></script>
@@ -24,30 +26,32 @@
         </title>
     </head>
     <body>
-        <div id="pagewrap" class="container">
+        <div class="container">
+            <div id="pagewrap">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="header">
+                            <tiles:insertAttribute name="header" />
+                        </div>
+                    </div>
+                </div>
 
-            <div id="header" class="row">
-                <div class="col-xs-12">
-                    <tiles:insertAttribute name="header" />
+                <div class="row">
+                    <div class="menu col-md-3 col-xs-12">
+                        <tiles:insertAttribute name="menu" />
+                    </div>
+
+                    <div class="content col-md-9 col-xs-12">
+                        <tiles:insertAttribute name="body" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="footer col-md-12 col-xs-12">
+                        <tiles:insertAttribute name="footer" />
+                    </div>
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="menu col-md-3 col-xs-12">
-                    <tiles:insertAttribute name="menu" />
-                </div>
-
-                <div class="content col-md-12 col-xs-12">
-                    <tiles:insertAttribute name="body" />
-                </div>
-            </div>
-
-            <div class="footer row">
-                <div class="col-xs-12">
-                    <tiles:insertAttribute name="footer" />
-                </div>
-            </div>
-
         </div>
     </body>
 </html>
