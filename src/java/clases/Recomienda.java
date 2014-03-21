@@ -87,12 +87,12 @@ public class Recomienda extends ActionSupport implements ServletRequestAware {
             
             while(iter.hasNext()) {
                 AsignaturaConNota materia = iter.next();
-                st.executeUpdate("INSERT INTO RECOMIENDA VALUES('"
-                        + estudiante + "',"
-                        + carrera + ",'"
-                        + ts + "','"
-                        + materia.getCodigo() + "',"
-                        + materia.getNota() + ")");
+//                st.executeUpdate("INSERT INTO RECOMIENDA VALUES('"
+//                        + estudiante + "',"
+//                        + carrera + ",'"
+//                        + ts + "','"
+//                        + materia.getCodigo() + "',"
+//                        + materia.getNota() + ")");
                 System.out.println(materia.getCodigo() + ": " + materia.getNota());
             }
         } catch (Exception e) {
