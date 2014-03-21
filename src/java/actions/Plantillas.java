@@ -16,8 +16,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
-import java.sql.Date;
-import java.sql.Timestamp;
 import org.apache.struts2.interceptor.ApplicationAware;
 
 /**
@@ -192,6 +190,48 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
             st.close();
             rs2.close();
             st2.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return SUCCESS;
+    }
+    
+    public String skipModification() throws Exception {
+        ResultSet rs = null;
+        Statement st = null;
+
+        try {
+            ConexionBD.establishConnection();
+            st = ConexionBD.getConnection().createStatement();
+
+            nombre = request.getParameter("nombre");
+            
+            Map session2 = ActionContext.getContext().getSession();
+            coordinador = session2.get("usbid").toString();
+            
+            List<Asignatura> listita = null;
+            listita = new ArrayList<Asignatura>();
+            Asignatura mb;
+            
+            rs = st.executeQuery("select a.codasignatura, a.nombre n from contempla c, asignatura a where c.usbid='"
+                        + coordinador
+                        + "' and c.nombre='"
+                        + nombre
+                        + "' and c.codasignatura=a.codasignatura order by a.codasignatura");
+
+            while (rs.next()) {
+                mb = new Asignatura();
+                mb.setCodigoS(rs.getString("codasignatura"));
+                mb.setNombre(rs.getString("n"));
+                listita.add(mb);
+            }
+
+            request.setAttribute("lista_materias", listita);
+            
+            st.close();
+            rs.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -455,6 +495,7 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
         return SUCCESS;
     }
     
+    
     public String guardarPlan() throws Exception {
         
         ResultSet rs = null;
@@ -490,7 +531,10 @@ public class Plantillas extends ActionSupport implements ServletRequestAware, Ap
                 li.add(mb);
             }
             
+            Map sesion = ActionContext.getContext().getSession();
+            sesion.put("rec_materias",li);
             request.setAttribute("lista_materias", li);
+            
             st.close();
 
         } catch (Exception e) {

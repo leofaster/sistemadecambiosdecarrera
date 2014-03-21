@@ -14,10 +14,8 @@ public class AsignaturaConNota implements Serializable {
 
     private Asignatura asignatura;
     private int nota;
+    private String codigo;
 
-    /**
-     *
-     */
     public AsignaturaConNota() {
     }
 
@@ -31,35 +29,27 @@ public class AsignaturaConNota implements Serializable {
         this.nota = nota;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getNota() {
-        return this.nota;
+    public Asignatura getAsignatura() {
+        return asignatura;
     }
 
-    /**
-     *
-     * @param nota
-     */
-    public void setnota(int nota) {
+    public void setAsignatura(Asignatura asignatura) {
+        this.asignatura = asignatura;
+    }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
         this.nota = nota;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Asignatura getAsignatura() {
-        return this.asignatura;
+    public String getCodigo() {
+        return codigo;
     }
 
-    /**
-     *
-     * @param asignatura
-     */
-    public void setAsignatura(Asignatura asignatura) {
-        this.asignatura = new Asignatura(asignatura);
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }

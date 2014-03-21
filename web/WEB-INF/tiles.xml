@@ -70,6 +70,10 @@
         <put-attribute name="body"   value="/estudiante/datos_cambio.jsp"/>  
         <put-attribute name="menu"   value="/dide/menu.jsp"/>  
     </definition>
+    <definition name="/coordinador.asignar.nota" extends="baseLayout">
+        <put-attribute name="body"   value="/coordinador/extraplanes/asignar_nota.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
     <definition name="/coordinador.estudiante.datos.cambio" extends="baseLayout">
         <put-attribute name="body"   value="/estudiante/datos_cambio.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  

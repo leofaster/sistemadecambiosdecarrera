@@ -48,6 +48,10 @@
             <result type="tiles">/coordinador.plantillas.agregar</result>
         </action>
         
+        <action name="AsignarNota" class="clases.Recomienda" method="execute">
+            <result type="tiles">/home</result>
+        </action>
+        
         <action name="Aprobar" class="actions.UpdateSolicitud" method="Aceptar"> 
             <result name="success" type="tiles">/coordinador.solicitudes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
@@ -101,7 +105,7 @@
         </action>
         
         <action name="GuardarPlan" class="actions.Plantillas" method="guardarPlan">
-            <result type="tiles">/home</result>
+            <result type="tiles">/coordinador.asignar.nota</result>
         </action>
         
         <action name="ModificarPlantilla" class="actions.Plantillas" method="modificarPlantilla">
@@ -118,7 +122,7 @@
         </action>
         
         <action name="NoModificarPlantillaAntes" class="actions.Plantillas" method="skipModification">
-            <result type="tiles">/coordinador.plantillas.nomodificar.antes</result>
+            <result type="tiles">/coordinador.asignar.nota</result>
         </action>
         
         <action name="NuevoPlan" class="actions.Plantillas" method="execute">

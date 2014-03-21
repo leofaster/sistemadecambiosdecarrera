@@ -9,14 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.9.1.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript">
-    function descargar(val) {
-        document.fom.action = "download.action?ruta=" + val;
-        document.fom.submit();
-    }
     function modificar() {
         var nombre_plantilla = $('input[name="plantilla"]:checked').val();
         document.fom.action = "ModificarPlantillaAntes.action?nombre=" + nombre_plantilla;

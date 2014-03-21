@@ -9,9 +9,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.9.1.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="stylesheets/jquery-ui.css">
+<script src="javascripts/jquery-1.10.2.js"></script>
+<script src="javascripts/jquery-ui.js"></script>
 <script type="text/javascript">
     function descargar(val) {
         document.fom.action = "download.action?ruta=" + val;
