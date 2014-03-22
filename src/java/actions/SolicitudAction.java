@@ -25,7 +25,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
  *
  * @author CHANGE Gate
  */
-public class SolicitudAction extends ActionSupport implements ServletRequestAware {
+public class SolicitudAction extends ActionSupport /*implements ServletRequestAware*/ {
 
     private String usbidSol;
     private Estudiante estudiante;

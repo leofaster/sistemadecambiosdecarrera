@@ -84,16 +84,18 @@ public class Recomienda extends ActionSupport implements ServletRequestAware {
             int carrera = rs.getInt("codcarrera");
             java.util.Date date = new java.util.Date();
             Timestamp ts = new Timestamp(date.getTime());
-            
+            Timestamp fecha_sol = rs.getTimestamp("fecha");
             while(iter.hasNext()) {
                 AsignaturaConNota materia = iter.next();
-//                st.executeUpdate("INSERT INTO RECOMIENDA VALUES('"
-//                        + estudiante + "',"
-//                        + carrera + ",'"
-//                        + ts + "','"
-//                        + materia.getCodigo() + "',"
-//                        + materia.getNota() + ")");
-                System.out.println(materia.getCodigo() + ": " + materia.getNota());
+                st.executeUpdate("INSERT INTO RECOMIENDA VALUES('"
+                        + estudiante + "',"
+                        + carrera + ",'"
+                        + fecha_sol + "','"
+                        + materia.getCodigo() + "','"
+                        + materia.getNota() + "','"
+                        + ts + "')");
+                System.out.println(materia.getCodigo() + ": " + materia.getNota()
+                        + " " + fecha_sol + " "+ ts);
             }
         } catch (Exception e) {
             return "no success";

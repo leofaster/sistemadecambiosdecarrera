@@ -44,8 +44,11 @@
     <table border="0"> 
         <tr>
             <td><%= nombre%></td>
-            
-            <td>&nbsp;&nbsp;<input type="text" name="notas[<%= i%>].nota" value="3">
+            <td><s:select name="notas[<%= i%>].nota"  required="true"
+                  list="{4,5}"
+                  headerKey="3" headerValue="3"/>
+                
+            <%--<td>&nbsp;&nbsp;<input type="text" name="notas[<%= i%>].nota" value="3">--%>
             <input type="hidden" name="notas[<%= i%>].codigo" value="<%= codigo%>" /></td>
         </tr>
     </table>
@@ -65,7 +68,7 @@
     <div style="font-weight: bold; text-align: left; color: #FFFFFF; padding: 5px; background-color:#006394">Asinación de notas</div>
     <p style="padding: 5px; text-align: justify; line-height:normal">¿Está seguro de continuar con las calificaciones suministradas?</p>
     <div style="padding: 5px; background-color: #F0F0F0; text-align: center; margin-top: -65px;">
-        <input id="btnAceptar" onclick="confirmar();" name="btnAceptar" size="20" type="button" value="Continuar" />
-        <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" size="20" type="button" value="Cancelar" />
+        <input id="btnAceptar" onclick="confirmar();" name="btnAceptar"  type="button" value="Continuar" />
+        <input id="btnAceptar" onclick="ocultarVentana();" name="btnAceptar" type="button" value="Cancelar" />
     </div>
 </div>
