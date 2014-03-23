@@ -1,5 +1,5 @@
 <%-- 
-    Document    : indexCoordinador
+    Document    : datos_cambio
     Author      : CHANGE Gate
 --%>
 
@@ -52,41 +52,41 @@
             <table>
                 <tr>
                     <td><center><b>Materia</b></center></td>
-                    <td><center><b>Código</b></center></td>
-                    <td><center><b>Nota</b></center></td>
+                <td><center><b>Código</b></center></td>
+                <td><center><b>Nota</b></center></td>
                 </tr>
-    <%
-            Iterator it = l.iterator();
-                while (it.hasNext()) {
-                    clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
-                    String nombre = b.getAsignatura().getNombre();
-                    String codigo = b.getAsignatura().getCodigoS();
-                    String nota = b.getNota() + "";
-    %>
+                <%
+                    Iterator it = l.iterator();
+                    while (it.hasNext()) {
+                        clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
+                        String nombre = b.getAsignatura().getNombre();
+                        String codigo = b.getAsignatura().getCodigoS();
+                        String nota = b.getNota() + "";
+                %>
                 <tr>
                     <td><center><%= nombre%></center></td>
-                    <td><center><%= codigo%></center></td>
-                    <td><center><%= nota%></center></td>
+                <td><center><%= codigo%></center></td>
+                <td><center><%= nota%></center></td>
                 </tr>
-    <%
-                }
-    %>
+                <%
+                    }
+                %>
 
             </table>
         </div>
 
-    <%
+        <%
             }
-    %>
+        %>
     </center>
 </div>
-    
+
 <s:if test="hasActionMessages()">
-    
-        <s:iterator value="actionMessages">
-            
-        </s:iterator>
-    
+
+    <s:iterator value="actionMessages">
+
+    </s:iterator>
+
 </s:if>
 
 <center><h4>Perfil del Estudiante</h4> </center>
@@ -118,32 +118,47 @@
     </tr>
     <tr>
         <td><b>Extraplanes asignados:</b></td>
-        
-        
-        <td>Aqui van extraplanes<br/>
+
         <%
-            Map sesion = ActionContext.getContext().getSession();
-            if (sesion.get("rol").toString().equals("Coordinador")) {
+            List le = (List) request.getAttribute("listaExtraplanes");
+            if (le == null) {
+
         %>
-        <s:url id="recomendarExtraplanes" namespace="/" action="recomendarExtraplanesLink2" >
-            <s:param name="usbid"><s:property value="usbid" /></s:param>
-            <s:param name="nombre"><s:property value="nombre" /> <s:property value="apellido" /></s:param>
-            <s:param name="indice"><s:property value="indice" /></s:param>
-            <s:param name="cOrigen"><s:property value="carreraOrigen.nombre" /></s:param>
-        </s:url>
-        <s:a href="%{recomendarExtraplanes}">
-            <input type="button" value="Asignar Extraplanes">
-        </s:a>
-        <%  }
-        %></td>
-    </tr>
-</table>
-    <br/>
-    <center><button id="opener">Mostrar Informe Académico</button></center>
+        <td>El estudiante aún no tiene extraplanes asignados.<br/>
+            <%} else {%>
+        </table>
+                    <%Iterator it = le.iterator();
+                        while (it.hasNext()) {
+                            clases.AsignaturaConNota extraplan = (clases.AsignaturaConNota) it.next();
+                            clases.Asignatura asignatura = extraplan.getAsignatura();
+                            String codigo = asignatura.getCodigoS();
+                            int nota = extraplan.getNota();
+                            String nombreAsignatura = asignatura.getNombre();
+                    %>  
+        <center><%= nombreAsignatura%> (minimo <%= nota%>).<br></center>
+                    <%}
+                        }%>
+
+            <%                Map sesion = ActionContext.getContext().getSession();
+                if (sesion.get("rol").toString().equals("Coordinador")) {
+            %>
+            <s:url id="recomendarExtraplanes" namespace="/" action="recomendarExtraplanesLink2" >
+                <s:param name="usbid"><s:property value="usbid" /></s:param>
+                <s:param name="nombre"><s:property value="nombre" /> <s:property value="apellido" /></s:param>
+                <s:param name="indice"><s:property value="indice" /></s:param>
+                <s:param name="cOrigen"><s:property value="carreraOrigen.nombre" /></s:param>
+            </s:url>
+            <s:a href="%{recomendarExtraplanes}">
+                <center><input type="button" value="Editar Extraplanes"></center>
+            </s:a>
+            <%  }
+            %>
+<br/>
+<center><button id="opener">Mostrar Informe Académico</button></center>
 <br/>
 
 
-        
+
 <center><b>Archivos de la evaluación de DIDE</b></center><br />
 <div class="tablaFormal">
     <table >
@@ -153,8 +168,8 @@
         <td class="bord"><center><b>Descargar</b></center></td>
         </tr>
         <%
-           List l2 = (List) request.getAttribute("archivos");
-           if (l2 != null && l2.size() != 0) {
+            List l2 = (List) request.getAttribute("archivos");
+            if (l2 != null && l2.size() != 0) {
         %>
         <%
             Iterator it = l2.iterator();
@@ -166,23 +181,23 @@
         %>
         <tr> 
             <td class="bord"><center><%= nombre%></center></td>
-            <td class="bord">
-                <center>
-                    <s:url id="fileDownload" namespace="/" action="download" >
-                        <s:param name="fileName"><%= nombre%></s:param>
-                        <s:param name="destPath"><%= ruta%></s:param>
-                    </s:url>
-                    <s:a href="%{fileDownload}">
-                        <img src="images/save.png" alt="Guardar" 
-                        title="Guardar" width="20" height="20">
-                    </s:a>
-                </center>
-            </td>
+        <td class="bord">
+        <center>
+            <s:url id="fileDownload" namespace="/" action="download" >
+                <s:param name="fileName"><%= nombre%></s:param>
+                <s:param name="destPath"><%= ruta%></s:param>
+            </s:url>
+            <s:a href="%{fileDownload}">
+                <img src="images/save.png" alt="Guardar" 
+                     title="Guardar" width="20" height="20">
+            </s:a>
+        </center>
+        </td>
         </tr> 
         <%
+                }
             }
-        }
-%>
+        %>
     </table>    
 </div>
 <br/>

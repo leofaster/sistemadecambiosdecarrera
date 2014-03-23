@@ -19,13 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 /**
  *
  * @author CHANGE Gate
  */
-public class SolicitudAction extends ActionSupport /*implements ServletRequestAware*/ {
+public class SolicitudAction extends ActionSupport implements ServletRequestAware {
 
     private String usbidSol;
     private Estudiante estudiante;
@@ -36,7 +37,7 @@ public class SolicitudAction extends ActionSupport /*implements ServletRequestAw
     private String motivacion;
     private String carrera_dest;
     private String mensaje;
-    HttpServletRequest request;
+    protected HttpServletRequest request;
 
     /**
      *
@@ -198,6 +199,10 @@ public class SolicitudAction extends ActionSupport /*implements ServletRequestAw
         this.request = request;
     }
     
+    @Override
+    public void setServletRequest(HttpServletRequest request) {
+        this.request = request;
+    }
     /**
      *
      * @return @throws Exception
@@ -362,14 +367,13 @@ public class SolicitudAction extends ActionSupport /*implements ServletRequestAw
             int i = 0;
             while (rs.next()){
                 i = i + 1 ;
-                System.out.println(i);
+
                 solicitudAux = new Solicitud();
                 carreraAux = new Carrera();
                 
                 solicitudAux.setFecha(rs.getString("FECHA"));
                 solicitudAux.setCarrera(carreraAux);
                 carreraAux.setNombre(rs.getString("NOMBRE"));
-                System.out.println("wepawe");
                 if (rs.getString("SOL_ACEPTADA").equals("R")) {
                     solicitudAux.setPreAceptacion("Rechazada");
                 } else if (rs.getString("SOL_ACEPTADA").equals("A")) {
@@ -377,15 +381,13 @@ public class SolicitudAction extends ActionSupport /*implements ServletRequestAw
                 } else {
                     solicitudAux.setPreAceptacion("En espera.");
                 }
-                
-                System.out.println("sol de: " + usbido + " a " + solicitudAux.getCarrera().getNombre());
                 li.add(solicitudAux);
-                System.out.println("jiji ola");
             }
             
-            request.setAttribute("lista_solicitudes", li);
+            request.setAttribute("listaSolicitudes", li);
             rs.close();
             s.close();
+            System.out.println("Tamanho: " + li.size());
             return SUCCESS;
             
             /*if (rs.next()) {

@@ -70,6 +70,46 @@ public class Estudiante extends Usuario {
         }
     }
     
+    public void cargarExtraplanes() {
+        ResultSet rs;
+        Statement st;
+
+        try {
+            ConexionBD.establishConnection();
+            st = ConexionBD.getConnection().createStatement();
+
+            List<AsignaturaConNota> li;
+            li = new ArrayList<AsignaturaConNota>();
+            Asignatura asignatura;
+            AsignaturaConNota asignaturaCN;
+
+            rs = st.executeQuery("select * from recomienda natural join asignatura"
+                    + " where usbid='" + this.usbid
+                    + "' order by codasignatura");
+            System.out.println("Estudiante: " + this.usbid);
+            while (rs.next()) {
+                asignatura = new Asignatura();
+                asignatura.setCodigoS(rs.getString("codasignatura"));
+                asignatura.setNombre(rs.getString("nombre"));
+
+                asignaturaCN = new AsignaturaConNota();
+                asignaturaCN.setAsignatura(asignatura);
+                asignaturaCN.setNota(rs.getInt("nota_min"));
+                System.out.println("Extraplan: " + asignatura.getNombre());
+                System.out.println("Codigo: " + asignatura.getCodigoS());
+                System.out.println("Nota: " + asignaturaCN.getNota());
+                li.add(asignaturaCN);
+            }
+
+            request.setAttribute("listaExtraplanes", li);
+            rs.close();
+            st.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void cargarInformeAcademico() {
         ResultSet rs;
         Statement st;
@@ -78,15 +118,14 @@ public class Estudiante extends Usuario {
             ConexionBD.establishConnection();
             st = ConexionBD.getConnection().createStatement();
 
-            List<AsignaturaConNota> li = null;
+            List<AsignaturaConNota> li;
             li = new ArrayList<AsignaturaConNota>();
-            Asignatura mb = null;
-            AsignaturaConNota mb2 = null;
+            Asignatura mb;
+            AsignaturaConNota mb2;
 
             rs = st.executeQuery("select * from calificacion natural join asignatura"
                     + " where usbid='" + this.usbid
                     + "' order by codasignatura");
-
             while (rs.next()) {
                 mb = new Asignatura();
                 mb.setCodigoS(rs.getString("codasignatura"));
@@ -95,7 +134,6 @@ public class Estudiante extends Usuario {
                 mb2 = new AsignaturaConNota();
                 mb2.setAsignatura(mb);
                 mb2.setNota(rs.getInt("nota"));
-                
                 li.add(mb2);
             }
 
@@ -116,9 +154,9 @@ public class Estudiante extends Usuario {
             ConexionBD.establishConnection();
             st = ConexionBD.getConnection().createStatement();
 
-            List<Reporte> li = null;
+            List<Reporte> li;
             li = new ArrayList<Reporte>();
-            Reporte rep = null;
+            Reporte rep;
 
             String carn = request.getParameter("carnet");
             
@@ -181,7 +219,7 @@ public class Estudiante extends Usuario {
             
             this.cargarInformeAcademico();
             this.cargarArchivos();
-            
+            this.cargarExtraplanes();
             return sesion.get("rol").toString();
         } catch (Exception e) {
             e.printStackTrace();

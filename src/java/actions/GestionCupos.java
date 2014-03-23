@@ -130,7 +130,7 @@ public class GestionCupos extends ActionSupport implements ServletRequestAware {
     @Override
     public void validate() {
         if (this.getCarrera().equals("-1")) {
-             addActionError("Seleccione una carrera válida");
+            addActionError("Seleccione una carrera válida");
             //addFieldError("carrera", "Seleccione una carrera válida");
         }
     }
@@ -142,12 +142,10 @@ public class GestionCupos extends ActionSupport implements ServletRequestAware {
     public void setCohorte(String aux) {
         this.cohorte = aux;
     }
-        
-    
+
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
     public String execute() throws Exception {
         ResultSet rs = null;
@@ -159,7 +157,9 @@ public class GestionCupos extends ActionSupport implements ServletRequestAware {
             st = ConexionBD.getConnection().createStatement();
             System.out.println("Conecto");
             System.out.println(this.getCarrera());
-            rs = st.executeQuery("SELECT * FROM contiene WHERE codcarrera='" + this.getCarrera().substring(0, 4) + "' order by cohorte");
+            rs = st.executeQuery("SELECT * FROM contiene WHERE codcarrera='"
+                                    + this.getCarrera().substring(0, 4)
+                                    + "' order by cohorte");
             System.out.println("Ejecutar solicitar cupos");
             String cupos;
             System.out.println("hey1");
@@ -192,5 +192,4 @@ public class GestionCupos extends ActionSupport implements ServletRequestAware {
         }
         return "no success";
     }
-    
 }

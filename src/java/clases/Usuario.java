@@ -43,7 +43,7 @@ public class Usuario implements ServletRequestAware {
     protected String apellido;
     private String contrasena;
     private String rol;
-
+    
     /**
      *
      * @return
@@ -140,6 +140,7 @@ public class Usuario implements ServletRequestAware {
         this.rol = rol;
     }
 
+    @Override
     public void setServletRequest(HttpServletRequest request) {
         this.request = request;
     }

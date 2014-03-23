@@ -73,7 +73,9 @@ public class Recomienda extends ActionSupport implements ServletRequestAware {
         try {
             ConexionBD.establishConnection();
             st = ConexionBD.getConnection().createStatement();
-
+            // ojo esto es provicional, posiblemente.
+            /*st.executeUpdate("DELETE FROM RECOMIENTA WHERE usbid='"
+                        + estudiante + "'"); */
             rs = st.executeQuery("SELECT * "
                     + "FROM SOLICITUD "
                     + "WHERE usbid='"+estudiante+"' "
@@ -94,8 +96,9 @@ public class Recomienda extends ActionSupport implements ServletRequestAware {
                         + materia.getCodigo() + "','"
                         + materia.getNota() + "','"
                         + ts + "')");
-                System.out.println(materia.getCodigo() + ": " + materia.getNota()
-                        + " " + fecha_sol + " "+ ts);
+/*            clases.Estudiante student = new Estudiante();
+            student.setUsbid(estudiante);
+            student.visualizarDatosCambio();*/
             }
         } catch (Exception e) {
             return "no success";

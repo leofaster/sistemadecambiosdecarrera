@@ -36,13 +36,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="menu col-md-3">
+                    <div class="menu col-md-3 col-lg-3">
                         <tiles:insertAttribute name="menu" />
                     </div>
-                    <div class="content col-md-6">
+                    <div class="content col-md-6 col-lg-6">
                         <tiles:insertAttribute name="body" />
                     </div>
-                    <div id="sidebar" class="col-md-3">
+                    <div id="sidebar" class="col-md-3 col-lg-3">
                         <tiles:insertAttribute name="banner" />
                     </div>    
                 </div>

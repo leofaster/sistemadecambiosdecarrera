@@ -1,5 +1,5 @@
 <%-- 
-    Document    : mostrarCupoC
+    Document    : mostrarCupos
     Author      : CHANGE Gate
 --%>
 

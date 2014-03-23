@@ -43,7 +43,7 @@
     %>
     <table border="0"> 
         <tr>
-            <td><%= nombre%></td>
+            <td><%= nombre%>:  </td>
             <td><select name="notas[<%= i%>].nota">
                     <option value="3">3</option>
                     <option value="4">4</option>
