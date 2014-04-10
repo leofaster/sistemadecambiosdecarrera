@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases;
 
 /**
  *
- * @author Utilizador
+ * @author Change Gate 
  */
 public class cifrador {
     private String key = "Becca<3";
@@ -28,7 +24,7 @@ public class cifrador {
         System.out.println(input + " " + output);
         return output;
     }
-
+/*
     public String descifrar(String input){
         String output="";
         int length = input.length();
@@ -51,6 +47,6 @@ public class cifrador {
         System.out.println(input + " " + output);
         return output;
     }
- 
+*/ 
     
 }

@@ -38,6 +38,7 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
     private String carrera_dest;
     private String mensaje;
     protected HttpServletRequest request;
+    ArrayList cuestionario = new ArrayList();
 
     /**
      *
@@ -209,7 +210,8 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
      * @throws Exception
      */
     public String crearSolicitud() throws Exception {
-
+        
+        
         if (this.carrera_dest != null && this.carrera_dest.equals("-1")) {
             addFieldError("carrera_dest", "Seleccione una carrera válida");
             addActionError("Error en la Solicitud.");
@@ -342,18 +344,6 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
 
         try {
             s = ConexionBD.getConnection().createStatement();
-
-            // Si ya se le aceptó una solicitud
-            /*rs = s.executeQuery("SELECT * FROM solicitud "
-             + "natural join carrera "
-             + "WHERE usbid='" + usbido + "' "
-             + "AND SOL_ACEPTADA='A'"
-             + "ORDER BY  fecha");
-            
-             if (rs.next()) {
-             mensaje = "Ya se le ha aceptado una solicitud de\ncambio de carrera a " + rs.getString("nombre") + ".";
-             return SUCCESS;
-             }*/
 
             // Lista el historial de solicitudes
             rs = s.executeQuery("SELECT * FROM solicitud "

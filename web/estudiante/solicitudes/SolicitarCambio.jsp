@@ -15,7 +15,7 @@
 
     </style>
 </head>
-<h4>Solicitud de Cambio de Carrera:</h4><br />
+<h4>Pre-Solicitud de Cambio de Carrera:</h4><br />
 <s:if test="hasActionErrors()">
     <div class="denyDiv">
         <s:iterator value="actionErrors">
@@ -67,6 +67,9 @@
     <s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
                 label="Motivación" required="true"/>
 </s:form>
+        <<%--<s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
+                label="Preg A." required="true"/>
+</s:form>--%>
 <center><h6>(Máximo 1500 caracteres)</h6>
     <input type="button" onclick="mostrarVentana();" value="Enviar"></center>
 
