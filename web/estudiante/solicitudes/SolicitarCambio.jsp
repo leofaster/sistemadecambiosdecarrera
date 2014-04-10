@@ -3,6 +3,8 @@
     Author      : CHANGE Gate
 --%>
 
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@ page import="java.util.*;" %>
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,10 +43,53 @@
         </tr>
     </table>
 </div>      
+<br>
+<form action="verificarSol" name="entrar">
+    <%-- <s:form action="verificarSol" name="entrar"> --%>
+    <center><select  name='carrera_dest'>
+            <option value='-1'>Seleccionar Carrera...</option>
+            <option value='0100'>0100 - Ingeniería Eléctrica</option>
+            <option value='0200'>0200 - Ingeniería Mecánica</option>
+            <option value='0300'>0300 - Ingeniería Química</option>
+            <option value='0600'>0600 - Ingeniería Electrónica</option>
+            <option value='0800'>0800 - Ingeniería de la Computación</option>
+            <option value='1200'>1200 - Ingeniería Geofísica</option>
+            <option value='1500'>1500 - Ingeniería de Materiales</option>
+            <option value='1700'>1700 - Ingeniería de Producción</option>
+            <option value='1800'>1800 - Ingeniería de Telecomunicaciones</option>
+            <option value='0400'>0400 - Licenciatura en Química</option>
+            <option value='0500'>0500 - Licenciatura en Matemáticas</option>
+            <option value='1000'>1000 - Licenciatura en Física</option>
+            <option value='1900'>1900 - Licenciatura en Biología</option>
+            <option value='0700'>0700 - Arquitectura</option>
+            <option value='1100'>1100 - Urbanismo</option>
+            <option value='3200'>0400 - Licenciatura en Comercio Internacional</option>
+            <option value='0400'>0400 - Licenciatura en Gestión de la Hospitalidad</option>
+        </select></center>
 
+    <br><h6>Preguntas para la evaluación de DIDE: </h6><br><br>
+    <%-- <%
+         List l = (List) request.getAttribute("lista_cuestionario");
+         if (l != null && l.size() != 0) {
+             Iterator it = l.iterator();
+             String enunciado = "";
+             int numero;
+             int i = 0;
+             while (it.hasNext()) {
+                 clases.Pregunta p = (clases.Pregunta) it.next();
+                 enunciado = p.getEnunciado();
+                 numero = p.getNumero();
+                 
 
-<s:form action="verificarSol" name="entrar">
-    <s:select name="carrera_dest" label="Carrera Deseada" required="true"
+    %>
+    <%=numero%>) <%=enunciado %>: <br>
+    
+    
+    
+    <%}%>
+    --%>
+
+    <%--<s:select name="carrera_dest" label="Carrera Deseada" required="true"
               list="{'0100 - Ingeniería Eléctrica', 
               '0200 - Ingeniería Mecánica', 
               '0300 - Ingeniería Química', 
@@ -62,14 +107,15 @@
               '1100 - Urbanismo',
               '3200 - Licenciatura en Comercio Internacional',
               '3000 - Licenciatura en Gestión de la Hospitalidad'}"
-              headerKey="-1" headerValue="Seleccionar carrera..."/>
-    <br/><br /> 
-    <s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
-                label="Motivación" required="true"/>
-</s:form>
-        <<%--<s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
-                label="Preg A." required="true"/>
-</s:form>--%>
+              headerKey="-1" headerValue="Seleccionar carrera..."/>--%>
+    <br><br> 
+    Motivación: <input type="text" maxlength="1500" name='motivacion' >
+    <%--  <s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
+                  label="Motivación" required="true"/>--%>
+</form>
+<%--</s:form>
+<s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
+        label="Preg A." required="true"/>--%>
 <center><h6>(Máximo 1500 caracteres)</h6>
     <input type="button" onclick="mostrarVentana();" value="Enviar"></center>
 

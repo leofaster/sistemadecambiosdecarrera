@@ -13,8 +13,13 @@ package clases;
 
 public class Pregunta  {
 
+    int numero;
     String enunciado;
     String respuesta;
+    
+    public Pregunta(){
+        
+    }
     
     public Pregunta(String enunciado){
         this.enunciado = enunciado;
@@ -36,5 +41,17 @@ public class Pregunta  {
     public String getRespuesta() {
         return respuesta;
     }    
+    
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
     
 }

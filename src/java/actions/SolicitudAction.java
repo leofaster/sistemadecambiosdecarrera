@@ -10,6 +10,7 @@ import clases.ConexionBD;
 import clases.EmailSender;
 import clases.Estudiante;
 import clases.Solicitud;
+import clases.Pregunta;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -21,6 +22,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import java.util.Iterator;
 
 /**
  *
@@ -189,6 +191,30 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
      * @return
      */
     public String solicitarCambio() {
+        ResultSet rs;
+        Statement s;
+
+        try {
+            s = ConexionBD.getConnection().createStatement();
+
+            //Obtiene las preguntas de DIDE
+            rs = s.executeQuery("SELECT * FROM PREGUNTA");
+            Pregunta preguntaAux;
+            int i = 0;
+            while (rs.next()) {
+                i++;
+                preguntaAux = new Pregunta();
+                preguntaAux.setNumero(rs.getInt("NUMERO"));
+                preguntaAux.setEnunciado(rs.getString("ENUNCIADO"));
+                System.out.println(preguntaAux.getEnunciado());
+                cuestionario.add(preguntaAux);
+            }
+            request.setAttribute("lista_cuestionario", cuestionario);
+            System.out.println("wepawe");
+        } catch (Exception e) {
+            System.out.println("Problema en las preguntas de DIDE, base de datos.");
+        }
+
         return SUCCESS;
     }
 
@@ -199,19 +225,21 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
     public void setRequest(HttpServletRequest request) {
         this.request = request;
     }
-    
+
     @Override
     public void setServletRequest(HttpServletRequest request) {
         this.request = request;
     }
+
     /**
      *
      * @return @throws Exception
      * @throws Exception
      */
     public String crearSolicitud() throws Exception {
-        
-        
+
+        Iterator<Pregunta> iter = cuestionario.iterator();
+
         if (this.carrera_dest != null && this.carrera_dest.equals("-1")) {
             addFieldError("carrera_dest", "Seleccione una carrera válida");
             addActionError("Error en la Solicitud.");
@@ -236,6 +264,19 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
 
         try {
             s = ConexionBD.getConnection().createStatement();
+
+            //Obtiene las preguntas de DIDE
+            rs = s.executeQuery("SELECT * FROM PREGUNTA");
+            Pregunta preguntaAux;
+            int i = 0;
+            while (rs.next()) {
+                i++;
+                preguntaAux = new Pregunta();
+                preguntaAux.setNumero(rs.getInt("NUMERO"));
+                preguntaAux.setEnunciado(rs.getString("ENUNCIADO"));
+                cuestionario.add(preguntaAux);
+            }
+            request.setAttribute("cuestionario", cuestionario);
 
             // Pregunta si el estudiante no tiene solicitudes aceptadas
             rs = s.executeQuery("SELECT * FROM solicitud "
@@ -355,12 +396,12 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
             Carrera carreraAux;
             System.out.println("A listar solicitudes...");
             int i = 0;
-            while (rs.next()){
-                i = i + 1 ;
+            while (rs.next()) {
+                i++;
 
                 solicitudAux = new Solicitud();
                 carreraAux = new Carrera();
-                
+
                 solicitudAux.setFecha(rs.getString("FECHA"));
                 solicitudAux.setCarrera(carreraAux);
                 carreraAux.setNombre(rs.getString("NOMBRE"));
@@ -373,34 +414,34 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
                 }
                 li.add(solicitudAux);
             }
-            
+
             request.setAttribute("listaSolicitudes", li);
             rs.close();
             s.close();
             System.out.println("Tamanho: " + li.size());
             return SUCCESS;
-            
+
             /*if (rs.next()) {
-                mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
-                if (rs.getString("SOL_ACEPTADA").equals("R")) {
-                    mensaje += ". Solicitud rechazada.";
-                } else {
-                    mensaje += ". Solicitud pendiente.";
-                }
+             mensaje = rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+             if (rs.getString("SOL_ACEPTADA").equals("R")) {
+             mensaje += ". Solicitud rechazada.";
+             } else {
+             mensaje += ". Solicitud pendiente.";
+             }
 
-                while (rs.next()) {
-                    mensaje = mensaje + "\n\n" + rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
-                    if (rs.getString("SOL_ACEPTADA").equals("R")) {
-                        mensaje += ". Solicitud rechazada.";
-                    } else {
-                        mensaje += ". Solicitud pendiente.";
-                    }
-                }
+             while (rs.next()) {
+             mensaje = mensaje + "\n\n" + rs.getString("fecha") + "\nHas realizado una solicitud para cambiarte a\n" + rs.getString("nombre");
+             if (rs.getString("SOL_ACEPTADA").equals("R")) {
+             mensaje += ". Solicitud rechazada.";
+             } else {
+             mensaje += ". Solicitud pendiente.";
+             }
+             }
 
-            } else {
-                mensaje = "No has enviado solicitudes";
-            }
-            */
+             } else {
+             mensaje = "No has enviado solicitudes";
+             }
+             */
         } catch (Exception e) {
             System.out.println("Problem in searching the database listarSolicitudes");
             return "no success";
