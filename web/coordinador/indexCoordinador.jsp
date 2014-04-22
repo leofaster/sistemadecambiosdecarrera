@@ -8,6 +8,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div id="loginDiv">
-    <center><h4>Hola, <%=session.getAttribute("nombre")%></h4></center>
+    <br><br>
+    <center><h4>
+            Usted ha ingresado satisfactoriamente al Sistema para la Gestión de
+            Cambios de Carrera como el usuario <br>
+            "Coordinador de <%=session.getAttribute("nombre")%>"
+            
+    </h4></center>
 </div>
 

@@ -21,6 +21,7 @@
                   '1200 - Ingenieria Geofisica',
                   '1500 - Ingenieria de Materiales', 
                   '1700 - Ingenieria de Produccion', 
+                  '1800 - Ingenieria de Telecomunicaciones',
                   '0400 - Licenciatura en Quimica',
                   '0500 - Licenciatura en Matematicas',
                   '1000 - Licenciatura en Fisica',

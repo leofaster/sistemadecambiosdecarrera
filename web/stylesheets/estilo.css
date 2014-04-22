@@ -1,3 +1,48 @@
+/*
+Cambios de Estrutura con el Bootstrap
+
+*/
+
+.medio {
+    /*width: 600px;  Account for margins + border values */
+    /*float: left;*/
+    /*margin: 0px 20px 5px 20px;*/
+    /*line-height: 1.6em;*/
+    min-height: 300px;
+}
+#banner{
+    width: 100%;
+}
+#bannerderecha{
+    margin-top: 19px;
+}
+
+
+
+#navlist li {
+    display: block;
+    list-style-type: none;
+    /*padding-right: 20px;*/
+    font-size: 17px;
+    text-align: right;
+    font-weight: bold;
+}
+#navlist li:hover{
+    background-color: #EAEBFC;
+}
+#banner2{
+    text-align: center;
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0;
+}
+/*
+Fin Cambios de estructura
+*/
+
+#username{
+    font-weight: bold;
+}
 .hidden {display: none;}
 .unhidden {display: block;}
 .shown{display:in-line;}
@@ -12,7 +57,7 @@
     border-radius: 3px;
     padding: 15px;
     background: #D7ECFA;
-    position: relative;
+    /*position: relative;*/
 }
 
 .errorMessage {
@@ -88,44 +133,6 @@ body {
     background-color: white;
 }
 
-/* Headings
--------------------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-    line-height: 1em;
-    padding: 0;
-    margin: 24px 0 12px 0;
-}
-h1 { font-size: 1.154em; } /* 28px */
-h2 { font-size: 1.692em; } /* 22px */
-h3 { font-size: 1.385em; } /* 18px */
-h4 { font-size: 1.231em; } /* 16px */
-h5 { font-size: 1.077em; } /* 14px */
-h6 { font-size: 1em; }
-h1.title{
-    margin-top: 7px;
-}
-h2.title {
-    color:#336699;
-    margin-top: 0;
-    margin-bottom: 0.2em;
-}
-h2.block-title {
-    font-size: 1.385em;
-    line-height: 1.2;
-    margin: 0 0 0.4em 0;
-}
-h1.site-name { /* 48px */
-    font-size: 3.692em;
-    margin: 0 0 0.2em 0;
-    padding: 0;
-}
-h2.site-slogan {
-    font-size: 1.077em;
-    margin: 0;
-    padding: 0;
-}
-/*-------------------------------------------*/
 
 #ventana {
     position: fixed; 
@@ -191,76 +198,7 @@ a:hover {
       ESTRUCTURA
 *********************/
 
-#container {
-    position:relative;
-}
 
-#body-content {
-    margin: auto;
-    background-color: white;
-    width: 80%;
-    position: relative;
-    padding-bottom: 100px;
-}
-
-#banner{
-    alignment-adjust: central;
-    width: 990px;
-    height: 160px;
-}
-
-.nav li a{
-    font-size: 0.8em;
-    color: #1C6EA0;
-}
-
-.nav li a:hover{
-    color: white;
-    background-color: #42a142;
-    text-decoration: none
-}
-
-.nav > li{
-    float:left;	
-}
-
-#login-form{
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    text-align: center;
-    padding: 3px;
-}
-
-#login-form2{
-    position: relative;
-    width: 400px;
-    left:-20px;
-    background-color: white;
-}
-
-#login-form table {
-    width: 100%;
-    color: white;
-}
-
-#sidebarR {
-
-    width: 150px;
-    float: right;
-    margin-top: 50px;
-}
-
-#sidebarL {
-
-    width: 170px;
-    float: left;
-    margin-top: 50px;
-    text-align: left;
-    font-size: 0.9em;
-    font-weight: bold;
-}
 .error{
     border-color: red;
 }

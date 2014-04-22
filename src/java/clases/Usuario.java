@@ -4,17 +4,30 @@
  */
 package clases;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.io.Serializable;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import java.util.Map;
 
 /**
  *
  * @author CHANGE Gate
  */
-public class Usuario implements Serializable {
+public class Usuario implements ServletRequestAware {
 
     /**
      *
      */
+    protected HttpServletRequest request;
+
+    public HttpServletRequest getRequest() {
+        return request;
+    }
+
+    public void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
     protected String usbid;
     /**
      *
@@ -30,7 +43,7 @@ public class Usuario implements Serializable {
     protected String apellido;
     private String contrasena;
     private String rol;
-
+    
     /**
      *
      * @return
@@ -125,5 +138,19 @@ public class Usuario implements Serializable {
      */
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    @Override
+    public void setServletRequest(HttpServletRequest request) {
+        this.request = request;
+    }
+    
+    public String salir() {
+        Map session = ActionContext.getContext().getSession();
+        session.put("usbid", null);
+        session.put("nombre", null);
+        session.put("apellido", null);
+        session.put("rol", null);
+        return "success";
     }
 }

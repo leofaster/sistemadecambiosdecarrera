@@ -1,0 +1,148 @@
+#pagewrap {
+    width: 1040px;
+    margin: 0 auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+#header {
+    height: 180px;
+}
+
+.menu {
+    float: left;
+    margin-left: -40px;
+    line-height: 2em;
+    font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.content {
+    width: 600px; /* Account for margins + border values */
+    float: left;
+    margin: 0px 20px 5px 20px;
+    line-height: 1.6em;
+}
+
+#sidebar {
+    width: 140px;
+    float: left;
+    line-height: 3em;
+}
+
+.footer {
+    position: relative;
+    bottom: auto;
+    clear: both;
+    padding: 0 15px;
+    font-size: 11px;
+    line-height: 1.6em;
+}
+/*
+***********************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/*@media screen and (max-height: 902px){
+    .footer{
+        position: static;
+        bottom: auto; 
+    } 
+}
+*/
+
+/* for 980px or less */
+/*@media screen and (max-width: 980px) {
+
+    #pagewrap {
+        width: 94%;
+    }
+    .menu {
+        padding: 1% 4%;
+    }
+    .content {
+        width: 61%;
+        padding: 1% 4%;
+        margin: 0px 0px 5px 5px;
+    }
+
+    #sidebar {
+        display: none;
+    }
+    .footer{
+        position: static;
+        bottom: auto; 
+    }
+    #header{
+        height: 250px;
+    }
+    #header, .footer {
+        padding: 1% 4%;
+    }
+}
+@media screen and (max-width: 925px) {
+    #usb-footer{
+        display: none;
+    }
+}
+/* for 825px or less */
+/*@media screen and (max-width: 825px) {
+
+    .menu {
+        width: auto;
+        float: none;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .content {
+        width: auto;
+        float: none;
+        margin-left: 0px;
+    }
+
+    #sidebar {
+        width: auto;
+        float: none;
+
+    }
+    #navlist li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+    }
+
+}
+@media screen and (max-width: 610px) {
+    .menu {
+        margin: 0 auto;
+        width: 400px;
+        float: none;
+        text-align: center;
+        font-size: 16px;
+    }
+
+}
+
+/* for 480px or less 
+@media screen and (max-width: 480px) {
+
+    #header {
+        height: auto;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    #sidebar {
+        display: none;
+    }
+    .menu {
+        padding: 0;
+    }
+
+}
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 
+}*/

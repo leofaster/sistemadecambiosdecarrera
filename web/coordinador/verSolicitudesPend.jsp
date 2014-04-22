@@ -23,7 +23,7 @@
 
     <div>
 
-        <h4>Solicitudes Pendientes:</h4><br />
+        <h4>Pre-Solicitudes Pendientes:</h4><br />
 
         <%
             List l = (List) request.getAttribute("disp3");

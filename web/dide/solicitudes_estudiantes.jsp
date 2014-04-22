@@ -22,12 +22,18 @@
         <tr>
             <td>
                 <s:form action="SolicitarPendientes">
-            <center><s:submit value="Gestionar solicitudes pendientes" type="button"/></center>
+            <center>
+              <%--  <s:submit value="Gestionar solicitudes pendientes" type="button"/>--%>
+                <button type="submit" class="btn btn-default">Gestionar solicitudes pendientes</button>
+            </center>
             </s:form>
         </td>
         <td>
             <s:form action="HistorialSolicitudes">
-            <center><s:submit value="Ver las solicitudes ya gestionadas" type="button"/></center>
+            <center>
+                <%--<s:submit value="Ver las solicitudes ya gestionadas" type="button"/>--%>
+                <button type="submit" class="btn btn-default">Ver las solicitudes ya gestionadas</button>
+            </center>
             </s:form>
         <td>
             </tr>

@@ -27,43 +27,58 @@
     <br />
 </s:if>
 <s:form action="GestionarPlazos">
-    Seleccione la carrera cuyos plazos desea consultar o modificar:
+    Seleccione la carrera de la cual desea saber la cantidad de cupos:
     <br />
-    <s:select name="carrera"  required="true"
-              list="{'0100 - Ingenieria Electrica', 
-              '0200 - Ingenieria Mecanica', 
-              '0300 - Ingenieria Quimica', 
-              '0600 - Ingenieria Electronica', 
-              '0800 - Ingenieria de la Computacion',
-              '1200 - Ingenieria Geofisica',
-              '1500 - Ingenieria de Materiales', 
-              '1700 - Ingenieria de Produccion', 
-              '0400 - Licenciatura en Quimica',
-              '0500 - Licenciatura en Matematicas',
-              '1000 - Licenciatura en Fisica',
-              '1900 - Licenciatura en Biologia',
-              '0700 - Arquitectura',
-              '1100 - Urbanismo',
-              '3200 - Licenciatura en Comercio Internacional',
-              '3000 - Licenciatura en Gestión de la Hospitalidad'}"
-              headerKey="-1" headerValue="Seleccionar carrera..."/>
     <br />
-    <s:submit value="Aceptar" />
-</s:form>
+    <div class="form-group">
+        <label for="carrera" class="col-sm-2 control-label" >Carrera</label>
+        <div class="col-sm-10">
+            <select name="carrera" id="GestionarCupos_carrera"  class="form-control">
+                <option value="-1"
+                        >Seleccionar carrera...</option>
+                <option value="0100 - Ingenieria Electrica">0100 - Ingenieria Electrica</option>
+                <option value="0200 - Ingenieria Mecanica">0200 - Ingenieria Mecanica</option>
+                <option value="0300 - Ingenieria Quimica">0300 - Ingenieria Quimica</option>
+                <option value="0600 - Ingenieria Electronica">0600 - Ingenieria Electronica</option>
+                <option value="0800 - Ingenieria de la Computacion">0800 - Ingenieria de la Computacion</option>
+                <option value="1200 - Ingenieria Geofisica">1200 - Ingenieria Geofisica</option>
+                <option value="1500 - Ingenieria de Materiales">1500 - Ingenieria de Materiales</option>
+                <option value="1700 - Ingenieria de Produccion">1700 - Ingenieria de Produccion</option>
+                <option value="1800 - Ingenieria de Telecomunicaciones">1800 - Ingenieria de Telecomunicaciones</option>
+                <option value="0400 - Licenciatura en Quimica">0400 - Licenciatura en Quimica</option>
+                <option value="0500 - Licenciatura en Matematicas">0500 - Licenciatura en Matematicas</option>
+                <option value="1000 - Licenciatura en Fisica">1000 - Licenciatura en Fisica</option>
+                <option value="1900 - Licenciatura en Biologia">1900 - Licenciatura en Biologia</option>
+                <option value="0700 - Arquitectura">0700 - Arquitectura</option>
+                <option value="1100 - Urbanismo">1100 - Urbanismo</option>
+                <option value="3200 - Licenciatura en Comercio Internacional">3200 - Licenciatura en Comercio Internacional</option>
+                <option value="3000 - Licenciatura en Gestión de la Hospitalidad">3000 - Licenciatura en Gestión de la Hospitalidad</option>
+            </select>
+        </div>
+    </div> 
+    <button type="submit" class="btn btn-default">Aceptar</button>
+</s:form>    
+    
+    
+    
+
 <br/>
 <center>
     <div class="tablaFormal">
         <table>
             <form name="fom" method="post">
-                <tr>
-                <center><td><b>Trimestres mínimos</b></td> </center>
-                <center><td><b>Trimestres máximos</b></td></center>
-                <center><td><b>Acción</b></td></center>
-                </tr>
+               
                 <%
                     List l = (List) request.getAttribute("disp2");
                     if (l != null) {
+%>
+ <tr>
+                <center><td><b>Trimestres mínimos para solicitar cambio</b></td> </center>
+                <center><td><b>Trimestres máximos para cursar extraplanes</b></td></center>
+                <center><td><b>Acción</b></td></center>
+                </tr>
 
+<%
                         Iterator it = l.iterator();
 
                         while (it.hasNext()) {

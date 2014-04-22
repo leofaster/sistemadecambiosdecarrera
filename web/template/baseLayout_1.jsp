@@ -9,45 +9,41 @@
 <html>    
     <head>
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/estructura1.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script src="javascripts/jquery.js"></script>
         <script src="javascripts/bootstrap-transfer.js"></script>
-        <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
+        <script src="javascripts/bootstrap.min.js"></script>
+
         <title>
             <tiles:insertAttribute name="title" ignore="true" />
         </title>
     </head>
-
     <body>
-        <div id="container">
-            <div id="body-content">
-
+        <div id="pagewrap" class="container">
+            
+            <div id="header" class="row">
                 <tiles:insertAttribute name="header" />
-
-                <div id="sidebarL">
-                    <tiles:insertAttribute name="menu" />
-
-
-
-                </div>
-
-                <div id="sidebarR" style="width:150px; height: 250px;">
-                    <br>
-                    <tiles:insertAttribute name="banner" />
-                </div>
-
-                <div style="width:750px;margin-left:auto;margin-right:auto;">
-
-                    <tiles:insertAttribute name="body" />
-                    <br /><br /><br /><br /><br /><br />
-                    <div class="footer">
-
-                        <tiles:insertAttribute name="footer" />
-                    </div>
-
-                </div>
             </div>
-
+            <div class="row">
+                <div class="menu col-md-3">
+                    <tiles:insertAttribute name="menu" />
+                </div>
+                <div class="content col-md-6">
+                    <tiles:insertAttribute name="body" />
+                </div>
+                <div id="sidebar" class="col-md-3">
+                    <tiles:insertAttribute name="banner" />
+                </div>    
+            </div>
+            
+            <div class="footer row">
+                <tiles:insertAttribute name="footer" />
+            </div>
         </div>
-
     </body>
 </html>

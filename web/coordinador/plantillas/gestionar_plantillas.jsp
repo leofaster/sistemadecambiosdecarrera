@@ -45,7 +45,8 @@
     </s:if>
 
     <form name="fom2" method="post">
-        <input type="submit" value="Crear Plantilla" onClick="create();"/>
+        <!--<input type="submit" value="Crear Plantilla" onClick="create();"/>-->
+         <button type="submit" class="btn btn-default" onClick="create();">Crear Plantilla</button>
     </form>
     <br />
     <%
@@ -82,5 +83,5 @@
     </div>
     <%} else {%>
     <center><b>No hay plantillas de plan de estudio en el sistema.</td></b></center>
-        <%}%>
+    <%}%>
 </div>

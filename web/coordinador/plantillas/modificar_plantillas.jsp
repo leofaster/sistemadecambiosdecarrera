@@ -11,15 +11,10 @@
 <html>
 
     <head>
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/bootstrap-transfer.css" rel="stylesheet">        
-        <style>
-            .footer{
-                position: static;
-                bottom: auto; 
-            } 
-
-        </style>
+        <!--<link href="css/bootstrap.css" rel="stylesheet">-->
+        <link href="css/bootstrap-transfer.css" rel="stylesheet">
+        <script src="javascripts/bootstrap-transfer.js"></script>
+     
         <script type="text/javascript">
 
             var t;

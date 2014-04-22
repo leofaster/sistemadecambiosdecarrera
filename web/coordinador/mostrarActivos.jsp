@@ -29,6 +29,7 @@
                   '1200 - Ingenieria Geofisica',
                   '1500 - Ingenieria de Materiales', 
                   '1700 - Ingenieria de Produccion', 
+                  '1800 - Ingenieria de Telecomunicaciones',
                   '0400 - Licenciatura en Quimica',
                   '0500 - Licenciatura en Matematicas',
                   '1000 - Licenciatura en Fisica',
@@ -48,8 +49,8 @@
                 List l = (List) request.getAttribute("disp2");
                 if (l != null) {
                     String Cohorte = "Cohorte";
-                    String Cupos = "Cupos";
-                    String Activos = "Activos";
+                    String Cupos = "Cupos Aprobados por Consejo";
+                    String Activos = "Estudiantes Activos";
             %>
             <div class="tabla">
                 <table>
@@ -58,6 +59,7 @@
                         <center><td ><%= Cohorte%></td> </center>
                         <center><td ><%= Cupos%></td></center>
                         <center><td ><%= Activos%></td></center>
+                        <center><td >Cupos Disponibles</td></center>
                             <% }%>  
                         </tr>
                         <%
@@ -73,6 +75,7 @@
                         <center><td ><%= NumCo%></td></center>
                         <center><td ><%= cuposCo%></td></center>
                         <center><td ><%= cuposA%></td></center>
+                        <center><td >ola</td></center>
 
                         </tr> 
 

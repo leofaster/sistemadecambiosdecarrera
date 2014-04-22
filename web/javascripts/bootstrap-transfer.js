@@ -151,7 +151,7 @@
                                 <table width="100%" border="0">\
                                     <tr>\
                                         <td style="width:14px;">\
-                                            <i class="icon-search"></i>\
+                                        <span class="glyphicon glyphicon-search"></span>\
                                         </td>\
                                         <td>\
                                             <div style="padding-left:10px;">\

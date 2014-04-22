@@ -220,6 +220,8 @@ public class ModificarPlazos extends ActionSupport implements ServletRequestAwar
             }
             //System.out.println(cantCupos.charAt(x));
         }
+        
+        
         ResultSet rs = null, rs2 = null;
         Statement s = null;
         ConexionBD.establishConnection();

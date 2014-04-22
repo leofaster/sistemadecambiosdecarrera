@@ -22,12 +22,18 @@
         <tr>
             <td>
                 <s:form action="SolPen">
-            <center>    <s:submit  value="Gestionar solicitudes pendientes" type="button"/></center>
+            <center>    
+                <%--<s:submit  value="Gestionar pre-solicitudes pendientes" type="button"/>--%>
+                <button type="submit" class="btn btn-default">Gestionar pre-solicitudes pendientes</button>
+            </center>
             </s:form>
         </td>
         <td>
             <s:form action="SolApRep">
-            <center><s:submit  value="Ver las solicitudes ya gestionadas" type="button"/></center>
+            <center>
+                <%--<s:submit  value="Ver las pre-solicitudes ya gestionadas" type="button"/>--%>
+                <button type="submit" class="btn btn-default">Ver las pre-solicitudes ya gestionadas</button>
+            </center>
             </s:form>
         <td>
             </tr>

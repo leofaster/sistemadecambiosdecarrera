@@ -17,8 +17,9 @@ public class Solicitud implements Serializable {
 
     private Estudiante estudiante;
     private Carrera carrera;
-    private Date fecha;
+    private String fecha;
     private String advertencia;
+    private String preAceptacion;
     private boolean solAceptada;
     private boolean ccAprobado;
     private String motivacion;
@@ -69,7 +70,7 @@ public class Solicitud implements Serializable {
      *
      * @return
      */
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -77,7 +78,7 @@ public class Solicitud implements Serializable {
      *
      * @param fecha
      */
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -95,6 +96,21 @@ public class Solicitud implements Serializable {
      */
     public void setAdvertencia(String advertencia) {
         this.advertencia = advertencia;
+    }
+
+    /**
+     * @return
+     */
+    public String getPreAceptacion() {
+        return preAceptacion;
+    }
+
+    /**
+     *
+     * @param preAceptacion
+     */
+    public void setPreAceptacion(String preAceptacion) {
+        this.preAceptacion = preAceptacion;
     }
 
     /**
