@@ -5,17 +5,19 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*;" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
     <img id="banner" src="images/banners/top_uni.jpg" alt="Universidad Simon Bolivar">
-    <%@ page import="java.util.*;" %>
     <%if (session.getAttribute("usbid") != null &&
           session.getAttribute("nombre") != null &&
           session.getAttribute("apellido") != null){%>
-    <p align="right"><font color="blue" ><u><b>
-                <%=session.getAttribute("nombre")%>
-                <%=session.getAttribute("apellido")%>
-    </b></u></font></p>
+    <div id="usuarioid">
+        <%=session.getAttribute("nombre")%> 
+        <%=session.getAttribute("apellido")%>, 
+        <strong><a href="<s:url action="salir"/>" >Cerrar Sesión</a></strong>
+    </div>
 
    <%}%>
 </html>

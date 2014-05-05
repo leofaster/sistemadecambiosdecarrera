@@ -43,10 +43,10 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
      }
 
     public String upload() {
-        addActionMessage("Archivo subido con éxito.");
+        Map sesion = ActionContext.getContext().getSession();
+        
          try{
           destPath = request.getSession().getServletContext().getRealPath("/");
-          Map sesion = ActionContext.getContext().getSession();
           String carn = sesion.get("carnet_aux").toString();
 
           ResultSet rs;
@@ -72,15 +72,15 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
                          + archivoFileName + "','"
                          + destFile.toString() + "')");
 
+          System.out.println("Quedo como: " + destFile);
           
 
-          System.out.println("Quedo como: " + destFile);
-
        }catch(Exception e){
-          e.printStackTrace();
+          addActionError(e.getMessage());
+          sesion.put("error","true");
           return "no success";
        }
-
+       sesion.put("success","true");
        return "success";
     }
 

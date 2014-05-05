@@ -88,34 +88,14 @@
     
     <%}%>
     --%>
-
-    <%--<s:select name="carrera_dest" label="Carrera Deseada" required="true"
-              list="{'0100 - Ingeniería Eléctrica', 
-              '0200 - Ingeniería Mecánica', 
-              '0300 - Ingeniería Química', 
-              '0600 - Ingeniería Electrónica', 
-              '0800 - Ingeniería de la Computación',
-              '1200 - Ingeniería Geofísica',
-              '1500 - Ingeniería de Materiales', 
-              '1700 - Ingeniería de Producción',
-              '1800 - Ingenieria de Telecomunicaciones',
-              '0400 - Licenciatura en Química',
-              '0500 - Licenciatura en Matemáticas',
-              '1000 - Licenciatura en Física',
-              '1900 - Licenciatura en Biología',
-              '0700 - Arquitectura',
-              '1100 - Urbanismo',
-              '3200 - Licenciatura en Comercio Internacional',
-              '3000 - Licenciatura en Gestión de la Hospitalidad'}"
-              headerKey="-1" headerValue="Seleccionar carrera..."/>--%>
+    
     <br><br> 
     Motivación: <input type="text" maxlength="1500" name='motivacion' >
     <%--  <s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
                   label="Motivación" required="true"/>--%>
 </form>
-<%--</s:form>
-<s:textarea name="motivacion" cols="40" rows="10" maxlength="1500"
-        label="Preg A." required="true"/>--%>
+
+
 <center><h6>(Máximo 1500 caracteres)</h6>
     <input type="button" onclick="mostrarVentana();" value="Enviar"></center>
 
