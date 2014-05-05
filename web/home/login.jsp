@@ -14,8 +14,8 @@
     </div>
     <br />
 </s:if>
-<div id="welcome" class="col-md-8 col-md-offset-2">
-    <h5><center>Para ingresar al sistema introduzca su usuario y contraseña.</center></h5>
+<div id="welcome" class="col-md-10 col-md-offset-1">
+    <h5><center>Para ingresar al sistema introduzca su usuario y contraseña</center></h5>
     <br />
 
     <!--
