@@ -80,16 +80,7 @@
         %>
     </center>
 </div>
-<%-- <<<<<<< HEAD 
 
-<s:if test="hasActionMessages()">
-
-    <s:iterator value="actionMessages">
-
-    </s:iterator>
-
-</s:if>
-======= --%>
 <s:actionerror />
 <% if (session.getAttribute("error") != null && session.getAttribute("error").equals("true")) { %>
     <div class="denyDiv" style="color: white;">
@@ -105,7 +96,6 @@
     <br />
 <%  session.setAttribute("success","false");
   }%>
-<%-- >>>>>>> ca54e0f7962107ca10449f593661cfd9b88b3fa9 --%>
 
 <center><h4>Perfil del Estudiante</h4> </center>
 <br/>
