@@ -81,6 +81,7 @@
     </center>
 </div>
 
+<<<<<<< HEAD
 <s:if test="hasActionMessages()">
 
     <s:iterator value="actionMessages">
@@ -88,6 +89,23 @@
     </s:iterator>
 
 </s:if>
+=======
+<s:actionerror />
+<% if (session.getAttribute("error") != null && session.getAttribute("error").equals("true")) { %>
+    <div class="denyDiv" style="color: white;">
+        &nbsp;&nbsp;No se pudo cargar el archivo.
+    </div>
+    <br />
+<%  session.setAttribute("error","false");
+  }%>
+<% if (session.getAttribute("success") != null && session.getAttribute("success").equals("true")) { %>
+    <div class="aproveDiv" style="color: white;">
+        &nbsp;&nbsp;Archivo subido exitosamente.
+    </div>
+    <br />
+<%  session.setAttribute("success","false");
+  }%>
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
 
 <center><h4>Perfil del Estudiante</h4> </center>
 <br/>
@@ -206,7 +224,11 @@
 %>
 <center>
     <form action="upload" method="post" enctype="multipart/form-data">
+<<<<<<< HEAD
         <label for="archivo">Cargar archivo:</label>
+=======
+        <label for="archivo">Cargar archivo (solo archivos PDF):</label>
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
         <input type="file" name="archivo" /><br>
         <input type="submit" value="Cargar"/>
     </form>

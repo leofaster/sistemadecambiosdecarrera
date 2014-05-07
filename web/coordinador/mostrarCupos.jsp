@@ -20,6 +20,7 @@
             </div>
             <br />
         </s:if>
+
        
 
         <div class="form-group">
@@ -59,6 +60,7 @@
 
         <button type="submit" class="btn btn-default">Aceptar</button>
         
+
     </s:form>
     <br />
     <div>
@@ -101,11 +103,13 @@
                         <center><td ><%= total%></td></center>
                         </tr> 
 
+
                         <% }%>
                     </form>
                 </table>
             </div>
             <% }%>
+
 
 
 

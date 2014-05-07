@@ -1,5 +1,7 @@
 nbproject/
 dist/
 build/
-*.war
-nbproject/private/*
+build.xml
+params.json
+
+

@@ -43,10 +43,17 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
      }
 
     public String upload() {
+<<<<<<< HEAD
         addActionMessage("Archivo subido con éxito.");
          try{
           destPath = request.getSession().getServletContext().getRealPath("/");
           Map sesion = ActionContext.getContext().getSession();
+=======
+        Map sesion = ActionContext.getContext().getSession();
+        
+         try{
+          destPath = request.getSession().getServletContext().getRealPath("/");
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
           String carn = sesion.get("carnet_aux").toString();
 
           ResultSet rs;
@@ -72,6 +79,7 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
                          + archivoFileName + "','"
                          + destFile.toString() + "')");
 
+<<<<<<< HEAD
           
 
           System.out.println("Quedo como: " + destFile);
@@ -81,6 +89,17 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
           return "no success";
        }
 
+=======
+          System.out.println("Quedo como: " + destFile);
+          
+
+       }catch(Exception e){
+          addActionError(e.getMessage());
+          sesion.put("error","true");
+          return "no success";
+       }
+       sesion.put("success","true");
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
        return "success";
     }
 

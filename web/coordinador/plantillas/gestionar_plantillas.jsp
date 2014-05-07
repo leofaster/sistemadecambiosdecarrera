@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
 
 <head>
@@ -45,8 +45,8 @@
     </s:if>
 
     <form name="fom2" method="post">
-        <!--<input type="submit" value="Crear Plantilla" onClick="create();"/>-->
          <button type="submit" class="btn btn-default" onClick="create();">Crear Plantilla</button>
+
     </form>
     <br />
     <%

@@ -17,6 +17,7 @@
             </s:iterator>
         </div><br />
     </s:if>
+<<<<<<< HEAD
     <div class="col-md-offset-1">
 
         <table>
@@ -36,4 +37,21 @@
                 </tr>
         </table>
     </div>
+=======
+
+    <table>
+        <tr>
+            <td>
+                <s:form action="EstudiantesCambioDIDE">
+                    <center><s:submit value="Estudiantes en Cambio de Carrera" type="button"/></center>
+                </s:form>
+            </td>
+            <td>
+                <s:form action="HistorialCambioDIDE">
+                    <center><s:submit value="Historial de Estudiantes" type="button"/></center>
+                </s:form>
+            <td>
+        </tr>
+    </table>
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
 </div>

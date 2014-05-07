@@ -1,5 +1,4 @@
 #pagewrap {
-   
     margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 
@@ -10,8 +9,7 @@
 }
 
 .menu {
-    /*float: left;*/
-    /*margin-left: -40px;*/
+
     line-height: 2em;
     font-size: 12px;
     text-align: right;
@@ -40,6 +38,7 @@
     /*font-size: 11px;*/
     /*line-height: 1.6em;*/
 }
+
 /*
 ***********************************************************************************
 MEDIA QUERIES
@@ -111,6 +110,19 @@ MEDIA QUERIES
         display: inline;
         list-style-type: none;
         padding-right: 20px;
+<<<<<<< HEAD
+=======
+    }
+
+}
+@media screen and (max-width: 610px) {
+    .menu {
+        margin: 0 auto;
+        width: 400px;
+        float: none;
+        text-align: center;
+        font-size: 16px;
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
     }
 
 }
@@ -123,8 +135,11 @@ MEDIA QUERIES
         font-size: 16px;
     }
 
+<<<<<<< HEAD
 }
 
+=======
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
 /* for 480px or less 
 @media screen and (max-width: 480px) {
 

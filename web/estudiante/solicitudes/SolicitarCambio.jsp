@@ -36,6 +36,7 @@
     </table>
 </div>      
 <br>
+
 <form action="verificarSol" name="entrar" class="form-horizontal" role="form" >
     <%-- <s:form action="verificarSol" name="entrar"> --%>
         <div class="form-group">
@@ -66,6 +67,7 @@
             </div>
             </div>
  
+
 
 
     <br><h6>Preguntas para la evaluación de DIDE: </h6><br><br>
@@ -131,6 +133,7 @@
         label="Preg A." required="true"/>--%>
 <div id="charNum" class="col-sm-10 col-sm-offset-2">Máximo 1500 caracteres</div>
 <center><h6></h6>
+
     <input type="button" onclick="mostrarVentana();" value="Enviar"></center>
 
 <div id="miVentana" style="position: fixed; width: 350px; height: 190px; top: 0; left: 0; font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; border: #333333 3px solid; background-color: #FAFAFA; color: #000000; display:none;">

@@ -10,11 +10,13 @@
 
 <html>
 
+
  
         <!--<link href="css/bootstrap.css" rel="stylesheet">--> 
         <link href="css/bootstrap-transfer.css" rel="stylesheet">        
         <script src="javascripts/bootstrap-transfer.js"></script>
  
+
         <script type="text/javascript">
 
             var t;
@@ -22,7 +24,7 @@
 
             <%
                List l = (List) request.getAttribute("lista_materias");
-//               System.out.println("holaaaa");
+
                Iterator it = l.iterator();
 
                while (it.hasNext()) {
@@ -64,6 +66,7 @@
         </script>
   
     <h4>Creación de Plantilla</h4><br><br>
+
         <p align="justify">Seleccione las asignaturas que desee en la lista de la izquierda.<br/><br/>
             Puede usar la función de búsqueda si lo desea. Cuando seleccione una asignatura, 
             presione las flechas que se encuentran en el medio hasta incorporar todas
@@ -88,6 +91,7 @@
             <input id="nombrePlantilla" name="nombrePlantilla" type="text" placeholder="Ej: 'Plantilla Estandar'"/><br/>
             <br/>
             <input type="submit" value="Crear Plantilla" onClick="selectAllOptions();"/><br/>
+
             <input type="button" value="Cancelar" onClick="salir();"/>      
                         
 

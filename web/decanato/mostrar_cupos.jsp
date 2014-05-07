@@ -18,7 +18,11 @@
         document.fom.submit();
     }
 </script>
+<<<<<<< HEAD
 <h4>Gestión de Cupos</h4>
+=======
+<h4>Gestión de Cupos:</h4>
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
 <s:if test="hasActionErrors()">
     <div class="denyDiv">
         <s:iterator value="actionErrors">
@@ -32,6 +36,7 @@
 
 <s:form action="GestionarCupos">
     Seleccione la carrera de la cual desea saber la cantidad de cupos:
+<<<<<<< HEAD
     <br />
     <br />
     <div class="form-group">
@@ -61,12 +66,37 @@
         </div>
     </div> 
     <button type="submit" class="btn btn-default">Aceptar</button>
+=======
+    <br /><br />
+    <s:select name="carrera"  required="true"
+              list="{'0100 - Ingenieria Electrica', 
+              '0200 - Ingenieria Mecanica', 
+              '0300 - Ingenieria Quimica', 
+              '0600 - Ingenieria Electronica', 
+              '0800 - Ingenieria de la Computacion',
+              '1200 - Ingenieria Geofisica',
+              '1500 - Ingenieria de Materiales', 
+              '1700 - Ingenieria de Produccion', 
+              '1800 - Ingenieria de Telecomunicaciones',
+              '0400 - Licenciatura en Quimica',
+              '0500 - Licenciatura en Matematicas',
+              '1000 - Licenciatura en Fisica',
+              '1900 - Licenciatura en Biologia',
+              '0700 - Arquitectura',
+              '1100 - Urbanismo',
+              '3200 - Licenciatura en Comercio Internacional',
+              '3000 - Licenciatura en Gestión de la Hospitalidad'}"
+              headerKey="-1" headerValue="Seleccionar carrera..."/>
+    <br />
+    <s:submit value="Aceptar" />
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
 </s:form>
 <br />
 <center>
     <div class="tablaFormal">
         <table>
             <form name="fom" method="post">
+<<<<<<< HEAD
 
                 <%
                     List l = (List) request.getAttribute("disp2");
@@ -74,6 +104,8 @@
 
                 %>
 
+=======
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
                 <tr>
                 <center><td class="bord">Cohorte</td> </center>
                 <center><td class="bord">Cupos Aprobados por Consejo</td></center>
@@ -81,6 +113,7 @@
                 <center><td class="bord">Cupos Disponibles</td></center>
                 </tr>
                 <%
+<<<<<<< HEAD
 
                     Iterator it = l.iterator();
 
@@ -94,6 +127,23 @@
                         if (total < 0) {
                             total = 0;
                         }
+=======
+                    List l = (List) request.getAttribute("disp2");
+                    if (l != null) {
+
+                        Iterator it = l.iterator();
+
+                        while (it.hasNext()) {
+                            clases.Cohorte b = (clases.Cohorte) it.next();
+                            String cuposCo = b.getCupos();
+                            String NumCo = b.getCohorte();
+                            String cuposA = b.getCuposa();
+                            String carrera = b.getCarrera();
+                            int total = Integer.parseInt(cuposCo) - Integer.parseInt(cuposA);
+                            if (total < 0) {
+                                total = 0;
+                            }
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
                 %>
                 <tr> 
                 <center><td class="bord"><%= NumCo%></td></center>

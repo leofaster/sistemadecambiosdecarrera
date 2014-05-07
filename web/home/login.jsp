@@ -14,9 +14,11 @@
     </div>
     <br />
 </s:if>
+
 <div id="welcome" class="col-md-10 col-md-offset-1">
     <h5><center>Para ingresar al sistema introduzca su usuario y contraseña</center></h5>
     <br />
+
 
     <!--
     <s:form action="Login" role="form">
@@ -38,8 +40,11 @@
         </table>
         <br/>
         <center>
+<<<<<<< HEAD
             <button type="submit" class="btn btn-default">Submit</button>
             <button type="reset" class="btn btn-default">Submit</button>
+=======
+>>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
             <input type="submit" id="Login_0" value="Entrar">
             <input type="reset" value="Limpiar">
         </center>
