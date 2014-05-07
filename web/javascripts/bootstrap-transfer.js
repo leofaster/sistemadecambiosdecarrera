@@ -151,11 +151,7 @@
                                 <table width="100%" border="0">\
                                     <tr>\
                                         <td style="width:14px;">\
-<<<<<<< HEAD
                                         <span class="glyphicon glyphicon-search"></span>\
-=======
-                                            <i class="icon-search"></i>\
->>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
                                         </td>\
                                         <td>\
                                             <div style="padding-left:10px;">\
