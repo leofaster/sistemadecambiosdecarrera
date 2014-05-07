@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <s:if test="hasActionErrors()">
     <div id="errores">
         <s:actionerror  />
@@ -32,39 +31,4 @@
     </div><br />
 </s:if>
  addActionMessage("Solicitud Exitosa.");
-=======
-<s:if test="hasActionErrors()">
-    <div id="errores">
-        <s:actionerror  />
-    </div>
-</s:if>
-
-<s:if test="hasActionErrors()">
-    <div class="denyDiv">
-        <s:iterator value="actionErrors">
-            <span class="denyMsg" style="font-size:13px"><s:property escape="false" />
-            </span>
-        </s:iterator>
-    </div>
-    <br />
-</s:if>
-
-<s:if test="hasActionMessages()">
-    <div id="aproveMessage">
-        <s:actionmessage/>
-    </div>
-</s:if>
-
-
-
-<s:if test="hasActionMessages()">
-    <div class="aproveDiv">
-        <s:iterator value="actionMessages">
-            <span class="aproveMsg"><s:property escape="false" />
-            </span>
-        </s:iterator>
-    </div><br />
-</s:if>
- addActionMessage("Solicitud Exitosa.");
->>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
  addActionError("Error en la Solicitud.");

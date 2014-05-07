@@ -188,14 +188,7 @@
         </action>
         
         <action name="upload" class="clases.FileManager" method="upload">
-<<<<<<< HEAD
-            <interceptor-ref name="store">
-                <param name="operationMode">STORE</param>
-            </interceptor-ref>
-            <interceptor-ref name="defaultStack" />
-            <result name="success" type="redirectAction">verDatosEstudiante</result>
-            <result name="error">cupos/errorCupo.jsp</result>
-=======
+
             <interceptor-ref name="fileUpload">
                 <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
@@ -209,25 +202,18 @@
             <result name="success" type="redirectAction">verDatosEstudiante</result>
             <result name="no success" type="redirectAction">verDatosEstudiante</result>
             <result name="input" type="redirectAction">verDatosEstudiante</result>
->>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
         </action>
          
         <action name="verDatosEstudiante" class="clases.Estudiante" method="visualizarDatosCambio">
             <interceptor-ref name="store">
                 <param name="operationMode">RETRIEVE</param>
             </interceptor-ref>
-<<<<<<< HEAD
-            <interceptor-ref name="defaultStack" />
-            <result name="DIDE" type="tiles">/dide.estudiante.datos.cambio</result>
-            <result name="Coordinador" type="tiles">/coordinador.estudiante.datos.cambio</result>
-            <result name="no success" type="tiles">/home</result>
-=======
+
             <interceptor-ref name="defaultStack"></interceptor-ref>
             <result name="DIDE" type="tiles">/dide.estudiante.datos.cambio</result>
             <result name="Coordinador" type="tiles">/coordinador.estudiante.datos.cambio</result>
             <result name="no success" type="tiles">/home</result>
             <result name="input" type="tiles">/home</result>
->>>>>>> c384fcdcf3fd593ffe3df94644ef02d4fa3958d6
         </action>
         <!-- FIN ACCIONES DE DIDE -->
         
