@@ -15,7 +15,6 @@
         <link href="css/bootstrap-transfer.css" rel="stylesheet">
         <script src="javascripts/bootstrap-transfer.js"></script>
      
-
         <script type="text/javascript">
 
             var t;

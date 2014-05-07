@@ -9,7 +9,7 @@
 <html>    
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
-
+        
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script language="javascript" type="text/javascript" src="javascripts/funciones.js"></script>
         <script src="javascripts/jquery.js"></script>
@@ -19,7 +19,6 @@
         <script src="//code.jquery.com/jquery-1.9.1.js"></script>
         <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap2.css">
-
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/estructura2.css">
 
@@ -29,7 +28,6 @@
     </head>
     <body>
         <div class="container">
-
                 <div class="row">
                     <div class="col-xs-12">
                         <div id="header">
@@ -52,11 +50,9 @@
 
                 <div class="row">
                     <div class=" col-md-12 col-xs-12">
-
                         <tiles:insertAttribute name="footer" />
                     </div>
                 </div>
             </div>
-
     </body>
 </html>
