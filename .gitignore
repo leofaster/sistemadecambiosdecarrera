@@ -1,7 +1,7 @@
-nbproject/
+nbproject/private/*
 dist/
 build/
-build.xml
 params.json
+*.war
 
 
