@@ -2,7 +2,7 @@
 STRUCTURE
 *************************************************************************************/
 #pagewrap {
-    width: 1040px;
+    width: 1170px;
     margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -49,24 +49,32 @@ MEDIA QUERIES
 }
 */
 /* for 980px or less */
-/*@media screen and (max-width: 980px) {
+@media screen and (max-width: 980px) {
 
     #pagewrap {
         width: 94%;
     }
     .menu{
+        width: 630px;
+        margin: 0 auto;
     }
     .content {
-        width: 65%;
+        width: 100%;
     }
     .footer{
         position: static;
         bottom: auto; 
     }
-
+    #navlist li
+    {
+        text-align: center;
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+    }  
 }
 
-/* for 700px or less 
+/* for 700px or less */
 @media screen and (max-width: 825px) {
 
     .menu{
@@ -96,7 +104,7 @@ MEDIA QUERIES
 }
 
 
-/* for 480px or less 
+/* for 480px or less */
 @media screen and (max-width: 480px) {
 
     #header {
@@ -110,11 +118,11 @@ MEDIA QUERIES
 img {
     max-width: 100%;
     height: auto;
-    width: auto\9; /* ie8 
+    width: auto\9; /* ie8 */
 }
 
 @media screen and (max-width: 925px) {
     #usb-footer{
         display: none;
     }
-}*/
+}
