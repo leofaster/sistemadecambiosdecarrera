@@ -29,6 +29,8 @@ Cambios de Estrutura con el Bootstrap
 }
 #navlist li:hover{
     background-color: #EAEBFC;
+}
+#navlist a:hover{
     text-decoration: none !important;
 }
 #banner2{
