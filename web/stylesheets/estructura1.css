@@ -1,5 +1,5 @@
 #pagewrap {
-    width: 1040px;
+   
     margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 
@@ -10,8 +10,8 @@
 }
 
 .menu {
-    float: left;
-    margin-left: -40px;
+    /*float: left;*/
+    /*margin-left: -40px;*/
     line-height: 2em;
     font-size: 12px;
     text-align: right;
@@ -19,25 +19,26 @@
 }
 
 .content {
-    width: 600px; /* Account for margins + border values */
-    float: left;
-    margin: 0px 20px 5px 20px;
-    line-height: 1.6em;
+    /*width: 600px;  Account for margins + border values */
+    /*float: left;*/
+    /*margin: 0px 20px 5px 20px;*/
+    /*line-height: 1.6em;*/
+    min-height: 300px;
 }
 
 #sidebar {
-    width: 140px;
-    float: left;
-    line-height: 3em;
+    /*width: 140px;*/
+    /*float: left;*/
+    /*line-height: 3em;*/
 }
 
 .footer {
-    position: relative;
-    bottom: auto;
-    clear: both;
-    padding: 0 15px;
-    font-size: 11px;
-    line-height: 1.6em;
+/*    position: relative;
+    bottom: auto;*/
+    /*clear: both;*/
+    /*padding: 0 15px;*/
+    /*font-size: 11px;*/
+    /*line-height: 1.6em;*/
 }
 /*
 ***********************************************************************************

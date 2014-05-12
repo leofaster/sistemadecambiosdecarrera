@@ -11,7 +11,9 @@
 <html>
 
     <head>
-        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap2.css" rel="stylesheet">        
+        <link href="css/estilo.css" rel="stylesheet">
+
         <link href="css/bootstrap-transfer.css" rel="stylesheet">
         <script src="javascripts/bootstrap-transfer.js"></script>
         <style>
@@ -72,11 +74,6 @@
     </head>
 
     <body>
-
-        <p>Modificando la plantilla "<%=request.getAttribute("nombre")%>" 
-            para el estudiante <%=session.getAttribute("rec_nombre")%> 
-            (<%=session.getAttribute("rec_usbid")%>) proveniente de 
-            <%=session.getAttribute("rec_cOrigen")%>.</p><br/>
         <s:if test="hasActionErrors()">
             <div class="denyDiv">
                 <s:iterator value="actionErrors">
@@ -86,13 +83,37 @@
             </div>
             <br />
         </s:if>
+        <h4>Modificar Plantilla</h4><br />
+        <div class="tablaFormal">
+            <table border="0">
+                <tr>
+                    <td>Datos</td>
+                    <td>Estudiante</td>
+                </tr>
+                <tr>
+                    <td>Plantilla</td>
+                    <td><%=request.getAttribute("nombre")%></td>
+                        
+                </tr>
+                <tr>
+                    <td>Estudiante</td>
+                    <td><%=session.getAttribute("rec_nombre")%></td>
+                </tr>
+                <tr>
+                    <td>Carrera Origen</td>
+                    <td><%=session.getAttribute("rec_cOrigen")%></td>
+                </tr>
+            </table>
+        </div>
+       <br />
+        
     <center><div id="test" name="listas"></div></center>
     <br/>
     
     <form name="fom" method="post">
         <div align="right">
-            <input type="button" onclick="goBack()" value="<- Anterior">
-            <input type="button" onclick="selectAllOptions();" value="Siguiente ->">
+            <input type="button" onclick="goBack()" value="&laquo; Anterior">
+            <input type="button" onclick="selectAllOptions();" value="Siguiente &raquo;">
         </div>
     </form>
     

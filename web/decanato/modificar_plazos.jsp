@@ -25,13 +25,35 @@
         </s:iterator>
     </div><br />
 </s:if> 
-<center><b>Cambiando los plazos de <%=session.getAttribute("carrera_bux_nombre")%></b></center>
+    <h5>Cambiando los plazos de <%=session.getAttribute("carrera_bux_nombre")%></h5>
 <br/>
-<s:form action="ModificarPlazos">
-    <s:textfield type="text" label="Cantidad mínima de trimestres aprobados para solicitar el cambio de carrera" name="trimmin" maxlength="3" size="15" /> 
-    <s:textfield type="text" label="Cantidad máxima de trimestres cursando extraplanes" name="trimmax" maxlength="3" size="15" /> 
-    <s:submit value="Aceptar" />
-</s:form>
+<div class="row">
+    
+
+    <form id="ModificarPlazos" name="ModificarPlazos" action="/CambioCarrera/ModificarPlazos.action" method="post">
+        
+    <div class="form-group">
+        <label for="trimmin" class="col-sm-8 control-label">Cantidad mínima de trimestres aprobados para solicitar el cambio de carrera</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="trimmin" name="trimmin" placeholder="#">
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="trimmax" class="col-sm-8 control-label">Cantidad máxima de trimestres cursando extraplanes</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="trimmax" name="trimmax" placeholder="#">
+        </div>
+    </div>
+
+
+
+</div>
+    <br/>
+    <input type="submit" value="Aceptar" class="btn btn-default">
+    </form>
 
 <br/>
 <center><center><a href="<s:url action="GestionPlazosLink2"/>">Volver</a></center></center>

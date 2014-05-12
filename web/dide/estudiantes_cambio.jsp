@@ -17,19 +17,23 @@
             </s:iterator>
         </div><br />
     </s:if>
+    <div class="col-md-offset-1">
 
-    <table>
-        <tr>
-            <td>
-                <s:form action="EstudiantesCambioDIDE">
-                    <center><s:submit value="Estudiantes en Cambio de Carrera" type="button"/></center>
-                </s:form>
+        <table>
+            <tr>
+                <td>
+                    <s:form action="EstudiantesCambioDIDE">
+                    <%-- <s:submit value="Estudiantes en Cambio de Carrera" type="button"/>--%>
+                    <button type="submit" class="btn btn-default">Estudiantes en Cambio de Carrera</button>
+            </s:form>
             </td>
             <td>
                 <s:form action="HistorialCambioDIDE">
-                    <center><s:submit value="Historial de Estudiantes" type="button"/></center>
-                </s:form>
+                    <%--<s:submit value="Historial de Estudiantes" type="button"/>--%>
+                    <button type="submit" class="btn btn-default">Historial de Estudiantes</button>
+            </s:form>
             <td>
-        </tr>
-    </table>
+                </tr>
+        </table>
+    </div>
 </div>

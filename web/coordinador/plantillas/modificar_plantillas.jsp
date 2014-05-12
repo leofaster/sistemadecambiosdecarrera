@@ -11,16 +11,10 @@
 <html>
 
     <head>
-        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap2.css" rel="stylesheet">
         <link href="css/bootstrap-transfer.css" rel="stylesheet">
         <script src="javascripts/bootstrap-transfer.js"></script>
-        <style>
-            .footer{
-                position: static;
-                bottom: auto; 
-            } 
-
-        </style>
+   
         <script type="text/javascript">
 
             var t;
@@ -79,7 +73,7 @@
     </head>
 
     <body>
-
+        <h4>Modificar Plantilla</h4><br />
         <p>Modificando la plantilla "<%=request.getAttribute("nombre")%>".</p><br/>
         <s:if test="hasActionErrors()">
             <div class="denyDiv">

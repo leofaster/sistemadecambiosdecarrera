@@ -8,8 +8,8 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*;" %>
-<div id="loginDiv" alt="especial">
-    <center><h4>Perfil del Estudiante</h4> </center>
+<div >
+  <h4>Perfil del Estudiante</h4> 
     <br/><br/>
     <table border="0"> 
         <tr>

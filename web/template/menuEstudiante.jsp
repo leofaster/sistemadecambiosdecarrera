@@ -12,6 +12,5 @@
             <strong><li><a href="<s:url action="verificarReq"/>" >Solicitar Cambio de Carrera</a></li></strong>
             <strong><li><a href="<s:url action="ListarSol"/>" >Solicitudes de Cambio Enviadas</a></li></strong>
             <strong><li><a href="<s:url action="instruccionesLink2"/>">Ayuda</a></li></strong>
-            <strong><li><a href="<s:url action="salir"/>" >Salir</a></li></strong> 
         </ul>
 </html>

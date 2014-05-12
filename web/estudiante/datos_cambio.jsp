@@ -18,37 +18,21 @@
         document.fom.submit();
     }
 </script>
-<script>
-    $(function() {
 
-        $("#dialog").dialog({
-            height: 580,
-            width: 800,
-            modal: true,
-            autoOpen: false,
-            show: {
-                effect: "blind",
-                duration: 1000
-            }
-        });
-
-
-        $("#opener").click(function() {
-            $("#dialog").dialog("open");
-        });
-    });
-</script>
-
-
-
-
-<div id="dialog" title="Informe Académico" style="overflow: scroll;">
-    <%
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Informe Academico</h4>
+      </div>
+      <div class="modal-body">
+          <%
         List l = (List) request.getAttribute("materias");
         if (l != null && l.size() != 0) {
     %>
-    <center>
-        <div class="tablaFormal">
+     <div class="tablaFormal">
             <table>
                 <tr>
                     <td><center><b>Materia</b></center></td>
@@ -74,12 +58,19 @@
 
             </table>
         </div>
-
-        <%
+                 <%
             }
         %>
-    </center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
 
 <s:if test="hasActionMessages()">
 
@@ -89,88 +80,115 @@
 
 </s:if>
 
-<center><h4>Perfil del Estudiante</h4> </center>
+<h4>Perfil del Estudiante</h4> 
 <br/>
-<table border="0"> 
-    <tr>
-        <td><b>Nombre:</b></td>
-        <td><s:property value="nombre" /> <s:property value="apellido" /></td>
-    </tr>
-    <tr>
-        <td><b>Carnet:</b></td>
-        <td><s:property value="usbid" /></td>
-    </tr>
-    <tr>
-        <td><b>Índice:</b></td>
-        <td><s:property value="indice" /></td>
-    </tr>
-    <tr>
-        <td><b>Carrera de origen:</b></td>
-        <td><s:property value="carreraOrigen.nombre" /></td>
-    </tr>
-    <tr>
-        <td><b>Carrera de destino:</b></td>
-        <td><s:property value="solicitud.carrera.nombre" /></td>
-    </tr>
-    <tr>
-        <td><b>Motivación para el cambio:     </b></td>
-        <td><s:property value="solicitud.motivacion" /></td>
-    </tr>
-    <tr>
-        <td><b>Extraplanes asignados:</b></td>
+<div class="tablaFormal">
+    <table border="0"> 
+
+        <tr>
+            <td>Datos
+            </td>
+            <td>Estudiante
+            </td>
+
+        </tr>
+        <tr>
+            <td><b>Nombre</b></td>
+            <td><s:property value="nombre" /> <s:property value="apellido" /></td>
+        </tr>
+        <tr>
+            <td><b>Carnet</b></td>
+            <td><s:property value="usbid" /></td>
+        </tr>
+        <tr>
+            <td><b>Índice</b></td>
+            <td><s:property value="indice" /></td>
+        </tr>
+        <tr>
+            <td><b>Carrera de origen</b></td>
+            <td><s:property value="carreraOrigen.nombre" /></td>
+        </tr>
+        <tr>
+            <td><b>Carrera de destino</b></td>
+            <td><s:property value="solicitud.carrera.nombre" /></td>
+        </tr>
+        <tr>
+            <td><b>Motivación para el cambio     </b></td>
+            <td><s:property value="solicitud.motivacion" /></td>
+        </tr>
+    </table>
+</div>
+<br />
+<h4>Extraplanes Asignados:</h4>
+<div class="tablaFormal">
+    <table border="0">
+
+        <tr>
+            <td>Materia</td>
+            <td>Nota Minima</td>
+        </tr>
 
         <%
             List le = (List) request.getAttribute("listaExtraplanes");
             if (le == null) {
 
         %>
-        <td>El estudiante aún no tiene extraplanes asignados.<br/>
-            <%} else {%>
-        </table>
-                    <%Iterator it = le.iterator();
-                        while (it.hasNext()) {
-                            clases.AsignaturaConNota extraplan = (clases.AsignaturaConNota) it.next();
-                            clases.Asignatura asignatura = extraplan.getAsignatura();
-                            String codigo = asignatura.getCodigoS();
-                            int nota = extraplan.getNota();
-                            String nombreAsignatura = asignatura.getNombre();
-                    %>  
-        <center><%= nombreAsignatura%> (minimo <%= nota%>).<br></center>
-                    <%}
+        <tr>
+            <td>El estudiante aún no tiene extraplanes asignados.<br/></td>
+            <td>N/A</td>
+        </tr>
+        <%} else {%>
+
+
+        <%Iterator it = le.iterator();
+            while (it.hasNext()) {
+                clases.AsignaturaConNota extraplan = (clases.AsignaturaConNota) it.next();
+                clases.Asignatura asignatura = extraplan.getAsignatura();
+                String codigo = asignatura.getCodigoS();
+                int nota = extraplan.getNota();
+                String nombreAsignatura = asignatura.getNombre();
+        %>  
+        <tr>
+            <td><%= nombreAsignatura%></td>
+            <td>  <%= nota%></td>
+        </tr>
+        <%}
                         }%>
-
-            <%                Map sesion = ActionContext.getContext().getSession();
-                if (sesion.get("rol").toString().equals("Coordinador")) {
-            %>
-            <s:url id="recomendarExtraplanes" namespace="/" action="recomendarExtraplanesLink2" >
-                <s:param name="usbid"><s:property value="usbid" /></s:param>
-                <s:param name="nombre"><s:property value="nombre" /> <s:property value="apellido" /></s:param>
-                <s:param name="indice"><s:property value="indice" /></s:param>
-                <s:param name="cOrigen"><s:property value="carreraOrigen.nombre" /></s:param>
-            </s:url>
-            <s:a href="%{recomendarExtraplanes}">
-                <center><input type="button" value="Editar Extraplanes"></center>
-            </s:a>
-            <%  }
-            %>
+  </table>
+</div>
+        <%                Map sesion = ActionContext.getContext().getSession();
+            if (sesion.get("rol").toString().equals("Coordinador")) {
+        %>
+  
+<s:url id="recomendarExtraplanes" namespace="/" action="recomendarExtraplanesLink2" >
+    <s:param name="usbid"><s:property value="usbid" /></s:param>
+    <s:param name="nombre"><s:property value="nombre" /> <s:property value="apellido" /></s:param>
+    <s:param name="indice"><s:property value="indice" /></s:param>
+    <s:param name="cOrigen"><s:property value="carreraOrigen.nombre" /></s:param>
+</s:url>
+<s:a href="%{recomendarExtraplanes}">
+    <center><input type="button"  class="btn btn-default" value="Editar Extraplanes"></center>
+    </s:a>
+    <%  }
+    %>
 <br/>
-<center><button id="opener">Mostrar Informe Académico</button></center>
+<center><button data-toggle="modal" data-target="#myModal" class="btn btn-default">Mostrar Informe Académico</button></center>
 <br/>
 
+<h4>Archivos de la evaluación de DIDE</h4>
 
-
-<center><b>Archivos de la evaluación de DIDE</b></center><br />
 <div class="tablaFormal">
     <table >
 
-        <tr>
-            <td class="bord"><center><b>Nombre del archivo</b></center></td>
-        <td class="bord"><center><b>Descargar</b></center></td>
-        </tr>
+
         <%
             List l2 = (List) request.getAttribute("archivos");
             if (l2 != null && l2.size() != 0) {
         %>
+        <tr>
+            <td class="bord"><center><b>Nombre del archivo</b></center></td>
+        <td class="bord"><center><b>Descargar</b></center></td>
+        </tr>
         <%
             Iterator it = l2.iterator();
 
@@ -195,9 +213,14 @@
         </td>
         </tr> 
         <%
-                }
             }
-        %>
+        } else {%>
+        <tr>
+        <td class="bord">Actualmente no hay ningun archivo</td>
+        </tr>
+        <% }%>
+
+
     </table>    
 </div>
 <br/>
@@ -208,7 +231,7 @@
     <form action="upload" method="post" enctype="multipart/form-data">
         <label for="archivo">Cargar archivo:</label>
         <input type="file" name="archivo" /><br>
-        <input type="submit" value="Cargar"/>
+        <input type="submit" class="btn btn-default" value="Cargar"/>
     </form>
 </center>
 <%  }
@@ -221,15 +244,17 @@
     <tr>
         <td>
             <s:form action="Aprobar">
-        <center>    
-            <s:submit  value="Aprobar Cambio" type="button"/>
+        <center>
+            <input type="submit" class="btn btn-default" value="Aprobar Cambio"/>
+            <%--<s:submit  value="Aprobar Cambio" type="button"/>--%>
         </center>
     </s:form>
 </td>
 <td>
     <s:form action="Denegar">
     <center>
-        <s:submit  value="Negar Cambio" type="button"/>
+        <input type="submit" class="btn btn-default" value="Negar Cambio"/>
+        <%--<s:submit  value="Negar Cambio" type="button"/>--%>
     </center>
 </s:form>
 <td>

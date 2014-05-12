@@ -25,13 +25,26 @@
         </s:iterator>
     </div><br />
 </s:if>
-<center><b>Cambiando los activos de la cohorte <%=session.getAttribute("cohorte_aux")%><br/>
-        en <%=session.getAttribute("carrera_aux_nombre")%>:</b></center>
+<h5>Cambiando los activos de la cohorte <%=session.getAttribute("cohorte_aux")%>
+    en <%=session.getAttribute("carrera_aux_nombre")%>:</h5>
 <br/>
-<s:form action="ModificarActivos">
+
+<form id="ModificarActivos" name="ModificarActivos" action="/CambioCarrera/ModificarActivos.action" method="post">
+    <div class="row">
+        <div class="form-group">
+            <label for="trimmin" class="col-sm-3 control-label">Nueva cantidad de Activos</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="cantCupos"  maxlength="3" size="15" placeholder="#">
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Cambiar" class="btn btn-default"/>
+
+</form>
+<%--<s:form action="ModificarActivos">
     <s:textfield type="text" label="Nueva cantidad de Activos" name="cantCupos" maxlength="3" size="15" /> 
     <s:submit value="Aceptar" />
-</s:form>
+</s:form>--%>
 
 <br/>
 <center><center><a href="<s:url action="GestionCuposLink2"/>">Volver</a></center></center>
