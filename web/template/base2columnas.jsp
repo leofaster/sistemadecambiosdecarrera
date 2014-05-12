@@ -16,8 +16,8 @@
         <script src="javascripts/bootstrap-transfer.js"></script>
         <script src="javascripts/bootstrap.min.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-        <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <!--<script src="//code.jquery.com/jquery-1.9.1.js"></script>-->
+        <!--<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>-->
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/estilo.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/estructura2.css">

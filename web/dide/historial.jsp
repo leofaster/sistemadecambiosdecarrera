@@ -19,7 +19,7 @@
                     if (l != null && l.size() != 0) {
                 %>
 
-        <table  border="1" style="white-space: nowrap">
+        <table  border="0">
             <form name="fom" method="post">
                 <tr>
                 <center><td ><b>Estudiante</b></td> </center>

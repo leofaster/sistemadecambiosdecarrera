@@ -21,52 +21,52 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Informe Academico</h4>
-      </div>
-      <div class="modal-body">
-          <%
-        List l = (List) request.getAttribute("materias");
-        if (l != null && l.size() != 0) {
-    %>
-     <div class="tablaFormal">
-            <table>
-                <tr>
-                    <td><center><b>Materia</b></center></td>
-                <td><center><b>Código</b></center></td>
-                <td><center><b>Nota</b></center></td>
-                </tr>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Informe Academico</h4>
+            </div>
+            <div class="modal-body">
                 <%
-                    Iterator it = l.iterator();
-                    while (it.hasNext()) {
-                        clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
-                        String nombre = b.getAsignatura().getNombre();
-                        String codigo = b.getAsignatura().getCodigoS();
-                        String nota = b.getNota() + "";
+                    List l = (List) request.getAttribute("materias");
+                    if (l != null && l.size() != 0) {
                 %>
-                <tr>
-                    <td><center><%= nombre%></center></td>
-                <td><center><%= codigo%></center></td>
-                <td><center><%= nota%></center></td>
-                </tr>
+                <div class="tablaFormal">
+                    <table>
+                        <tr>
+                            <td><center><b>Materia</b></center></td>
+                        <td><center><b>Código</b></center></td>
+                        <td><center><b>Nota</b></center></td>
+                        </tr>
+                        <%
+                            Iterator it = l.iterator();
+                            while (it.hasNext()) {
+                                clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
+                                String nombre = b.getAsignatura().getNombre();
+                                String codigo = b.getAsignatura().getCodigoS();
+                                String nota = b.getNota() + "";
+                        %>
+                        <tr>
+                            <td><center><%= nombre%></center></td>
+                        <td><center><%= codigo%></center></td>
+                        <td><center><%= nota%></center></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+
+                    </table>
+                </div>
                 <%
                     }
                 %>
-
-            </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
         </div>
-                 <%
-            }
-        %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
     </div>
-  </div>
 </div>
 
 
@@ -123,22 +123,22 @@
 <div class="tablaFormal">
     <table border="0">
 
+
+
+        <%
+            List le = (List) request.getAttribute("listaExtraplanes");
+            if (le.size() < 1) {
+
+        %>
+        <tr>
+            <td>El estudiante aún no tiene extraplanes asignados</td>
+           
+        </tr>
+        <%} else {%>
         <tr>
             <td>Materia</td>
             <td>Nota Minima</td>
         </tr>
-
-        <%
-            List le = (List) request.getAttribute("listaExtraplanes");
-            if (le == null) {
-
-        %>
-        <tr>
-            <td>El estudiante aún no tiene extraplanes asignados.<br/></td>
-            <td>N/A</td>
-        </tr>
-        <%} else {%>
-
 
         <%Iterator it = le.iterator();
             while (it.hasNext()) {
@@ -153,13 +153,13 @@
             <td>  <%= nota%></td>
         </tr>
         <%}
-                        }%>
-  </table>
+            }%>
+    </table>
 </div>
-        <%                Map sesion = ActionContext.getContext().getSession();
-            if (sesion.get("rol").toString().equals("Coordinador")) {
-        %>
-  
+<%                Map sesion = ActionContext.getContext().getSession();
+    if (sesion.get("rol").toString().equals("Coordinador")) {
+%>
+
 <s:url id="recomendarExtraplanes" namespace="/" action="recomendarExtraplanesLink2" >
     <s:param name="usbid"><s:property value="usbid" /></s:param>
     <s:param name="nombre"><s:property value="nombre" /> <s:property value="apellido" /></s:param>
@@ -167,7 +167,7 @@
     <s:param name="cOrigen"><s:property value="carreraOrigen.nombre" /></s:param>
 </s:url>
 <s:a href="%{recomendarExtraplanes}">
-    <center><input type="button"  class="btn btn-default" value="Editar Extraplanes"></center>
+    <center><br /><input type="button"  class="btn btn-default" value="Editar Extraplanes"></center>
     </s:a>
     <%  }
     %>
@@ -216,7 +216,7 @@
             }
         } else {%>
         <tr>
-        <td class="bord">Actualmente no hay ningun archivo</td>
+            <td class="bord">Actualmente no hay ningun archivo</td>
         </tr>
         <% }%>
 
