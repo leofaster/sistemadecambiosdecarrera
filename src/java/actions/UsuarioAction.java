@@ -72,6 +72,7 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
             addFieldError("contrasena", getText("contrasena.required"));
         }
 
+        System.out.println(getUsbid());
         if (getUsbid().equals("admin") && getContrasena().equals("admin")) {
             session.put("usbid", getUsbid());
             session.put("nombre", "Administrador");

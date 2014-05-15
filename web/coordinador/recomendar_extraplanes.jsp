@@ -23,10 +23,7 @@
     function mostrarVentana2() {
         var nombre_plantilla = $('input[name="plantilla"]:checked').val();
         if (!(nombre_plantilla == "newPlantilla")) {
-            var ventana = document.getElementById('miVentana'); // Accedemos al contenedor
-            ventana.style.marginTop = "100px"; // Definimos su posición vertical. La ponemos fija para simplificar el código
-            ventana.style.marginLeft = ((document.body.clientWidth - 350) / 2) + "px"; // Definimos su posición horizontal
-            ventana.style.display = 'block'; // Y lo hacemos visible
+            $("#myModal").modal();
         } else {
             document.fom.action = "NuevoPlan.action";
             document.fom.submit();
@@ -105,7 +102,7 @@ Podrá modificar el plan de estudio seleccionado en la próxima ventana.
         </table>  
     </div>
     <div align="right">
-        <input type="button"  class="btn btn-default" data-toggle="modal" data-target="#myModal" value="Siguiente &raquo;">
+        <input type="button" class="btn btn-default" onclick="mostrarVentana2();" value="Siguiente &raquo;">
     </div>
 </form>
 
@@ -133,13 +130,12 @@ Podrá modificar el plan de estudio seleccionado en la próxima ventana.
       <div class="modal-body">
         ¿Desea agregar o eliminar alguna materia del plan de estudio seleccionado?
         <div class="col-md-6 col-md-offset-3">
-           
-         
         </div>
         <br />
       </div>
+        
       <div class="modal-footer">
-          <input  onclick="modificar();" class="btn btn-default" type="button" value="Sí" />
+        <input  onclick="modificar();" class="btn btn-default" type="button" value="Sí" />
         <input  onclick="nomodificar();" class="btn btn-default" type="button" value="No" />
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
       </div>

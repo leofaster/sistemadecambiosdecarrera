@@ -18,7 +18,7 @@
             <result name="Decanato"     type="tiles">/decanato.welcome</result>
             <result name="DIDE"         type="tiles">/dide.welcome</result>
             <result name="Coordinador"  type="tiles">/coordinador.welcome</result>
-            <result name="input"        type="tiles">/login</result>
+            <result name="input"        >/home/login.jsp</result>
         </action>
         
         <action name="salir" class="clases.Usuario" method="salir">
@@ -33,6 +33,7 @@
         </action>
         
         <action name="verificarReq" class="actions.SolicitudAction" method="solicitarCambio">
+            <result name="input" type="redirectAction">verificarReq</result>
             <result type="tiles">/estudiante.solicitar.cambio</result>
         </action>
         
@@ -261,7 +262,7 @@
         
         <action name="*Link2" method="{1}"  class="links.LinksActions">
             <result name="home" type="tiles">/home</result>
-            <result name="login" type="tiles">/login</result>
+            <result name="login">/home/login.jsp</result>
             <result name="instrucciones" type="tiles">/instrucciones</result>
 
             <result name="GestionCupos" type="tiles">/decanato.gestion.cupos</result>

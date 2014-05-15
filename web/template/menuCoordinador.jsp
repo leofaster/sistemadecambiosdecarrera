@@ -8,7 +8,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
-    <ul id="navlist" style="list-style-type: none">
+    <ul id="navlist" style="list-style-type: none; padding-left: 0px;">
         <strong>
             <li><a href="<s:url action="verSolicitudesLink2"/>" >Gestionar Pre-Solicitudes</a></li>
             <li><a href="<s:url action="EstudiantesCambioCoordLink2"/>">Estudiantes en Cambio de Carrera</a></li>

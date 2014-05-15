@@ -36,10 +36,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col-md-3 col-lg-3">
+                    <div class=" col-md-2 col-lg-2" style="padding-left: 0px;">
                         <tiles:insertAttribute name="menu" />
                     </div>
-                    <div class="col-md-7 col-lg-7 medio">
+                    <div class="col-md-8 col-lg-8 medio">
                         <tiles:insertAttribute name="body" />
                     </div>
                     <div  class="col-md-2 col-lg-2 visible-md visible-lg ">

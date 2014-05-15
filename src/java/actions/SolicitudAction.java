@@ -39,7 +39,7 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
     private String motivacion;
     private String carrera_dest;
     private String mensaje;
-    protected HttpServletRequest request;
+    HttpServletRequest request;
     ArrayList cuestionario = new ArrayList();
 
     /**
@@ -210,7 +210,7 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
                 cuestionario.add(preguntaAux);
             }
             request.setAttribute("lista_cuestionario", cuestionario);
-            System.out.println("wepawe");
+            System.out.println(cuestionario);
         } catch (Exception e) {
             System.out.println("Problema en las preguntas de DIDE, base de datos.");
         }
@@ -219,6 +219,10 @@ public class SolicitudAction extends ActionSupport implements ServletRequestAwar
     }
 
     public HttpServletRequest getRequest() {
+        return request;
+    }
+    
+    public HttpServletRequest getServletRequest() {
         return request;
     }
 

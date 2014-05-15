@@ -15,10 +15,6 @@
         <put-attribute name="footer"  value="/template/footer.jsp"/>
     </definition>
     
-    
-    
-    
-    
     <definition name="baseLayout2" template="/template/base2columnas.jsp">
         <put-attribute name="title"  value="Sistema de Cambio de Carrera"/>
         <put-attribute name="header" value="/template/header.jsp"/>
@@ -67,10 +63,10 @@
         <put-attribute name="menu"   value="/home/menu.jsp"/>  
     </definition>
     
-    <definition name="/login" extends="baseLayout2">
-        <put-attribute name="body"   value="/home/login.jsp"/>  
-        <put-attribute name="menu"   value="/home/menu.jsp"/>  
-    </definition>
+<!--    <definition name="/login">
+        <put-attribute name="body"   value="/home/home_1.jsp"/>  
+    </definition>-->
+    
     <definition name="/instrucciones" extends="baseLayout2">
         <put-attribute name="body"   value="/estudiante/instrucciones.jsp"/>  
         <put-attribute name="menu"   value="/template/menuEstudiante.jsp"/>  
