@@ -105,11 +105,25 @@ public class Recomienda extends ActionSupport implements ServletRequestAware {
                         + materia.getNota() + "','"
                         + ts + "')");
             }
-        } catch (Exception e) {
-            return "no success";
+            e = new Estudiante();
+            request.setAttribute("carnet",estudiante);
+            e.setRequest(request);
+            String result = e.visualizarDatosCambio();
+            this.setRequest(e.getRequest());
+            this.setServletRequest(e.getRequest());
+            return result;
+            
+            
+        } catch (Exception f) {
+            addActionError("Una de las materias seleccionadas ya ha sido asignada al estudiante.");
+            e = new Estudiante();
+            request.setAttribute("carnet",estudiante);
+            e.setRequest(request);
+            String result = e.visualizarDatosCambio();
+            this.setRequest(e.getRequest());
+            this.setServletRequest(e.getRequest());
+            return result;
         }
-  
-        return SUCCESS;
     }
     
     public String eliminarAsignatura() throws Exception {

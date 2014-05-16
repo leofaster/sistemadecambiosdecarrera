@@ -100,7 +100,6 @@
 
 
 <h4>Perfil del Estudiante</h4> 
-<br/>
 <div class="tablaFormal">
     <table border="0"> 
 
@@ -136,8 +135,11 @@
             <td><s:property value="e.solicitud.motivacion" /></td>
         </tr>
     </table>
-</div>
-<br />
+</div><br/>
+        <center><button data-toggle="modal" data-target="#myModal" class="btn btn-default">Mostrar Informe Académico</button></center>
+<br /><br/>
+
+
 <h4>Extraplanes Asignados:</h4>
 <div class="tablaFormal">
     <table border="0">
@@ -201,10 +203,15 @@
 <s:a href="%{recomendarExtraplanes}">
     <center><br /><input type="button"  class="btn btn-default" value="Agregar Extraplanes"></center>
     </s:a>
+
+<center style="font-size: 11px;">
+<b>Nota: </b> Al agregar extraplanes, verifique que no seleccione uno ya asignado al estudiante.<br/>
+De ser el caso, será notificado al finalizar el proceso de asignación.</center>    
     <%  }
     %>
-<br/>
-<center><button data-toggle="modal" data-target="#myModal" class="btn btn-default">Mostrar Informe Académico</button></center>
+    
+<br/><br/>
+
 <br/>
 
 <h4>Archivos de la evaluación de DIDE</h4>

@@ -48,7 +48,7 @@
             $(function() {
                 t = $('#test').bootstrapTransfer(
                         {'target_id': 'multi-select-input',
-                            'height': '15em',
+                            'height': '20em',
                             'hilite_selection': true});
             
                 t.populate(input);

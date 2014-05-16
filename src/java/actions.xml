@@ -50,7 +50,9 @@
         </action>
         
         <action name="AsignarNota" class="clases.Recomienda" method="execute">
-            <result type="redirectAction">verDatosEstudiante</result>
+            <result name="DIDE" type="tiles">/cable.dide.estudiante.datos.cambio</result>
+            <result name="Coordinador" type="tiles">/cable.coordinador.estudiante.datos.cambio</result>
+            <result name="no success">/home/login.jsp</result>
         </action>
         
         <action name="Aprobar" class="actions.UpdateSolicitud" method="Aceptar"> 
@@ -112,6 +114,7 @@
         </action>
         
         <action name="GuardarPlan" class="actions.Plantillas" method="guardarPlan">
+            <result name="input" type="redirectAction">GuardarPlan</result>
             <result type="tiles">/coordinador.asignar.nota</result>
         </action>
         

@@ -11,7 +11,7 @@
 <html>
 
     <head>
-        <link href="css/bootstrap.css" rel="stylesheet"> 
+        <link href="css/bootstrap2.css" rel="stylesheet"> 
         <link href="css/bootstrap-transfer.css" rel="stylesheet">        
         <script src="javascripts/bootstrap-transfer.js"></script>
         <style>
@@ -46,7 +46,7 @@
             $(function() {
                 t = $('#test').bootstrapTransfer(
                         {'target_id': 'multi-select-input',
-                            'height': '15em',
+                            'height': '20em',
                             'hilite_selection': true});
 
                 t.populate(input);
@@ -55,10 +55,13 @@
             });
 
             function selectAllOptions() {
-                console.log("help");
                 var materias = t.get_values();
-                document.fom.action = "GuardarPlan.action?lista=" + materias;
-                document.fom.submit();
+                if (materias[0] != null) {
+                    document.fom.action = "GuardarPlan.action?lista=" + materias;
+                    document.fom.submit();
+                } else {
+                    alert("No puede dejar la lista de materias vacía.");
+                }
             }
 
             function salir() {

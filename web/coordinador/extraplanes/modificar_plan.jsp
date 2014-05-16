@@ -67,8 +67,12 @@
 
             function selectAllOptions() {
                 var materias = t.get_values();
-                document.fom.action = "GuardarPlan.action?lista=" + materias;
-                document.fom.submit();
+                if (materias[0] != null) {
+                    document.fom.action = "GuardarPlan.action?lista=" + materias;
+                    document.fom.submit();
+                } else {
+                    alert("No puede dejar la lista de materias vacía.");
+                }
             }
         </script>
     </head>
@@ -100,7 +104,7 @@
                     <td><%=session.getAttribute("rec_nombre")%></td>
                 </tr>
                 <tr>
-                    <td>Carrera Origen</td>
+                    <td>Carrera de Origen</td>
                     <td><%=session.getAttribute("rec_cOrigen")%></td>
                 </tr>
             </table>
