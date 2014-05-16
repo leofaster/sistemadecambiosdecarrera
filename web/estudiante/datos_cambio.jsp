@@ -283,14 +283,14 @@ De ser el caso, será notificado al finalizar el proceso de asignación.</center
 <table>
     <tr>
         <td>
-            <s:form action="Aprobar">
+            <s:form action="AAprobar">
             <center>
                 <input type="submit" class="btn btn-default" value="Recomendar Cambio"/>
             </center>
             </s:form>
         </td>
         <td>
-            <s:form action="Denegar">
+            <s:form action="DDenegar">
             <center>
                 <input type="submit" class="btn btn-default" value="No Recomendar Cambio"/>
             </center>

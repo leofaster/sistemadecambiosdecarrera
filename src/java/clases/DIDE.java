@@ -22,7 +22,9 @@ public class DIDE extends Usuario {
             rs = st.executeQuery(
                       "SELECT * "
                     + "FROM SOLICITUD NATURAL JOIN USUARIO "
-                    + "WHERE SOL_ACEPTADA='A'"
+                    + "WHERE SOL_ACEPTADA='A' "
+                    + "AND cc_aprobado='P'"
+                        
                     );
             
             List<Solicitud> li;

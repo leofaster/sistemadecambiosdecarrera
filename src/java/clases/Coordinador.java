@@ -34,7 +34,8 @@ public class Coordinador extends Usuario {
                       "SELECT * "
                     + "FROM SOLICITUD NATURAL JOIN USUARIO "
                     + "WHERE SOL_ACEPTADA='A' "
-                      + "AND CODCARRERA='" + carr + "'"
+                      + "AND CODCARRERA='" + carr + "' "
+                      + "AND cc_aprobado='P'"
                     );
             
             List<Solicitud> li;

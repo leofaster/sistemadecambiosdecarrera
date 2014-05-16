@@ -306,4 +306,54 @@ public class UpdateSolicitud extends ActionSupport implements ServletRequestAwar
 
         return SUCCESS;
     }
+    
+    public String NNegar() {
+        ResultSet rs = null;
+        Statement st = null;
+        ConexionBD.establishConnection();
+
+        try {
+            st = ConexionBD.getConnection().createStatement();
+            Map session2 = ActionContext.getContext().getSession();
+            String carnet = session2.get("carnet_aux").toString();
+            
+            rs = st.executeQuery("select * from solicitud where usbid='" + carnet + "' AND sol_aceptada='A'");
+            if (rs.next()) {
+                st.executeUpdate("UPDATE solicitud SET cc_aprobado='R' "
+                                + "where usbid='" + carnet + "' and sol_aceptada='A'");
+                addActionMessage("La solicitud se ha procesado con éxito.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error modificando solicitudes");
+        }
+
+        return SUCCESS;
+    }
+
+    public String AAceptar() {
+        ResultSet rs = null;
+        Statement st = null;
+        ConexionBD.establishConnection();
+
+        try {
+            st = ConexionBD.getConnection().createStatement();
+            Map session2 = ActionContext.getContext().getSession();
+            String carnet = session2.get("carnet_aux").toString();
+            
+            rs = st.executeQuery("select * from solicitud where usbid='" + carnet + "' AND sol_aceptada='A'");
+            if (rs.next()) {
+                st.executeUpdate("UPDATE solicitud SET cc_aprobado='A' "
+                                + "where usbid='" + carnet + "' and sol_aceptada='A'");
+                addActionMessage("La solicitud se ha procesado con éxito.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error modificando solicitudes");
+        }
+
+        return SUCCESS;
+    }
 }

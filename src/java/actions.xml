@@ -59,6 +59,10 @@
             <result name="success" type="tiles">/coordinador.solicitudes</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action>
+        <action name="AAprobar" class="actions.UpdateSolicitud" method="AAceptar"> 
+            <result name="success" type="tiles">/coordinador.estudiantes.cambio</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action>
         
         <action name="crearPlantilla" class="actions.Plantillas" method="crearPlantilla">
             <interceptor-ref name="store">
@@ -71,6 +75,10 @@
         
         <action name="Denegar" class="actions.UpdateSolicitud" method="Negar"> 
             <result name="success" type="tiles">/coordinador.solicitudes</result>
+            <result name="no success">cupos/errorCupo.jsp</result>
+        </action>
+        <action name="DDenegar" class="actions.UpdateSolicitud" method="NNegar"> 
+            <result name="success" type="tiles">/coordinador.estudiantes.cambio</result>
             <result name="no success">cupos/errorCupo.jsp</result>
         </action>
         

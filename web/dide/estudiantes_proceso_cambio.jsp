@@ -64,5 +64,5 @@
                     </form>
                 </table>    
             </div>
-                    <center><br /><a href="<s:url action="EstudiantesCambioDIDELink2"/>">Volver</a></center>
+                    
             

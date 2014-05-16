@@ -17,25 +17,9 @@
             </s:iterator>
         </div><br />
     </s:if>
+        
+        <center>El resultado de la recomendación será notificado al <br/>Decanato 
+         de Estudios Profesionales.</center>
 
-    <table>
-        <tr>
-            <td>
-                <s:form action="EstudiantesCambioCoord">
-                    <center>
-                        <%--<s:submit value="Estudiantes en Cambio de Carrera" type="button"/>--%>
-                         <button type="submit" class="btn btn-default">Estudiantes en Cambio de Carrera</button>
-                    </center>
-                </s:form>
-            </td>
-            <td>
-                <s:form action="HistorialCambioCoord">
-                    <center>
-                        <%--<s:submit value="Historial de Estudiantes" type="button"/>--%>
-                         <button type="submit" class="btn btn-default">Historial de Estudiantes</button>
-                    </center>
-                </s:form>
-            <td>
-        </tr>
-    </table>
+
 </div>
