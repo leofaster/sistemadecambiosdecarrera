@@ -101,27 +101,27 @@
         </tr>
         <tr>
             <td><b>Nombre</b></td>
-            <td><s:property value="nombre" /> <s:property value="apellido" /></td>
+            <td><s:property value="e.nombre" /> <s:property value="e.apellido" /></td>
         </tr>
         <tr>
             <td><b>Carnet</b></td>
-            <td><s:property value="usbid" /></td>
+            <td><s:property value="e.usbid" /></td>
         </tr>
         <tr>
             <td><b>Índice</b></td>
-            <td><s:property value="indice" /></td>
+            <td><s:property value="e.indice" /></td>
         </tr>
         <tr>
             <td><b>Carrera de origen</b></td>
-            <td><s:property value="carreraOrigen.nombre" /></td>
+            <td><s:property value="e.carreraOrigen.nombre" /></td>
         </tr>
         <tr>
             <td><b>Carrera de destino</b></td>
-            <td><s:property value="solicitud.carrera.nombre" /></td>
+            <td><s:property value="e.solicitud.carrera.nombre" /></td>
         </tr>
         <tr>
             <td><b>Motivación para el cambio     </b></td>
-            <td><s:property value="solicitud.motivacion" /></td>
+            <td><s:property value="e.solicitud.motivacion" /></td>
         </tr>
     </table>
 </div>
@@ -181,10 +181,10 @@
 %>
 
 <s:url id="recomendarExtraplanes" namespace="/" action="recomendarExtraplanesLink2" >
-    <s:param name="usbid"><s:property value="usbid" /></s:param>
-    <s:param name="nombre"><s:property value="nombre" /> <s:property value="apellido" /></s:param>
-    <s:param name="indice"><s:property value="indice" /></s:param>
-    <s:param name="cOrigen"><s:property value="carreraOrigen.nombre" /></s:param>
+    <s:param name="usbid"><s:property value="e.usbid" /></s:param>
+    <s:param name="nombre"><s:property value="e.nombre" /> <s:property value="e.apellido" /></s:param>
+    <s:param name="indice"><s:property value="e.indice" /></s:param>
+    <s:param name="cOrigen"><s:property value="e.carreraOrigen.nombre" /></s:param>
 </s:url>
 <s:a href="%{recomendarExtraplanes}">
     <center><br /><input type="button"  class="btn btn-default" value="Agregar Extraplanes"></center>

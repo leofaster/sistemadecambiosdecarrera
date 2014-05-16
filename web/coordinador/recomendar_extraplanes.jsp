@@ -61,11 +61,10 @@
 
     </table>
 </div>
-<br/>
+<br/><br/><br/>
 Seleccione una plantilla de plan de estudio o cree un nuevo plan de estudio para este estudiante.<br />
-<h4>Nota</h4>
-Podrá modificar el plan de estudio seleccionado en la próxima ventana.
-<br/>
+<b>Nota: </b> Podrá modificar el plan de estudio seleccionado en la próxima ventana.
+<br/><br/>
 
 <form name="fom" method="post">
     <div class="tablaFormal">

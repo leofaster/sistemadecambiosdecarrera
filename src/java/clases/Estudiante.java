@@ -86,7 +86,7 @@ public class Estudiante extends Usuario {
             rs = st.executeQuery("select * from recomienda natural join asignatura"
                     + " where usbid='" + this.usbid
                     + "' order by codasignatura");
-            System.out.println("Estudiante: " + this.usbid);
+//            System.out.println("Estudiante: " + this.usbid);
             while (rs.next()) {
                 asignatura = new Asignatura();
                 asignatura.setCodigoS(rs.getString("codasignatura"));
@@ -95,9 +95,9 @@ public class Estudiante extends Usuario {
                 asignaturaCN = new AsignaturaConNota();
                 asignaturaCN.setAsignatura(asignatura);
                 asignaturaCN.setNota(rs.getInt("nota_min"));
-                System.out.println("Extraplan: " + asignatura.getNombre());
-                System.out.println("Codigo: " + asignatura.getCodigoS());
-                System.out.println("Nota: " + asignaturaCN.getNota());
+//                System.out.println("Extraplan: " + asignatura.getNombre());
+//                System.out.println("Codigo: " + asignatura.getCodigoS());
+//                System.out.println("Nota: " + asignaturaCN.getNota());
                 li.add(asignaturaCN);
             }
 

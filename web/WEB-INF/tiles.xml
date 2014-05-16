@@ -79,12 +79,20 @@
         <put-attribute name="body"   value="/estudiante/datos_cambio.jsp"/>  
         <put-attribute name="menu"   value="/dide/menu.jsp"/>  
     </definition>
+    <definition name="/cable.dide.estudiante.datos.cambio" extends="baseLayout2">
+        <put-attribute name="body"   value="/estudiante/datos_cambio_cable.jsp"/>  
+        <put-attribute name="menu"   value="/dide/menu.jsp"/>  
+    </definition>
     <definition name="/coordinador.asignar.nota" extends="baseLayout2">
         <put-attribute name="body"   value="/coordinador/extraplanes/asignar_nota.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     <definition name="/coordinador.estudiante.datos.cambio" extends="baseLayout2">
         <put-attribute name="body"   value="/estudiante/datos_cambio.jsp"/>  
+        <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
+    </definition>
+    <definition name="/cable.coordinador.estudiante.datos.cambio" extends="baseLayout2">
+        <put-attribute name="body"   value="/estudiante/datos_cambio_cable.jsp"/>  
         <put-attribute name="menu"   value="/template/menuCoordinador.jsp"/>  
     </definition>
     <definition name="/estudiante.solicitud.listar" extends="baseLayout2">

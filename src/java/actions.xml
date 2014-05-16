@@ -82,6 +82,13 @@
             <result name="error">cupos/errorCupo.jsp</result>
         </action>
         
+        <action name="EliminarAsignatura" class="clases.Recomienda" method="eliminarAsignatura">
+            <result name="success" type="redirectAction">verDatosEstudiante</result>
+            <result name="DIDE" type="tiles">/cable.dide.estudiante.datos.cambio</result>
+            <result name="Coordinador" type="tiles">/cable.coordinador.estudiante.datos.cambio</result>
+            <result name="no success">/home/login.jsp</result>
+        </action>
+        
         <action name="EliminarPlantilla" class="actions.Plantillas" method="eliminarPlantilla">
             <interceptor-ref name="store">
                 <param name="operationMode">STORE</param>
@@ -189,19 +196,16 @@
         </action>
         
         <action name="upload" class="clases.FileManager" method="upload">
-            <interceptor-ref name="store">
-                <param name="operationMode">STORE</param>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">
+                  text/plain
+                </param>   
             </interceptor-ref>
-            <interceptor-ref name="defaultStack" />
+            <result name="no success" type="redirectAction">verDatosEstudiante</result>
             <result name="success" type="redirectAction">verDatosEstudiante</result>
-            <result name="error">cupos/errorCupo.jsp</result>
         </action>
          
         <action name="verDatosEstudiante" class="clases.Estudiante" method="visualizarDatosCambio">
-            <interceptor-ref name="store">
-                <param name="operationMode">RETRIEVE</param>
-            </interceptor-ref>
-            <interceptor-ref name="defaultStack" />
             <result name="DIDE" type="tiles">/dide.estudiante.datos.cambio</result>
             <result name="Coordinador" type="tiles">/coordinador.estudiante.datos.cambio</result>
             <result name="no success" type="tiles">/home</result>

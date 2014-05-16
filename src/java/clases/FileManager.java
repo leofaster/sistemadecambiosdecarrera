@@ -27,8 +27,16 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
     private InputStream archivoInputStream;
     private String fileName;
     private long contentLength;
+    public Estudiante e;
 
+    public Estudiante getE() {
+        return e;
+    }
 
+    public void setE(Estudiante e) {
+        this.e = e;
+    }
+    
     public String download() throws Exception {      
         try {
             File tmp = new File(destPath);
@@ -44,42 +52,42 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
 
     public String upload() {
         addActionMessage("Archivo subido con éxito.");
-         try{
-          destPath = request.getSession().getServletContext().getRealPath("/");
-          Map sesion = ActionContext.getContext().getSession();
-          String carn = sesion.get("carnet_aux").toString();
+//         try{
+            
+          destPath = this.request.getRealPath("/");
+          System.out.println(destPath);
+//          Map sesion = ActionContext.getContext().getSession();
+//          String carn = sesion.get("carnet_aux").toString();
+//
+//          ResultSet rs;
+//          Statement st;
+//          ConexionBD.establishConnection();
+//          st = ConexionBD.getConnection().createStatement();
+//
+//          rs = st.executeQuery(
+//                       "SELECT * "
+//                     + "FROM SOLICITUD "
+//                     + "WHERE USBID='" + carn + "' "
+//                       + "AND SOL_ACEPTADA='A'");
+//          rs.next();
+//
+//          File destFile  = new File(destPath, carn + archivoFileName);
+//          FileUtils.copyFile(archivo, destFile);
+//          System.out.println(destFile.toString());
+//
+//          st.executeUpdate("INSERT INTO REPORTE VALUES('"
+//                         + rs.getString(1) + "',"
+//                         + "CAST('" + rs.getInt(2) + "' AS INTEGER),'"
+//                         + rs.getTimestamp(3).toString() + "','"
+//                         + archivoFileName + "','"
+//                         + destFile.toString() + "')");
+//
+//          System.out.println("Quedo como: " + destFile);
 
-          ResultSet rs;
-          Statement st;
-          ConexionBD.establishConnection();
-          st = ConexionBD.getConnection().createStatement();
-
-          rs = st.executeQuery(
-                       "SELECT * "
-                     + "FROM SOLICITUD "
-                     + "WHERE USBID='" + carn + "' "
-                       + "AND SOL_ACEPTADA='A'");
-          rs.next();
-
-          File destFile  = new File(destPath, carn + archivoFileName);
-          FileUtils.copyFile(archivo, destFile);
-          System.out.println(destFile.toString());
-
-          st.executeUpdate("INSERT INTO REPORTE VALUES('"
-                         + rs.getString(1) + "',"
-                         + "CAST('" + rs.getInt(2) + "' AS INTEGER),'"
-                         + rs.getTimestamp(3).toString() + "','"
-                         + archivoFileName + "','"
-                         + destFile.toString() + "')");
-
-          
-
-          System.out.println("Quedo como: " + destFile);
-
-       }catch(Exception e){
-          e.printStackTrace();
-          return "no success";
-       }
+//       }catch(Exception e){
+//          e.printStackTrace();
+//          return "no success";
+//       }
 
        return "success";
     }

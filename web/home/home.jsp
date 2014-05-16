@@ -8,7 +8,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <center>
     <h2>
-        Bienvenido al Sistema de cambio <br /> 
-        de Carrera de la USB
+        Bienvenido al Sistema de <br /> 
+        Cambios de Carrera <br /> 
+        de la USB
     </h2>
 </center>
