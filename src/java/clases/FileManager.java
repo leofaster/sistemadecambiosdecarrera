@@ -51,44 +51,57 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
      }
 
     public String upload() {
-        addActionMessage("Archivo subido con éxito.");
-//         try{
-            
-          destPath = this.request.getRealPath("/");
-          System.out.println(destPath);
-//          Map sesion = ActionContext.getContext().getSession();
-//          String carn = sesion.get("carnet_aux").toString();
-//
-//          ResultSet rs;
-//          Statement st;
-//          ConexionBD.establishConnection();
-//          st = ConexionBD.getConnection().createStatement();
-//
-//          rs = st.executeQuery(
-//                       "SELECT * "
-//                     + "FROM SOLICITUD "
-//                     + "WHERE USBID='" + carn + "' "
-//                       + "AND SOL_ACEPTADA='A'");
-//          rs.next();
-//
-//          File destFile  = new File(destPath, carn + archivoFileName);
-//          FileUtils.copyFile(archivo, destFile);
-//          System.out.println(destFile.toString());
-//
-//          st.executeUpdate("INSERT INTO REPORTE VALUES('"
-//                         + rs.getString(1) + "',"
-//                         + "CAST('" + rs.getInt(2) + "' AS INTEGER),'"
-//                         + rs.getTimestamp(3).toString() + "','"
-//                         + archivoFileName + "','"
-//                         + destFile.toString() + "')");
-//
-//          System.out.println("Quedo como: " + destFile);
+        System.out.println("SIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+        Map sesion = ActionContext.getContext().getSession();
+        String carn = sesion.get("carnet_aux").toString();
+        e = new Estudiante();
+        request.setAttribute("carnet",carn);
+        e.setRequest(request);
+        e.visualizarDatosCambio();
+        this.setRequest(e.getRequest());
+        this.setServletRequest(e.getRequest());
+        
+        try{
+          destPath = request.getSession().getServletContext().getRealPath("/");
 
-//       }catch(Exception e){
-//          e.printStackTrace();
-//          return "no success";
-//       }
+          ResultSet rs;
+          Statement st;
+          ConexionBD.establishConnection();
+          st = ConexionBD.getConnection().createStatement();
 
+          rs = st.executeQuery(
+                       "SELECT * "
+                     + "FROM SOLICITUD "
+                     + "WHERE USBID='" + carn + "' "
+                       + "AND SOL_ACEPTADA='A'");
+          rs.next();
+
+          File destFile  = new File(destPath, carn + archivoFileName);
+          FileUtils.copyFile(archivo, destFile);
+          System.out.println(destFile.toString());
+
+          st.executeUpdate("INSERT INTO REPORTE VALUES('"
+                         + rs.getString(1) + "',"
+                         + "CAST('" + rs.getInt(2) + "' AS INTEGER),'"
+                         + rs.getTimestamp(3).toString() + "','"
+                         + archivoFileName + "','"
+                         + destFile.toString() + "')");
+
+            System.out.println("Quedo como: " + destFile);
+          
+            addActionMessage("El archivo se cargó correctamente.");
+            e = new Estudiante();
+            request.setAttribute("carnet",carn);
+            e.setRequest(request);
+            e.visualizarDatosCambio();
+            this.setRequest(e.getRequest());
+            this.setServletRequest(e.getRequest());
+
+       }catch(Exception f){
+          addActionError("No ha seleccionado ningún archivo o ha seleccionado uno ya existente.");
+          return "no success";
+       }
+       
        return "success";
     }
 
@@ -113,6 +126,10 @@ public class FileManager extends ActionSupport implements ServletRequestAware{
 
     public void setServletRequest(HttpServletRequest hsr) {
         this.request = hsr;
+    }
+    
+    public HttpServletRequest getServletRequest() {
+        return request;
     }
 
     public String getDestPath() {

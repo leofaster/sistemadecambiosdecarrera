@@ -38,32 +38,32 @@
                     if (l != null && l.size() != 0) {
                 %>
                 <div class="tablaFormal">
-                <form name="fom" method="post">
-                    <table>
-                        <tr>
-                            <td><center><b>Materia</b></center></td>
-                        <td><center><b>Código</b></center></td>
-                        <td><center><b>Nota</b></center></td>
-                        </tr>
-                        <%
-                            Iterator it = l.iterator();
-                            while (it.hasNext()) {
-                                clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
-                                String nombre = b.getAsignatura().getNombre();
-                                String codigo = b.getAsignatura().getCodigoS();
-                                String nota = b.getNota() + "";
-                        %>
-                        <tr>
-                            <td><center><%= nombre%></center></td>
-                        <td><center><%= codigo%></center></td>
-                        <td><center><%= nota%></center></td>
-                        </tr>
-                        <%
-                            }
-                        %>
+                    <form name="fom" method="post">
+                        <table>
+                            <tr>
+                                <td><center><b>Materia</b></center></td>
+                                <td><center><b>Código</b></center></td>
+                                <td><center><b>Nota</b></center></td>
+                            </tr>
+                            <%
+                                Iterator it = l.iterator();
+                                while (it.hasNext()) {
+                                    clases.AsignaturaConNota b = (clases.AsignaturaConNota) it.next();
+                                    String nombre = b.getAsignatura().getNombre();
+                                    String codigo = b.getAsignatura().getCodigoS();
+                                    String nota = b.getNota() + "";
+                            %>
+                            <tr>
+                                <td><center><%= nombre%></center></td>
+                                <td><center><%= codigo%></center></td>
+                                <td><center><%= nota%></center></td>
+                            </tr>
+                            <%
+                                }
+                            %>
 
-                    </table>
-                </form>
+                        </table>
+                    </form>
                 </div>
                 <%
                     }
@@ -75,7 +75,19 @@
         </div>
     </div>
 </div>
+                
+<s:if test="hasActionErrors()">
+    <div class="denyDiv">
+        <s:iterator value="actionErrors">
+            <span class="denyMsg"><s:property escape="false" />
+            </span>
+        </s:iterator>
 
+    </div>
+    <br />
+</s:if>
+  
+  
 <s:if test="hasActionMessages()">
     <div class="aproveDiv">
         <s:iterator value="actionMessages">
@@ -139,13 +151,14 @@
         %>
         <tr>
             <td>El estudiante aún no tiene extraplanes asignados</td>
-           
         </tr>
-        <%} else {%>
+        <%
+            } else {
+        %>
         <tr>
             <td>Código</td>
             <td>Materia</td>
-            <td>Nota Minima</td>
+            <td>Nota Mínima</td>
             <%
                 if (sesion.get("rol").toString().equals("Coordinador")) {
             %>
@@ -164,11 +177,10 @@
         <tr>
             <td><%= codigo%></td>
             <td><%= nombreAsignatura%></td>
-            
+            <td><%= nota%></td>            
             <%
                 if (sesion.get("rol").toString().equals("Coordinador")) {
             %>
-            <td>  <%= nota%></td>
             <td><a href="javascript:deleteRecord('<%= codigo%>')"><img src="images/delete.png" alt="Eliminar" title="Eliminar" width="20" height="20"></td>
             <% } %>
         </tr>
@@ -264,19 +276,18 @@
     <tr>
         <td>
             <s:form action="Aprobar">
-        <center>
-            <input type="submit" class="btn btn-default" value="Recomendar Cambio"/>
-        </center>
-    </s:form>
-</td>
-<td>
-    <s:form action="Denegar">
-    <center>
-        <input type="submit" class="btn btn-default" value="No Recomendar Cambio"/>
-        <%--<s:submit  value="Negar Cambio" type="button"/>--%>
-    </center>
-</s:form>
-<td>
+            <center>
+                <input type="submit" class="btn btn-default" value="Recomendar Cambio"/>
+            </center>
+            </s:form>
+        </td>
+        <td>
+            <s:form action="Denegar">
+            <center>
+                <input type="submit" class="btn btn-default" value="No Recomendar Cambio"/>
+            </center>
+            </s:form>
+        </td>
     </tr>
 </table>
 <%  }

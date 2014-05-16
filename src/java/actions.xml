@@ -83,7 +83,6 @@
         </action>
         
         <action name="EliminarAsignatura" class="clases.Recomienda" method="eliminarAsignatura">
-            <result name="success" type="redirectAction">verDatosEstudiante</result>
             <result name="DIDE" type="tiles">/cable.dide.estudiante.datos.cambio</result>
             <result name="Coordinador" type="tiles">/cable.coordinador.estudiante.datos.cambio</result>
             <result name="no success">/home/login.jsp</result>
@@ -197,17 +196,36 @@
         
         <action name="upload" class="clases.FileManager" method="upload">
             <interceptor-ref name="fileUpload">
+                <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
-                  text/plain
-                </param>   
+                    application/pdf
+                </param>
             </interceptor-ref>
-            <result name="no success" type="redirectAction">verDatosEstudiante</result>
-            <result name="success" type="redirectAction">verDatosEstudiante</result>
+            <interceptor-ref name="store">
+                <param name="operationMode">STORE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="tiles">/cable.dide.estudiante.datos.cambio</result>
+            <result name="no success" type="tiles">/cable.dide.estudiante.datos.cambio</result>
+            <result name="input" type="redirectAction">cableverDatosEstudiante</result>
         </action>
          
         <action name="verDatosEstudiante" class="clases.Estudiante" method="visualizarDatosCambio">
+            <interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
             <result name="DIDE" type="tiles">/dide.estudiante.datos.cambio</result>
             <result name="Coordinador" type="tiles">/coordinador.estudiante.datos.cambio</result>
+            <result name="no success" type="tiles">/home</result>
+        </action>
+        <action name="cableverDatosEstudiante" class="clases.Estudiante" method="visualizarDatosCambio">
+            <interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="DIDE" type="tiles">/cableno.dide.estudiante.datos.cambio</result>
+            <result name="Coordinador" type="tiles">/cableno.coordinador.estudiante.datos.cambio</result>
             <result name="no success" type="tiles">/home</result>
         </action>
         <!-- FIN ACCIONES DE DIDE -->

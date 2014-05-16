@@ -76,16 +76,16 @@
     </div>
 </div>
                 
-<s:if test="hasActionErrors()">
+
     <div class="denyDiv">
-        <s:iterator value="actionErrors">
-            <span class="denyMsg"><s:property escape="false" />
+        
+            <span class="denyMsg">El archivo seleccionado no cumple con las condiciones.
             </span>
-        </s:iterator>
+        
 
     </div>
     <br />
-</s:if>
+
   
   
 <s:if test="hasActionMessages()">
@@ -151,9 +151,10 @@
         %>
         <tr>
             <td>El estudiante aún no tiene extraplanes asignados</td>
-           
         </tr>
-        <%} else {%>
+        <%
+            } else {
+        %>
         <tr>
             <td>Código</td>
             <td>Materia</td>
