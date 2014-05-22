@@ -84,7 +84,7 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
         if (getUsbid().equals("dec-ep") && getContrasena().equals("dec-ep")) {
             session.put("usbid", "Decanato");
             session.put("nombre", "Decanato");
-            session.put("apellido", "de Estudios Generales");
+            session.put("apellido", "de Estudios Profesionales");
             session.put("rol", "Decanato");
             return;
         }
